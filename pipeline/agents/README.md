@@ -8,7 +8,7 @@ boundary, not documentation.
 |-------|-------|------|-----------|-----|
 | 1 | `literature-mapper` | `.claude/agents/literature-mapper.md` | `WebSearch, WebFetch, Write` | No read tool at all, so `pipeline/locked/` is unreachable. |
 | 2 | `gap-finder` | `.claude/agents/gap-finder.md` | `Read, Write, WebSearch, WebFetch` | No `Bash`, so it cannot shell past the deny rule; gap report is precomputed for it. |
-| 3 | `plausibility-filter` | _not yet built_ | planned: `Read, Write` | `pipeline/data/` only. |
+| 3 | `plausibility-filter` | `.claude/agents/plausibility-filter.md` | `Read, Write` | `pipeline/data/` only; no web, no `Bash`. |
 | 4 | `feasibility-checker` | _not yet built_ | planned: `Read, Write` | `pipeline/data/` incl. `dataset_schema.json` (non-outcome fields only). |
 | 5 | `novelty-scorer` | _not yet built_ | planned: `Read, Write` | `pipeline/data/` only. |
 | 6 | `confirmatory-analyst` | _not yet built_ | planned: `Bash, Read` | Test zone. Runs the fixed script only; no free-form analysis. |

@@ -120,7 +120,47 @@ def check_dataset_schema() -> None:
     print("  dataset_schema.json: no outcome columns exposed")
 
 
+PRIOR_STAGE = {
+    "filtered_hypotheses": "candidate_hypotheses",
+    "feasible_hypotheses": "filtered_hypotheses",
+    "ranked_hypotheses": "feasible_hypotheses",
+}
+
+
+def check_no_silent_drops(name: str, doc) -> None:
+    """A hypothesis may die, but it may never vanish.
+
+    Every id present at the previous stage must still be present at this one, carrying
+    status 'rejected' if it failed. Deleting a rejected hypothesis instead of marking it is how
+    a pipeline quietly stops reporting its denominator — the exact failure the graveyard exists
+    to prevent. This is an audit property, not a style preference.
+    """
+    prior_name = PRIOR_STAGE.get(name)
+    if not prior_name:
+        return
+    prior_path = ARTIFACTS[prior_name][0]
+    if not prior_path.exists():
+        warn(f"{name}: {prior_name}.json is absent, cannot check for silently dropped hypotheses")
+        return
+    prior_ids = {h["id"] for h in json.loads(prior_path.read_text()).get("hypotheses", [])}
+    here_ids = {h["id"] for h in doc.get("hypotheses", [])}
+    dropped = prior_ids - here_ids
+    if dropped:
+        err(
+            f"{name}: {len(dropped)} hypothesis/es present in {prior_name} but missing here: "
+            f"{', '.join(sorted(dropped))}. A rejected hypothesis must be carried forward with "
+            f"status 'rejected', never deleted — the graveyard needs the denominator."
+        )
+    invented = here_ids - prior_ids
+    if invented:
+        err(
+            f"{name}: {', '.join(sorted(invented))} appear here but not in {prior_name}. "
+            f"Stages after 2 filter and annotate; they do not invent hypotheses."
+        )
+
+
 def check_hypothesis_set(name: str, doc, stage: str) -> None:
+    check_no_silent_drops(name, doc)
     if doc.get("stage") != stage:
         err(f"{name}: stage is '{doc.get('stage')}', expected '{stage}'")
     required = STAGE_REQUIRED_BLOCKS[stage]

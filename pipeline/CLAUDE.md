@@ -111,6 +111,11 @@ Stage order and artifacts:
 A hypothesis carries the same `id` from candidate through to result. IDs are of the form
 `H-<NNN>` and are never reused, including for rejected hypotheses.
 
+**Hypotheses die, but they never vanish.** Every id present at one stage must still be present at
+the next, carrying `status: "rejected"` if it failed. `validate.py` fails a stage that drops an id,
+and fails one that invents an id after stage 2. Deleting a rejected hypothesis rather than marking
+it is how a pipeline quietly stops reporting its denominator.
+
 ---
 
 ## 3. The graveyard
