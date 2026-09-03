@@ -1,0 +1,2501 @@
+{
+  "generated_utc": "2026-09-03T15:50:18+00:00",
+  "topic": "STK11 (LKB1) co-mutation and immunotherapy response in NSCLC",
+  "evidence_quality": {
+    "n_claims": 50,
+    "verified": 49,
+    "unverified": [
+      "C-035"
+    ],
+    "by_design": {
+      "retrospective_cohort": 21,
+      "trial_secondary_analysis": 11,
+      "preclinical": 8,
+      "review": 5,
+      "meta_analysis": 3,
+      "prospective_cohort": 2
+    },
+    "by_confidence": {
+      "moderate": 26,
+      "high": 18,
+      "low": 6
+    },
+    "by_model_system": {
+      "human_clinical": 39,
+      "mouse": 4,
+      "human_ex_vivo": 3,
+      "mixed": 3,
+      "cell_line": 1
+    },
+    "year_range": [
+      2016,
+      2026
+    ]
+  },
+  "contradictions": [
+    {
+      "claims": [
+        "C-003",
+        "C-013"
+      ],
+      "classification": "direct_contradiction",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on overall survival"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        574
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, endpoint and context, opposing directions \u2014 a genuine contradiction worth re-testing at scale.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-003",
+        "C-023"
+      ],
+      "classification": "direct_contradiction",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        343
+      ],
+      "years": [
+        2018,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, endpoint and context, opposing directions \u2014 a genuine contradiction worth re-testing at scale.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-012",
+        "C-039"
+      ],
+      "classification": "direct_contradiction",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "PFS"
+      ],
+      "measured_on": [
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival",
+        "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "meta_analysis"
+      ],
+      "n": [
+        574,
+        4317
+      ],
+      "years": [
+        2020,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, endpoint and context, opposing directions \u2014 a genuine contradiction worth re-testing at scale.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-003",
+        "C-016"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11 mutation in KRAS-wildtype lung adenocarcinoma"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "progression-free and overall survival on PD-(L)1 inhibition"
+      ],
+      "qualifiers": [
+        "",
+        "kras_wildtype"
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        1261
+      ],
+      "years": [
+        2018,
+        2022
+      ],
+      "context_differs_on": [
+        "subject_qualifier"
+      ],
+      "note": "Opposing directions, context differs on subject_qualifier \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-003",
+        "C-020"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        54
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Opposing directions, context differs on treatment \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-003",
+        "C-043"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "overall survival benefit from adding tremelimumab to first-line durvalumab plus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "increases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2026
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Opposing directions, context differs on treatment \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-021",
+        "C-040"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "response_rate"
+      ],
+      "measured_on": [
+        "objective response rate to pembrolizumab plus chemotherapy vs chemotherapy alone within the STK11-mutant subgroup",
+        "objective response rate to immune checkpoint inhibitors (pooled: 10.1% vs 25.8%)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "decreases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "meta_analysis"
+      ],
+      "n": [
+        54,
+        4317
+      ],
+      "years": [
+        2023,
+        2024
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Opposing directions, context differs on treatment \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-023",
+        "C-026"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort",
+        "overall survival on first-line immunotherapy or chemo-immunotherapy, adjusted for KRAS, KEAP1, TP53 and SMARCA4 status"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        343,
+        145
+      ],
+      "years": [
+        2024,
+        2025
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Opposing directions, context differs on treatment \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-015",
+        "C-016"
+      ],
+      "classification": "effect_modifier",
+      "subjects": [
+        "STK11 mutation in KRAS-mutant lung adenocarcinoma",
+        "STK11 mutation in KRAS-wildtype lung adenocarcinoma"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "progression-free and overall survival on PD-(L)1 inhibition",
+        "progression-free and overall survival on PD-(L)1 inhibition"
+      ],
+      "qualifiers": [
+        "kras_mutant",
+        "kras_wildtype"
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        1261,
+        1261
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "context_differs_on": [
+        "subject_qualifier"
+      ],
+      "note": "Opposing directions, context differs on subject_qualifier \u2014 this is the shape of a missing interaction term, not a contradiction.",
+      "source": "computed"
+    },
+    {
+      "claims": [
+        "C-002",
+        "C-012"
+      ],
+      "classification": "comutation_vs_single",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "PFS"
+      ],
+      "measured_on": [
+        "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        574
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "One subject is a strict superset of the other (co-mutation vs single alteration) on the same endpoint \u2014 is the signal carried by the gene alone, or only in the co-mutant context? A missing-interaction hypothesis in its purest form.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-026",
+        "C-042"
+      ],
+      "classification": "comutation_vs_single",
+      "subjects": [
+        "STK11",
+        "STK11 or KEAP1 or KRAS mutation"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "OS"
+      ],
+      "measured_on": [
+        "overall survival on first-line immunotherapy or chemo-immunotherapy, adjusted for KRAS, KEAP1, TP53 and SMARCA4 status",
+        "overall survival benefit of durvalumab + tremelimumab + chemotherapy versus chemotherapy alone (benefit retained across mutation subgroups)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        145,
+        612
+      ],
+      "years": [
+        2025,
+        2022
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "One subject is a strict superset of the other (co-mutation vs single alteration) on the same endpoint \u2014 is the signal carried by the gene alone, or only in the co-mutant context? A missing-interaction hypothesis in its purest form.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-012"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "PFS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        574
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-013"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on overall survival"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        574
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-018"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        33
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-020"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        54
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-023"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        343
+      ],
+      "years": [
+        2018,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-034"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11/LKB1-deficient transcriptomic phenotype (independent of mutation)"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "other"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "survival benefit of PD-(L)1 blockade versus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        "transcriptomic_phenotype"
+      ],
+      "effects": [
+        "decreases",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "subject_qualifier"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-035"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "other"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "immunotherapy outcomes when classified by tissue mutation alone (as opposed to transcriptomic deficiency)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-038"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival on first-line immunotherapy (nonsignificant in this real-world cohort)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        2407
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-042"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11 or KEAP1 or KRAS mutation"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival benefit of durvalumab + tremelimumab + chemotherapy versus chemotherapy alone (benefit retained across mutation subgroups)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        612
+      ],
+      "years": [
+        2018,
+        2022
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-043"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "overall survival benefit from adding tremelimumab to first-line durvalumab plus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "increases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2026
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-001",
+        "C-046"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "resistance"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 axis blockade",
+        "primary resistance to immune checkpoint inhibition"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "prospective_cohort"
+      ],
+      "n": [
+        174,
+        305
+      ],
+      "years": [
+        2018,
+        2026
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-002",
+        "C-013"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "OS"
+      ],
+      "measured_on": [
+        "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+        "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on overall survival"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        174,
+        574
+      ],
+      "years": [
+        2018,
+        2020
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-002",
+        "C-018"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "OS"
+      ],
+      "measured_on": [
+        "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        33
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-002",
+        "C-035"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "other"
+      ],
+      "measured_on": [
+        "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+        "immunotherapy outcomes when classified by tissue mutation alone (as opposed to transcriptomic deficiency)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-004",
+        "C-018"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to nivolumab in the CheckMate-057 randomized trial",
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        44,
+        33
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-004",
+        "C-020"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to nivolumab in the CheckMate-057 randomized trial",
+        "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        44,
+        54
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-007",
+        "C-036"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "STK11/LKB1",
+        "high CD8+ T-cell infiltration in STK11-deficient tumors"
+      ],
+      "endpoint_bucket": [
+        "T_cell_infiltration",
+        "other"
+      ],
+      "measured_on": [
+        "intratumoral CD3+ and CD8+ T-lymphocyte density",
+        "survival on immune checkpoint blockade (direction reversed relative to STK11-proficient tumors)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        null,
+        null
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage",
+        "model_system"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-022",
+        "C-048"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "STK11",
+        "STK11 and KEAP1 mutation"
+      ],
+      "endpoint_bucket": [
+        "prevalence",
+        "innate_immune_signalling"
+      ],
+      "measured_on": [
+        "prevalence difference by histology: 18.7% in non-squamous vs 2.8% in squamous NSCLC",
+        "observed prevalence in a real-world US testing cohort (STK11 8.6%, KEAP1 5.7%) \u2014 substantially lower than the 18-25% and 10-15% previously reported"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "associates_with",
+        "associates_with"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "review"
+      ],
+      "n": [
+        574,
+        null
+      ],
+      "years": [
+        2023,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-042",
+        "C-049"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "STK11 or KEAP1 or KRAS mutation",
+        "STK11 and KEAP1 mutation"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "overall survival benefit of durvalumab + tremelimumab + chemotherapy versus chemotherapy alone (benefit retained across mutation subgroups)",
+        "differential outcome by treatment regimen (poor outcomes irrespective of regimen)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "review"
+      ],
+      "n": [
+        612,
+        null
+      ],
+      "years": [
+        2022,
+        2024
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-043",
+        "C-049"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "STK11",
+        "STK11 and KEAP1 mutation"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "overall survival benefit from adding tremelimumab to first-line durvalumab plus chemotherapy",
+        "differential outcome by treatment regimen (poor outcomes irrespective of regimen)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "review"
+      ],
+      "n": [
+        null,
+        null
+      ],
+      "years": [
+        2026,
+        2024
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-003",
+        "C-034"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11/LKB1-deficient transcriptomic phenotype (independent of mutation)"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "overall survival on PD-1/PD-L1 axis blockade",
+        "survival benefit of PD-(L)1 blockade versus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        "transcriptomic_phenotype"
+      ],
+      "effects": [
+        "decreases",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        174,
+        null
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-005",
+        "C-016"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11 mutation in KRAS-wildtype lung adenocarcinoma"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 blockade among PD-L1-positive NSCLC (i.e. effect not explained by PD-L1 expression)",
+        "progression-free and overall survival on PD-(L)1 inhibition"
+      ],
+      "qualifiers": [
+        "",
+        "kras_wildtype"
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        null,
+        1261
+      ],
+      "years": [
+        2018,
+        2022
+      ],
+      "context_differs_on": [
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-005",
+        "C-018"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11/LKB1",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to PD-1/PD-L1 blockade among PD-L1-positive NSCLC (i.e. effect not explained by PD-L1 expression)",
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        null,
+        33
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-009",
+        "C-027"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "Stk11/Lkb1",
+        "Stk11/Lkb1"
+      ],
+      "endpoint_bucket": [
+        "myeloid_infiltration",
+        "T_cell_infiltration"
+      ],
+      "measured_on": [
+        "tumor-associated neutrophil enrichment in the tumor microenvironment",
+        "tumor-infiltrating neutrophil accumulation with T-cell-suppressive effects and pro-tumorigenic cytokine production"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "increases"
+      ],
+      "designs": [
+        "preclinical",
+        "preclinical"
+      ],
+      "n": [
+        null,
+        null
+      ],
+      "years": [
+        2018,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-010",
+        "C-016"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11/LKB1 mutation in KRAS-wildtype tumors",
+        "STK11 mutation in KRAS-wildtype lung adenocarcinoma"
+      ],
+      "endpoint_bucket": [
+        "pdl1_expression",
+        "OS"
+      ],
+      "measured_on": [
+        "likelihood of high PD-L1 expression",
+        "progression-free and overall survival on PD-(L)1 inhibition"
+      ],
+      "qualifiers": [
+        "kras_wildtype",
+        "kras_wildtype"
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        null,
+        1261
+      ],
+      "years": [
+        2018,
+        2022
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-010",
+        "C-020"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11/LKB1 mutation in KRAS-wildtype tumors",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "pdl1_expression",
+        "OS"
+      ],
+      "measured_on": [
+        "likelihood of high PD-L1 expression",
+        "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy"
+      ],
+      "qualifiers": [
+        "kras_wildtype",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        null,
+        54
+      ],
+      "years": [
+        2018,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-014",
+        "C-024"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "KEAP1",
+        "KEAP1"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "OS"
+      ],
+      "measured_on": [
+        "interaction between KEAP1 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival",
+        "overall survival on immune checkpoint inhibitors (multivariable)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        574,
+        343
+      ],
+      "years": [
+        2020,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-015",
+        "C-035"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11 mutation in KRAS-mutant lung adenocarcinoma",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "progression-free and overall survival on PD-(L)1 inhibition",
+        "immunotherapy outcomes when classified by tissue mutation alone (as opposed to transcriptomic deficiency)"
+      ],
+      "qualifiers": [
+        "kras_mutant",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        1261,
+        null
+      ],
+      "years": [
+        2022,
+        2023
+      ],
+      "context_differs_on": [
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-018",
+        "C-034"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11/LKB1-deficient transcriptomic phenotype (independent of mutation)"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)",
+        "survival benefit of PD-(L)1 blockade versus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        "transcriptomic_phenotype"
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        33,
+        null
+      ],
+      "years": [
+        2023,
+        2023
+      ],
+      "context_differs_on": [
+        "stage",
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-018",
+        "C-039"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "PFS"
+      ],
+      "measured_on": [
+        "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)",
+        "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "meta_analysis"
+      ],
+      "n": [
+        33,
+        4317
+      ],
+      "years": [
+        2023,
+        2024
+      ],
+      "context_differs_on": [
+        "treatment",
+        "stage"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-019",
+        "C-021"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "response_rate"
+      ],
+      "measured_on": [
+        "magnitude of progression-free survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy",
+        "objective response rate to pembrolizumab plus chemotherapy vs chemotherapy alone within the STK11-mutant subgroup"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "increases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        54,
+        54
+      ],
+      "years": [
+        2023,
+        2023
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-020",
+        "C-021"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "response_rate"
+      ],
+      "measured_on": [
+        "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy",
+        "objective response rate to pembrolizumab plus chemotherapy vs chemotherapy alone within the STK11-mutant subgroup"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "increases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        54,
+        54
+      ],
+      "years": [
+        2023,
+        2023
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-021",
+        "C-026"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "OS"
+      ],
+      "measured_on": [
+        "objective response rate to pembrolizumab plus chemotherapy vs chemotherapy alone within the STK11-mutant subgroup",
+        "overall survival on first-line immunotherapy or chemo-immunotherapy, adjusted for KRAS, KEAP1, TP53 and SMARCA4 status"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "decreases"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "retrospective_cohort"
+      ],
+      "n": [
+        54,
+        145
+      ],
+      "years": [
+        2023,
+        2025
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-023",
+        "C-034"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11/LKB1-deficient transcriptomic phenotype (independent of mutation)"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "other"
+      ],
+      "measured_on": [
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort",
+        "survival benefit of PD-(L)1 blockade versus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        "transcriptomic_phenotype"
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        343,
+        null
+      ],
+      "years": [
+        2024,
+        2023
+      ],
+      "context_differs_on": [
+        "treatment",
+        "subject_qualifier"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-023",
+        "C-039"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "PFS"
+      ],
+      "measured_on": [
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort",
+        "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "meta_analysis"
+      ],
+      "n": [
+        343,
+        4317
+      ],
+      "years": [
+        2024,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-023",
+        "C-040"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "response_rate"
+      ],
+      "measured_on": [
+        "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort",
+        "objective response rate to immune checkpoint inhibitors (pooled: 10.1% vs 25.8%)"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "meta_analysis"
+      ],
+      "n": [
+        343,
+        4317
+      ],
+      "years": [
+        2024,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-024",
+        "C-047"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "KEAP1",
+        "KEAP1"
+      ],
+      "endpoint_bucket": [
+        "OS",
+        "resistance"
+      ],
+      "measured_on": [
+        "overall survival on immune checkpoint inhibitors (multivariable)",
+        "primary resistance to immune checkpoint inhibition"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "prospective_cohort"
+      ],
+      "n": [
+        343,
+        305
+      ],
+      "years": [
+        2024,
+        2026
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-039",
+        "C-043"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "OS"
+      ],
+      "measured_on": [
+        "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)",
+        "overall survival benefit from adding tremelimumab to first-line durvalumab plus chemotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "increases"
+      ],
+      "designs": [
+        "meta_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        4317,
+        null
+      ],
+      "years": [
+        2024,
+        2026
+      ],
+      "context_differs_on": [
+        "treatment"
+      ],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-039",
+        "C-046"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "resistance"
+      ],
+      "measured_on": [
+        "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)",
+        "primary resistance to immune checkpoint inhibition"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "meta_analysis",
+        "prospective_cohort"
+      ],
+      "n": [
+        4317,
+        305
+      ],
+      "years": [
+        2024,
+        2026
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-040",
+        "C-046"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "STK11",
+        "STK11"
+      ],
+      "endpoint_bucket": [
+        "response_rate",
+        "resistance"
+      ],
+      "measured_on": [
+        "objective response rate to immune checkpoint inhibitors (pooled: 10.1% vs 25.8%)",
+        "primary resistance to immune checkpoint inhibition"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "meta_analysis",
+        "prospective_cohort"
+      ],
+      "n": [
+        4317,
+        305
+      ],
+      "years": [
+        2024,
+        2026
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-044",
+        "C-045"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "KRAS + STK11 co-mutation",
+        "KRAS + STK11 co-mutation"
+      ],
+      "endpoint_bucket": [
+        "RFS",
+        "response_rate"
+      ],
+      "measured_on": [
+        "recurrence-free survival after neoadjuvant chemo-immunotherapy in resectable NSCLC",
+        "major pathologic response rate after neoadjuvant chemo-immunotherapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "decreases",
+        "no_effect"
+      ],
+      "designs": [
+        "review",
+        "review"
+      ],
+      "n": [
+        52,
+        21
+      ],
+      "years": [
+        2025,
+        2025
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    }
+  ],
+  "population_gaps": {
+    "coverage": {
+      "smoking_status": {
+        "<unspecified>": 48,
+        "not reported separately": 1,
+        "non-smokers specifically": 1
+      },
+      "ancestry_reported": {
+        "False": 44,
+        "True": 6
+      },
+      "line_of_therapy": {
+        "not_specified": 17,
+        "any": 14,
+        "first": 14,
+        "second_plus": 3,
+        "neoadjuvant": 2
+      },
+      "treatment_class": {
+        "io_monotherapy": 22,
+        "not_treatment_conditioned": 16,
+        "chemo_plus_io": 9,
+        "chemo_plus_dual_io": 2,
+        "chemotherapy_only": 1
+      },
+      "model_system": {
+        "human_clinical": 39,
+        "mouse": 4,
+        "human_ex_vivo": 3,
+        "mixed": 3,
+        "cell_line": 1
+      },
+      "endpoint_bucket": {
+        "OS": 13,
+        "response_rate": 6,
+        "PFS": 6,
+        "T_cell_infiltration": 5,
+        "pdl1_expression": 4,
+        "innate_immune_signalling": 4,
+        "other": 4,
+        "TMB": 2,
+        "resistance": 2,
+        "myeloid_infiltration": 1,
+        "prevalence": 1,
+        "preclinical_efficacy": 1,
+        "RFS": 1
+      },
+      "subject_qualifier": {
+        "<none>": 46,
+        "kras_wildtype": 2,
+        "kras_mutant": 1,
+        "transcriptomic_phenotype": 1
+      },
+      "stage_class": {
+        "advanced_metastatic": 37,
+        "unspecified": 8,
+        "early_or_resectable": 4,
+        "locally_advanced": 1
+      }
+    },
+    "human_clinical_claims": 42,
+    "human_claims_reporting_ancestry": 6,
+    "ancestry_blind_fraction": 0.857
+  },
+  "temporal_staleness": [
+    {
+      "claim_id": "C-001",
+      "year": 2018,
+      "n": 174,
+      "design": "retrospective_cohort",
+      "subject": "KRAS mutation + STK11/LKB1 mutation (KL)",
+      "effect": "decreases",
+      "on": "objective response rate to PD-1/PD-L1 axis blockade",
+      "reason": "2018, n=174 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-002",
+      "year": 2018,
+      "n": 174,
+      "design": "retrospective_cohort",
+      "subject": "KRAS mutation + STK11/LKB1 mutation (KL)",
+      "effect": "decreases",
+      "on": "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+      "reason": "2018, n=174 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-003",
+      "year": 2018,
+      "n": 174,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1",
+      "effect": "decreases",
+      "on": "overall survival on PD-1/PD-L1 axis blockade",
+      "reason": "2018, n=174 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-004",
+      "year": 2018,
+      "n": 44,
+      "design": "trial_secondary_analysis",
+      "subject": "KRAS mutation + STK11/LKB1 mutation (KL)",
+      "effect": "decreases",
+      "on": "objective response rate to nivolumab in the CheckMate-057 randomized trial",
+      "reason": "2018, n=44 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-005",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1",
+      "effect": "decreases",
+      "on": "objective response rate to PD-1/PD-L1 blockade among PD-L1-positive NSCLC (i.e. effect not explained by PD-L1 expression)",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-006",
+      "year": 2018,
+      "n": 174,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1",
+      "effect": "decreases",
+      "on": "frequency of PD-L1-positive and PD-L1-high tumor expression",
+      "reason": "2018, n=174 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-007",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1",
+      "effect": "decreases",
+      "on": "intratumoral CD3+ and CD8+ T-lymphocyte density",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-008",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1",
+      "effect": "no_effect",
+      "on": "intratumoral FOXP3+ regulatory T-cell density",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-010",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "STK11/LKB1 mutation in KRAS-wildtype tumors",
+      "effect": "decreases",
+      "on": "likelihood of high PD-L1 expression",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    }
+  ],
+  "interaction_gaps": {
+    "entities_studied_alone": [
+      "KEAP1",
+      "STK11",
+      "STK11/LKB1-deficient transcriptomic phenotype",
+      "ULK1/ATG1 autophagy"
+    ],
+    "combinations_studied": [
+      [
+        "KEAP1",
+        "KRAS",
+        "STK11"
+      ],
+      [
+        "KEAP1",
+        "STK11"
+      ],
+      [
+        "KRAS",
+        "STK11"
+      ]
+    ],
+    "untested_pairs": [
+      [
+        "KEAP1",
+        "STK11/LKB1-deficient transcriptomic phenotype"
+      ],
+      [
+        "KEAP1",
+        "ULK1/ATG1 autophagy"
+      ],
+      [
+        "KRAS",
+        "STK11/LKB1-deficient transcriptomic phenotype"
+      ],
+      [
+        "KRAS",
+        "ULK1/ATG1 autophagy"
+      ],
+      [
+        "STK11",
+        "STK11/LKB1-deficient transcriptomic phenotype"
+      ],
+      [
+        "STK11",
+        "ULK1/ATG1 autophagy"
+      ],
+      [
+        "STK11/LKB1-deficient transcriptomic phenotype",
+        "ULK1/ATG1 autophagy"
+      ]
+    ],
+    "untested_pair_count": 7,
+    "note": "Untested pairs are candidate interaction terms, NOT hypotheses. gap-finder must supply a mechanistic reason why a specific pair would interact before proposing it \u2014 enumerating pairs is exactly the pattern-matching stage 3 exists to reject."
+  },
+  "coverage_notes_from_mapper": "SEARCHED AND FOUND LITTLE OR NOTHING.\n\n(1) ANCESTRY. No claim in this graph rests on a cohort with genetically inferred or self-reported ancestry as a covariate in the STK11 x immunotherapy analysis. Searches for African-ancestry, Hispanic/Latin American, and South Asian STK11-ICI cohorts returned only prevalence/driver-landscape papers and a single case report; no outcome analysis. The only ancestry-differentiated outcome evidence is indirect: a Japanese C-CAT cohort (C-023/C-024, n=343) where STK11 showed NO significant OS effect while KEAP1 did, and ORIENT-11 (Chinese) contributing to C-034/C-036. Every foundational claim (Skoulidis 2018, Ricciuti 2022, Papillon-Cavanagh 2020, Shire 2020) comes from US cohorts that do not report ancestry at all. A US clinicogenomic cohort with ancestry annotation is an open gap.\n\n(2) SEX. No sex-stratified STK11 x immunotherapy effect estimate was found in any source. Sex appears only as an adjustment covariate (e.g. De Giglio 2025, C-026). No interaction test between sex and STK11 status was located.\n\n(3) SMOKING STATUS. Only one claim (C-032) conditions on smoking, and it is a preclinical/correlative TMB observation in non-smokers, not an outcome analysis. No clinical cohort was found that reports STK11-ICI outcomes separately in never-smokers versus smokers, despite STK11 mutation being strongly smoking-associated. This is a first-order confounding gap.\n\n(4) SQUAMOUS HISTOLOGY. Effectively unstudied. KEYNOTE-407 could not analyse STK11 because only 2.8% of squamous patients carried a mutation (C-022); Papillon-Cavanagh and Ricciuti both excluded squamous histology by design. Only a 2024 ASCO abstract on STK11/KEAP1/KRAS in LSCC was surfaced and it could not be retrieved (ascopubs 403). No verified squamous-specific effect estimate exists in this graph.\n\n(5) AGE. No claim reports an age-stratified STK11 effect. No cohort reported an age range in a form that could be captured.\n\n(6) DOSE/CLONALITY. Searches surfaced assertions that clonal vs subclonal and truncating vs missense STK11 mutations behave differently, but no primary source with an effect estimate was retrievable. No claim here distinguishes STK11 variant class, allelic status, or LOH.\n\n(7) STK11 MUTATION VS PROTEIN/FUNCTIONAL LOSS. C-034/C-035 argue transcriptomic STK11 deficiency, not mutation, is the operative variable, but no source reporting the concordance rate between STK11 mutation and LKB1 IHC protein loss was retrieved.\n\n(8) TEMPORAL STALENESS. The claims driving clinical practice (C-001 to C-010) rest on a 2018 cohort of n=174 with 6-7 patients per KL/KP cell in the randomized-trial component. The largest verified re-examinations are 2020-2024 (n=2276 Flatiron, n=1261 DFCI/MSK, n=4317 pooled). No verified cohort after 2022 with n>500 that reports a formal treatment-by-STK11 INTERACTION test (as opposed to a within-ICI-arm HR) was found; that is the specific design that would settle prognostic-vs-predictive and it is missing from the recent literature.\n\n(9) FAILED RETRIEVALS. ScienceDirect, JTO, Annals of Oncology, ESMO Open, ascopubs.org and medRxiv PDF endpoints all returned HTTP 403 to automated fetch. Europe PMC and bioRxiv began returning 503/429 late in the session. Consequently: the POSEIDON 5-year primary publication (PMID 39243945) is represented only via conference reporting (C-042); C-035 carries no quote; a 2026 bioRxiv preprint on SMARCA4/STK11/KEAP1 co-inactivation and TGF-beta was located but never opened and is therefore absent; the WCLC 2019 abstract MA11.11 on STK11 and chemo-immunotherapy (reported medians 4.8 vs 7.2 months PFS, 10.6 vs 16.7 months OS) could not be opened and was NOT entered as a claim.\n\n(10) NOT SEARCHED / OUT OF SCOPE. Non-lung tumour types, STK11 germline (Peutz-Jeghers) biology, and KRAS G12C-inhibitor monotherapy outcomes were only incidentally touched and are not represented as claims."
+}

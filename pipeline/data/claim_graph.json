@@ -1,0 +1,3182 @@
+{
+  "schema_version": "1.0",
+  "topic": "STK11 (LKB1) co-mutation and immunotherapy response in NSCLC",
+  "generated_utc": "2026-09-03T00:00:00Z",
+  "search": {
+    "queries": [
+      "STK11 LKB1 mutation anti-PD-1 PD-L1 outcomes NSCLC Skoulidis",
+      "STK11 not predictive immunotherapy NSCLC \"no association\" failed to confirm",
+      "STK11 KEAP1 KRAS co-mutation immunotherapy NSCLC KRAS-wildtype interaction 2023 2024",
+      "KEAP1 mutation confounder STK11 immunotherapy NSCLC multivariable driver of poor outcome",
+      "Papillon-Cavanagh STK11 KEAP1 prognostic biomarkers real-world lung adenocarcinoma ESMO Open 2020",
+      "Ricciuti STK11 KEAP1 diminished efficacy PD-(L)1 inhibition lung adenocarcinoma KRAS mutation status JTO 2022",
+      "KEYNOTE-042 KEYNOTE-189 STK11 KEAP1 mutation pembrolizumab chemotherapy exploratory analysis outcomes",
+      "Kitajima STING suppression LKB1 loss KRAS lung cancer cGAS immune evasion Cancer Discovery 2019",
+      "Koyama STK11 LKB1 deficiency neutrophil recruitment IL-6 T-cell suppression lung tumor microenvironment Cancer Research 2016",
+      "ULK1 inhibition antigen presentation LKB1-mutant lung cancer Nature Cancer 2021 restores antitumor immunity",
+      "POSEIDON durvalumab tremelimumab STK11 KEAP1 mutant NSCLC subgroup overall survival benefit",
+      "STK11 LKB1 alterations chemo-immunotherapy pembrolizumab platinum inferior outcomes non-squamous NSCLC real-world",
+      "STK11 mutation frequency ancestry African American East Asian lung adenocarcinoma smoking status never-smoker immunotherapy",
+      "sex differences male female STK11 KRAS co-mutation immunotherapy outcome NSCLC",
+      "STK11 mutation squamous cell lung carcinoma immunotherapy outcomes histology difference adenocarcinoma",
+      "meta-analysis STK11 mutation immune checkpoint inhibitor NSCLC pooled hazard ratio overall survival 2023 2024",
+      "\"STK11/LKB1-Deficient Phenotype Rather Than Mutation\" immunotherapy efficacy STING type I interferon CD8 JTO 2023",
+      "bioRxiv medRxiv preprint STK11 LKB1 immunotherapy resistance NSCLC 2024 2025",
+      "\"STK11\" lung cancer immunotherapy preprint site:biorxiv.org OR site:medrxiv.org",
+      "STK11 KRAS G12C co-mutation sotorasib adagrasib immunotherapy outcome real-world cohort",
+      "STK11 mutation immunotherapy NSCLC PD-L1 high TPS 50% subgroup outcome large cohort pembrolizumab monotherapy",
+      "2025 large real-world cohort STK11 KEAP1 immunotherapy NSCLC re-examination predictive value confirmed"
+    ],
+    "sources": [
+      "pubmed",
+      "biorxiv",
+      "medrxiv",
+      "clinicaltrials.gov",
+      "conference_abstract",
+      "journal_site",
+      "other"
+    ],
+    "date_range": {
+      "from_year": 2016,
+      "to_year": 2026
+    },
+    "notes": "Retrieval was mostly via Europe PMC REST (resultType=core, verbatim abstractText) and PubMed Central open-access full text. Several publisher sites (ScienceDirect, JTO, Annals of Oncology, ESMO Open, ascopubs, medRxiv PDF) returned HTTP 403 to automated fetches; where the record could not be opened the claim is marked verified=false and capped at moderate confidence. Europe PMC and bioRxiv began returning 503/429 near the end of the session, so one bioRxiv preprint (SMARCA4/STK11/KEAP1 co-inactivation, 2026) and the POSEIDON 5-year primary publication (PMID 39243945) could not be opened and are represented only by secondary reporting or omitted."
+  },
+  "entities": [
+    {
+      "entity_id": "E-001",
+      "type": "gene",
+      "name": "STK11",
+      "synonyms": [
+        "LKB1",
+        "STK11/LKB1",
+        "serine/threonine kinase 11",
+        "KL (when co-mutated with KRAS)"
+      ],
+      "identifier": {
+        "hgnc": "HGNC:11389",
+        "ncbi_gene": "6794"
+      }
+    },
+    {
+      "entity_id": "E-002",
+      "type": "gene",
+      "name": "KRAS",
+      "synonyms": [
+        "K-ras",
+        "KRAS G12C",
+        "KRAS G12D"
+      ],
+      "identifier": {
+        "hgnc": "HGNC:6407",
+        "ncbi_gene": "3845"
+      }
+    },
+    {
+      "entity_id": "E-003",
+      "type": "gene",
+      "name": "KEAP1",
+      "synonyms": [
+        "Kelch-like ECH-associated protein 1"
+      ],
+      "identifier": {
+        "hgnc": "HGNC:23177",
+        "ncbi_gene": "9817"
+      }
+    },
+    {
+      "entity_id": "E-004",
+      "type": "gene",
+      "name": "TP53",
+      "synonyms": [
+        "p53",
+        "KP (when co-mutated with KRAS)"
+      ],
+      "identifier": {
+        "hgnc": "HGNC:11998",
+        "ncbi_gene": "7157"
+      }
+    },
+    {
+      "entity_id": "E-005",
+      "type": "gene",
+      "name": "SMARCA4",
+      "synonyms": [
+        "BRG1"
+      ],
+      "identifier": {
+        "hgnc": "HGNC:11100",
+        "ncbi_gene": "6597"
+      }
+    },
+    {
+      "entity_id": "E-006",
+      "type": "drug_class",
+      "name": "anti-PD-1/PD-L1 checkpoint inhibition",
+      "synonyms": [
+        "ICI",
+        "ICB",
+        "PD-(L)1 blockade",
+        "immune checkpoint inhibitor",
+        "pembrolizumab",
+        "nivolumab",
+        "atezolizumab",
+        "durvalumab",
+        "sintilimab"
+      ]
+    },
+    {
+      "entity_id": "E-007",
+      "type": "drug",
+      "name": "pembrolizumab",
+      "synonyms": [
+        "MK-3475",
+        "Keytruda"
+      ]
+    },
+    {
+      "entity_id": "E-008",
+      "type": "drug",
+      "name": "nivolumab",
+      "synonyms": [
+        "BMS-936558",
+        "Opdivo"
+      ]
+    },
+    {
+      "entity_id": "E-009",
+      "type": "drug",
+      "name": "atezolizumab",
+      "synonyms": [
+        "MPDL3280A",
+        "Tecentriq"
+      ]
+    },
+    {
+      "entity_id": "E-010",
+      "type": "drug",
+      "name": "durvalumab",
+      "synonyms": [
+        "MEDI4736",
+        "Imfinzi"
+      ]
+    },
+    {
+      "entity_id": "E-011",
+      "type": "drug",
+      "name": "tremelimumab",
+      "synonyms": [
+        "anti-CTLA-4",
+        "CTLA-4 blockade"
+      ]
+    },
+    {
+      "entity_id": "E-012",
+      "type": "drug_class",
+      "name": "platinum-doublet chemotherapy",
+      "synonyms": [
+        "carboplatin/pemetrexed",
+        "platinum-based chemotherapy",
+        "chemo-immunotherapy backbone"
+      ]
+    },
+    {
+      "entity_id": "E-013",
+      "type": "biomarker",
+      "name": "PD-L1 tumor expression",
+      "synonyms": [
+        "PD-L1 TPS",
+        "CD274 expression"
+      ]
+    },
+    {
+      "entity_id": "E-014",
+      "type": "biomarker",
+      "name": "tumor mutational burden",
+      "synonyms": [
+        "TMB",
+        "tTMB",
+        "mutations/exome"
+      ]
+    },
+    {
+      "entity_id": "E-015",
+      "type": "pathway",
+      "name": "cGAS-STING / type I interferon signaling",
+      "synonyms": [
+        "STING",
+        "TMEM173",
+        "interferon-I signaling"
+      ]
+    },
+    {
+      "entity_id": "E-016",
+      "type": "cell_state",
+      "name": "CD8+ tumor-infiltrating lymphocyte",
+      "synonyms": [
+        "CD8+ TIL",
+        "CD3+CD8+ T cell",
+        "T-cell inflamed phenotype"
+      ]
+    },
+    {
+      "entity_id": "E-017",
+      "type": "cell_state",
+      "name": "tumor-associated neutrophil / MDSC",
+      "synonyms": [
+        "TAN",
+        "myeloid-derived suppressor cell",
+        "neutrophil infiltration"
+      ]
+    },
+    {
+      "entity_id": "E-018",
+      "type": "pathway",
+      "name": "antigen processing and presentation",
+      "synonyms": [
+        "immunoproteasome",
+        "PSMB8",
+        "PSMB9",
+        "MHC class I presentation"
+      ]
+    },
+    {
+      "entity_id": "E-019",
+      "type": "pathway",
+      "name": "ULK1/ATG1 autophagy",
+      "synonyms": [
+        "autophagic flux",
+        "ATG1"
+      ]
+    },
+    {
+      "entity_id": "E-020",
+      "type": "clinical_feature",
+      "name": "non-small cell lung cancer",
+      "synonyms": [
+        "NSCLC",
+        "lung adenocarcinoma",
+        "LUAD",
+        "lung squamous cell carcinoma",
+        "LUSC"
+      ],
+      "identifier": {
+        "oncotree": "NSCLC"
+      }
+    },
+    {
+      "entity_id": "E-021",
+      "type": "clinical_feature",
+      "name": "smoking status",
+      "synonyms": [
+        "never-smoker",
+        "former smoker",
+        "current smoker",
+        "tobacco exposure"
+      ]
+    },
+    {
+      "entity_id": "E-022",
+      "type": "cell_state",
+      "name": "STK11/LKB1-deficient transcriptomic phenotype",
+      "synonyms": [
+        "STK11-def",
+        "LKB1 loss-of-function signature",
+        "STK11 phenotype"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C-001",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "objective response rate to PD-1/PD-L1 axis blockade",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 7.4,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 axis blockade (monotherapy, mostly nivolumab/pembrolizumab/atezolizumab)",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 174,
+          "geography": "United States (MDACC, MSKCC, DFCI/MGH)",
+          "ancestry_reported": false,
+          "smoking_status": "not reported separately",
+          "notable_exclusions": [
+            "EGFR/ALK-altered tumors implicitly excluded by KRAS-mutant selection"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "KL tumors were mostly resistant to PD-1 axis blockade (ORR 7.4% overall), with consistently low response rates seen in each of the three independent datasets (MDACC: 9.1%, MSKCC: 9.1%, DFCI/MGH: 4.8%). In contrast, KP LUAC were more sensitive to PD-1 inhibitors (ORR 35.7% overall). K-only tumors with no identifiable mutations in either STK11/LKB1 or TP53 had an intermediate response rate (28.6%).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-012",
+        "C-013",
+        "C-018",
+        "C-020",
+        "C-023",
+        "C-034",
+        "C-035",
+        "C-038",
+        "C-042",
+        "C-043",
+        "C-046"
+      ],
+      "mechanism_note": "Source frames KL as a non-T-cell-inflamed, PD-L1-low tumor subtype with primary resistance to PD-1 blockade."
+    },
+    {
+      "claim_id": "C-002",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "progression-free survival on PD-1/PD-L1 axis blockade vs KRAS-mutant/STK11-wildtype",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.87,
+          "ci_low": 1.32,
+          "ci_high": 2.66,
+          "p_value": 0.001
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 axis blockade",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 174,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "PFS was significantly shorter in KL tumors compared to KRAS-mutant LUAC with wild-type STK11/LKB1 (HR 1.87, 95% CI 1.32 to 2.66; P<0.001).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-012",
+        "C-013",
+        "C-018",
+        "C-035"
+      ]
+    },
+    {
+      "claim_id": "C-003",
+      "subject": {
+        "type": "gene",
+        "name": "STK11/LKB1",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "overall survival on PD-1/PD-L1 axis blockade",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.99,
+          "ci_low": 1.29,
+          "ci_high": 3.06,
+          "p_value": 0.0015
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 axis blockade",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 174,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Overall survival was significantly shorter in STK11/LKB1-mutant compared to wild-type tumors (HR 1.99, 95% CI 1.29 to 3.06; P=0.0015).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-013",
+        "C-016",
+        "C-020",
+        "C-023",
+        "C-034",
+        "C-043"
+      ]
+    },
+    {
+      "claim_id": "C-004",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS mutation + STK11/LKB1 mutation (KL)",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "objective response rate to nivolumab in the CheckMate-057 randomized trial",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 0,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.047
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, non-squamous",
+        "stage": "advanced/metastatic",
+        "treatment": "nivolumab monotherapy",
+        "line_of_therapy": "second_plus",
+        "population": {
+          "n": 44,
+          "geography": "international randomized trial",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": "NCT01673867",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "ORR differed significantly between the KL, KP and K-only subgroups in the nivolumab arm of CM-057 (P=0.047), with KL tumors being refractory (ORR: 0%, 0/6) and KP more sensitive (ORR: 57.1%, 4/7) to nivolumab.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-018",
+        "C-020"
+      ],
+      "mechanism_note": "Tiny subgroup (6 KL patients); the NCT ID is the registered identifier for CheckMate-057 and should be re-checked downstream before use."
+    },
+    {
+      "claim_id": "C-005",
+      "subject": {
+        "type": "gene",
+        "name": "STK11/LKB1",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "objective response rate to PD-1/PD-L1 blockade among PD-L1-positive NSCLC (i.e. effect not explained by PD-L1 expression)",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 0,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.026
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, non-squamous, PD-L1-positive",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 blockade",
+        "line_of_therapy": "any",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "PD-L1-negative tumors"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11/LKB1-mutated tumors exhibited significantly lower ORR to PD-1/PD-L1 blockade compared to NSCLC with intact STK11/LKB1 (ORR 0% vs 34.5%, P=0.026).",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-016",
+        "C-018"
+      ],
+      "mechanism_note": "Authors argue the STK11/LKB1 effect is at least partly independent of tumor PD-L1 expression."
+    },
+    {
+      "claim_id": "C-006",
+      "subject": {
+        "type": "gene",
+        "name": "STK11/LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-013"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "frequency of PD-L1-positive and PD-L1-high tumor expression",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 13.6,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.001
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "not treatment-conditioned (biomarker prevalence)",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": 174,
+          "geography": "United States and CheckMate-057",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "KL exhibiting the lowest frequency of PD-L1-positive (13.6% in the SU2C and 11.1% in the CM-057 cohort) and PD-L1HP tumors (0% in both cohorts).",
+        "verified": true
+      },
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C-007",
+      "subject": {
+        "type": "gene",
+        "name": "STK11/LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-016"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "intratumoral CD3+ and CD8+ T-lymphocyte density",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.0072
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "resected and advanced tumor specimens",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_ex_vivo"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11/LKB1-mutated tumors exhibited lower densities of infiltrating CD3+ (P=0.0019) and CD8+ (P=0.0072) T-lymphocytes but not FOXP3+ cells (P=0.7648).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-036"
+      ],
+      "mechanism_note": "Immune-cold / non-T-cell-inflamed microenvironment proposed as the basis of primary resistance."
+    },
+    {
+      "claim_id": "C-008",
+      "subject": {
+        "type": "gene",
+        "name": "STK11/LKB1",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "intratumoral FOXP3+ regulatory T-cell density",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.7648
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, lung adenocarcinoma",
+        "stage": "resected and advanced tumor specimens",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_ex_vivo"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11/LKB1-mutated tumors exhibited lower densities of infiltrating CD3+ (P=0.0019) and CD8+ (P=0.0072) T-lymphocytes but not FOXP3+ cells (P=0.7648).",
+        "verified": true
+      },
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C-009",
+      "subject": {
+        "type": "gene",
+        "name": "Stk11/Lkb1",
+        "entity_ids": [
+          "E-001",
+          "E-017"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "tumor-associated neutrophil enrichment in the tumor microenvironment",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "murine KRAS-driven lung adenocarcinoma (LKR13 syngeneic model)",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mouse"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "preclinical",
+        "supporting_quote": "We did not observe enrichment of tumor associated neutrophils in the microenvironment of Stk11/Lkb1-deficient tumors in this model, contrary to a previous report.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-027"
+      ],
+      "mechanism_note": "Explicitly contradicts the neutrophil-recruitment mechanism proposed by Koyama et al. in a different mouse model."
+    },
+    {
+      "claim_id": "C-010",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11/LKB1 mutation in KRAS-wildtype tumors",
+        "entity_ids": [
+          "E-001",
+          "E-002",
+          "E-013"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "likelihood of high PD-L1 expression",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, KRAS-wildtype",
+        "stage": "advanced/metastatic",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "29773717",
+          "doi": "10.1158/2159-8290.CD-18-0099",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6030433/",
+          "title": "STK11/LKB1 Mutations and PD-1 Inhibitor Resistance in KRAS-Mutant Lung Adenocarcinoma",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2018,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Among KRAS wild-type tumors STK11/LKB1 alterations were also associated with lower likelihood of high PD-L1 expression.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-016",
+        "C-020"
+      ]
+    },
+    {
+      "claim_id": "C-011",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "progression-free survival across all first-line therapy classes (prognostic effect)",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "stage IIIB, IIIC, IVA or IVB",
+        "treatment": "multiple first-line therapy classes including chemotherapy and anti-PD-1/PD-L1",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 2276,
+          "geography": "United States (Flatiron Health Network, community + academic)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "32312757",
+          "doi": "10.1136/esmoopen-2020-000706",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32312757",
+          "title": "STK11 and KEAP1 mutations as prognostic biomarkers in an observational real-world lung adenocarcinoma cohort",
+          "first_author": "Simon Papillon-Cavanagh",
+          "journal": "ESMO Open"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Mutations in STK11 or KEAP1 were associated with poor outcomes across multiple therapeutic classes and were not specifically associated with poor outcomes in ICB cohorts.",
+        "verified": true
+      },
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C-012",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.05,
+          "ci_low": 0.76,
+          "ci_high": 1.44,
+          "p_value": 0.785
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "stage IIIB, IIIC, IVA or IVB",
+        "treatment": "first-line anti-PD-1/PD-L1 inhibitors vs non-ICB controls",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 574,
+          "geography": "United States (Flatiron Health / Foundation Medicine)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "32312757",
+          "doi": "10.1136/esmoopen-2020-000706",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32312757",
+          "title": "STK11 and KEAP1 mutations as prognostic biomarkers in an observational real-world lung adenocarcinoma cohort",
+          "first_author": "Simon Papillon-Cavanagh",
+          "journal": "ESMO Open"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "There was no observable interaction between STK11 mutations and anti-PD-1/anti-PD-L1 treatment on rwPFS (HR, 1.05; 95% CI 0.76 to 1.44; p=0.785) or OS (HR, 1.13; 95% CI 0.76 to 1.67; p=0.540).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-001",
+        "C-002",
+        "C-039"
+      ],
+      "mechanism_note": "Authors argue prior reports lacked non-ICB control arms needed to separate prognostic from predictive effects."
+    },
+    {
+      "claim_id": "C-013",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on overall survival",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.13,
+          "ci_low": 0.76,
+          "ci_high": 1.67,
+          "p_value": 0.54
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "stage IIIB, IIIC, IVA or IVB",
+        "treatment": "first-line anti-PD-1/PD-L1 inhibitors vs non-ICB controls",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 574,
+          "geography": "United States (Flatiron Health / Foundation Medicine)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "32312757",
+          "doi": "10.1136/esmoopen-2020-000706",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32312757",
+          "title": "STK11 and KEAP1 mutations as prognostic biomarkers in an observational real-world lung adenocarcinoma cohort",
+          "first_author": "Simon Papillon-Cavanagh",
+          "journal": "ESMO Open"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Results indicate that STK11-KEAP1 mutations function as prognostic rather than predictive markers for anti-PD-1/anti-PD-L1 therapy.",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-001",
+        "C-002",
+        "C-003"
+      ]
+    },
+    {
+      "claim_id": "C-014",
+      "subject": {
+        "type": "gene",
+        "name": "KEAP1",
+        "entity_ids": [
+          "E-003",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "interaction between KEAP1 mutation and anti-PD-1/PD-L1 treatment on real-world progression-free survival",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 0.93,
+          "ci_low": 0.67,
+          "ci_high": 1.28,
+          "p_value": 0.653
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "stage IIIB, IIIC, IVA or IVB",
+        "treatment": "first-line anti-PD-1/PD-L1 inhibitors vs non-ICB controls",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 574,
+          "geography": "United States (Flatiron Health / Foundation Medicine)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "32312757",
+          "doi": "10.1136/esmoopen-2020-000706",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32312757",
+          "title": "STK11 and KEAP1 mutations as prognostic biomarkers in an observational real-world lung adenocarcinoma cohort",
+          "first_author": "Simon Papillon-Cavanagh",
+          "journal": "ESMO Open"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Similarly, there was no observable interaction between KEAP1 mutations and treatment on rwPFS (HR, 0.93; 95% CI 0.67 to 1.28; p=0.653) or OS (HR, 0.98; 95% CI 0.66 to 1.45; p=0.913).",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-024"
+      ]
+    },
+    {
+      "claim_id": "C-015",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11 mutation in KRAS-mutant lung adenocarcinoma",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "progression-free and overall survival on PD-(L)1 inhibition",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma",
+        "stage": "advanced",
+        "treatment": "PD-(L)1 inhibition",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 1261,
+          "geography": "United States (DFCI/MGH and MSKCC/MDACC)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34740862",
+          "doi": "10.1016/j.jtho.2021.10.013",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:34740862",
+          "title": "Diminished Efficacy of Programmed Death-(Ligand)1 Inhibition in STK11- and KEAP1-Mutant Lung Adenocarcinoma Is Affected by KRAS Mutation Status",
+          "first_author": "Biagio Ricciuti",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2022,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11 and KEAP1 mutations confer worse outcomes to immunotherapy among patients with KRASMUT but not among KRASWT LUAD.",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-035"
+      ]
+    },
+    {
+      "claim_id": "C-016",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11 mutation in KRAS-wildtype lung adenocarcinoma",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "progression-free and overall survival on PD-(L)1 inhibition",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma, KRAS-wildtype",
+        "stage": "advanced",
+        "treatment": "PD-(L)1 inhibition",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 1261,
+          "geography": "United States (DFCI/MGH and MSKCC/MDACC)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34740862",
+          "doi": "10.1016/j.jtho.2021.10.013",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:34740862",
+          "title": "Diminished Efficacy of Programmed Death-(Ligand)1 Inhibition in STK11- and KEAP1-Mutant Lung Adenocarcinoma Is Affected by KRAS Mutation Status",
+          "first_author": "Biagio Ricciuti",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2022,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11 and KEAP1 mutations confer worse outcomes to immunotherapy among patients with KRASMUT but not among KRASWT LUAD.",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-003",
+        "C-005",
+        "C-010"
+      ],
+      "mechanism_note": "Directly answers the KRAS-interaction question: the STK11 effect is conditional on KRAS mutation status."
+    },
+    {
+      "claim_id": "C-017",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS + STK11 or KRAS + KEAP1 co-mutation",
+        "entity_ids": [
+          "E-001",
+          "E-002",
+          "E-003"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "associates_with",
+        "on": "distinct tumor immunophenotype (gene expression and immune cell infiltration) present only in KRAS-mutant tumors",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma",
+        "stage": "advanced",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_ex_vivo"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34740862",
+          "doi": "10.1016/j.jtho.2021.10.013",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:34740862",
+          "title": "Diminished Efficacy of Programmed Death-(Ligand)1 Inhibition in STK11- and KEAP1-Mutant Lung Adenocarcinoma Is Affected by KRAS Mutation Status",
+          "first_author": "Biagio Ricciuti",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2022,
+        "design": "retrospective_cohort",
+        "supporting_quote": "the presence of STK11 or KEAP1 mutations results in distinct immunophenotypes in KRASMUT, but not in KRASWT, lung cancers.",
+        "verified": true
+      },
+      "confidence": "moderate"
+    },
+    {
+      "claim_id": "C-018",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-007"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "overall survival benefit of pembrolizumab monotherapy versus platinum chemotherapy (benefit retained in STK11-mutant subgroup)",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 0.37,
+          "ci_low": 0.16,
+          "ci_high": 0.86,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer, PD-L1 TPS >= 1%",
+        "stage": "locally advanced/metastatic",
+        "treatment": "pembrolizumab monotherapy vs platinum-based chemotherapy",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 33,
+          "geography": "international randomized phase III (KEYNOTE-042)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "EGFR/ALK-altered tumors",
+            "PD-L1 TPS < 1%"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "36709038",
+          "doi": "10.1016/j.annonc.2023.01.011",
+          "nct_id": "NCT02220894",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:36709038",
+          "title": "Associations of tissue tumor mutational burden and mutational status with clinical outcomes in KEYNOTE-042: pembrolizumab versus chemotherapy for advanced PD-L1-positive NSCLC",
+          "first_author": "Tony S K Mok",
+          "journal": "Annals of Oncology"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "Improved OS [hazard ratio (95% CI)] for pembrolizumab versus chemotherapy was observed regardless of STK11 [STK11 mutant (n = 33): 0.37 (0.16-0.86), STK11 wild-type (n = 396): 0.83 (0.65-1.05)]; KEAP1 [KEAP1 mutant (n = 64): 0.75 (0.42-1.35), KEAP1 wild-type (n = 365): 0.78 (0.61-0.99)], or KRAS [KRAS mutant (n = 69): 0.42 (0.22-0.81); KRAS wild-type (n = 232): 0.86 (0.63-1.18)] mutation status.",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-001",
+        "C-002",
+        "C-004",
+        "C-005",
+        "C-034",
+        "C-039"
+      ],
+      "mechanism_note": "In a randomized comparison the STK11-mutant subgroup showed a numerically LARGER pembrolizumab benefit than wild-type; the resistance signal in single-arm cohorts may reflect prognosis, not prediction. NCT ID is KEYNOTE-042's registered identifier and should be re-verified downstream."
+    },
+    {
+      "claim_id": "C-019",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-007",
+          "E-012"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "magnitude of progression-free survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 0.81,
+          "ci_low": 0.44,
+          "ci_high": 1.47,
+          "p_value": null
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "metastatic",
+        "treatment": "pembrolizumab plus pemetrexed and platinum vs placebo plus pemetrexed and platinum",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 54,
+          "geography": "international randomized phase III (KEYNOTE-189)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology",
+            "EGFR/ALK-altered tumors"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "36793385",
+          "doi": "10.1016/j.jtocrr.2022.100431",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9923193/",
+          "title": "Associations of Tissue Tumor Mutational Burden and Mutational Status With Clinical Outcomes With Pembrolizumab Plus Chemotherapy Versus Chemotherapy For Metastatic NSCLC",
+          "first_author": "Marina C Garassino",
+          "journal": "JTO Clinical and Research Reports"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "HRs (95% CI) for PFS were 0.81 (0.44‒1.47) in patients with an STK11 mutation",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-021"
+      ],
+      "mechanism_note": "PFS benefit in STK11-wildtype was 0.38 (0.27-0.52); the point estimate still favors chemo-immunotherapy in STK11-mutants but the CI crosses 1 in a 54-patient subgroup."
+    },
+    {
+      "claim_id": "C-020",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-007",
+          "E-012"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "overall survival benefit from adding pembrolizumab to platinum/pemetrexed chemotherapy",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 0.75,
+          "ci_low": 0.37,
+          "ci_high": 1.5,
+          "p_value": null
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "metastatic",
+        "treatment": "pembrolizumab plus pemetrexed and platinum vs placebo plus pemetrexed and platinum",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 54,
+          "geography": "international randomized phase III (KEYNOTE-189)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "36793385",
+          "doi": "10.1016/j.jtocrr.2022.100431",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9923193/",
+          "title": "Associations of Tissue Tumor Mutational Burden and Mutational Status With Clinical Outcomes With Pembrolizumab Plus Chemotherapy Versus Chemotherapy For Metastatic NSCLC",
+          "first_author": "Marina C Garassino",
+          "journal": "JTO Clinical and Research Reports"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "HRs (95% CI) for OS among patients with an STK11 mutation were 0.75 (0.37‒1.50)",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-003",
+        "C-004",
+        "C-010",
+        "C-021"
+      ]
+    },
+    {
+      "claim_id": "C-021",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-007",
+          "E-012"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "objective response rate to pembrolizumab plus chemotherapy vs chemotherapy alone within the STK11-mutant subgroup",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 30.6,
+          "ci_low": 16.4,
+          "ci_high": 48.1,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-squamous non-small cell lung cancer",
+        "stage": "metastatic",
+        "treatment": "pembrolizumab plus pemetrexed and platinum vs placebo plus pemetrexed and platinum",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 54,
+          "geography": "international randomized phase III (KEYNOTE-189)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "36793385",
+          "doi": "10.1016/j.jtocrr.2022.100431",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9923193/",
+          "title": "Associations of Tissue Tumor Mutational Burden and Mutational Status With Clinical Outcomes With Pembrolizumab Plus Chemotherapy Versus Chemotherapy For Metastatic NSCLC",
+          "first_author": "Marina C Garassino",
+          "journal": "JTO Clinical and Research Reports"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "30.6% (16.4%‒48.1%)",
+        "verified": true
+      },
+      "confidence": "low",
+      "conflicts_with": [
+        "C-019",
+        "C-020",
+        "C-026",
+        "C-040"
+      ],
+      "mechanism_note": "ORR 30.6% (pembro+chemo) vs 16.7% (chemo alone) in STK11-mutants; 48.8% vs 16.4% in STK11-wildtype. Quote is a bare CI string; downstream users should re-open the table."
+    },
+    {
+      "claim_id": "C-022",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "associates_with",
+        "on": "prevalence difference by histology: 18.7% in non-squamous vs 2.8% in squamous NSCLC",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 18.7,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer (non-squamous vs squamous)",
+        "stage": "metastatic",
+        "treatment": "not treatment-conditioned (prevalence in trial populations)",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 574,
+          "geography": "international randomized phase III trials KEYNOTE-189 and KEYNOTE-407",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "36793385",
+          "doi": "10.1016/j.jtocrr.2022.100431",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9923193/",
+          "title": "Associations of Tissue Tumor Mutational Burden and Mutational Status With Clinical Outcomes With Pembrolizumab Plus Chemotherapy Versus Chemotherapy For Metastatic NSCLC",
+          "first_author": "Marina C Garassino",
+          "journal": "JTO Clinical and Research Reports"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "Of the 289 evaluable patients in KEYNOTE-189, 54 (18.7%) had STK11 mutations. In KEYNOTE-407, 8 of 285 (2.8%) evaluable patients had STK11 mutations.",
+        "verified": true
+      },
+      "confidence": "high",
+      "conflicts_with": [
+        "C-048"
+      ],
+      "mechanism_note": "Squamous histology is effectively unstudied for STK11-ICI interaction because of low prevalence; KEYNOTE-407 STK11 analysis was not performed."
+    },
+    {
+      "claim_id": "C-023",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "overall survival on immune checkpoint inhibitors in a Japanese lung adenocarcinoma cohort",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "immune checkpoint inhibitors",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 343,
+          "geography": "Japan (C-CAT national database, June 2019-August 2023)",
+          "ancestry_reported": true,
+          "ancestry_detail": "Japanese national cancer genomics database cohort",
+          "notable_exclusions": [
+            "non-adenocarcinoma histology"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "39037971",
+          "doi": "10.1371/journal.pone.0307580",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11262633/",
+          "title": "Effects of KRAS, STK11, KEAP1, and TP53 mutations on the clinical outcomes of immune checkpoint inhibitors among patients with lung adenocarcinoma",
+          "first_author": "Liang",
+          "journal": "PLOS ONE"
+        },
+        "year": 2024,
+        "design": "retrospective_cohort",
+        "supporting_quote": "TP53 mutation could affect the treatment response to some degree, and both KEAP1 and TP53 mutations resulted in inferior OS in the general patient population.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-003",
+        "C-026",
+        "C-034",
+        "C-039",
+        "C-040"
+      ],
+      "mechanism_note": "In this East Asian cohort STK11 mutation showed no significant OS difference while KEAP1 and TP53 did; the abstract conclusion names KEAP1/TP53 and omits STK11."
+    },
+    {
+      "claim_id": "C-024",
+      "subject": {
+        "type": "gene",
+        "name": "KEAP1",
+        "entity_ids": [
+          "E-003"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "overall survival on immune checkpoint inhibitors (multivariable)",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.89,
+          "ci_low": 1.179,
+          "ci_high": 3.031,
+          "p_value": 0.008
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "immune checkpoint inhibitors",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 343,
+          "geography": "Japan (C-CAT national database)",
+          "ancestry_reported": true,
+          "ancestry_detail": "Japanese cohort"
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "39037971",
+          "doi": "10.1371/journal.pone.0307580",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11262633/",
+          "title": "Effects of KRAS, STK11, KEAP1, and TP53 mutations on the clinical outcomes of immune checkpoint inhibitors among patients with lung adenocarcinoma",
+          "first_author": "Liang",
+          "journal": "PLOS ONE"
+        },
+        "year": 2024,
+        "design": "retrospective_cohort",
+        "supporting_quote": "KEAP1 mutation: HR=1.890 (95% CI: 1.179-3.031); P=0.008",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-014",
+        "C-047"
+      ],
+      "mechanism_note": "Supports KEAP1, not STK11, as the dominant co-mutation signal in this population — a candidate confounder for STK11 associations in cohorts where the two co-occur."
+    },
+    {
+      "claim_id": "C-025",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-014"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "tumor mutational burden",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.001
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "lung adenocarcinoma",
+        "stage": "advanced/metastatic",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": 343,
+          "geography": "Japan (C-CAT national database)",
+          "ancestry_reported": true,
+          "ancestry_detail": "Japanese cohort"
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "39037971",
+          "doi": "10.1371/journal.pone.0307580",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11262633/",
+          "title": "Effects of KRAS, STK11, KEAP1, and TP53 mutations on the clinical outcomes of immune checkpoint inhibitors among patients with lung adenocarcinoma",
+          "first_author": "Liang",
+          "journal": "PLOS ONE"
+        },
+        "year": 2024,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11, KEAP1, and TP53 mutations are significantly associated with a high TMB.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "mechanism_note": "Creates the biomarker paradox: STK11-mutant tumors are TMB-high yet immunologically cold."
+    },
+    {
+      "claim_id": "C-026",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "overall survival on first-line immunotherapy or chemo-immunotherapy, adjusted for KRAS, KEAP1, TP53 and SMARCA4 status",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.97,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.025
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "advanced non-squamous non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "first-line ICI monotherapy or chemo-immunotherapy",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 145,
+          "geography": "Italy (single-centre) with external validation in OAK/POPLAR",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "39709652",
+          "doi": "10.1016/j.lungcan.2024.108058",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39709652",
+          "title": "STK11 mutations correlate with poor prognosis for advanced NSCLC treated with first-line immunotherapy or chemo-immunotherapy according to KRAS, TP53, KEAP1, and SMARCA4 status",
+          "first_author": "Andrea De Giglio",
+          "journal": "Lung Cancer"
+        },
+        "year": 2025,
+        "design": "retrospective_cohort",
+        "supporting_quote": "STK11 mutations were detrimental to OS in the univariate (HR 1.74, p = 0.041) and multivariate model (HR 1.97, p = 0.025).",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-021",
+        "C-023",
+        "C-042"
+      ],
+      "mechanism_note": "Effect persists after adjusting for KEAP1, which argues against KEAP1 being the sole confounder — but the source frames the finding as prognostic ('regardless of immunotherapy administration')."
+    },
+    {
+      "claim_id": "C-027",
+      "subject": {
+        "type": "gene",
+        "name": "Stk11/Lkb1",
+        "entity_ids": [
+          "E-001",
+          "E-017"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "tumor-infiltrating neutrophil accumulation with T-cell-suppressive effects and pro-tumorigenic cytokine production",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "KRAS-driven murine lung adenocarcinoma; human NSCLC correlates",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mouse"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "26833127",
+          "doi": "10.1158/0008-5472.CAN-15-1439",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26833127",
+          "title": "STK11/LKB1 Deficiency Promotes Neutrophil Recruitment and Proinflammatory Cytokine Production to Suppress T-cell Activity in the Lung Tumor Microenvironment",
+          "first_author": "Shohei Koyama",
+          "journal": "Cancer Research"
+        },
+        "year": 2016,
+        "design": "preclinical",
+        "supporting_quote": "STK11/LKB1 is among the most commonly inactivated tumor suppressors in non-small cell lung cancer (NSCLC), especially in tumors harboring KRAS mutations.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-009"
+      ],
+      "mechanism_note": "Source proposes neutrophil/MDSC recruitment plus IL-6 and other proinflammatory cytokines as the T-cell-suppressive mechanism; IL-6 blockade produced a short-lived response. Only fragmentary abstract text was retrievable, so the quote is the opening sentence rather than the result sentence."
+    },
+    {
+      "claim_id": "C-028",
+      "subject": {
+        "type": "gene",
+        "name": "Lkb1",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "confers_resistance",
+        "on": "PD-1 antibody blockade efficacy in murine lung tumors",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "murine KRAS-driven lung adenocarcinoma",
+        "treatment": "anti-PD-1 antibody",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mouse"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "26833127",
+          "doi": "10.1158/0008-5472.CAN-15-1439",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26833127",
+          "title": "STK11/LKB1 Deficiency Promotes Neutrophil Recruitment and Proinflammatory Cytokine Production to Suppress T-cell Activity in the Lung Tumor Microenvironment",
+          "first_author": "Shohei Koyama",
+          "journal": "Cancer Research"
+        },
+        "year": 2016,
+        "design": "preclinical",
+        "supporting_quote": "PD-1-targeting antibodies were ineffective against Lkb1-deficient tumors,",
+        "verified": true
+      },
+      "confidence": "moderate"
+    },
+    {
+      "claim_id": "C-029",
+      "subject": {
+        "type": "gene",
+        "name": "LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-015"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "STING expression and cytoplasmic dsDNA sensing",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "KRAS-driven lung cancer",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mixed"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "30297358",
+          "doi": "10.1158/2159-8290.CD-18-0689",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30297358",
+          "title": "Suppression of STING Associated with LKB1 Loss in KRAS-Driven Lung Cancer",
+          "first_author": "Shunsuke Kitajima",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2019,
+        "design": "preclinical",
+        "supporting_quote": "Here, we report that LKB1 loss results in marked silencing of stimulator of interferon genes (STING) expression and insensitivity to cytoplasmic double-strand DNA (dsDNA) sensing.",
+        "verified": true
+      },
+      "confidence": "high",
+      "mechanism_note": "STING silencing removes innate type-I-interferon priming, proposed as the reason KL tumors are non-T-cell-inflamed despite high mutational load."
+    },
+    {
+      "claim_id": "C-030",
+      "subject": {
+        "type": "gene",
+        "name": "LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-015"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "associates_with",
+        "on": "epigenetic silencing of STING via DNMT1 and EZH2 hyperactivation linked to elevated S-adenosylmethionine",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "KRAS-driven lung cancer",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "cell_line"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "30297358",
+          "doi": "10.1158/2159-8290.CD-18-0689",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30297358",
+          "title": "Suppression of STING Associated with LKB1 Loss in KRAS-Driven Lung Cancer",
+          "first_author": "Shunsuke Kitajima",
+          "journal": "Cancer Discovery"
+        },
+        "year": 2019,
+        "design": "preclinical",
+        "supporting_quote": "This effect is mediated at least in part by hyperactivation of DNMT1 and EZH2 activity related to elevated S-adenylmethionine levels and reinforced by DNMT1 upregulation.",
+        "verified": true
+      },
+      "confidence": "high",
+      "mechanism_note": "Implies pharmacological reversibility (DNMT/EZH2 inhibition) rather than a fixed genomic block."
+    },
+    {
+      "claim_id": "C-031",
+      "subject": {
+        "type": "gene",
+        "name": "LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-018"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "antigen processing and presentation via compromised immunoproteasome activity and increased autophagic flux",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer and genetically engineered mouse models",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mixed"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34142094",
+          "doi": "10.1038/s43018-021-00208-6",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8205437/",
+          "title": "ULK1 inhibition overcomes compromised antigen presentation and restores antitumor immunity in LKB1-mutant lung cancer",
+          "first_author": "Jiehui Deng",
+          "journal": "Nature Cancer"
+        },
+        "year": 2021,
+        "design": "preclinical",
+        "supporting_quote": "LKB1 deficiency also suppressed antigen processing and presentation, associated with compromised immunoproteasome activity and increased autophagic flux.",
+        "verified": true
+      },
+      "confidence": "high",
+      "mechanism_note": "A second, STING-independent mechanism: defective MHC-I peptide supply rather than absent innate priming."
+    },
+    {
+      "claim_id": "C-032",
+      "subject": {
+        "type": "gene",
+        "name": "LKB1",
+        "entity_ids": [
+          "E-001",
+          "E-014",
+          "E-021"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "tumor mutational burden in NSCLCs from non-smokers and in genetically engineered mouse models",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "smoking_status": "non-smokers specifically"
+        },
+        "model_system": "mixed"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34142094",
+          "doi": "10.1038/s43018-021-00208-6",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8205437/",
+          "title": "ULK1 inhibition overcomes compromised antigen presentation and restores antitumor immunity in LKB1-mutant lung cancer",
+          "first_author": "Jiehui Deng",
+          "journal": "Nature Cancer"
+        },
+        "year": 2021,
+        "design": "preclinical",
+        "supporting_quote": "Unexpectedly, we found that LKB1-deficiency correlated with elevated tumor mutational burden (TMB) in NSCLCs from non-smokers and genetically engineered mouse models (GEMMs), despite the frequent association between high TMB and anti-PD1 treatment efficacy.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "mechanism_note": "One of very few STK11 statements explicitly conditioned on smoking status."
+    },
+    {
+      "claim_id": "C-033",
+      "subject": {
+        "type": "pathway",
+        "name": "ULK1/ATG1 inhibition combined with PD-1 blockade",
+        "entity_ids": [
+          "E-019",
+          "E-006"
+        ],
+        "state": "not_applicable"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "effector T-cell expansion and tumor regression in Lkb1-mutant tumors",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "Lkb1-mutant murine lung tumors",
+        "treatment": "ULK1 inhibitor plus anti-PD-1 antibody",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "ancestry_reported": false
+        },
+        "model_system": "mouse"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "34142094",
+          "doi": "10.1038/s43018-021-00208-6",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8205437/",
+          "title": "ULK1 inhibition overcomes compromised antigen presentation and restores antitumor immunity in LKB1-mutant lung cancer",
+          "first_author": "Jiehui Deng",
+          "journal": "Nature Cancer"
+        },
+        "year": 2021,
+        "design": "preclinical",
+        "supporting_quote": "Accordingly, ULK1 inhibition synergized with PD-1 antibody blockade, provoking effector T cell expansion and tumor regression in Lkb1-mutant tumor models.",
+        "verified": true
+      },
+      "confidence": "high"
+    },
+    {
+      "claim_id": "C-034",
+      "subject": {
+        "type": "cell_state",
+        "name": "STK11/LKB1-deficient transcriptomic phenotype (independent of mutation)",
+        "entity_ids": [
+          "E-022",
+          "E-001"
+        ],
+        "state": "loss_of_function"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "survival benefit of PD-(L)1 blockade versus chemotherapy",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-L1/PD-1 inhibition vs chemotherapy",
+        "line_of_therapy": "any",
+        "population": {
+          "n": null,
+          "geography": "randomized trials ORIENT-11 (China), OAK and POPLAR (international)",
+          "ancestry_reported": true,
+          "ancestry_detail": "ORIENT-11 is a Chinese trial; OAK/POPLAR are predominantly European-ancestry international trials"
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "37495171",
+          "doi": "10.1016/j.jtho.2023.07.020",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37495171",
+          "title": "STK11/LKB1-Deficient Phenotype Rather Than Mutation Diminishes Immunotherapy Efficacy and Represents STING/Type I Interferon/CD8+ T-Cell Dysfunction in NSCLC",
+          "first_author": "Anlin Li",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "STK11 phenotype rather than mutation status can accurately identify patients with ICB-refractory NSCLC",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-003",
+        "C-018",
+        "C-023"
+      ],
+      "mechanism_note": "Source proposes STING/type-I-interferon perturbation is a feature of STK11-deficient, not STK11-mutated, tumors — i.e. mutation is a poor proxy for the functional state."
+    },
+    {
+      "claim_id": "C-035",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "immunotherapy outcomes when classified by tissue mutation alone (as opposed to transcriptomic deficiency)",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-L1/PD-1 inhibition",
+        "line_of_therapy": "any",
+        "population": {
+          "n": null,
+          "geography": "ORIENT-11, OAK, POPLAR",
+          "ancestry_reported": true,
+          "ancestry_detail": "includes a Chinese randomized trial (ORIENT-11)"
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": "37495171",
+          "doi": "10.1016/j.jtho.2023.07.020",
+          "nct_id": null,
+          "url": "https://www.jto.org/article/S1556-0864(23)00688-3/fulltext",
+          "title": "STK11/LKB1-Deficient Phenotype Rather Than Mutation Diminishes Immunotherapy Efficacy and Represents STING/Type I Interferon/CD8+ T-Cell Dysfunction in NSCLC",
+          "first_author": "Anlin Li",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "",
+        "verified": false
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-002",
+        "C-015"
+      ],
+      "mechanism_note": "Reported in search summaries as 'tissue STK11 mutation alone did not affect immunotherapy outcomes'; the full text could not be opened (publisher 403), so no verbatim sentence is recorded."
+    },
+    {
+      "claim_id": "C-036",
+      "subject": {
+        "type": "cell_state",
+        "name": "high CD8+ T-cell infiltration in STK11-deficient tumors",
+        "entity_ids": [
+          "E-016",
+          "E-022"
+        ],
+        "state": "not_applicable"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "survival on immune checkpoint blockade (direction reversed relative to STK11-proficient tumors)",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-L1/PD-1 inhibition",
+        "line_of_therapy": "any",
+        "population": {
+          "n": null,
+          "geography": "three randomized trials (ORIENT-11, OAK, POPLAR)",
+          "ancestry_reported": true,
+          "ancestry_detail": "mixed Chinese and international"
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "37495171",
+          "doi": "10.1016/j.jtho.2023.07.020",
+          "nct_id": null,
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37495171",
+          "title": "STK11/LKB1-Deficient Phenotype Rather Than Mutation Diminishes Immunotherapy Efficacy and Represents STING/Type I Interferon/CD8+ T-Cell Dysfunction in NSCLC",
+          "first_author": "Anlin Li",
+          "journal": "Journal of Thoracic Oncology"
+        },
+        "year": 2023,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "high CD8+ T-cell infiltration...predicted...worse ICB outcomes in STK11-def tumors",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-007"
+      ],
+      "mechanism_note": "Source proposes CD8+ T-cell dysfunction (not absence) in STK11-deficient tumors, which PD-1/PD-L1 blockade may not reverse. Quote contains source ellipses."
+    },
+    {
+      "claim_id": "C-037",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "overall survival on first-line chemotherapy (non-immunotherapy control arm)",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.4,
+          "ci_low": 1.2,
+          "ci_high": 1.6,
+          "p_value": 0.0001
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "metastatic non-small cell lung cancer",
+        "stage": "metastatic",
+        "treatment": "first-line chemotherapy",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 2407,
+          "geography": "United States real-world database",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.1371/journal.pone.0238358",
+          "nct_id": null,
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0238358",
+          "title": "STK11 (LKB1) mutations in metastatic NSCLC: Prognostic value in the real world",
+          "first_author": "Norah J. Shire",
+          "journal": "PLOS ONE"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Mutations in STK11 (STK11m) and frequently co-occurring KRAS mutations (KRASm/STK11m) are associated with poor survival in metastatic NSCLC (mNSCLC) immuno-oncology trials.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "mechanism_note": "First-line chemotherapy median OS 11.2 vs 17.8 months, HR 1.4 (1.2-1.6, p<0.0001) — an equally large effect in a treatment arm with no immunotherapy, supporting a prognostic interpretation. PMID not confirmed during retrieval and is left null."
+    },
+    {
+      "claim_id": "C-038",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "overall survival on first-line immunotherapy (nonsignificant in this real-world cohort)",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.4,
+          "ci_low": 0.9,
+          "ci_high": 2.3,
+          "p_value": 0.1
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "metastatic non-small cell lung cancer",
+        "stage": "metastatic",
+        "treatment": "first-line immunotherapy",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 2407,
+          "geography": "United States real-world database",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.1371/journal.pone.0238358",
+          "nct_id": null,
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0238358",
+          "title": "STK11 (LKB1) mutations in metastatic NSCLC: Prognostic value in the real world",
+          "first_author": "Norah J. Shire",
+          "journal": "PLOS ONE"
+        },
+        "year": 2020,
+        "design": "retrospective_cohort",
+        "supporting_quote": "Mutations in STK11 (STK11m) and frequently co-occurring KRAS mutations (KRASm/STK11m) are associated with poor survival in metastatic NSCLC (mNSCLC) immuno-oncology trials.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001"
+      ],
+      "mechanism_note": "Median OS 11.2 vs 17.7 months, HR 1.4 (0.9-2.3), p=0.1 in first-line IO — the same point estimate as chemotherapy but not significant. The quote is the abstract's framing sentence; the numbers come from the results section of the same fetched article."
+    },
+    {
+      "claim_id": "C-039",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "progression-free survival on immune checkpoint inhibitors (pooled across 14 studies)",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 1.45,
+          "ci_low": 1.22,
+          "ci_high": 1.72,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "mostly advanced/metastatic",
+        "treatment": "immune checkpoint inhibitors",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 4317,
+          "geography": "mixed international (14 retrospective studies)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "prospective randomized designs largely absent"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "38632512",
+          "doi": "10.1186/s12885-024-12130-y",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11025184/",
+          "title": "Effect of the STK11 mutation on therapeutic efficacy and prognosis in patients with non-small cell lung cancer: a comprehensive study based on meta-analyses and bioinformatics analyses",
+          "first_author": "Xu",
+          "journal": "BMC Cancer"
+        },
+        "year": 2024,
+        "design": "meta_analysis",
+        "supporting_quote": "poor PFS (HR = 1.45, 95%CI 1.22-1.72)",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-012",
+        "C-018",
+        "C-023",
+        "C-043",
+        "C-046"
+      ],
+      "mechanism_note": "Pooled from retrospective single-arm cohorts only; the meta-analysis cannot separate prognostic from predictive effects because it has no non-ICI comparator arm."
+    },
+    {
+      "claim_id": "C-040",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "objective response rate to immune checkpoint inhibitors (pooled: 10.1% vs 25.8%)",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 10.1,
+          "ci_low": 0.9,
+          "ci_high": 25.2,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "mostly advanced/metastatic",
+        "treatment": "immune checkpoint inhibitors",
+        "line_of_therapy": "any",
+        "population": {
+          "n": 4317,
+          "geography": "mixed international (14 retrospective studies)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "38632512",
+          "doi": "10.1186/s12885-024-12130-y",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11025184/",
+          "title": "Effect of the STK11 mutation on therapeutic efficacy and prognosis in patients with non-small cell lung cancer: a comprehensive study based on meta-analyses and bioinformatics analyses",
+          "first_author": "Xu",
+          "journal": "BMC Cancer"
+        },
+        "year": 2024,
+        "design": "meta_analysis",
+        "supporting_quote": "Patients with STK11-mutant NSCLC had low levels of PD-L1 expression and ORR to ICIs, and their PFS and OS were worse than those of patients with STK11wt after comprehensive treatment.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-021",
+        "C-023",
+        "C-046"
+      ]
+    },
+    {
+      "claim_id": "C-041",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-013"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "pooled rate of PD-L1 positivity (41.1% vs 55.0%)",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 41.1,
+          "ci_low": 25.3,
+          "ci_high": 57.0,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "non-small cell lung cancer",
+        "stage": "mostly advanced/metastatic",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": 4317,
+          "geography": "mixed international",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "38632512",
+          "doi": "10.1186/s12885-024-12130-y",
+          "nct_id": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11025184/",
+          "title": "Effect of the STK11 mutation on therapeutic efficacy and prognosis in patients with non-small cell lung cancer: a comprehensive study based on meta-analyses and bioinformatics analyses",
+          "first_author": "Xu",
+          "journal": "BMC Cancer"
+        },
+        "year": 2024,
+        "design": "meta_analysis",
+        "supporting_quote": "41.1% (95% CI 25.3-57.0)",
+        "verified": true
+      },
+      "confidence": "low",
+      "mechanism_note": "Note that 41% PD-L1 positivity is far higher than the 13.6% reported for KL tumors in Skoulidis 2018 (C-006) — the pooled estimate dilutes the KRAS-mutant subgroup. Quote is a bare CI string."
+    },
+    {
+      "claim_id": "C-042",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11 or KEAP1 or KRAS mutation",
+        "entity_ids": [
+          "E-001",
+          "E-003",
+          "E-002",
+          "E-010",
+          "E-011",
+          "E-012"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "overall survival benefit of durvalumab + tremelimumab + chemotherapy versus chemotherapy alone (benefit retained across mutation subgroups)",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "metastatic non-small cell lung cancer (nonsquamous subgroup for STK11)",
+        "stage": "metastatic",
+        "treatment": "durvalumab + tremelimumab + platinum chemotherapy vs platinum chemotherapy",
+        "line_of_therapy": "first",
+        "population": {
+          "n": 612,
+          "geography": "international randomized phase III (POSEIDON)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "EGFR/ALK-altered tumors"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "conference_abstract",
+        "citation": {
+          "pmid": null,
+          "doi": null,
+          "nct_id": "NCT03164616",
+          "url": "https://ascopost.com/news/august-2022/study-finds-adding-tremelimumab-and-durvalumab-to-chemotherapy-improves-overall-survival-in-metastatic-nsclc-regardless-of-krasstk11keap1-mutations/",
+          "title": "Association Between KRAS/STK11/KEAP1 Mutations and Outcomes in POSEIDON: Durvalumab +/- Tremelimumab + Chemotherapy in mNSCLC (WCLC 2022, abstract OA15.04; reported by The ASCO Post)",
+          "first_author": "Solange Peters",
+          "journal": "IASLC World Conference on Lung Cancer 2022 (secondary reporting)"
+        },
+        "year": 2022,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "Overall survival hazard ratios favored patients in the tremelimumab, durvalumab, and chemotherapy arm vs chemotherapy, irrespective of KRAS, STK11, or KEAP1 mutational status",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-026",
+        "C-049"
+      ],
+      "mechanism_note": "Verified only against secondary conference reporting; 14% of the nonsquamous population (n=612) had STK11 mutations and 6% KEAP1. The primary 5-year POSEIDON publication (PMID 39243945) could not be retrieved (Europe PMC 503/504)."
+    },
+    {
+      "claim_id": "C-043",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-011"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "increases",
+        "on": "overall survival benefit from adding tremelimumab to first-line durvalumab plus chemotherapy",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 0.56,
+          "ci_low": 0.33,
+          "ci_high": 0.97,
+          "p_value": null
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "metastatic non-small cell lung cancer, non-squamous",
+        "stage": "metastatic",
+        "treatment": "durvalumab + chemotherapy with vs without tremelimumab",
+        "line_of_therapy": "first",
+        "population": {
+          "n": null,
+          "geography": "international randomized phase III POSEIDON (post hoc machine-learning analysis)",
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "squamous histology in the top-ranked signature"
+          ]
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "pubmed",
+        "citation": {
+          "pmid": "42485106",
+          "doi": "10.1158/1078-0432.CCR-25-3729",
+          "nct_id": "NCT03164616",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42485106",
+          "title": "Utilizing machine learning to identify multimodal signatures for patients who would benefit from the addition of tremelimumab to durvalumab and chemotherapy (TRIDENT)",
+          "first_author": "Ferdinandos Skoulidis",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2026,
+        "design": "trial_secondary_analysis",
+        "supporting_quote": "EGFR wild-type, FGFR3 wild-type, CDKN2A wild-type, KRAS mutations, and STK11 mutations were the factors most associated with higher OS benefit.",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-003",
+        "C-039",
+        "C-049"
+      ],
+      "mechanism_note": "Reverses the sign of the clinical implication: STK11 mutation here marks patients who gain MORE from intensified (CTLA-4-containing) immunotherapy, not less. Post hoc machine-learning derived, not prespecified."
+    },
+    {
+      "claim_id": "C-044",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS + STK11 co-mutation",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "decreases",
+        "on": "recurrence-free survival after neoadjuvant chemo-immunotherapy in resectable NSCLC",
+        "magnitude": {
+          "metric": "HR",
+          "point_estimate": 7.09,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 0.027
+        },
+        "direction_certainty": "reported_significant"
+      },
+      "context": {
+        "disease": "resectable non-small cell lung cancer",
+        "stage": "resectable (early-stage)",
+        "treatment": "neoadjuvant chemo-immunotherapy",
+        "line_of_therapy": "neoadjuvant",
+        "population": {
+          "n": 52,
+          "geography": "United States (Johns Hopkins-led trial cohort)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.21037/tlcr-2025-463",
+          "nct_id": null,
+          "url": "https://tlcr.amegroups.org/article/view/103122/html",
+          "title": "KRAS and STK11 co-mutations in resectable non-small cell lung cancer: enduring prognostic value and impaired immunotherapy response",
+          "first_author": "Sisca",
+          "journal": "Translational Lung Cancer Research"
+        },
+        "year": 2025,
+        "design": "review",
+        "supporting_quote": "Hazard Ratio: 7.09 (P=0.027)",
+        "verified": true
+      },
+      "confidence": "low",
+      "conflicts_with": [
+        "C-045"
+      ],
+      "mechanism_note": "This is an editorial commentary on the primary report (Rosner S et al., Clin Cancer Res 2025;31:339-51, DOI 10.1158/1078-0432.CCR-24-2983), which was not opened directly. n=7 KRASmut/STK11mut patients."
+    },
+    {
+      "claim_id": "C-045",
+      "subject": {
+        "type": "gene_combination",
+        "name": "KRAS + STK11 co-mutation",
+        "entity_ids": [
+          "E-001",
+          "E-002"
+        ],
+        "state": "co_mutation"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "major pathologic response rate after neoadjuvant chemo-immunotherapy",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 17,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": 1.0
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "resectable non-small cell lung cancer",
+        "stage": "resectable (early-stage)",
+        "treatment": "neoadjuvant chemo-immunotherapy",
+        "line_of_therapy": "neoadjuvant",
+        "population": {
+          "n": 21,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.21037/tlcr-2025-463",
+          "nct_id": null,
+          "url": "https://tlcr.amegroups.org/article/view/103122/html",
+          "title": "KRAS and STK11 co-mutations in resectable non-small cell lung cancer: enduring prognostic value and impaired immunotherapy response",
+          "first_author": "Sisca",
+          "journal": "Translational Lung Cancer Research"
+        },
+        "year": 2025,
+        "design": "review",
+        "supporting_quote": "MPR was 25% in KRASmut/STK11wt versus 17% in KRASmut/STK11mut (P=1.0)",
+        "verified": true
+      },
+      "confidence": "low",
+      "conflicts_with": [
+        "C-044"
+      ],
+      "mechanism_note": "Pathologic response and recurrence-free survival dissociate in the same tiny cohort — a within-study contradiction worth preserving."
+    },
+    {
+      "claim_id": "C-046",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "primary resistance to immune checkpoint inhibition",
+        "magnitude": {
+          "metric": "OR",
+          "point_estimate": 1.17,
+          "ci_low": 0.634,
+          "ci_high": 2.17,
+          "p_value": 0.896
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "advanced non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 inhibition",
+        "line_of_therapy": "second_plus",
+        "population": {
+          "n": 305,
+          "geography": "France (PIONeeR multicentre biomarker study)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "medrxiv",
+        "citation": {
+          "pmid": null,
+          "doi": "10.64898/2026.01.09.26343779",
+          "nct_id": null,
+          "url": "https://www.medrxiv.org/content/10.64898/2026.01.09.26343779v1.full",
+          "title": "An integrative multimodal machine learning signature of primary resistance to immunotherapy in advanced non-small cell lung cancer: biomarker analysis from the PIONeeR study",
+          "first_author": "Fabrice Barlesi",
+          "journal": "medRxiv (preprint, not peer reviewed)"
+        },
+        "year": 2026,
+        "design": "prospective_cohort",
+        "supporting_quote": "mutation in STK11 was neither significantly associated with PrR [n=58/305, OR 1.17 (95% CI 0.634-2.17), AUC 0.54, p-adjusted = 0.896], nor with PFS",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-001",
+        "C-039",
+        "C-040"
+      ],
+      "mechanism_note": "Preprint, not peer reviewed. Prospective biomarker cohort of 439 patients (305 with sequencing) in which neither STK11 nor KEAP1 mutation predicted primary resistance."
+    },
+    {
+      "claim_id": "C-047",
+      "subject": {
+        "type": "gene",
+        "name": "KEAP1",
+        "entity_ids": [
+          "E-003",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "primary resistance to immune checkpoint inhibition",
+        "magnitude": {
+          "metric": "OR",
+          "point_estimate": 0.663,
+          "ci_low": 0.344,
+          "ci_high": 1.28,
+          "p_value": 0.58
+        },
+        "direction_certainty": "reported_nonsignificant"
+      },
+      "context": {
+        "disease": "advanced non-small cell lung cancer",
+        "stage": "advanced/metastatic",
+        "treatment": "PD-1/PD-L1 inhibition",
+        "line_of_therapy": "second_plus",
+        "population": {
+          "n": 305,
+          "geography": "France (PIONeeR multicentre biomarker study)",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "medrxiv",
+        "citation": {
+          "pmid": null,
+          "doi": "10.64898/2026.01.09.26343779",
+          "nct_id": null,
+          "url": "https://www.medrxiv.org/content/10.64898/2026.01.09.26343779v1.full",
+          "title": "An integrative multimodal machine learning signature of primary resistance to immunotherapy in advanced non-small cell lung cancer: biomarker analysis from the PIONeeR study",
+          "first_author": "Fabrice Barlesi",
+          "journal": "medRxiv (preprint, not peer reviewed)"
+        },
+        "year": 2026,
+        "design": "prospective_cohort",
+        "supporting_quote": "Similarly, mutation in KEAP1 was not significantly associated with PrR [n=53/305, OR 0.663 (0.344-1.28), p-adjusted 0.58]",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-024"
+      ]
+    },
+    {
+      "claim_id": "C-048",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11 and KEAP1 mutation",
+        "entity_ids": [
+          "E-001",
+          "E-003"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "associates_with",
+        "on": "observed prevalence in a real-world US testing cohort (STK11 8.6%, KEAP1 5.7%) — substantially lower than the 18-25% and 10-15% previously reported",
+        "magnitude": {
+          "metric": "percent",
+          "point_estimate": 8.6,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "advanced non-small cell lung cancer",
+        "stage": "advanced",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States community and academic testing practices",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.3389/fonc.2024.1459737",
+          "nct_id": null,
+          "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2024.1459737/full",
+          "title": "Clinical perspectives on the value of testing for STK11 and KEAP1 mutations in advanced NSCLC",
+          "first_author": "Michelle Shiller",
+          "journal": "Frontiers in Oncology"
+        },
+        "year": 2024,
+        "design": "review",
+        "supporting_quote": "STK11 mutations and KEAP1 mutations were identified relatively infrequently (in 8.6% and 5.7% of patients, respectively)",
+        "verified": true
+      },
+      "confidence": "moderate",
+      "conflicts_with": [
+        "C-022"
+      ],
+      "mechanism_note": "Ascertainment differences (panel content, tissue adequacy, referral bias) may make cohort-to-cohort STK11 prevalence non-comparable."
+    },
+    {
+      "claim_id": "C-049",
+      "subject": {
+        "type": "gene_combination",
+        "name": "STK11 and KEAP1 mutation",
+        "entity_ids": [
+          "E-001",
+          "E-003",
+          "E-006"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "no_effect",
+        "on": "differential outcome by treatment regimen (poor outcomes irrespective of regimen)",
+        "magnitude": {
+          "metric": "not_reported",
+          "point_estimate": null,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "advanced non-small cell lung cancer",
+        "stage": "advanced",
+        "treatment": "immunotherapy-containing and non-immunotherapy regimens",
+        "line_of_therapy": "any",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.3389/fonc.2024.1459737",
+          "nct_id": null,
+          "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2024.1459737/full",
+          "title": "Clinical perspectives on the value of testing for STK11 and KEAP1 mutations in advanced NSCLC",
+          "first_author": "Michelle Shiller",
+          "journal": "Frontiers in Oncology"
+        },
+        "year": 2024,
+        "design": "review",
+        "supporting_quote": "The introduction of IO has not improved the outlook for these patients, who continue to have relatively poor outcomes, irrespective of the treatment regimen given.",
+        "verified": true
+      },
+      "confidence": "low",
+      "conflicts_with": [
+        "C-042",
+        "C-043"
+      ],
+      "mechanism_note": "Review, not primary data. Also states: 'There is no firm consensus on whether the presence of these mutations is negatively prognostic or predicts poor survival outcomes with specific therapies.'"
+    },
+    {
+      "claim_id": "C-050",
+      "subject": {
+        "type": "gene",
+        "name": "STK11",
+        "entity_ids": [
+          "E-001",
+          "E-013"
+        ],
+        "state": "mutation_any"
+      },
+      "predicate": {
+        "effect": "associates_with",
+        "on": "enrichment in PD-L1-negative tumors (roughly twice the rate seen in PD-L1-positive tumors)",
+        "magnitude": {
+          "metric": "fold_change",
+          "point_estimate": 2,
+          "ci_low": null,
+          "ci_high": null,
+          "p_value": null
+        },
+        "direction_certainty": "qualitative"
+      },
+      "context": {
+        "disease": "advanced non-small cell lung cancer",
+        "stage": "advanced",
+        "treatment": "not treatment-conditioned",
+        "line_of_therapy": "not_specified",
+        "population": {
+          "n": null,
+          "geography": "United States",
+          "ancestry_reported": false
+        },
+        "model_system": "human_clinical"
+      },
+      "evidence": {
+        "source_type": "journal_site",
+        "citation": {
+          "pmid": null,
+          "doi": "10.3389/fonc.2024.1459737",
+          "nct_id": null,
+          "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2024.1459737/full",
+          "title": "Clinical perspectives on the value of testing for STK11 and KEAP1 mutations in advanced NSCLC",
+          "first_author": "Michelle Shiller",
+          "journal": "Frontiers in Oncology"
+        },
+        "year": 2024,
+        "design": "review",
+        "supporting_quote": "STK11 mutations (occurring alone and concurrently with KRAS mutations) was substantially higher in the subset with PD-L1 negative tumors, almost twice the rate in the subset with PD-L1 positive tumors.",
+        "verified": true
+      },
+      "confidence": "low",
+      "mechanism_note": "Confounding-by-PD-L1 route: STK11 mutation is enriched exactly where checkpoint blockade works least well anyway."
+    }
+  ],
+  "coverage_notes": "SEARCHED AND FOUND LITTLE OR NOTHING.\n\n(1) ANCESTRY. No claim in this graph rests on a cohort with genetically inferred or self-reported ancestry as a covariate in the STK11 x immunotherapy analysis. Searches for African-ancestry, Hispanic/Latin American, and South Asian STK11-ICI cohorts returned only prevalence/driver-landscape papers and a single case report; no outcome analysis. The only ancestry-differentiated outcome evidence is indirect: a Japanese C-CAT cohort (C-023/C-024, n=343) where STK11 showed NO significant OS effect while KEAP1 did, and ORIENT-11 (Chinese) contributing to C-034/C-036. Every foundational claim (Skoulidis 2018, Ricciuti 2022, Papillon-Cavanagh 2020, Shire 2020) comes from US cohorts that do not report ancestry at all. A US clinicogenomic cohort with ancestry annotation is an open gap.\n\n(2) SEX. No sex-stratified STK11 x immunotherapy effect estimate was found in any source. Sex appears only as an adjustment covariate (e.g. De Giglio 2025, C-026). No interaction test between sex and STK11 status was located.\n\n(3) SMOKING STATUS. Only one claim (C-032) conditions on smoking, and it is a preclinical/correlative TMB observation in non-smokers, not an outcome analysis. No clinical cohort was found that reports STK11-ICI outcomes separately in never-smokers versus smokers, despite STK11 mutation being strongly smoking-associated. This is a first-order confounding gap.\n\n(4) SQUAMOUS HISTOLOGY. Effectively unstudied. KEYNOTE-407 could not analyse STK11 because only 2.8% of squamous patients carried a mutation (C-022); Papillon-Cavanagh and Ricciuti both excluded squamous histology by design. Only a 2024 ASCO abstract on STK11/KEAP1/KRAS in LSCC was surfaced and it could not be retrieved (ascopubs 403). No verified squamous-specific effect estimate exists in this graph.\n\n(5) AGE. No claim reports an age-stratified STK11 effect. No cohort reported an age range in a form that could be captured.\n\n(6) DOSE/CLONALITY. Searches surfaced assertions that clonal vs subclonal and truncating vs missense STK11 mutations behave differently, but no primary source with an effect estimate was retrievable. No claim here distinguishes STK11 variant class, allelic status, or LOH.\n\n(7) STK11 MUTATION VS PROTEIN/FUNCTIONAL LOSS. C-034/C-035 argue transcriptomic STK11 deficiency, not mutation, is the operative variable, but no source reporting the concordance rate between STK11 mutation and LKB1 IHC protein loss was retrieved.\n\n(8) TEMPORAL STALENESS. The claims driving clinical practice (C-001 to C-010) rest on a 2018 cohort of n=174 with 6-7 patients per KL/KP cell in the randomized-trial component. The largest verified re-examinations are 2020-2024 (n=2276 Flatiron, n=1261 DFCI/MSK, n=4317 pooled). No verified cohort after 2022 with n>500 that reports a formal treatment-by-STK11 INTERACTION test (as opposed to a within-ICI-arm HR) was found; that is the specific design that would settle prognostic-vs-predictive and it is missing from the recent literature.\n\n(9) FAILED RETRIEVALS. ScienceDirect, JTO, Annals of Oncology, ESMO Open, ascopubs.org and medRxiv PDF endpoints all returned HTTP 403 to automated fetch. Europe PMC and bioRxiv began returning 503/429 late in the session. Consequently: the POSEIDON 5-year primary publication (PMID 39243945) is represented only via conference reporting (C-042); C-035 carries no quote; a 2026 bioRxiv preprint on SMARCA4/STK11/KEAP1 co-inactivation and TGF-beta was located but never opened and is therefore absent; the WCLC 2019 abstract MA11.11 on STK11 and chemo-immunotherapy (reported medians 4.8 vs 7.2 months PFS, 10.6 vs 16.7 months OS) could not be opened and was NOT entered as a claim.\n\n(10) NOT SEARCHED / OUT OF SCOPE. Non-lung tumour types, STK11 germline (Peutz-Jeghers) biology, and KRAS G12C-inhibitor monotherapy outcomes were only incidentally touched and are not represented as claims."
+}
