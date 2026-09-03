@@ -52,6 +52,24 @@ novelty-scorer      -> ranked_*.json      |        |
 outcome field — stop and ask the user. That is a design violation, not an obstacle to route
 around.**
 
+### How the boundary is actually enforced
+
+Three layers, because prompt text alone is not an access boundary:
+
+1. **Tool grants** (`tools:` in each agent's frontmatter). `literature-mapper` has no read tool at
+   all. Agents 2–5 get `Read`/`Write` but no `Bash`, so they cannot shell out to reach anything.
+2. **Harness deny rules** (`.claude/settings.json`). `Read`, `Glob`, and `Grep` on
+   `pipeline/locked/**` are denied project-wide — for subagents and the main thread alike. Verified
+   by attempting the read and being refused.
+3. **Validator** (`pipeline/validate.py`). Audits `dataset_schema.json` against the locked endpoint
+   registry for outcome-column leakage, and scans generation-zone artifacts for locked-path or
+   outcome-field references.
+
+Layer 2 does not gate `Bash`: a shell can still `cat pipeline/locked/`, which is deliberate — the
+pre-registration gate and the confirmatory script read the manifest that way. Generation-zone
+agents are kept off that path by layer 1 (no `Bash` grant), not by layer 2. If you ever grant a
+generation-zone agent `Bash`, you have removed the boundary; don't.
+
 ---
 
 ## 2. Data handoffs
@@ -64,12 +82,25 @@ python3 pipeline/validate.py            # validate every data file present
 python3 pipeline/validate.py claim_graph
 ```
 
+Between stages 1 and 2, compute the gap report. `gap-finder` has no `Bash`, so this is run for it:
+
+```bash
+python3 pipeline/analyze_claim_graph.py          # human-readable, for your own review
+python3 pipeline/analyze_claim_graph.py --out    # writes data/gap_report.json for gap-finder
+```
+
+The analyzer does the arithmetic that must not be left to model judgement: which claims actually
+contradict (and whether they do so in the *same* context — a real contradiction — or a *different*
+one, which is an effect modifier), coverage per context dimension, which claims rest on small old
+cohorts, and which entities are never studied jointly. `gap-finder` supplies judgement on top of
+it, not recomputation.
+
 Stage order and artifacts:
 
 | # | Agent | Reads | Writes |
 |---|-------|-------|--------|
 | 1 | `literature-mapper` | web only | `data/claim_graph.json` |
-| 2 | `gap-finder` | `claim_graph.json`, web | `data/candidate_hypotheses.json` |
+| 2 | `gap-finder` | `claim_graph.json`, `gap_report.json`, web | `data/candidate_hypotheses.json` |
 | 3 | `plausibility-filter` | `candidate_hypotheses.json` | `data/filtered_hypotheses.json` |
 | 4 | `feasibility-checker` | `filtered_hypotheses.json`, `dataset_schema.json` | `data/feasible_hypotheses.json` |
 | 5 | `novelty-scorer` | `feasible_hypotheses.json` | `data/ranked_hypotheses.json` |
