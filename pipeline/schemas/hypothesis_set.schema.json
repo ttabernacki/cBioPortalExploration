@@ -4,51 +4,127 @@
   "title": "Hypothesis Set",
   "description": "Envelope shared by candidate_/filtered_/feasible_/ranked_hypotheses.json. Blocks are added by successive agents; stage-specific required blocks are enforced by pipeline/validate.py, not by this schema.",
   "type": "object",
-  "required": ["schema_version", "stage", "generated_utc", "source_artifact", "hypotheses"],
+  "required": [
+    "schema_version",
+    "stage",
+    "generated_utc",
+    "source_artifact",
+    "hypotheses"
+  ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.0" },
-    "stage": { "enum": ["candidate", "filtered", "feasible", "ranked"] },
-    "generated_utc": { "type": "string", "format": "date-time" },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "stage": {
+      "enum": [
+        "candidate",
+        "filtered",
+        "feasible",
+        "ranked"
+      ]
+    },
+    "generated_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
     "source_artifact": {
       "type": "string",
       "description": "Relative path of the artifact this stage consumed, e.g. 'pipeline/data/claim_graph.json'."
     },
-    "hypotheses": { "type": "array", "items": { "$ref": "#/definitions/hypothesis" } },
-    "stage_notes": { "type": "string" }
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/hypothesis"
+      }
+    },
+    "stage_notes": {
+      "type": "string"
+    }
   },
   "definitions": {
     "hypothesis": {
       "type": "object",
-      "required": ["id", "statement", "origin", "exposure", "comparator", "population", "proposed_endpoint_concept"],
+      "required": [
+        "id",
+        "statement",
+        "origin",
+        "exposure",
+        "comparator",
+        "population",
+        "proposed_endpoint_concept"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^H-[0-9]{3,}$" },
+        "id": {
+          "type": "string",
+          "pattern": "^H-[0-9]{3,}$"
+        },
         "statement": {
           "type": "string",
           "description": "One sentence, directional, testable. 'X is associated with Y in population Z relative to comparator W.'"
         },
         "origin": {
           "type": "object",
-          "required": ["gap_type", "supporting_claims"],
+          "required": [
+            "gap_type",
+            "supporting_claims"
+          ],
           "additionalProperties": false,
           "properties": {
             "gap_type": {
-              "enum": ["contradiction", "population_gap", "temporal_staleness", "missing_interaction", "buried_negative_result", "untested_extension"]
+              "enum": [
+                "contradiction",
+                "population_gap",
+                "temporal_staleness",
+                "missing_interaction",
+                "buried_negative_result",
+                "untested_extension"
+              ]
             },
-            "supporting_claims": { "type": "array", "items": { "type": "string" } },
-            "rationale": { "type": "string" },
+            "supporting_claims": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rationale": {
+              "type": "string"
+            },
             "prior_negative_evidence": {
               "type": "array",
               "description": "ClinicalTrials.gov or literature results that already looked and found nothing. Discounts novelty.",
               "items": {
                 "type": "object",
-                "required": ["identifier", "summary"],
+                "required": [
+                  "identifier",
+                  "summary"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "identifier": { "type": "string" },
-                  "summary": { "type": "string" },
-                  "n": { "type": ["integer", "null"] }
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "n": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "verified": {
+                    "type": "boolean",
+                    "description": "True only if the source was retrieved and read. Stage 5 discounts novelty using this field, so an unverified prior-negative entry must not be treated as established."
+                  },
+                  "quote": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Verbatim sentence supporting the summary, where the source was retrieved."
+                  }
                 }
               }
             }
@@ -56,91 +132,238 @@
         },
         "exposure": {
           "type": "object",
-          "required": ["description"],
+          "required": [
+            "description"
+          ],
           "additionalProperties": false,
           "properties": {
-            "description": { "type": "string" },
-            "genomic_criteria": { "type": "string" },
-            "clinical_criteria": { "type": "string" },
-            "treatment_criteria": { "type": "string" }
+            "description": {
+              "type": "string"
+            },
+            "genomic_criteria": {
+              "type": "string"
+            },
+            "clinical_criteria": {
+              "type": "string"
+            },
+            "treatment_criteria": {
+              "type": "string"
+            }
           }
         },
-        "comparator": { "type": "object", "required": ["description"], "additionalProperties": false, "properties": { "description": { "type": "string" } } },
-        "population": {
+        "comparator": {
           "type": "object",
-          "required": ["description"],
+          "required": [
+            "description"
+          ],
           "additionalProperties": false,
           "properties": {
-            "description": { "type": "string" },
-            "oncotree_codes": { "type": "array", "items": { "type": "string" } },
-            "inclusion": { "type": "array", "items": { "type": "string" } },
-            "exclusion": { "type": "array", "items": { "type": "string" } }
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "population": {
+          "type": "object",
+          "required": [
+            "description"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "oncotree_codes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "inclusion": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "exclusion": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "proposed_endpoint_concept": {
           "type": "string",
           "description": "The endpoint CONCEPT only, e.g. 'overall survival from start of first-line ICI'. No outcome values, no locked-field references."
         },
-        "proposed_covariates": { "type": "array", "items": { "type": "string" } },
-
+        "proposed_covariates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "plausibility": {
           "type": "object",
           "description": "Written by plausibility-filter (agent 3).",
-          "required": ["score", "causal_story", "verdict"],
+          "required": [
+            "score",
+            "causal_story",
+            "verdict"
+          ],
           "additionalProperties": false,
           "properties": {
-            "score": { "enum": ["strong", "moderate", "weak"] },
+            "score": {
+              "enum": [
+                "strong",
+                "moderate",
+                "weak"
+              ]
+            },
             "causal_story": {
               "type": "string",
               "description": "Explicit mechanism from exposure to endpoint. Absence of one is grounds for rejection."
             },
-            "mechanism_steps": { "type": "array", "items": { "type": "string" } },
-            "alternative_explanations": { "type": "array", "items": { "type": "string" } },
-            "confounding_risks": { "type": "array", "items": { "type": "string" } },
-            "verdict": { "enum": ["pass", "reject"] },
-            "reject_reason": { "type": "string" }
+            "mechanism_steps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "alternative_explanations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "confounding_risks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "verdict": {
+              "enum": [
+                "pass",
+                "reject"
+              ]
+            },
+            "reject_reason": {
+              "type": "string"
+            }
           }
         },
-
         "feasibility": {
           "type": "object",
           "description": "Written by feasibility-checker (agent 4). Uses non-outcome schema fields and cohort counts only.",
-          "required": ["fields_available", "verdict"],
+          "required": [
+            "fields_available",
+            "verdict"
+          ],
           "additionalProperties": false,
           "properties": {
-            "fields_available": { "type": "boolean" },
-            "required_fields": { "type": "array", "items": { "type": "string" } },
-            "missing_fields": { "type": "array", "items": { "type": "string" } },
-            "estimated_exposed_n": { "type": ["integer", "null"] },
-            "estimated_comparator_n": { "type": ["integer", "null"] },
-            "power_note": { "type": "string" },
-            "minimum_detectable_effect": { "type": ["number", "null"], "description": "Smallest HR detectable at 80% power, alpha per prereg." },
+            "fields_available": {
+              "type": "boolean"
+            },
+            "required_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "missing_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "estimated_exposed_n": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "estimated_comparator_n": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "power_note": {
+              "type": "string"
+            },
+            "minimum_detectable_effect": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Smallest HR detectable at 80% power, alpha per prereg."
+            },
             "measurement_concerns": {
               "type": "array",
               "description": "e.g. 'NLP-extracted performance status has unknown misclassification rate'.",
-              "items": { "type": "string" }
+              "items": {
+                "type": "string"
+              }
             },
-            "verdict": { "enum": ["pass", "reject", "underpowered"] },
-            "reject_reason": { "type": "string" }
+            "verdict": {
+              "enum": [
+                "pass",
+                "reject",
+                "underpowered"
+              ]
+            },
+            "reject_reason": {
+              "type": "string"
+            }
           }
         },
-
         "novelty": {
           "type": "object",
           "description": "Written by novelty-scorer (agent 5).",
-          "required": ["composite_score", "rank"],
+          "required": [
+            "composite_score",
+            "rank"
+          ],
           "additionalProperties": false,
           "properties": {
-            "literature_gap_strength": { "type": "number", "minimum": 0, "maximum": 5 },
-            "mechanistic_plausibility_score": { "type": "number", "minimum": 0, "maximum": 5 },
-            "dataset_feasibility_score": { "type": "number", "minimum": 0, "maximum": 5 },
-            "composite_score": { "type": "number" },
-            "rank": { "type": "integer", "minimum": 1 },
-            "scoring_note": { "type": "string" }
+            "literature_gap_strength": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "mechanistic_plausibility_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "dataset_feasibility_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "composite_score": {
+              "type": "number"
+            },
+            "rank": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "scoring_note": {
+              "type": "string"
+            }
           }
         },
-
-        "status": { "enum": ["active", "rejected", "preregistered", "tested", "replicated", "invalidated"] }
+        "status": {
+          "enum": [
+            "active",
+            "rejected",
+            "preregistered",
+            "tested",
+            "replicated",
+            "invalidated"
+          ]
+        }
       }
     }
   }

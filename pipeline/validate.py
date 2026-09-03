@@ -170,6 +170,20 @@ def check_hypothesis_set(name: str, doc, stage: str) -> None:
         if hid in seen_ids:
             err(f"{name}: duplicate hypothesis id {hid}")
         seen_ids.add(hid)
+        for pne_entry in (h.get("origin", {}).get("prior_negative_evidence") or []):
+            if "verified" not in pne_entry:
+                warn(
+                    f"{name}: {hid} cites prior negative evidence "
+                    f"'{pne_entry.get('identifier', '?')}' with no 'verified' flag. Stage 5 "
+                    f"discounts novelty from this field; an unretrieved citation there is as "
+                    f"load-bearing as an unverified claim and must be marked."
+                )
+        if "status" not in h:
+            err(
+                f"{name}: {hid} has no 'status'. Every hypothesis must carry one at every stage — "
+                f"the drop/rejection audit is keyed on it, so a missing status silently disables "
+                f"the checks that keep the denominator visible."
+            )
         if h.get("status") == "rejected":
             continue  # rejected hypotheses are carried for the graveyard, not gated
         for block in required:
