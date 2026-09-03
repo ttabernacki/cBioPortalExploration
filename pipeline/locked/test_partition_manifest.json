@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "access": "GATED",
+  "access_rule": "Readable ONLY by pipeline/analysis/confirmatory.py, executed after a pre-registration for the hypothesis has been committed to git. Generation-zone agents (literature-mapper, gap-finder, plausibility-filter, feasibility-checker, novelty-scorer) must never read this file. The /preregister command reads the endpoint_registry section only, and only to copy an endpoint definition into the prereg document.",
+  "description": "Definitions of outcome fields and the partition gating state. Patient-level outcome VALUES are not stored in this repository; this manifest points at them and records which slices have been unlocked, by which prereg, and when.",
+  "endpoint_registry": [
+    {
+      "endpoint_id": "OS",
+      "label": "Overall survival",
+      "definition": "Days from index date to death from any cause; censored at last known contact.",
+      "time_origin": "index treatment start (regimen-level)",
+      "event_field": "death_event",
+      "time_field": "os_days",
+      "censoring": "administrative at data cutoff; last contact otherwise",
+      "known_biases": ["Left truncation at sequencing date — risk set must be entered at days_dx_to_sequencing, not at diagnosis."]
+    },
+    {
+      "endpoint_id": "TTD",
+      "label": "Time to treatment discontinuation",
+      "definition": "Days from index treatment start to permanent discontinuation of the index regimen or death.",
+      "time_origin": "index treatment start",
+      "event_field": "ttd_event",
+      "time_field": "ttd_days",
+      "censoring": "ongoing treatment at cutoff",
+      "known_biases": ["Discontinuation for toxicity is conflated with discontinuation for progression."]
+    },
+    {
+      "endpoint_id": "TTNT",
+      "label": "Time to next treatment",
+      "definition": "Days from index treatment start to start of the subsequent line or death.",
+      "time_origin": "index treatment start",
+      "event_field": "ttnt_event",
+      "time_field": "ttnt_days",
+      "censoring": "administrative at cutoff",
+      "known_biases": ["Patients who leave the health system are censored informatively."]
+    },
+    {
+      "endpoint_id": "PFS_RAD",
+      "label": "Radiology-assessed progression-free survival",
+      "definition": "Days from index treatment start to NLP-extracted radiology progression or death.",
+      "time_origin": "index treatment start",
+      "event_field": "prog_event",
+      "time_field": "pfs_days",
+      "censoring": "last imaging assessment",
+      "known_biases": ["NLP progression extraction is imperfect; assessment intervals are non-uniform (informative censoring)."]
+    }
+  ],
+  "partitions": {
+    "exploration": {
+      "purpose": "Never used for confirmatory testing. Reserved for future methods work; outcomes here are still gated.",
+      "n_patients": 12475,
+      "unlocked": false
+    },
+    "test": {
+      "purpose": "Primary confirmatory partition. Unlocked slice-by-slice by committed pre-registrations.",
+      "n_patients": 8737,
+      "unlocked": false,
+      "data_pointer": "EXTERNAL — configure via PIPELINE_LOCKED_DATA_PATH; no patient data is committed to this repository."
+    },
+    "temporal_holdout": {
+      "purpose": "External replication. Patients with first_contact_year >= holdout_cutoff_year. Opened only after a hypothesis has a completed confirmatory result on the test partition.",
+      "n_patients": 3738,
+      "holdout_cutoff_year": 2021,
+      "unlocked": false,
+      "data_pointer": "EXTERNAL — configure via PIPELINE_HOLDOUT_DATA_PATH"
+    }
+  },
+  "unlock_log": [],
+  "unlock_log_note": "Append-only. Each entry: {hypothesis_id, prereg_file, prereg_commit_sha, partition, endpoint_id, unlocked_utc, unlocked_by}. Written by /preregister after the prereg commit succeeds, never before."
+}

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+
+# Patient-level data is NEVER committed to this repository.
+# The locked partitions are external; only the manifest and the unlock log live here.
+pipeline/locked/*.csv
+pipeline/locked/*.parquet
+pipeline/locked/*.tsv
+pipeline/locked/data/
