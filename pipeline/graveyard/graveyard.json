@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0",
+  "description": "Every hypothesis that died, with the stage and reason. Rejections at plausibility and feasibility, hypotheses beaten on novelty, and pre-registered hypotheses whose confirmatory or replication result was null. Null results are commits, not deletions. A pipeline whose git history contains only wins is a pipeline that has been p-hacked.",
+  "entries": []
+}
