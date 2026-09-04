@@ -121,7 +121,18 @@ it is how a pipeline quietly stops reporting its denominator.
 ## 3. The graveyard
 
 Every hypothesis that dies is recorded, with the stage and reason, in
-`pipeline/graveyard/graveyard.json`. This includes hypotheses rejected for weak mechanism,
+`pipeline/graveyard/graveyard.json`. Harvest it from the stage artifacts and results rather than
+by hand:
+
+```bash
+python3 pipeline/graveyard.py            # show what would be recorded
+python3 pipeline/graveyard.py --write    # record it, then commit
+```
+
+It is idempotent and preserves each entry's original burial date. It classifies a tested
+hypothesis as null on the **FDR q-value** where one has been computed across the full
+pre-registered set, falling back to the uncorrected p only when FDR has not been run — and it says
+which basis it used. This includes hypotheses rejected for weak mechanism,
 insufficient power, non-novelty, and pre-registered hypotheses whose confirmatory test was null.
 **Null results are commits, not deletions.** A pipeline whose git history contains only wins is
 a pipeline that has been p-hacked.
