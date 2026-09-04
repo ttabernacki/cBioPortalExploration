@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "dataset": "MSK-CHORD-style clinicogenomic cohort (template)",
+  "dataset": "MSK-CHORD (msk_chord_2024), clinical sample table",
   "description": "Field names and types ONLY. Readable by every generation-zone agent. Contains NO outcome columns and NO patient-level values by construction. Outcome definitions and values live in pipeline/locked/test_partition_manifest.json and are unreachable until a hypothesis is pre-registered.",
   "outcome_columns_present": false,
   "outcome_policy": "Any field tagged 'outcome' MUST NOT appear in this file. If one appears, that is a bug: remove it and commit the removal before running any agent. pipeline/validate.py enforces this.",
@@ -12,30 +12,76 @@
     "derived": "Computed from other non-outcome fields."
   },
   "cohort_counts": {
-    "note": "Aggregate, outcome-free counts. Used only for power/feasibility assessment by feasibility-checker. Illustrative template values.",
+    "note": "Real counts from msk_chord_2024. Outcome-free by construction.",
     "total_patients": 24950,
-    "patients_with_tumor_sequencing": 24136,
+    "patients_with_tumor_sequencing": 24950,
     "by_disease": {
-      "NSCLC": 7809,
-      "breast_carcinoma": 5644,
-      "colorectal_adenocarcinoma": 4126,
-      "prostate_adenocarcinoma": 3161,
-      "pancreatic_adenocarcinoma": 1234
+      "Non-Small Cell Lung Cancer": 7809,
+      "Colorectal Cancer": 5543,
+      "Breast Cancer": 5368,
+      "Prostate Cancer": 3211,
+      "Pancreatic Cancer": 3109
     },
     "by_treatment_exposure": {
-      "any_immune_checkpoint_inhibitor": 5680,
-      "first_line_ICI_monotherapy": 1497,
-      "first_line_chemo_ICI": 2085,
-      "platinum_doublet_no_ICI": 6733
+      "STATUS": "UNAVAILABLE \u2014 the clinical export carries no drug, regimen or line-of-therapy columns. Every treatment-conditioned hypothesis is unassessable until the MSK-CHORD treatment table is loaded."
     },
-    "nsclc_genomic_subgroups": {
-      "KRAS_mutant": 2418,
-      "KRAS_mutant_STK11_comutant": 611,
-      "KRAS_mutant_KEAP1_comutant": 508,
-      "STK11_mutant_any": 1102,
-      "KEAP1_mutant_any": 964,
-      "EGFR_mutant": 1583,
-      "TP53_mutant": 4390
+    "total_samples": 25040,
+    "nsclc_detail": {
+      "total": 7809,
+      "by_histology": {
+        "Lung Adenocarcinoma": 5957,
+        "Lung Squamous Cell Carcinoma": 822,
+        "Non-Small Cell Lung Cancer": 499,
+        "Large Cell Neuroendocrine Carcinoma": 134,
+        "Lung Carcinoid": 91,
+        "Poorly Differentiated Non-Small Cell Lung Cancer": 77,
+        "Lung Adenosquamous Carcinoma": 56,
+        "Pleomorphic Carcinoma of the Lung": 45,
+        "Atypical Lung Carcinoid": 43,
+        "Lung Neuroendocrine Tumor": 32,
+        "Sarcomatoid Carcinoma of the Lung": 19,
+        "Adenoid Cystic Carcinoma of the Lung": 7,
+        "Large Cell Lung Carcinoma": 7,
+        "Lung Adenocarcinoma In Situ": 6,
+        "Lymphoepithelioma-like Carcinoma of the Lung": 5,
+        "Spindle Cell Carcinoma of the Lung": 4,
+        "Mucoepidermoid Carcinoma of the Lung": 2,
+        "Basaloid Large Cell Carcinoma of the Lung": 1,
+        "NUT Carcinoma of the Lung": 1,
+        "Pleuropulmonary Blastoma": 1
+      },
+      "by_stage": {
+        "Stage 1-3": 4387,
+        "Stage 4": 3421,
+        "Unknown": 1
+      },
+      "by_smoking_nlp": {
+        "Former/Current Smoker": 5438,
+        "Never": 2027,
+        "Unknown": 344
+      },
+      "by_gene_panel": {
+        "IMPACT468": 3919,
+        "IMPACT505": 2228,
+        "IMPACT410": 1336,
+        "IMPACT341": 326
+      },
+      "never_smoker_stage4": 1085,
+      "luad_total": 5957,
+      "pdl1_sample_nlp": {
+        "NA": 4490,
+        "Yes": 2143,
+        "No": 1176
+      },
+      "pdl1_history_nlp": {
+        "No": 3241,
+        "Yes": 2988,
+        "NA": 1580
+      },
+      "tmb_nonnull": 7809
+    },
+    "genomic_subgroups": {
+      "STATUS": "UNAVAILABLE \u2014 the clinical export carries no per-gene mutation calls. STK11, KEAP1 and KRAS status require the mutation table. Gene Panel is present, so panel-based callability restriction is computable once mutations are loaded."
     }
   },
   "tables": [
@@ -43,40 +89,172 @@
       "name": "patient",
       "grain": "one row per patient",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "key" },
-        { "name": "sex", "type": "categorical", "values": ["female", "male"], "provenance": "structured" },
-        { "name": "birth_year_binned", "type": "categorical", "provenance": "derived", "note": "5-year bins; de-identification" },
-        { "name": "age_at_dx_years", "type": "float", "provenance": "derived" },
-        { "name": "race_ethnicity", "type": "categorical", "provenance": "structured" },
-        { "name": "genetic_ancestry", "type": "categorical", "provenance": "genomic", "note": "Inferred from sequencing; available for the sequenced subset only" },
-        { "name": "smoking_status", "type": "categorical", "values": ["never", "former", "current", "unknown"], "provenance": "nlp_extracted" },
-        { "name": "pack_years", "type": "float", "provenance": "nlp_extracted", "nullable": true },
-        { "name": "first_contact_year", "type": "integer", "provenance": "structured", "note": "Cohort-entry year; used for temporal holdout partitioning" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "key"
+        },
+        {
+          "name": "sex",
+          "type": "categorical",
+          "values": [
+            "female",
+            "male"
+          ],
+          "provenance": "structured"
+        },
+        {
+          "name": "birth_year_binned",
+          "type": "categorical",
+          "provenance": "derived",
+          "note": "5-year bins; de-identification"
+        },
+        {
+          "name": "age_at_dx_years",
+          "type": "float",
+          "provenance": "derived"
+        },
+        {
+          "name": "race_ethnicity",
+          "type": "categorical",
+          "provenance": "structured"
+        },
+        {
+          "name": "genetic_ancestry",
+          "type": "categorical",
+          "provenance": "genomic",
+          "note": "Inferred from sequencing; available for the sequenced subset only"
+        },
+        {
+          "name": "smoking_status",
+          "type": "categorical",
+          "values": [
+            "never",
+            "former",
+            "current",
+            "unknown"
+          ],
+          "provenance": "nlp_extracted"
+        },
+        {
+          "name": "pack_years",
+          "type": "float",
+          "provenance": "nlp_extracted",
+          "nullable": true
+        },
+        {
+          "name": "first_contact_year",
+          "type": "integer",
+          "provenance": "structured",
+          "note": "Cohort-entry year; used for temporal holdout partitioning"
+        }
       ]
     },
     {
       "name": "diagnosis",
       "grain": "one row per primary tumor diagnosis",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "oncotree_code", "type": "categorical", "provenance": "structured" },
-        { "name": "cancer_type", "type": "categorical", "provenance": "structured" },
-        { "name": "histology", "type": "categorical", "provenance": "structured" },
-        { "name": "stage_at_dx", "type": "categorical", "values": ["I", "II", "III", "IV", "unknown"], "provenance": "nlp_extracted" },
-        { "name": "days_dx_to_index", "type": "integer", "provenance": "derived", "note": "Relative day offsets only; no calendar dates" },
-        { "name": "is_de_novo_metastatic", "type": "boolean", "provenance": "derived" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "oncotree_code",
+          "type": "categorical",
+          "provenance": "structured"
+        },
+        {
+          "name": "cancer_type",
+          "type": "categorical",
+          "provenance": "structured"
+        },
+        {
+          "name": "histology",
+          "type": "categorical",
+          "provenance": "structured"
+        },
+        {
+          "name": "stage_at_dx",
+          "type": "categorical",
+          "values": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "unknown"
+          ],
+          "provenance": "nlp_extracted"
+        },
+        {
+          "name": "days_dx_to_index",
+          "type": "integer",
+          "provenance": "derived",
+          "note": "Relative day offsets only; no calendar dates"
+        },
+        {
+          "name": "is_de_novo_metastatic",
+          "type": "boolean",
+          "provenance": "derived"
+        }
       ]
     },
     {
       "name": "clinical_annotation_nlp",
       "grain": "one row per patient per note-derived assessment",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "day_offset", "type": "integer", "provenance": "derived" },
-        { "name": "ecog_ps", "type": "integer", "range": [0, 4], "provenance": "nlp_extracted", "nullable": true },
-        { "name": "metastatic_site", "type": "categorical", "values": ["liver", "bone", "brain", "adrenal", "lung", "pleura", "lymph_node", "other"], "provenance": "nlp_extracted" },
-        { "name": "site_present", "type": "boolean", "provenance": "nlp_extracted" },
-        { "name": "extraction_confidence", "type": "float", "range": [0, 1], "provenance": "nlp_extracted" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "day_offset",
+          "type": "integer",
+          "provenance": "derived"
+        },
+        {
+          "name": "ecog_ps",
+          "type": "integer",
+          "range": [
+            0,
+            4
+          ],
+          "provenance": "nlp_extracted",
+          "nullable": true
+        },
+        {
+          "name": "metastatic_site",
+          "type": "categorical",
+          "values": [
+            "liver",
+            "bone",
+            "brain",
+            "adrenal",
+            "lung",
+            "pleura",
+            "lymph_node",
+            "other"
+          ],
+          "provenance": "nlp_extracted"
+        },
+        {
+          "name": "site_present",
+          "type": "boolean",
+          "provenance": "nlp_extracted"
+        },
+        {
+          "name": "extraction_confidence",
+          "type": "float",
+          "range": [
+            0,
+            1
+          ],
+          "provenance": "nlp_extracted"
+        }
       ],
       "excluded_fields_note": "Radiology-derived response/progression assessments are OUTCOME fields and are deliberately absent from this file."
     },
@@ -84,66 +262,298 @@
       "name": "genomic_variant",
       "grain": "one row per patient per altered gene",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "sample_id", "type": "string", "provenance": "genomic" },
-        { "name": "hugo_symbol", "type": "string", "provenance": "genomic" },
-        { "name": "alteration_type", "type": "categorical", "values": ["missense", "nonsense", "frameshift", "splice", "inframe_indel", "amplification", "deletion", "fusion", "promoter"], "provenance": "genomic" },
-        { "name": "protein_change", "type": "string", "provenance": "genomic", "nullable": true },
-        { "name": "oncogenic_annotation", "type": "categorical", "values": ["oncogenic", "likely_oncogenic", "vus", "likely_neutral"], "provenance": "genomic" },
-        { "name": "variant_allele_frequency", "type": "float", "provenance": "genomic", "nullable": true },
-        { "name": "sample_type", "type": "categorical", "values": ["primary", "metastasis"], "provenance": "genomic" },
-        { "name": "days_dx_to_sequencing", "type": "integer", "provenance": "derived", "note": "Critical for immortal-time bias handling" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "sample_id",
+          "type": "string",
+          "provenance": "genomic"
+        },
+        {
+          "name": "hugo_symbol",
+          "type": "string",
+          "provenance": "genomic"
+        },
+        {
+          "name": "alteration_type",
+          "type": "categorical",
+          "values": [
+            "missense",
+            "nonsense",
+            "frameshift",
+            "splice",
+            "inframe_indel",
+            "amplification",
+            "deletion",
+            "fusion",
+            "promoter"
+          ],
+          "provenance": "genomic"
+        },
+        {
+          "name": "protein_change",
+          "type": "string",
+          "provenance": "genomic",
+          "nullable": true
+        },
+        {
+          "name": "oncogenic_annotation",
+          "type": "categorical",
+          "values": [
+            "oncogenic",
+            "likely_oncogenic",
+            "vus",
+            "likely_neutral"
+          ],
+          "provenance": "genomic"
+        },
+        {
+          "name": "variant_allele_frequency",
+          "type": "float",
+          "provenance": "genomic",
+          "nullable": true
+        },
+        {
+          "name": "sample_type",
+          "type": "categorical",
+          "values": [
+            "primary",
+            "metastasis"
+          ],
+          "provenance": "genomic"
+        },
+        {
+          "name": "days_dx_to_sequencing",
+          "type": "integer",
+          "provenance": "derived",
+          "note": "Critical for immortal-time bias handling"
+        }
       ]
     },
     {
       "name": "genomic_sample_level",
       "grain": "one row per sequenced sample",
       "fields": [
-        { "name": "sample_id", "type": "string", "provenance": "genomic", "role": "key" },
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "tmb_mut_per_mb", "type": "float", "provenance": "genomic" },
-        { "name": "msi_status", "type": "categorical", "values": ["stable", "indeterminate", "instable"], "provenance": "genomic" },
-        { "name": "fraction_genome_altered", "type": "float", "provenance": "genomic" },
-        { "name": "tumor_purity", "type": "float", "provenance": "genomic", "nullable": true },
-        { "name": "panel_version", "type": "categorical", "provenance": "genomic", "note": "Gene coverage differs by panel version; affects co-mutation ascertainment" }
+        {
+          "name": "sample_id",
+          "type": "string",
+          "provenance": "genomic",
+          "role": "key"
+        },
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "tmb_mut_per_mb",
+          "type": "float",
+          "provenance": "genomic"
+        },
+        {
+          "name": "msi_status",
+          "type": "categorical",
+          "values": [
+            "stable",
+            "indeterminate",
+            "instable"
+          ],
+          "provenance": "genomic"
+        },
+        {
+          "name": "fraction_genome_altered",
+          "type": "float",
+          "provenance": "genomic"
+        },
+        {
+          "name": "tumor_purity",
+          "type": "float",
+          "provenance": "genomic",
+          "nullable": true
+        },
+        {
+          "name": "panel_version",
+          "type": "categorical",
+          "provenance": "genomic",
+          "note": "Gene coverage differs by panel version; affects co-mutation ascertainment"
+        }
       ]
     },
     {
       "name": "treatment",
       "grain": "one row per patient per drug administration episode",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "drug_name", "type": "string", "provenance": "structured" },
-        { "name": "drug_class", "type": "categorical", "values": ["anti_PD1", "anti_PDL1", "anti_CTLA4", "platinum", "taxane", "antimetabolite", "targeted_TKI", "antiangiogenic", "hormonal", "ADC", "other"], "provenance": "structured" },
-        { "name": "start_day_offset", "type": "integer", "provenance": "derived" },
-        { "name": "stop_day_offset", "type": "integer", "provenance": "derived", "nullable": true, "note": "Treatment discontinuation timing. NOT an outcome field, but time-to-discontinuation is a locked OUTCOME derivative and must not be reconstructed from this field outside the confirmatory script." },
-        { "name": "line_of_therapy", "type": "integer", "provenance": "derived" },
-        { "name": "regimen_id", "type": "string", "provenance": "derived", "note": "Groups concurrent drugs into a regimen" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "drug_name",
+          "type": "string",
+          "provenance": "structured"
+        },
+        {
+          "name": "drug_class",
+          "type": "categorical",
+          "values": [
+            "anti_PD1",
+            "anti_PDL1",
+            "anti_CTLA4",
+            "platinum",
+            "taxane",
+            "antimetabolite",
+            "targeted_TKI",
+            "antiangiogenic",
+            "hormonal",
+            "ADC",
+            "other"
+          ],
+          "provenance": "structured"
+        },
+        {
+          "name": "start_day_offset",
+          "type": "integer",
+          "provenance": "derived"
+        },
+        {
+          "name": "stop_day_offset",
+          "type": "integer",
+          "provenance": "derived",
+          "nullable": true,
+          "note": "Treatment discontinuation timing. NOT an outcome field, but time-to-discontinuation is a locked OUTCOME derivative and must not be reconstructed from this field outside the confirmatory script."
+        },
+        {
+          "name": "line_of_therapy",
+          "type": "integer",
+          "provenance": "derived"
+        },
+        {
+          "name": "regimen_id",
+          "type": "string",
+          "provenance": "derived",
+          "note": "Groups concurrent drugs into a regimen"
+        }
       ]
     },
     {
       "name": "medication_non_oncologic",
       "grain": "one row per patient per concomitant medication exposure",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "rxnorm_ingredient", "type": "string", "provenance": "structured" },
-        { "name": "med_class", "type": "categorical", "values": ["antibiotic", "corticosteroid", "PPI", "statin", "metformin", "beta_blocker", "anticoagulant", "opioid", "other"], "provenance": "structured" },
-        { "name": "start_day_offset", "type": "integer", "provenance": "derived" },
-        { "name": "stop_day_offset", "type": "integer", "provenance": "derived", "nullable": true },
-        { "name": "route", "type": "categorical", "values": ["po", "iv", "other"], "provenance": "structured" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "rxnorm_ingredient",
+          "type": "string",
+          "provenance": "structured"
+        },
+        {
+          "name": "med_class",
+          "type": "categorical",
+          "values": [
+            "antibiotic",
+            "corticosteroid",
+            "PPI",
+            "statin",
+            "metformin",
+            "beta_blocker",
+            "anticoagulant",
+            "opioid",
+            "other"
+          ],
+          "provenance": "structured"
+        },
+        {
+          "name": "start_day_offset",
+          "type": "integer",
+          "provenance": "derived"
+        },
+        {
+          "name": "stop_day_offset",
+          "type": "integer",
+          "provenance": "derived",
+          "nullable": true
+        },
+        {
+          "name": "route",
+          "type": "categorical",
+          "values": [
+            "po",
+            "iv",
+            "other"
+          ],
+          "provenance": "structured"
+        }
       ]
     },
     {
       "name": "lab",
       "grain": "one row per patient per lab result",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "loinc_code", "type": "string", "provenance": "structured" },
-        { "name": "lab_name", "type": "categorical", "values": ["albumin", "ldh", "crp", "neutrophil_count", "lymphocyte_count", "platelet_count", "hemoglobin", "creatinine", "alkaline_phosphatase", "ast", "alt", "bilirubin_total", "tsh", "sodium", "calcium"], "provenance": "structured" },
-        { "name": "value", "type": "float", "provenance": "structured" },
-        { "name": "unit", "type": "string", "provenance": "structured" },
-        { "name": "day_offset", "type": "integer", "provenance": "derived" },
-        { "name": "is_baseline", "type": "boolean", "provenance": "derived", "note": "Within 30 days before index treatment start" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "loinc_code",
+          "type": "string",
+          "provenance": "structured"
+        },
+        {
+          "name": "lab_name",
+          "type": "categorical",
+          "values": [
+            "albumin",
+            "ldh",
+            "crp",
+            "neutrophil_count",
+            "lymphocyte_count",
+            "platelet_count",
+            "hemoglobin",
+            "creatinine",
+            "alkaline_phosphatase",
+            "ast",
+            "alt",
+            "bilirubin_total",
+            "tsh",
+            "sodium",
+            "calcium"
+          ],
+          "provenance": "structured"
+        },
+        {
+          "name": "value",
+          "type": "float",
+          "provenance": "structured"
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "provenance": "structured"
+        },
+        {
+          "name": "day_offset",
+          "type": "integer",
+          "provenance": "derived"
+        },
+        {
+          "name": "is_baseline",
+          "type": "boolean",
+          "provenance": "derived",
+          "note": "Within 30 days before index treatment start"
+        }
       ]
     },
     {
@@ -151,9 +561,27 @@
       "grain": "one row per patient",
       "description": "Partition assignment only. Which split a patient is in is not an outcome; the outcomes themselves stay locked.",
       "fields": [
-        { "name": "patient_id", "type": "string", "provenance": "structured", "role": "fk" },
-        { "name": "partition", "type": "categorical", "values": ["exploration", "test", "temporal_holdout"], "provenance": "derived" },
-        { "name": "partition_seed", "type": "integer", "provenance": "derived" }
+        {
+          "name": "patient_id",
+          "type": "string",
+          "provenance": "structured",
+          "role": "fk"
+        },
+        {
+          "name": "partition",
+          "type": "categorical",
+          "values": [
+            "exploration",
+            "test",
+            "temporal_holdout"
+          ],
+          "provenance": "derived"
+        },
+        {
+          "name": "partition_seed",
+          "type": "integer",
+          "provenance": "derived"
+        }
       ]
     }
   ],
@@ -168,5 +596,6 @@
       "vital status"
     ],
     "prohibition": "Reconstructing any of the above from fields in this file (e.g. deriving survival from last-contact timing, or progression from treatment-switch timing) is a violation of outcome-blinding. Flag and stop."
-  }
+  },
+  "provenance": "Counts computed from the real msk_chord_2024 clinical export on 2026-09-04. Aggregate and outcome-free: derived from the covariate table only, after the two overall survival columns were split out to pipeline/locked/data/. No patient-level value appears here."
 }
