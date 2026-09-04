@@ -1,0 +1,1425 @@
+{
+  "schema_version": "1.0",
+  "stage": "filtered",
+  "generated_utc": "2026-09-04T00:00:00Z",
+  "source_artifact": "pipeline/data/candidate_hypotheses.json",
+  "hypotheses": [
+    {
+      "id": "H-001",
+      "statement": "In advanced NSCLC receiving first-line systemic therapy, STK11 loss-of-function is associated with shorter overall survival to a similar degree in immune-checkpoint-inhibitor-containing regimens and in platinum-doublet regimens without an ICI, i.e. the treatment-by-STK11 interaction on overall survival is null and the marker is prognostic rather than predictive.",
+      "origin": {
+        "gap_type": "contradiction",
+        "supporting_claims": [
+          "C-003",
+          "C-011",
+          "C-012",
+          "C-013",
+          "C-037",
+          "C-038",
+          "C-039",
+          "C-049"
+        ],
+        "rationale": "This is the central declared direct contradiction in the graph (C-003 vs C-013) and the one the whole field turns on. The resistance claim rests almost entirely on single-arm, ICI-only cohorts (C-003, C-039, C-040) which cannot separate prognosis from prediction. Every design in the graph that carries a non-ICI control arm points the other way: Papillon-Cavanagh's interaction HR is 1.05 (p=0.785) for PFS and 1.13 (p=0.540) for OS (C-012, C-013); Shire reports HR 1.4 for STK11 on first-line chemotherapy with no ICI (C-037) and the same point estimate, nonsignificant, on first-line ICI (C-038); KEYNOTE-042 randomization shows a numerically LARGER pembrolizumab benefit in STK11-mutants (C-018). I expect the data to favour C-012/C-013/C-037 over C-003/C-039. The mapper found no verified post-2022 cohort with n>500 reporting a formal treatment-by-STK11 interaction test, and my own searches did not find one either; that exact design is the gap. A large clinicogenomic cohort with both ICI-treated and chemotherapy-only first-line patients is uniquely able to supply it.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 32312757 (Papillon-Cavanagh, ESMO Open 2020)",
+            "summary": "Looked directly and found nothing: no interaction between STK11 mutation and anti-PD-1/PD-L1 treatment on real-world PFS (HR 1.05, 0.76-1.44, p=0.785) or OS (HR 1.13, 0.76-1.67, p=0.540). This is the strongest existing null and it substantially discounts novelty; the remaining gap is that it is a 2020 non-squamous-only cohort with 574 ICI-treated patients, underpowered for subgroup interaction and predating chemo-immunotherapy as the dominant first-line standard.",
+            "n": 2276
+          },
+          {
+            "identifier": "J Clin Oncol 43 (16_suppl) e20504, ASCO 2025 abstract",
+            "summary": "Meta-analysis of six randomized and one retrospective comparative study: chemo-immunotherapy retained an OS benefit over chemotherapy alone despite STK11 mutation (HR 0.80, 0.67-0.97), KEAP1 (0.76, 0.59-0.98) and KRAS (0.67, 0.55-0.82). A randomized-comparator null for the predictive interpretation. Conference abstract only, not a full paper.",
+            "n": 1596
+          },
+          {
+            "identifier": "PMID 34500370",
+            "summary": "Commentary/analysis explicitly titled 'STK11/LKB1 and KEAP1 mutations in non-small cell lung cancer: Prognostic rather than predictive?' \u2014 the prognostic interpretation is already in print, so the novelty here is the formal interaction estimate at modern scale, not the idea.",
+            "n": null
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function alteration in the sequenced tumour",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, or homozygous deletion, or a missense variant annotated oncogenic/likely-oncogenic; excludes variants of unknown significance",
+        "treatment_criteria": "first-line systemic therapy containing an anti-PD-1 or anti-PD-L1 agent (with or without platinum doublet)"
+      },
+      "comparator": {
+        "description": "Two explicit contrasts crossed in one model: (a) STK11 wild-type patients receiving the same first-line ICI-containing regimen, and (b) STK11 loss-of-function patients receiving first-line platinum-doublet chemotherapy with no ICI. The estimand is the ratio of the STK11 effect across the two treatment strata."
+      },
+      "population": {
+        "description": "Adults with advanced or metastatic NSCLC who received first-line systemic therapy and had tumour next-generation sequencing covering STK11",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "stage IIIB-IV or recurrent disease at start of first-line therapy",
+          "tumour NGS panel covering STK11, KRAS, KEAP1, TP53"
+        ],
+        "exclusion": [
+          "activating EGFR mutation or ALK/ROS1 fusion",
+          "no systemic therapy recorded"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line systemic therapy",
+      "proposed_covariates": [
+        "age at start of first-line therapy",
+        "sex",
+        "smoking status and pack-year burden",
+        "ECOG performance status at treatment start",
+        "PD-L1 tumour proportion score band",
+        "histology (adenocarcinoma vs squamous vs other)",
+        "KRAS, KEAP1, TP53 and SMARCA4 co-mutation status",
+        "tumour mutational burden",
+        "year of treatment initiation (era effects in ICI availability)",
+        "time from advanced diagnosis to sequencing report, with left truncation at the sequencing date to remove immortal time between diagnosis and genomic ascertainment"
+      ],
+      "plausibility": {
+        "score": "strong",
+        "causal_story": "LKB1 loss removes AMPK-dependent restraint on mTORC1 and on anabolic one-carbon flux, raising proliferative capacity, lineage plasticity and metastatic competence; co-selected KEAP1/NRF2 activation adds broad cytoprotection against oxidative and cytotoxic stress. The survival deficit is therefore generated by tumour growth biology and is realised on platinum doublet as much as on PD-(L)1 blockade. The immune-evasion arm (STING silencing C-029/C-030, immunoproteasome failure C-031) is real but on this account is a minor contributor to total hazard. The chain predicts a non-null STK11 main effect in BOTH strata and a null interaction; it is falsified if the STK11 hazard is materially larger in the ICI stratum. That contrast is the estimand, so the hypothesis tests the mechanism rather than restating the association.",
+        "mechanism_steps": [
+          "STK11 loss-of-function abolishes LKB1 kinase activity and hence AMPK activation under energy stress.",
+          "Loss of AMPK restraint de-represses mTORC1 and anabolic serine/one-carbon flux, supporting growth under nutrient and oxidative stress.",
+          "The resulting phenotype raises the hazard of death independently of which systemic agent is given.",
+          "Co-selected KEAP1/NRF2 activation blunts platinum cytotoxicity and oxidative effector mechanisms alike \u2014 again treatment-independent.",
+          "LKB1-dependent immune defects exist but contribute too little ICI-specific harm to generate a detectable interaction.",
+          "Therefore STK11 HR > 1 on ICI, STK11 HR > 1 of similar size on chemotherapy, ratio of the two \u2248 1."
+        ],
+        "alternative_explanations": [
+          "Non-differential exposure misclassification (mutation is a poor proxy for functional loss, C-034) dilutes the effect equally in both arms and hides a genuine ICI-specific difference.",
+          "Comparator contamination: most first-line chemotherapy-only patients receive an ICI at second line, so OS from first-line start mixes both treatment histories and biases the interaction toward the null.",
+          "The modern chemotherapy-only stratum is small and atypical, so the interaction is driven by that stratum's peculiarities rather than by STK11 biology."
+        ],
+        "confounding_risks": [
+          "Indication bias is the dominant threat: first-line platinum doublet WITHOUT an ICI now usually signals a contraindication (autoimmune disease, transplant, chronic steroids, organ dysfunction, poor PS). Those patients differ prognostically in ways no recorded covariate captures, and the interaction term is exactly what indication bias corrupts.",
+          "Era effects: the chemotherapy-only stratum concentrates before 2016 and after 2018 for different reasons while supportive care and later-line options changed; calendar year is a proxy, not a fix.",
+          "Immortal time: STK11 is ascertained at sequencing, which postdates diagnosis and often first-line start; left truncation at the sequencing report date is required and the truncation interval may itself differ by regimen.",
+          "Smoking: correlated with STK11 mutation, mutational burden, comorbidity and regimen tolerance, and captured unreliably.",
+          "Panel ascertainment: STK11 callability varies by panel version and tissue adequacy, so 'wild-type' mixes true wild-type with never-tested, and that mixture tracks institution and era, which track treatment.",
+          "Scale dependence: the hazard ratio is non-collapsible, so equal biological effects with unequal baseline hazards can yield a spuriously non-null interaction. Fix the interaction scale in advance."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-002",
+      "statement": "In advanced non-squamous NSCLC treated with first-line ICI-containing therapy, KEAP1 loss-of-function rather than STK11 loss-of-function carries the survival signal: in a model containing both genes, the KEAP1 term remains associated with shorter overall survival while the STK11 term attenuates towards the null relative to its unadjusted estimate.",
+      "origin": {
+        "gap_type": "contradiction",
+        "supporting_claims": [
+          "C-014",
+          "C-024",
+          "C-026",
+          "C-047",
+          "C-048",
+          "C-049"
+        ],
+        "rationale": "The graph disagrees about which of the two co-occurring genes is doing the work. In the Japanese C-CAT cohort KEAP1 was significantly detrimental (HR 1.89, 1.18-3.03, p=0.008) while STK11 was not (C-024 vs C-023). De Giglio reports the opposite ordering, with STK11 surviving adjustment for KEAP1 (C-026). Papillon-Cavanagh finds neither interacts with treatment (C-012, C-014). The two genes co-occur often enough that most published STK11 estimates are partly KEAP1 estimates, and almost no cohort in the graph is large enough to hold one constant while estimating the other. I expect KEAP1 to dominate, because the NRF2-activated state it produces confers broad cytoprotection and chemo/radio-resistance that acts on survival through a treatment-independent route, whereas the STK11 signal in the graph repeatedly evaporates when a non-ICI arm or a KRAS-wildtype stratum is introduced. This is a mutual-adjustment question a large cohort answers well and a trial subgroup analysis answers badly.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "medRxiv 10.64898/2026.01.09.26343779 (PIONeeR)",
+            "summary": "Prospective multicentre biomarker cohort in which NEITHER gene predicted primary resistance: STK11 OR 1.17 (0.634-2.17, p-adj 0.896), KEAP1 OR 0.663 (0.344-1.28, p-adj 0.58). A double null that weakens the premise that either gene carries a large ICI-specific signal. Preprint, not peer reviewed, second-line-plus population.",
+            "n": 305
+          },
+          {
+            "identifier": "PMID 39709652 (De Giglio, Lung Cancer 2025)",
+            "summary": "Already performed the mutual adjustment in the opposite direction and found STK11 detrimental to OS after adjusting for KRAS, TP53, KEAP1 and SMARCA4 (multivariable HR 1.97, p=0.025). Directly contradicts the direction I predict; recorded here so the prediction is scored against the strongest opposing prior result rather than a straw man. Single-centre, n=145.",
+            "n": 145
+          },
+          {
+            "identifier": "PMID 32312757 (Papillon-Cavanagh, ESMO Open 2020)",
+            "summary": "No KEAP1-by-treatment interaction on rwPFS (HR 0.93, 0.67-1.28, p=0.653) or OS (HR 0.98, 0.66-1.45, p=0.913) \u2014 so if KEAP1 carries the signal it is also prognostic, not predictive.",
+            "n": 574
+          }
+        ]
+      },
+      "exposure": {
+        "description": "KEAP1 loss-of-function alteration, estimated jointly with STK11 loss-of-function in the same model",
+        "genomic_criteria": "KEAP1 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense; STK11 defined identically and entered as a separate term with a KEAP1 x STK11 product term",
+        "treatment_criteria": "first-line anti-PD-1/PD-L1 monotherapy or chemo-immunotherapy"
+      },
+      "comparator": {
+        "description": "Patients wild-type for both KEAP1 and STK11 receiving the same first-line ICI-containing regimen; the single-mutant strata (KEAP1-only, STK11-only) are the two contrasts of interest against that common reference."
+      },
+      "population": {
+        "description": "Adults with advanced non-squamous NSCLC on first-line ICI-containing therapy with panel sequencing covering both STK11 and KEAP1",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD"
+        ],
+        "inclusion": [
+          "panel covers STK11 and KEAP1 with adequate coverage for both"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "squamous histology (handled separately; see stage_notes)"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy",
+      "proposed_covariates": [
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "ECOG performance status",
+        "PD-L1 TPS band",
+        "KRAS mutation status",
+        "TP53 and SMARCA4 status",
+        "tumour mutational burden",
+        "sequencing panel identity and gene coverage (KEAP1 and STK11 callability differ across panels)",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "moderate",
+        "causal_story": "KEAP1 loss-of-function prevents CUL3-mediated degradation of NRF2, so NRF2 accumulates constitutively and drives a glutathione/thioredoxin/NQO1 antioxidant program with glutaminolysis dependence. That state resists platinum-induced and ROS-mediated killing and supports proliferation under stress, shortening survival on any cytotoxic backbone; constitutive NRF2 also dampens tumour-intrinsic cGAS-STING output, lowering T-cell recruitment. Because STK11 and KEAP1 co-occur far above chance, an STK11 coefficient fitted without a KEAP1 term absorbs part of the KEAP1 effect. Prediction: with both terms present KEAP1 survives and STK11 attenuates. The falsifiable step is the assignment of the shared signal to the NRF2 side \u2014 C-026 did this adjustment and found the opposite ordering.",
+        "mechanism_steps": [
+          "KEAP1 loss-of-function blocks CUL3/KEAP1-mediated ubiquitination and degradation of NRF2.",
+          "Constitutive NRF2 induces a broad antioxidant and detoxification program plus glutaminolysis dependence.",
+          "That program lowers the killing efficiency of platinum and of oxidative effector mechanisms and supports growth under stress \u2014 no ICI required for the penalty to appear.",
+          "NRF2 activation additionally suppresses tumour-intrinsic type I interferon, lowering CXCL9/10 and T-cell recruitment (a smaller, immune component).",
+          "Because the genes co-occur, the marginal STK11 association is partly a KEAP1 association carried by co-occurrence.",
+          "In a joint model KEAP1 retains its coefficient and STK11 moves toward the null relative to its unadjusted value."
+        ],
+        "alternative_explanations": [
+          "The reverse partition is true and STK11 carries the signal: C-026 reports multivariable HR 1.97 for STK11 after adjustment for KRAS, TP53, KEAP1 and SMARCA4 \u2014 an opposing result, not an absence of evidence.",
+          "Neither gene is causal: both mark a shared aggressive, low-immune transcriptional state, and the mutual-adjustment ordering is then decided by which gene the panel measures better, not by biology.",
+          "Attenuation of the STK11 term is produced by non-collapsibility of the Cox hazard ratio rather than by confounding \u2014 adding any strong prognostic covariate shifts other coefficients toward the null even when it is not a confounder, so part of the predicted pattern arises with zero causal contribution from KEAP1."
+        ],
+        "confounding_risks": [
+          "Non-collapsibility, as above: because the hypothesis compares an adjusted with an unadjusted coefficient, some predicted attenuation is guaranteed by the model form. The informative content is which gene retains an association, not the size of the shift.",
+          "Collinearity: strong co-occurrence makes both coefficients unstable and the ordering fragile, and the identifying single-mutant strata are the smallest cells.",
+          "Ascertainment, missing-not-at-random: KEAP1 entered several commercial panels later than STK11, so co-mutation status is systematically missing for older assays and late-adopting institutions; that missingness tracks era and treatment.",
+          "Smoking: a common cause of KEAP1 mutation, STK11 mutation and worse outcome, recorded unreliably.",
+          "Prognostic vs predictive: ICI-only design, so whichever gene wins cannot be shown to be ICI-specific. C-014 reports no KEAP1-by-treatment interaction, so the prior expectation is that the winner is prognostic.",
+          "Immortal time via sequencing-conditioned entry; left truncation at the sequencing report date is required."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-003",
+      "statement": "The association between STK11 loss-of-function and shorter overall survival on immune checkpoint inhibition is smaller in patients of East Asian genetic ancestry than in patients of European genetic ancestry with advanced lung adenocarcinoma, i.e. genetic ancestry modifies the STK11 effect.",
+      "origin": {
+        "gap_type": "contradiction",
+        "supporting_claims": [
+          "C-003",
+          "C-023",
+          "C-024",
+          "C-025",
+          "C-032",
+          "C-034"
+        ],
+        "rationale": "The gap report classifies C-003 vs C-023 as a direct contradiction with no context difference recorded, but the cohorts differ on exactly one thing the mapper could not encode as context: ancestry. Skoulidis (US, ancestry unreported) finds OS HR 1.99; the Japanese C-CAT cohort of 343 finds no significant STK11 OS effect while KEAP1 remains significant in the same model. There is a mechanistic reason to expect a real difference rather than noise: STK11 truncating mutations are strongly tobacco-associated, and East Asian lung adenocarcinoma cohorts carry a far higher never-smoker fraction, so an East Asian STK11-mutant tumour is more often a low-smoking-signature tumour whose STK11 event sits in a different co-mutation background (fewer KRAS, more EGFR-adjacent biology). If the STK11 'effect' is partly a marker for smoking-driven aggressive biology, it should shrink where that background is absent. The mapper found no US cohort with ancestry annotation analysing STK11 x ICI at all; a clinicogenomic cohort with genetically inferred ancestry can test this directly instead of comparing across papers.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMC8577674, 'Disparities in Tumor Mutational Burden, Immunotherapy Use, and Outcomes Based on Genomic Ancestry in NSCLC'",
+            "summary": "Looked at ICI outcomes stratified by genomic ancestry and reported that the TMB-survival relationship held across ancestral groups; it did not report an STK11-by-ancestry interaction, so the specific gap survives, but it shows the ancestry-stratified outcome analysis is a route others have already walked without finding an STK11 signal worth reporting.",
+            "n": null
+          },
+          {
+            "identifier": "npj Precision Oncology 2024, s41698-024-00644-4 (PMC11271287)",
+            "summary": "Ancestry-associated co-alteration landscape of KRAS/EGFR-altered non-squamous NSCLC: STK11 and KEAP1 co-alteration frequencies differ by ancestry (higher in European and African ancestry KRAS-mutant tumours), but the paper reports prevalence only and states the outcome implication as an expectation, not a result. No effect estimate exists to discount.",
+            "n": null
+          },
+          {
+            "identifier": "PMID 39037971 (Liang, PLOS ONE 2024)",
+            "summary": "The Japanese null itself: in 343 lung adenocarcinoma patients on ICIs, KEAP1 and TP53 were associated with inferior OS and STK11 was not. This is a genuine buried-ish negative for STK11 in an East Asian population and it is the reason to predict attenuation rather than merely to note that nobody looked.",
+            "n": 343
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in patients of East Asian genetic ancestry",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense; genetic ancestry assigned from germline-informative markers on the sequencing panel where available, otherwise self-reported race/ethnicity as a fallback with the two analyses reported separately",
+        "treatment_criteria": "any line of anti-PD-1/PD-L1 therapy, with line entered as a covariate"
+      },
+      "comparator": {
+        "description": "STK11 loss-of-function patients of European genetic ancestry receiving the same class of therapy, with STK11 wild-type patients of each ancestry group as the within-stratum reference; the estimand is the ratio of the two ancestry-specific STK11 hazard ratios."
+      },
+      "population": {
+        "description": "Adults with advanced lung adenocarcinoma treated with ICI-containing therapy in a US clinicogenomic cohort with genetic ancestry annotation",
+        "oncotree_codes": [
+          "LUAD",
+          "NSCLC"
+        ],
+        "inclusion": [
+          "ancestry assignable from genomic or recorded demographic data",
+          "at least one ICI-containing line of therapy"
+        ],
+        "exclusion": [
+          "ancestry unassignable",
+          "EGFR-activating mutation or ALK/ROS1 fusion, which would confound the never-smoker-enriched stratum"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of the first ICI-containing line of therapy",
+      "proposed_covariates": [
+        "smoking status and pack-years (the primary competing explanation for any ancestry difference)",
+        "age",
+        "sex",
+        "ECOG performance status",
+        "PD-L1 TPS band",
+        "KRAS and KEAP1 co-mutation status",
+        "line of therapy",
+        "treating institution or site",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "As proposed: East Asian ancestry associates with a higher never-smoker fraction, so an STK11 event there more often sits in a low-tobacco-signature, KRAS-wildtype background; if the STK11 association is largely a marker for smoking-driven aggressive biology and KRAS-dependent STING silencing, it shrinks where that background is absent. The arithmetic is coherent but every causal node is smoking or co-mutation status \u2014 measured directly and adjusted. There is no ancestry-to-LKB1 step anywhere in the chain, so the mechanism makes no prediction that the covariates do not make better, and the ancestry label contributes only confounding.",
+        "mechanism_steps": [
+          "East Asian genetic ancestry associates with a higher never-smoker fraction in lung adenocarcinoma. (Demographic, not mechanistic.)",
+          "Never-smoker tumours carry a lower tobacco mutational signature and fewer activating KRAS alleles. (Directly measured; a covariate.)",
+          "If the STK11 effect requires a KRAS-driven metabolic background (C-029/C-030) or is partly a smoking marker, it is smaller in that background. (This is the content of H-009 and H-004, not of ancestry.)",
+          "Therefore the STK11 hazard ratio is smaller in East Asian than European ancestry patients \u2014 which follows only if the ancestry term is left unadjusted for the very variables that generate it."
+        ],
+        "alternative_explanations": [
+          "The entire ancestry difference is smoking and co-mutation composition, which is directly estimable and makes the ancestry contrast redundant.",
+          "Cross-cohort artefact: C-023 differs from the US positives in ICI access, line of therapy and panel content, and its abstract names KEAP1 and TP53 while simply omitting STK11 \u2014 a reporting difference, not an effect estimate.",
+          "Differential ascertainment: panels and variant-calling thresholds differ across institutions serving different ancestry populations, so the exposure is measured differently in the two strata."
+        ],
+        "confounding_risks": [
+          "Ancestry in a US clinicogenomic cohort is confounded with treating institution, insurance, socioeconomic position, time from symptom onset to treatment, and access to later-line therapy \u2014 all strongly prognostic and none separable here.",
+          "Smoking is simultaneously the proposed mechanism, the leading confounder and an adjustment covariate: adjusting removes the hypothesis, not adjusting removes the interpretation.",
+          "Self-reported race as a fallback misclassifies admixed patients non-randomly and correlates with the institutional confounders above.",
+          "Excluding EGFR/ALK removes most of the never-smoker East Asian stratum; conditioning on ancestry-linked never-smoker enrichment AND absence of a canonical driver conditions on two descendants of a common cause, a collider-stratification risk.",
+          "Prognostic vs predictive: ICI-only, no comparator arm, so even a clean ancestry interaction could not distinguish modification of the treatment effect from modification of the disease course.",
+          "Immortal time via sequencing-conditioned entry, with truncation intervals differing by institution and hence by ancestry composition."
+        ],
+        "verdict": "reject",
+        "reject_reason": "The exposure is a proxy for variables already in the model. Every link in the chain after 'East Asian ancestry' is a smoking or co-mutation variable \u2014 higher never-smoker fraction, lower tobacco signature, fewer KRAS alleles \u2014 and smoking status, pack-years, KRAS and KEAP1 status are all entered as covariates in the same model. Adjusted, the ancestry term tests nothing new; unadjusted, this is a smoking analysis wearing an ancestry label. No step runs from germline ancestry to LKB1 signalling, STING regulation or antigen processing. The one route that could have made it mechanistic \u2014 germline HLA class I supertype diversity, which does vary by ancestry and would modify precisely the presentation step LKB1 loss degrades (C-031) \u2014 is neither proposed nor recoverable from the stated exposure definition. The empirical anchor is not an ancestry contrast: C-023 is a Japanese national-database cohort compared across papers with US cohorts differing in health system, ICI access, line distribution, referral pattern and panel content. Within a single US cohort the East-Asian-versus-European contrast is confounded with institution, insurance, socioeconomic position and time to treatment, none of which the design separates. Finally, the same never-smoker premise is used by H-004 to predict a LARGER STK11 effect and here to predict a SMALLER one, which shows the premise fixes no direction and cannot support either."
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "H-004",
+      "statement": "Among never-smokers with advanced NSCLC receiving first-line ICI-containing therapy, STK11 loss-of-function is associated with a larger reduction in overall survival relative to STK11 wild-type than it is among ever-smokers, i.e. smoking status modifies the STK11 effect in the direction of a stronger effect in never-smokers.",
+      "origin": {
+        "gap_type": "population_gap",
+        "supporting_claims": [
+          "C-032",
+          "C-025",
+          "C-029",
+          "C-031",
+          "C-003",
+          "C-015"
+        ],
+        "rationale": "Smoking is unspecified in 48 of 50 claims and is the graph's first-order confounding gap. The reason to expect a genuine difference, rather than merely noting nobody looked, is a specificity argument: in heavy smokers STK11 mutation is one of many tobacco-signature truncating events and travels with a high-TMB, inflamed background that partly offsets it, so an STK11 call there is a weak proxy for functional LKB1 loss. In never-smokers an STK11 truncating event is far less likely to be incidental, and Deng et al. found the counterintuitive result that LKB1 deficiency correlates with ELEVATED TMB specifically in NSCLCs from non-smokers (C-032) while still compromising immunoproteasome-dependent antigen presentation (C-031) and STING-dependent priming (C-029). That is the cleanest possible setting for the mechanism: high neoantigen supply, broken presentation, no smoking-driven inflammation to mask it. If the mechanism is real the effect should be larger, not smaller, where the confounder is absent \u2014 which is the opposite of what a pure-confounding account predicts, so the two accounts are distinguishable.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 34740862 (Ricciuti, JTO 2022) as reported in secondary summaries",
+            "summary": "An ever-smoker subgroup was analysed and STK11 and KEAP1 had no impact on immunotherapy efficacy among KRAS-wildtype/EGFR-wildtype/ALK-wildtype tumours and among ever smokers. This is a partial null in the ever-smoker stratum. It does not close the never-smoker stratum, which was not reported, but it does mean the smoking dimension has been touched and the novelty is in the never-smoker arm specifically.",
+            "n": 1261
+          },
+          {
+            "identifier": "PMC12364628",
+            "summary": "Real-world dose-dependent analysis of smoking status and cumulative smoking dose as a prognostic stratifier in advanced NSCLC immunotherapy. Establishes that smoking dose itself shifts ICI outcomes, which is the main confounding pathway this hypothesis must adjust for; it reports no STK11 interaction.",
+            "n": null
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in never-smokers",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "clinical_criteria": "never-smoker, defined as lifetime consumption below the cohort's standard never-smoker threshold as recorded in the structured or NLP-extracted smoking history",
+        "treatment_criteria": "first-line anti-PD-1/PD-L1 monotherapy or chemo-immunotherapy"
+      },
+      "comparator": {
+        "description": "STK11 wild-type never-smokers on the same first-line ICI-containing regimen, with the ever-smoker STK11-mutant versus ever-smoker STK11-wildtype contrast as the second stratum; the estimand is the smoking-by-STK11 interaction, not either simple effect."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC on first-line ICI-containing therapy with a recorded smoking history and panel sequencing covering STK11",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "smoking status recorded and classifiable as never versus ever"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion, which dominate the never-smoker stratum and would otherwise drive the contrast",
+          "smoking status missing or unclassifiable"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy",
+      "proposed_covariates": [
+        "pack-years as a continuous term within ever-smokers",
+        "age",
+        "sex",
+        "ECOG performance status",
+        "PD-L1 TPS band",
+        "tumour mutational burden (on the causal path, so reported with and without adjustment)",
+        "KRAS and KEAP1 co-mutation status",
+        "histology",
+        "misclassification of NLP-extracted smoking status as a sensitivity analysis",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "moderate",
+        "causal_story": "In an ever-smoker tumour, tobacco mutagenesis generates many truncating passenger events, so an STK11 truncating call has lower positive predictive value for complete functional LKB1 loss, and the accompanying high-neoantigen inflamed background partly offsets whatever defect exists. In a never-smoker tumour an STK11 event is much more likely a selected driver with a second hit, so misclassification is lower; LKB1 loss there still raises mutational burden (C-032, observed in non-smokers specifically) while STING silencing (C-029/C-030) and immunoproteasome failure (C-031) block conversion of that supply into a CD8 response, with no smoking-driven inflammation to compensate. Net: a larger STK11 hazard among never-smokers. This is a mechanism rather than subgroup fishing because the pure-confounding account predicts the effect should SHRINK where smoking is absent, so the sign of the interaction discriminates.",
+        "mechanism_steps": [
+          "Tobacco mutagenesis produces a high background rate of truncating events, so among ever-smokers some STK11 truncating calls are passengers or subclonal and do not abolish LKB1 function.",
+          "The exposure is therefore more misclassified in ever-smokers, attenuating the estimate in that stratum.",
+          "In never-smokers an STK11 event is more likely clonal, biallelic and functionally complete, so the downstream chain is actually engaged.",
+          "LKB1 deficiency raises TMB in non-smokers specifically (C-032): neoantigen supply is present while presentation and priming are broken (C-031, C-029).",
+          "Ever-smoker tumours carry a smoking-driven inflamed microenvironment that partially substitutes for missing innate priming; never-smoker tumours do not.",
+          "Therefore the STK11 hazard ratio is larger among never-smokers \u2014 the opposite sign to the pure smoking-confounding account."
+        ],
+        "alternative_explanations": [
+          "Chance in a small stratum: never-smoker, EGFR/ALK-wildtype, STK11-mutant NSCLC is a rare cell and an interaction estimated there is unstable.",
+          "Residual driver heterogeneity: after excluding EGFR and ALK the never-smoker stratum is enriched for MET exon 14, RET and ERBB2 biology with distinct prognosis and ICI sensitivity, so the interaction could be a driver-composition effect.",
+          "Non-random NLP misclassification of smoking status (light and remote histories recorded inconsistently) pushes genuinely exposed patients into the never-smoker cell."
+        ],
+        "confounding_risks": [
+          "Collider stratification: conditioning on never-smoker status AND absence of EGFR/ALK conditions on two descendants of the same tumour-origin biology, which can induce association between STK11 and unmeasured prognostic factors within the stratum.",
+          "Smoking dose is the effect modifier and is measured worst at the never/ever boundary that defines the strata; pack-year capture is biased toward heavier smokers.",
+          "Prognostic vs predictive: no non-ICI arm, so a positive interaction could equally be a modified prognostic effect. The hypothesis is materially stronger if crossed with the chemotherapy stratum of H-001.",
+          "TMB lies on the causal path (C-032) yet is listed as a covariate; adjusted and unadjusted estimates answer different questions and must not be pooled.",
+          "Differential ascertainment: never-smokers are sequenced earlier and more completely because driver testing is standard in that group, so left-truncation intervals differ between the compared strata.",
+          "Indication: never-smokers with PD-L1-low disease receive chemo-immunotherapy more often than monotherapy, so regimen composition differs across interaction cells."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-005",
+      "statement": "In patients aged 75 or older with advanced NSCLC receiving first-line ICI-containing therapy, STK11 loss-of-function is associated with a larger reduction in overall survival relative to STK11 wild-type than in patients under 65.",
+      "origin": {
+        "gap_type": "population_gap",
+        "supporting_claims": [
+          "C-027",
+          "C-009",
+          "C-007",
+          "C-016",
+          "C-026",
+          "C-003"
+        ],
+        "rationale": "The mapper found no claim reporting an age-stratified STK11 effect and no cohort reporting an age range in a capturable form. The reason to expect an age difference is the myeloid arm of the mechanism: Koyama reports that LKB1 deficiency drives tumour-infiltrating neutrophil accumulation with T-cell-suppressive cytokine production (C-027), and that arm is contested rather than refuted (Skoulidis failed to reproduce it in a different mouse model, C-009). Ageing independently shifts haematopoiesis toward myeloid output and raises circulating neutrophil-to-lymphocyte ratio while shrinking the naive T-cell repertoire available for de novo priming. If the LKB1-loss phenotype works partly by adding myeloid suppression on top of a defective priming signal, its cost should be highest in hosts whose priming reserve is already lowest. This is also a subgroup that randomized trials systematically under-enrol and a real-world cohort over-represents, which is exactly the comparative advantage argument. A null here would be informative, because it would push the mechanism toward the tumour-intrinsic STING/antigen-presentation account (C-029, C-031) and away from the host-myeloid account.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 39709652 (De Giglio, Lung Cancer 2025)",
+            "summary": "Age was included only as an adjustment covariate; no age-stratified STK11 estimate or age interaction was reported. Searches for an STK11-by-age interaction in NSCLC immunotherapy returned no primary result, so this gap is genuinely open rather than quietly filled \u2014 but it is also open because nobody has thought it interesting, which is the weaker kind of gap.",
+            "n": 145
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in patients aged 75 or older at start of first-line therapy",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "clinical_criteria": "age at least 75 years at start of first-line systemic therapy",
+        "treatment_criteria": "first-line anti-PD-1/PD-L1 monotherapy or chemo-immunotherapy"
+      },
+      "comparator": {
+        "description": "STK11 wild-type patients aged 75 or older on the same regimen, with the corresponding STK11-mutant versus wild-type contrast among patients under 65 as the second stratum; the estimand is the age-band-by-STK11 interaction."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC on first-line ICI-containing therapy with recorded age at treatment start and panel sequencing covering STK11",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "age at first-line therapy recorded"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "patients aged 65-74, who are excluded from the primary contrast and reported separately"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy",
+      "proposed_covariates": [
+        "ECOG performance status (strongly age-correlated and the main competing explanation)",
+        "comorbidity burden where recorded",
+        "sex",
+        "smoking status and pack-years",
+        "PD-L1 TPS band",
+        "regimen received (monotherapy versus chemo-immunotherapy, since older patients are preferentially given monotherapy)",
+        "dose reductions or early discontinuation where recorded",
+        "KRAS and KEAP1 co-mutation status",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "As proposed: LKB1 loss increases CXCL/IL-6-driven neutrophil and MDSC accumulation with T-cell suppression (C-027, mouse), and ageing independently skews haematopoiesis toward myeloid output while shrinking the naive T-cell repertoire, so the two insults compound and the STK11 penalty is largest after 75. The compounding step is asserted, not demonstrated; the underlying myeloid claim was not reproduced in a second mouse model (C-009); and the opposite saturation argument follows just as readily from the same biology. No step predicts ICI-specificity, and the age contrast is dominated by competing mortality and treatment-intensity differences.",
+        "mechanism_steps": [
+          "LKB1 loss increases pro-inflammatory cytokine output and tumour-associated neutrophil/MDSC accumulation. (C-027, mouse; contradicted by C-009 in a different mouse model.)",
+          "Those myeloid cells suppress T-cell activity in the tumour microenvironment. (Mouse.)",
+          "Ageing shifts haematopoiesis toward myeloid output and shrinks the naive T-cell repertoire available for de novo priming. (Established, but host-level and not STK11-specific.)",
+          "The two effects compound rather than saturate, so the marginal cost of LKB1-driven suppression is larger in an aged host. (Asserted; the saturation alternative predicts the opposite sign.)",
+          "Therefore the STK11 hazard ratio is larger at 75+ than under 65. (Direction not fixed by the preceding steps.)"
+        ],
+        "alternative_explanations": [
+          "Competing non-cancer mortality in the 75+ stratum dilutes any tumour-genotype effect on overall survival, which predicts a smaller \u2014 not larger \u2014 STK11 hazard ratio in the elderly, so the leading alternative reverses the claimed direction.",
+          "Regimen composition: patients 75+ preferentially receive ICI monotherapy or dose-attenuated chemo-immunotherapy, so an apparent age-by-STK11 interaction may be a regimen-by-STK11 interaction (which is H-010's question) mislabelled as age.",
+          "Selection into sequencing: fitter elderly patients are preferentially sequenced, so the 75+ genomic cohort is a survivor-selected subgroup with atypical prognosis."
+        ],
+        "confounding_risks": [
+          "ECOG performance status and comorbidity burden are strongly age-correlated, poorly recorded in real-world data, and act directly on the endpoint; residual confounding on this axis alone can generate or erase the interaction.",
+          "Indication bias: regimen choice, dose intensity and early discontinuation all differ systematically after 75 and are only partially recorded.",
+          "Competing risks: overall survival in the elderly mixes cancer and non-cancer death, so the estimand is not the same quantity in the two age bands.",
+          "Prognostic vs predictive: ICI-only design with no comparator arm; a positive result cannot be attributed to checkpoint blockade.",
+          "Immortal time: sequencing-conditioned entry selects harder in the elderly, where early death before sequencing is more common.",
+          "Ascertainment: older patients are sequenced on smaller or older panels more often, so STK11 callability differs across the compared bands."
+        ],
+        "verdict": "reject",
+        "reject_reason": "The load-bearing step is a single mouse claim that failed replication in another mouse model within the same graph: C-027 (LKB1 loss drives T-cell-suppressive neutrophil accumulation) is contradicted by C-009, in which the same enrichment was explicitly not observed. Building an age-modification hypothesis on the contested limb of a contested preclinical mechanism is exactly the kind of reach stage 3 exists to stop. Worse, the chain does not fix the claimed direction. 'Myeloid suppression costs most where priming reserve is lowest' is one reading; the equally available saturation reading \u2014 a host who already primes poorly loses little more when the tumour also fails to prime \u2014 predicts a SMALLER STK11 effect in the elderly. A mechanism that supports both signs predicts neither. Nothing in the chain is ICI-specific either: immunosenescence plus an aggressive genotype predicts worse survival on any therapy, and with no non-ICI arm the design cannot tell the two apart. Finally, any age-band difference in a survival hazard is dominated by competing non-cancer mortality, ECOG and comorbidity, and by preferential assignment of monotherapy or attenuated regimens after 75 \u2014 all of which act on overall survival regardless of STK11 and none of which the listed covariates resolve. The candidate's own rationale concedes the gap is open 'because nobody has thought it interesting', which is the weaker kind of gap."
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "H-006",
+      "statement": "The association between STK11 loss-of-function and shorter survival on anti-PD-1/PD-L1 therapy is weaker when the ICI is given in the second line or later after platinum-based chemotherapy than when it is given in the first line.",
+      "origin": {
+        "gap_type": "population_gap",
+        "supporting_claims": [
+          "C-046",
+          "C-047",
+          "C-004",
+          "C-038",
+          "C-026",
+          "C-003"
+        ],
+        "rationale": "Line of therapy is thinly covered: only 3 of 50 claims are second-line-plus, and they disagree with the first-line literature. PIONeeR, a prospective second-line-plus biomarker cohort of 305 sequenced patients, found STK11 unassociated with primary resistance (OR 1.17, p-adj 0.896) and unassociated with PFS (C-046). CheckMate-057, also second-line, is the source of the most extreme resistance claim but rests on six KL patients (C-004). There are two reasons to expect a genuinely smaller effect later in the treatment course rather than sampling noise. First, depletion of susceptibles: if STK11 marks aggressive biology, the STK11-mutant patients who survive first-line therapy to reach a second line are a selected, less aggressive subset, so the prognostic component of the effect is partly spent. Second, prior platinum exposure delivers cytotoxic antigen release and DNA damage over months, which is the one input that could partially compensate for silenced STING-dependent innate priming (C-029, C-030) before the ICI is ever given. Both accounts predict attenuation; distinguishing them is a second-stage question, but the attenuation itself is testable and would reconcile PIONeeR with the first-line cohorts.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "medRxiv 10.64898/2026.01.09.26343779 (PIONeeR, Barlesi)",
+            "summary": "The relevant null itself: in a prospective second-line-plus cohort, neither STK11 (OR 1.17, 0.634-2.17, p-adj 0.896) nor KEAP1 (OR 0.663, 0.344-1.28, p-adj 0.58) predicted primary resistance. Someone looked in this exact population and found nothing, so a hypothesis claiming a large second-line STK11 effect would be dead; the hypothesis proposed here is the attenuation itself, which the null supports rather than kills.",
+            "n": 305
+          },
+          {
+            "identifier": "PMID 29773717 (Skoulidis, Cancer Discovery 2018) CheckMate-057 component",
+            "summary": "The one randomized second-line datapoint reports ORR 0% in 6 KL patients (p=0.047 across subgroups). Six patients cannot support or refute a line-of-therapy interaction, and citing it as evidence of second-line resistance is the error this hypothesis exists to correct.",
+            "n": 44
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in patients receiving anti-PD-1/PD-L1 therapy in the second line or later after prior platinum-based chemotherapy",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "treatment_criteria": "anti-PD-1/PD-L1 monotherapy initiated as second-line or later, with documented prior platinum-doublet exposure and no prior ICI"
+      },
+      "comparator": {
+        "description": "STK11 wild-type patients receiving second-line-or-later ICI monotherapy after platinum, with the STK11-mutant versus wild-type contrast among first-line ICI monotherapy recipients as the second stratum; the estimand is the line-by-STK11 interaction."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC receiving anti-PD-1/PD-L1 monotherapy, with a documented treatment sequence and panel sequencing covering STK11",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "line of ICI therapy determinable from the recorded regimen sequence",
+          "no prior ICI exposure before the index ICI line"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "ICI given concurrently with chemotherapy in the index line (handled in H-010)"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of the index anti-PD-1/PD-L1 line",
+      "proposed_covariates": [
+        "time from advanced diagnosis to start of the index ICI line (the explicit survivorship term)",
+        "best response and duration of the prior platinum line where recorded",
+        "age",
+        "sex",
+        "smoking status",
+        "ECOG performance status at the index line",
+        "PD-L1 TPS band",
+        "KRAS and KEAP1 co-mutation status",
+        "left truncation at sequencing report date, since sequencing frequently postdates the first line"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "As proposed: (a) patients who survive first-line therapy to receive a second-line ICI are selected against the aggressive STK11-driven phenotype, so the prognostic component is partly spent; (b) months of prior platinum deliver DNA damage and antigen release that partially substitute for silenced STING-dependent priming. Limb (b) is self-defeating, because the defect is in dsDNA sensing rather than in dsDNA supply \u2014 silencing STING removes the receptor, so more ligand changes nothing \u2014 and the parallel presentation defect (C-031) blocks the antigen-release route as well. Limb (a) is a description of survivorship bias. What remains is a prediction about a selected population, not about biology.",
+        "mechanism_steps": [
+          "STK11-mutant patients with the most aggressive disease die or progress irrecoverably during first-line therapy. (Selection, not mechanism.)",
+          "Those reaching a second-line ICI are therefore a less aggressive subset, so the measured STK11 effect is smaller. (Restates the selection.)",
+          "Prior platinum generates DNA damage and cytosolic dsDNA. (True.)",
+          "That dsDNA restores innate priming in LKB1-deficient tumours. (FALSE on the graph's own mechanism: C-029 removes STING, the sensor for that ligand, so additional ligand cannot be sensed.)",
+          "Prior platinum releases tumour antigen that primes a CD8 response. (Undercut by C-031: the immunoproteasome and MHC-I presentation step is itself compromised.)",
+          "Therefore the STK11 effect is attenuated in later lines. (Follows from the selection limb only.)"
+        ],
+        "alternative_explanations": [
+          "Pure survivorship: the second-line cohort is conditioned on surviving first-line therapy, which removes the exposed patients with the largest hazard and mechanically shrinks the estimated effect.",
+          "PD-L1 composition: first-line monotherapy is restricted to TPS \u226550% while second-line monotherapy is not, so the two strata differ on the dominant effect modifier, and any line difference may be a PD-L1 difference.",
+          "Era and regimen drift: second-line monotherapy was standard in 2015-2018 and rare thereafter, so line of therapy proxies calendar time, supportive care and access to subsequent options."
+        ],
+        "confounding_risks": [
+          "Immortal-time bias is at its maximum here: entry into the second-line stratum requires surviving the first line and being sequenced, and time-to-index-line adjustment does not repair conditioning on survival.",
+          "Structural PD-L1 imbalance between the strata being compared, as above.",
+          "Indication bias: who receives second-line monotherapy versus best supportive care after platinum failure depends on performance status and clinician judgement, not randomisation.",
+          "Prior-line response is a post-treatment variable on the causal path; adjusting for it induces collider bias, and not adjusting leaves the strata non-exchangeable.",
+          "Prognostic vs predictive: no non-ICI comparator in either stratum, so even a clean line interaction would not identify an ICI-specific effect.",
+          "Ascertainment: sequencing frequently postdates the first line, so second-line patients are systematically better ascertained than first-line ones."
+        ],
+        "verdict": "reject",
+        "reject_reason": "Neither limb of the proposed mechanism survives inspection. The platinum-compensation limb requires prior chemotherapy to restore innate priming by generating DNA damage and cytosolic dsDNA \u2014 but the LKB1 mechanism in this graph is loss of STING and hence loss of the capacity to SENSE cytosolic dsDNA (C-029/C-030), compounded by a compromised immunoproteasome (C-031). Followed honestly, the mechanism predicts that platinum cannot compensate in exactly the tumours where the sensor is silenced, so it does not support the claimed attenuation. The remaining limb, depletion of susceptibles, is not biology at all: it is survivorship selection, and a hypothesis whose prediction is 'the association is smaller in a group defined by having already survived' restates the selection process rather than proposing a mechanism. The comparison is additionally confounded by construction: first-line ICI monotherapy requires PD-L1 TPS \u226550% whereas second-line monotherapy is given irrespective of PD-L1, so the two strata differ systematically on the strongest known effect modifier in this literature, as well as on calendar era, prior-treatment response and performance status at the index line. Named confounders fully account for the predicted pattern."
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "H-007",
+      "statement": "In advanced lung adenocarcinoma treated with anti-PD-1/PD-L1 monotherapy, the KRAS-mutant/STK11-mutant (KL) genotype is associated with a lower probability of durable clinical benefit than the KRAS-mutant/TP53-mutant (KP) genotype, and this ordering persists within each PD-L1 expression band.",
+      "origin": {
+        "gap_type": "temporal_staleness",
+        "supporting_claims": [
+          "C-001",
+          "C-002",
+          "C-004",
+          "C-005",
+          "C-006",
+          "C-050"
+        ],
+        "rationale": "The KL/KP/K-only trichotomy is the single most cited result in this literature and it rests on a 2018 cohort of 174 patients, with six to seven patients per cell in the randomized CheckMate-057 component (C-001, C-004). Nine claims in the graph are flagged temporally stale and all nine come from that paper. What modern scale buys is specific and not merely more precision: enough KL patients to estimate the contrast WITHIN PD-L1 bands rather than across them. That matters because the original paper's own data show KL tumours are PD-L1-low (13.6% positive, 0% high, C-006) and STK11 mutation is roughly twice as frequent in PD-L1-negative tumours (C-050), so the headline KL-versus-KP response gap and the PD-L1 distribution are confounded by construction. Skoulidis argued the effect is partly PD-L1-independent on the basis of an ORR comparison with an unreported denominator (C-005). A cohort with thousands of ICI-treated adenocarcinomas and recorded PD-L1 can settle whether the genotype ordering survives PD-L1 stratification; if it does not, the KL category is largely a PD-L1 surrogate.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "In Vivo 2020;34(5):2997",
+            "summary": "Looked at pembrolizumab efficacy in the PD-L1-high stratum specifically and reported lower ORR with low STK11/LKB1 expression among TPS>=50% tumours (22% versus 41%), i.e. a positive result within the PD-L1-high band that partly pre-empts this hypothesis. Small single-institution study using expression rather than mutation, so the mutation-defined, adequately powered version remains open.",
+            "n": null
+          },
+          {
+            "identifier": "PMID 36709038 (KEYNOTE-042 exploratory analysis, Mok, Ann Oncol 2023)",
+            "summary": "In a randomized PD-L1-positive population, pembrolizumab OS benefit versus chemotherapy was retained in STK11-mutants (HR 0.37, 0.16-0.86) and numerically exceeded the wild-type benefit (0.83, 0.65-1.05). A randomized result pointing away from PD-L1-independent STK11 resistance, in only 33 STK11-mutant patients.",
+            "n": 429
+          }
+        ]
+      },
+      "exposure": {
+        "description": "KRAS-mutant, STK11-loss-of-function (KL) genotype",
+        "genomic_criteria": "oncogenic KRAS missense variant together with STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense; TP53 wild-type is not required but TP53 status is retained as a stratum",
+        "treatment_criteria": "anti-PD-1/PD-L1 monotherapy without concurrent platinum, any line, line entered as a covariate"
+      },
+      "comparator": {
+        "description": "KRAS-mutant, TP53-mutant, STK11-wildtype (KP) genotype receiving the same ICI monotherapy, with KRAS-mutant/STK11-wildtype/TP53-wildtype (K-only) as a third arm; all three contrasts estimated within PD-L1 TPS bands (<1%, 1-49%, >=50%)."
+      },
+      "population": {
+        "description": "Adults with advanced KRAS-mutant lung adenocarcinoma receiving anti-PD-1/PD-L1 monotherapy with recorded PD-L1 expression",
+        "oncotree_codes": [
+          "LUAD",
+          "NSCLC"
+        ],
+        "inclusion": [
+          "oncogenic KRAS variant present",
+          "PD-L1 TPS recorded",
+          "at least one line of ICI monotherapy"
+        ],
+        "exclusion": [
+          "concurrent platinum chemotherapy in the index line",
+          "EGFR-activating mutation or ALK/ROS1 fusion"
+        ]
+      },
+      "proposed_endpoint_concept": "durable clinical benefit, expressed as freedom from progression or death beyond a prespecified landmark measured from start of ICI monotherapy",
+      "proposed_covariates": [
+        "PD-L1 TPS band as the stratifying variable",
+        "line of therapy",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "ECOG performance status",
+        "KEAP1 co-mutation status",
+        "tumour mutational burden",
+        "specific KRAS codon/allele, since G12C and G12D differ in co-mutation background",
+        "left truncation at sequencing report date and the landmark start, to avoid crediting the exposed group with survival time accrued before genomic ascertainment"
+      ],
+      "plausibility": {
+        "score": "moderate",
+        "causal_story": "LKB1 loss raises S-adenosylmethionine and hyperactivates DNMT1/EZH2, silencing STING (C-029/C-030); loss of cytosolic dsDNA sensing removes type I interferon output, lowering CXCL9/10 and CD8 recruitment (C-007) and lowering interferon-inducible PD-L1 (C-006, C-050). In parallel, compromised immunoproteasome activity and raised autophagic flux reduce MHC-I peptide supply (C-031). TP53 loss instead raises mutational burden and preserves an inflamed phenotype. Prediction: KL < K-only < KP for durable benefit, and \u2014 because presentation and priming defects are not reducible to surface PD-L1 \u2014 the ordering persists within PD-L1 bands. The falsifiable step is the last one: if PD-L1 level is a sufficient readout of the intact interferon axis, the ordering collapses within bands and KL is a PD-L1 surrogate.",
+        "mechanism_steps": [
+          "LKB1 loss elevates SAM and hyperactivates DNMT1/EZH2 (C-030, cell line).",
+          "STING is epigenetically silenced, abolishing cytosolic dsDNA sensing (C-029).",
+          "Type I interferon output falls, reducing CXCL9/CXCL10 and hence CD8 recruitment (C-007, human ex vivo).",
+          "Independently, immunoproteasome activity falls and autophagic flux rises, reducing MHC-I peptide supply (C-031).",
+          "PD-1 blockade releases a brake on a response that, in KL tumours, was never primed or presented; KP tumours retain both steps.",
+          "Because the defects are upstream of and additional to surface PD-L1, the KL-versus-KP ordering persists within PD-L1 bands rather than collapsing."
+        ],
+        "alternative_explanations": [
+          "KL is a PD-L1 surrogate: the ordering is generated entirely by the PD-L1 distribution (C-006: 13.6% positive, 0% high) and disappears once bands are held constant.",
+          "KL is prognostically worse on any therapy: the comparison has no non-ICI arm, and KL and KP differ in baseline growth kinetics as well as immunogenicity.",
+          "The comparator is itself an exposure: TP53 mutation raises TMB and alters chemosensitivity, so KL-versus-KP is a contrast of two active genotypes, and any ordering could be driven by KP's advantages rather than KL's defects."
+        ],
+        "confounding_risks": [
+          "Stratifying on PD-L1 conditions on a downstream consequence of the exposure (STK11 loss lowers PD-L1), so the within-band estimate is a controlled direct effect and is open to collider bias from any unmeasured factor that raises both PD-L1 and survival.",
+          "Prognostic vs predictive: single-arm ICI design cannot distinguish an ICI-specific KL deficit from a general one; the same stratification on a chemotherapy arm would be needed.",
+          "Landmark/durable-benefit endpoints condition on surviving to the landmark, which favours the less aggressive genotype independently of treatment effect.",
+          "PD-L1 assay and clone heterogeneity, plus drift between archival specimen and treatment start, mis-sort patients between bands non-randomly.",
+          "KRAS allele composition (G12C vs G12D vs others) differs between KL and KP and carries its own smoking and co-mutation background.",
+          "Immortal time and panel ascertainment, as elsewhere: STK11 and TP53 callability differ by panel version and era."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-008",
+      "statement": "Among patients with PD-L1 TPS of at least 50% receiving first-line anti-PD-1 monotherapy, STK11 loss-of-function is not associated with shorter overall survival relative to STK11 wild-type, i.e. the apparent STK11 penalty in unstratified ICI cohorts is largely accounted for by the PD-L1-low distribution of STK11-mutant tumours.",
+      "origin": {
+        "gap_type": "temporal_staleness",
+        "supporting_claims": [
+          "C-005",
+          "C-006",
+          "C-010",
+          "C-041",
+          "C-050",
+          "C-018"
+        ],
+        "rationale": "Skoulidis's PD-L1-conditioned claim (C-005) is the load-bearing argument that STK11 resistance is not merely a PD-L1 story, and it is a 2018 ORR comparison with an unreported denominator \u2014 the weakest evidence in the graph carrying the most weight. Everything else in the graph pushes the other way: KL tumours are PD-L1-low (C-006), STK11 mutation is enriched roughly two-fold in PD-L1-negative tumours (C-050), the pooled PD-L1 positivity estimate for STK11-mutants is 41.1% against 55.0% for wild-type (C-041), and in the randomized PD-L1-positive KEYNOTE-042 population STK11-mutants retained full pembrolizumab benefit (C-018). What modern scale buys is a PD-L1-high stratum with enough STK11-mutant patients to estimate a survival hazard rather than compare two response proportions \u2014 a stratum that has never existed at adequate size, since KEYNOTE-042 had 33 STK11-mutant patients across all PD-L1 bands. This hypothesis is directional and falsifiable in the clinically actionable direction: if it holds, PD-L1-high STK11-mutant patients should not be steered away from monotherapy.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "In Vivo 2020;34(5):2997",
+            "summary": "Reported the opposite result in the same stratum: ORR 22% versus 41% for low STK11/LKB1 expression among TPS>=50% NSCLC. Directly opposes the direction predicted here. Small, single-institution, expression-based rather than mutation-based, and response rather than survival, but it is the most on-point contrary evidence and it must count against novelty.",
+            "n": null
+          },
+          {
+            "identifier": "ILCN/WCLC reporting of the KEYNOTE-042 STK11/KEAP1 analysis",
+            "summary": "Concluded that single-agent pembrolizumab is active against STK11- and KEAP1-mutated NSCLC and that monotherapy should remain a standard first-line option for PD-L1-positive disease regardless of STK11 or KEAP1 status. The conclusion this hypothesis predicts is therefore already asserted in a randomized setting; the novelty is confirming it at a scale that can support a PD-L1-high-restricted survival estimate.",
+            "n": 429
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in PD-L1-high tumours",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "clinical_criteria": "PD-L1 tumour proportion score of at least 50% on the assay recorded closest to and before start of first-line therapy",
+        "treatment_criteria": "first-line anti-PD-1 or anti-PD-L1 monotherapy with no concurrent chemotherapy"
+      },
+      "comparator": {
+        "description": "STK11 wild-type patients with PD-L1 TPS of at least 50% receiving the same first-line ICI monotherapy; the PD-L1 1-49% and <1% bands are analysed as separate strata to show the gradient rather than pooled into the comparator."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC, PD-L1 TPS at least 50%, receiving first-line single-agent PD-1/PD-L1 blockade",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "PD-L1 TPS recorded before first-line therapy",
+          "panel sequencing covering STK11"
+        ],
+        "exclusion": [
+          "concurrent platinum chemotherapy",
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "PD-L1 assay type unrecorded"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line anti-PD-1/PD-L1 monotherapy",
+      "proposed_covariates": [
+        "PD-L1 assay and antibody clone, and the interval between the PD-L1 specimen and treatment start",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "ECOG performance status",
+        "KRAS and KEAP1 co-mutation status",
+        "histology",
+        "tumour mutational burden",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "strong",
+        "causal_story": "Tumour PD-L1 (CD274) transcription in NSCLC is largely interferon-driven through JAK/STAT1, and the same interferon axis is what LKB1 loss disables via STING silencing (C-029/C-030) and what supplies CXCL9/10 for T-cell recruitment. A tumour carrying an STK11 mutation that nonetheless expresses PD-L1 at TPS \u226550% therefore has, by that chain, a functionally intact interferon response \u2014 because the variant does not abolish kinase activity, because the second allele is retained, or because a compensating route keeps the axis on. In such tumours the substrate that PD-1 blockade acts on (a pre-existing, interferon-driven, PD-L1-marked T-cell response under checkpoint restraint) is present, so the mutation should not mark resistance; in the PD-L1-low bands it should. The chain predicts both the direction (null in the high band) and the specificity (a gradient across bands, with PD-L1 superseding genotype), and it is falsified by a clear STK11 penalty at TPS \u226550%.",
+        "mechanism_steps": [
+          "STING silencing after LKB1 loss removes tumour-intrinsic type I interferon output (C-029/C-030).",
+          "Interferon signalling through JAK/STAT1 is the principal inducer of tumour CD274 expression and of CXCL9/CXCL10.",
+          "Hence STK11-mutant tumours are systematically PD-L1-low and T-cell-poor (C-006, C-041, C-050, C-007) \u2014 PD-L1 is a functional readout of the axis, not an independent marker.",
+          "An STK11-mutant tumour with TPS \u226550% is therefore one in which the axis is intact, i.e. the mutation has not produced the functional deficiency (consistent with C-034, phenotype rather than mutation).",
+          "In that group PD-1 blockade has the substrate it needs, so survival should not differ from STK11 wild-type.",
+          "In the PD-L1-low bands the deficiency is present, so the penalty should appear \u2014 a gradient across bands, not a uniform effect."
+        ],
+        "alternative_explanations": [
+          "The PD-L1-high stratum is smaller, so a null is a wide interval rather than an absence of effect; the claim requires an equivalence-style reading of the estimate, not just p > 0.05.",
+          "PD-L1-high STK11-mutant tumours differ on other grounds \u2014 histology, specimen site, prior radiation, time from biopsy \u2014 that independently predict better survival.",
+          "The contrary direct evidence: In Vivo 2020 reports lower ORR with low STK11/LKB1 expression specifically among TPS \u226550% tumours, which is the same stratum and the opposite direction."
+        ],
+        "confounding_risks": [
+          "Conditioning on PD-L1 conditions on a downstream consequence of the exposure, so within-band comparison can induce collider bias if an unmeasured factor raises both PD-L1 and survival; the estimate is a controlled direct effect and should be labelled as one.",
+          "Assay heterogeneity: clone, platform and archival drift move patients across the 50% threshold non-randomly, and misallocation is likely differential by institution and era.",
+          "Indication bias: first-line monotherapy at TPS \u226550% is preferentially given to older, frailer or lower-burden patients, while fitter patients with bulky disease receive chemo-immunotherapy.",
+          "Prognostic vs predictive: without a chemotherapy comparator in the same stratum, a null is consistent both with 'no predictive effect' and with a prognostic effect offset by something else.",
+          "Immortal time via sequencing-conditioned entry, plus the requirement that a PD-L1 result predates treatment, which selects on workup completeness.",
+          "Panel ascertainment: STK11 callability and variant-classification thresholds differ across assays, and the null is exactly the result that exposure misclassification would manufacture."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-009",
+      "statement": "The association between STK11 loss-of-function and shorter overall survival on ICI-containing therapy is present in KRAS-mutant lung adenocarcinoma and absent in KRAS-wildtype lung adenocarcinoma, i.e. there is a KRAS-by-STK11 interaction on survival.",
+      "origin": {
+        "gap_type": "missing_interaction",
+        "supporting_claims": [
+          "C-015",
+          "C-016",
+          "C-017",
+          "C-002",
+          "C-010",
+          "C-012",
+          "C-029",
+          "C-030"
+        ],
+        "rationale": "The mechanism is the point, and it is specific rather than a co-occurrence observation. Kitajima showed that LKB1 loss silences STING through DNMT1 and EZH2 hyperactivation driven by elevated S-adenosylmethionine (C-029, C-030), and did so in a KRAS-driven context: the one-carbon and serine-glycine flux that raises SAM is downstream of oncogenic KRAS-driven anabolic metabolism. On that account LKB1 loss without an activating KRAS allele does not generate the methyl-donor surplus needed to hyperactivate the methyltransferases, so STING is retained and the tumour is not rendered innately blind. That predicts a conditional, not an additive, effect. The clinical shape already matches: Ricciuti reports STK11 and KEAP1 worsen ICI outcomes among KRAS-mutant but not KRAS-wildtype LUAD (C-015 versus C-016) and that the distinct immunophenotype appears only in KRAS-mutant tumours (C-017), and the gap report classifies this pair as an effect modifier rather than a contradiction. What is missing is a formal interaction term estimated with enough KRAS-wildtype STK11-mutant patients to distinguish a true null from an underpowered subgroup \u2014 that stratum is small in every published cohort and large in a modern clinicogenomic one.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 34740862 (Ricciuti, JTO 2022)",
+            "summary": "Reported the stratified result this hypothesis formalises, concluding that STK11 and KEAP1 confer worse outcomes among KRAS-mutant but not KRAS-wildtype LUAD. The stratified finding is therefore published; what is not published is a formal interaction test with a confidence interval on the interaction term, which is what distinguishes a real effect modification from two subgroups of different size.",
+            "n": 1261
+          },
+          {
+            "identifier": "J Clin Oncol 44 (16_suppl) 8565, ASCO 2026 abstract",
+            "summary": "Examined STK11/KEAP1/SMARCA4 co-mutations in RAS-activated but KRAS-wildtype metastatic NSCLC on ICIs and reported that the adverse association seen in KRAS-mutant disease was not clearly observed in the KRAS-wildtype population. A second, independent null in the KRAS-wildtype stratum, consistent with the predicted interaction but reducing the novelty of the stratified claim.",
+            "n": null
+          },
+          {
+            "identifier": "PMID 32312757 (Papillon-Cavanagh, ESMO Open 2020)",
+            "summary": "Did not stratify by KRAS and found no STK11-by-treatment interaction overall; if the KRAS-by-STK11 interaction is real, pooling across KRAS strata is one explanation for that null, which makes the two results compatible rather than contradictory.",
+            "n": 574
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in KRAS-mutant tumours",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense, together with an oncogenic KRAS missense variant; the STK11 x KRAS product term is the estimand",
+        "treatment_criteria": "first-line ICI-containing therapy (monotherapy or chemo-immunotherapy), regimen entered as a covariate"
+      },
+      "comparator": {
+        "description": "Four genotype cells estimated jointly: KRAS-mutant/STK11-wildtype, KRAS-wildtype/STK11-mutant, and KRAS-wildtype/STK11-wildtype as the common reference, against KRAS-mutant/STK11-mutant. The comparison of interest is the difference between the STK11 effect inside and outside the KRAS-mutant stratum."
+      },
+      "population": {
+        "description": "Adults with advanced lung adenocarcinoma on first-line ICI-containing therapy with panel sequencing covering KRAS and STK11",
+        "oncotree_codes": [
+          "LUAD",
+          "NSCLC"
+        ],
+        "inclusion": [
+          "KRAS and STK11 both callable on the sequencing panel used"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion, which populate the KRAS-wildtype stratum with a distinct biology and would fake an interaction"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy",
+      "proposed_covariates": [
+        "KEAP1 and TP53 co-mutation status",
+        "PD-L1 TPS band",
+        "regimen class (ICI monotherapy versus chemo-immunotherapy)",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "ECOG performance status",
+        "tumour mutational burden",
+        "other oncogenic drivers occupying the KRAS-wildtype stratum (MET, BRAF, RET, ERBB2) recorded and excluded or adjusted",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "strong",
+        "causal_story": "Oncogenic KRAS drives glycolytic, glutaminolytic and serine-glycine one-carbon flux, which raises the S-adenosylmethionine pool. In the absence of LKB1/AMPK restraint that surplus hyperactivates DNMT1 and EZH2 (C-030), which methylate and silence STING (C-029), removing cytosolic dsDNA sensing and type I interferon output, reducing CXCL9/10 and CD8 recruitment (C-007) and leaving PD-1 blockade with little to release. Without an activating KRAS allele the methyl-donor surplus is not generated, the methyltransferases are not hyperactivated, STING is retained, and LKB1 loss does not render the tumour innately blind. The effect of STK11 loss is therefore conditional on KRAS rather than additive, and the product term \u2014 not two subgroup estimates \u2014 is the estimand. The falsifiable step is the KRAS-dependence of the SAM surplus: if LKB1 loss raises SAM in KRAS-wildtype tumours too, the interaction is null.",
+        "mechanism_steps": [
+          "Oncogenic KRAS increases serine-glycine and one-carbon flux, raising the intracellular SAM pool.",
+          "LKB1 loss removes AMPK-dependent restraint on that anabolic program, so SAM accumulates further.",
+          "Elevated SAM hyperactivates DNMT1 and EZH2 (C-030, cell line).",
+          "DNMT1/EZH2 activity silences STING, abolishing cytosolic dsDNA sensing (C-029).",
+          "Type I interferon output falls, lowering CXCL9/CXCL10 and CD8 infiltration (C-007, human ex vivo; C-017, KRAS-mutant-only immunophenotype).",
+          "In KRAS-wildtype tumours steps 1-3 do not occur, STING is retained, and STK11 loss carries no comparable immune penalty \u2014 a positive KRAS x STK11 interaction on survival."
+        ],
+        "alternative_explanations": [
+          "The KRAS-wildtype stratum is a mixture of MET exon 14, BRAF, RET and ERBB2-driven and never-smoker biologies with their own prognosis and ICI sensitivity, so an apparent interaction may be driver composition rather than KRAS-dependence.",
+          "Differential exposure quality: STK11 events in KRAS-wildtype tumours may less often be biallelic or clonal, so the interaction could be H-014's zygosity effect appearing in KRAS clothing.",
+          "The published 'absent in KRAS-wildtype' result is a nonsignificance claim in the smaller stratum; the interaction may be an artefact of unequal precision rather than unequal effect."
+        ],
+        "confounding_risks": [
+          "Smoking: KRAS-mutant LUAD is heavily smoking-enriched and KRAS-wildtype LUAD is not, so stratifying on KRAS is partly stratifying on smoking, with all its prognostic baggage.",
+          "Prognostic vs predictive: no non-ICI arm, so a real KRAS-by-STK11 interaction may exist on chemotherapy too (C-037 shows a large STK11 effect with no ICI present) and would not be ICI-specific.",
+          "PD-L1 distribution differs between KRAS-mutant and KRAS-wildtype disease, and PD-L1 is partly downstream of the same interferon axis, so adjusting for it is adjusting for a mediator.",
+          "KEAP1 co-mutation frequency differs by KRAS status, so the interaction can be carried by KEAP1 unless modelled jointly (see H-002).",
+          "Panel ascertainment: KRAS hotspot coverage is near-universal while STK11 coverage is not, so the four genotype cells are not equally well measured.",
+          "Immortal time via sequencing-conditioned entry, plus the exclusion of EGFR/ALK, which reshapes the KRAS-wildtype reference cell."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-010",
+      "statement": "Among STK11-loss-of-function advanced non-squamous NSCLC patients, first-line platinum-doublet plus anti-PD-1 is associated with longer overall survival than first-line anti-PD-1 monotherapy, and the advantage of adding chemotherapy is larger in STK11-mutant than in STK11-wildtype patients.",
+      "origin": {
+        "gap_type": "missing_interaction",
+        "supporting_claims": [
+          "C-019",
+          "C-020",
+          "C-021",
+          "C-006",
+          "C-029",
+          "C-031",
+          "C-041",
+          "C-050"
+        ],
+        "rationale": "The graph's treatment coverage is lopsided \u2014 22 claims on ICI monotherapy against 9 on chemo-immunotherapy \u2014 and the head-to-head question clinicians actually face has never been asked of either arm. The mechanism gives a directional prediction rather than a hedge. LKB1 loss silences STING-dependent innate priming (C-029, C-030) and compromises immunoproteasome-dependent antigen presentation (C-031); both are the steps by which PD-1 blockade alone converts a pre-existing T-cell response into tumour control. When those steps are broken, a checkpoint antibody has little to release, which fits the PD-L1-low, T-cell-poor phenotype (C-006, C-041, C-050). Platinum chemotherapy does not depend on either step for its direct cytotoxic effect. So the expected pattern is that STK11-mutant patients lose relatively more by having chemotherapy withheld than wild-type patients do. Notably this is the opposite framing from the trial literature, which asks whether adding the ICI to chemotherapy still helps; that question already has a randomized answer, and this one does not, because no trial randomizes monotherapy against chemo-immunotherapy within an STK11 stratum. It is precisely a real-world treatment-selection contrast.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "J Clin Oncol 43 (16_suppl) e20504, ASCO 2025 abstract",
+            "summary": "Meta-analysis of six randomized and one comparative study (1596 patients) found chemo-immunotherapy retained OS benefit over chemotherapy alone despite STK11 (HR 0.80, 0.67-0.97), KEAP1 (0.76) and KRAS (0.67) mutation. This closes the adjacent question \u2014 whether adding an ICI to chemotherapy still works in STK11-mutants \u2014 and any hypothesis phrased that way should not be proposed. It does not touch the monotherapy-versus-chemo-immunotherapy contrast proposed here.",
+            "n": 1596
+          },
+          {
+            "identifier": "PMID 36793385 (Garassino, JTO CRR 2023; KEYNOTE-189 exploratory)",
+            "summary": "In the 54 STK11-mutant patients, adding pembrolizumab to chemotherapy gave PFS HR 0.81 (0.44-1.47) and OS HR 0.75 (0.37-1.50) \u2014 both nonsignificant, against PFS HR 0.38 in wild-type. An underpowered subgroup that is routinely read as evidence of resistance; it constrains the size of any incremental-ICI effect but says nothing about withholding chemotherapy.",
+            "n": 54
+          },
+          {
+            "identifier": "PMID 39385035 (Skoulidis, Nature 2024)",
+            "summary": "Reports that STK11/KEAP1-altered NSCLC is relatively resistant to standard PD-(L)1-plus-chemotherapy combinations and that adding CTLA-4 blockade abrogates that resistance. This weakens the present hypothesis materially: if chemo-immunotherapy is itself compromised in STK11-mutants, the predicted advantage over monotherapy may be small. Recorded because it cuts against the candidate.",
+            "n": null
+          },
+          {
+            "identifier": "WCLC 2018 abstract MA19.10 (J Thorac Oncol S1556-0864(18)31439-4)",
+            "summary": "Reported progressive disease as best response in 37.5% of STK11/LKB1-altered versus 6.1% of wild-type patients on chemo-immunotherapy. A conference abstract that never became a full paper \u2014 the classic grave for this kind of result \u2014 and it argues chemo-immunotherapy is also poor in STK11-mutants.",
+            "n": null
+          }
+        ]
+      },
+      "exposure": {
+        "description": "First-line platinum-doublet plus anti-PD-1/PD-L1 in STK11-loss-of-function patients",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "treatment_criteria": "first-line regimen containing both a platinum agent and an anti-PD-1/PD-L1 agent started within 28 days of one another"
+      },
+      "comparator": {
+        "description": "STK11-loss-of-function patients receiving first-line anti-PD-1/PD-L1 monotherapy with no platinum agent, with the same regimen contrast among STK11-wildtype patients as the second stratum; the estimand is the regimen-by-STK11 interaction, and both arms are restricted to a PD-L1 band in which both regimens are genuinely used so the contrast is not pure confounding by indication."
+      },
+      "population": {
+        "description": "Adults with advanced non-squamous NSCLC receiving first-line ICI-containing therapy with PD-L1 recorded and panel sequencing covering STK11",
+        "oncotree_codes": [
+          "LUAD",
+          "NSCLC"
+        ],
+        "inclusion": [
+          "PD-L1 TPS recorded before first-line therapy",
+          "first-line regimen class unambiguously classifiable as monotherapy or chemo-immunotherapy"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "squamous histology",
+          "PD-L1 TPS <50%, where monotherapy is rarely used and the comparison would be confounded by indication"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line therapy",
+      "proposed_covariates": [
+        "PD-L1 TPS as a continuous term within the restricted band",
+        "ECOG performance status, the dominant driver of regimen choice",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "KRAS and KEAP1 co-mutation status",
+        "tumour mutational burden",
+        "treating site and calendar year of treatment start",
+        "propensity for regimen assignment as a sensitivity analysis, since confounding by indication is the central threat here",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "moderate",
+        "causal_story": "PD-1 blockade works by removing a brake on an existing, primed, MHC-I-restricted CD8 response. Both the innate licence for that priming (STING/type I interferon, C-029/C-030) and the peptide supply that feeds it (immunoproteasome, C-031) are degraded by LKB1 loss, which is why STK11-mutant tumours are PD-L1-low and T-cell-poor (C-006, C-041, C-050). Platinum's direct cytotoxic effect \u2014 DNA adducts, replication-fork collapse, apoptosis \u2014 does not require either step. Withholding chemotherapy therefore removes the one reliably active modality in an STK11-mutant tumour while leaving an antibody with little to release, whereas in a wild-type tumour monotherapy still has a working immune substrate. Prediction: the survival advantage of chemo-immunotherapy over monotherapy is larger in STK11-mutants, i.e. a positive regimen-by-STK11 interaction.",
+        "mechanism_steps": [
+          "LKB1 loss silences STING and removes type I interferon-dependent licensing of priming (C-029/C-030).",
+          "LKB1 loss compromises immunoproteasome activity and raises autophagic flux, reducing MHC-I peptide supply (C-031).",
+          "PD-1 blockade alone therefore has little pre-existing response to release in STK11-mutant tumours, consistent with their PD-L1-low, T-cell-poor phenotype.",
+          "Platinum kills tumour cells by direct DNA damage, a route that does not require STING sensing or immunoproteasome function.",
+          "Hence the incremental value of the chemotherapy component is greater in STK11-mutant than in STK11-wildtype tumours.",
+          "Prediction: regimen-by-STK11 interaction favouring chemo-immunotherapy in the mutant stratum, estimated within a PD-L1 band where both regimens are genuinely used."
+        ],
+        "alternative_explanations": [
+          "Genotype-aware prescribing: as STK11/KEAP1 status became routinely reported, clinicians began preferring chemo-immunotherapy for STK11-mutants, so the interaction can be manufactured by treatment selection that is itself a function of the exposure.",
+          "Platinum's contribution in combination is partly immunogenic cell death, which depends on the same sensing and presentation machinery \u2014 so the premise that the chemotherapy limb is LKB1-independent may be false, and the true interaction smaller or absent (consistent with Skoulidis 2024).",
+          "KEAP1/NRF2 co-mutation confers platinum resistance, so in the co-mutated subset the chemotherapy limb is blunted too and the interaction is diluted by co-mutation composition rather than by STK11 biology."
+        ],
+        "confounding_risks": [
+          "Confounding by indication is the central threat and it is not removed by restricting to TPS \u226550%: within that band, chemo-immunotherapy is chosen for bulky, symptomatic, rapidly progressing disease while monotherapy is chosen for frail or lower-burden patients. These push the comparison in opposite directions and neither is well captured.",
+          "Exposure-dependent treatment assignment: if genotype is known before regimen choice, selection is a function of STK11 itself, which is precisely the route to a spurious interaction. Sequencing turnaround relative to treatment start must be modelled, not assumed.",
+          "Calendar trend: the strength of genotype-aware prescribing rises by year, so a year-by-regimen-by-genotype structure lurks behind any interaction estimate.",
+          "ECOG is recorded coarsely and inconsistently in real-world data yet is the dominant determinant of regimen intensity.",
+          "Prognostic vs predictive: both arms contain an ICI, so this compares two active regimens; it cannot establish that the STK11 effect is immune-mediated rather than a chemosensitivity effect.",
+          "Immortal time: patients must survive to receive and be sequenced for the index regimen, and the truncation interval differs between regimen groups."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-011",
+      "statement": "In advanced NSCLC treated with anti-PD-1/PD-L1 therapy, the survival advantage normally associated with high tumour mutational burden is attenuated or absent in STK11-loss-of-function tumours relative to STK11-wildtype tumours, i.e. STK11 status modifies the TMB-benefit relationship.",
+      "origin": {
+        "gap_type": "missing_interaction",
+        "supporting_claims": [
+          "C-025",
+          "C-031",
+          "C-032",
+          "C-041",
+          "C-007",
+          "C-029"
+        ],
+        "rationale": "This is the biomarker paradox the graph states but never tests. STK11 mutation is significantly associated with HIGH TMB (C-025, and C-032 in non-smokers specifically), yet with low PD-L1 (C-041) and low CD3+/CD8+ infiltration (C-007). The mechanism that reconciles them is explicit in the graph and is what makes this an interaction rather than a curiosity: TMB is a proxy for neoantigen supply, but supply only converts into a T-cell response if the peptides are processed and presented, and LKB1 loss compromises immunoproteasome activity and raises autophagic flux, degrading exactly that step (C-031), while STING silencing removes the innate signal that would license priming (C-029). So the causal chain from TMB to benefit is cut in the middle in STK11-mutant tumours. The clinical implication is concrete and untested at scale: TMB-high should not be used to justify ICI monotherapy in an STK11-mutant tumour. A cohort with paired TMB and STK11 calls on thousands of ICI-treated patients is the only design that can estimate this interaction.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "WCLC 2018 abstract MA19.09 (J Thorac Oncol S1556-0864(18)31438-2)",
+            "summary": "Reported that concurrent STK11 and KEAP1 mutation is associated with resistance to PD-(L)1 blockade despite high TMB. The qualitative observation is therefore eight years old and lives in a conference abstract; what has not been done is a formal TMB-by-STK11 interaction estimate with a confidence interval, or a demonstration that STK11 alone rather than the STK11/KEAP1 pair carries it.",
+            "n": null
+          },
+          {
+            "identifier": "Ann Oncol S0923-7534(23)00090-X, 'Exploring the role of accessory biomarkers TMB, STK11, KEAP1, and KRAS in NSCLC: confused, but on a much higher level'",
+            "summary": "Editorial reviewing exactly this set of accessory biomarkers and concluding the field is unresolved; it reports no interaction estimate, which corroborates the mapper's finding that the formal test is missing rather than buried.",
+            "n": null
+          },
+          {
+            "identifier": "PMID 36709038 (KEYNOTE-042, Mok, Ann Oncol 2023)",
+            "summary": "Assessed tissue TMB and mutational status together in a randomized trial and found pembrolizumab benefit retained regardless of STK11 status; it did not report a TMB-by-STK11 interaction, and with 33 STK11-mutant patients it could not have.",
+            "n": 429
+          }
+        ]
+      },
+      "exposure": {
+        "description": "High tumour mutational burden in the presence of STK11 loss-of-function",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense, crossed with panel-derived TMB above the cohort's prespecified high threshold; TMB also modelled continuously with a TMB x STK11 product term",
+        "treatment_criteria": "anti-PD-1/PD-L1 therapy in any line, line and regimen class entered as covariates"
+      },
+      "comparator": {
+        "description": "TMB-high, STK11-wildtype patients on the same therapy class, with TMB-low patients of each STK11 genotype as the within-genotype references; the estimand is the difference between the TMB slope inside and outside the STK11-mutant stratum."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC receiving anti-PD-1/PD-L1 therapy with panel-derived TMB and STK11 status from the same assay",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "TMB reported from a panel with a documented harmonised calculation",
+          "STK11 callable on the same panel"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "TMB from a panel whose size or calculation is not comparable to the cohort's dominant assay"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of anti-PD-1/PD-L1 therapy",
+      "proposed_covariates": [
+        "sequencing panel identity and panel size, since TMB is not comparable across panels",
+        "smoking status and pack-years, the dominant common cause of both high TMB and STK11 mutation",
+        "PD-L1 TPS band",
+        "KRAS, KEAP1 and TP53 co-mutation status",
+        "line of therapy and regimen class",
+        "age",
+        "sex",
+        "ECOG performance status",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "moderate",
+        "causal_story": "TMB is a proxy for neoantigen supply, and supply converts into clinical benefit only through a chain: proteasomal processing, MHC-I loading, surface presentation, recognition by a primed CD8 repertoire, then release of the checkpoint brake. LKB1 loss degrades the processing step (reduced immunoproteasome activity, increased autophagic flux, C-031) and removes the innate licence for priming (STING silencing, C-029), so additional neoantigens do not convert into additional recognition. That is why STK11-mutant tumours are simultaneously TMB-high (C-025, C-032), PD-L1-low (C-041) and T-cell-poor (C-007). Prediction: the slope of survival benefit on TMB is flatter, or flat, within the STK11-mutant stratum. The chain also predicts specificity \u2014 TMB carries little prognostic information off checkpoint blockade \u2014 so the interaction should be ICI-specific. The falsifiable step is that presentation, rather than supply, is rate-limiting.",
+        "mechanism_steps": [
+          "Higher TMB yields more candidate neoantigenic peptides.",
+          "Those peptides require immunoproteasome processing and MHC-I loading to reach the cell surface; LKB1 loss compromises exactly this step (C-031).",
+          "Priming of a naive repertoire additionally requires innate licensing through STING-dependent type I interferon, which LKB1 loss silences (C-029/C-030).",
+          "With both steps degraded, marginal neoantigen supply produces no marginal T-cell recognition in STK11-mutant tumours.",
+          "PD-1 blockade can therefore release nothing extra despite a high TMB, consistent with the observed TMB-high/PD-L1-low/T-cell-poor triad.",
+          "Prediction: a negative TMB x STK11 interaction on survival under ICI, and no comparable interaction on chemotherapy."
+        ],
+        "alternative_explanations": [
+          "Smoking is a common cause of both high TMB and STK11 mutation, and the TMB-survival relationship itself differs by smoking intensity, so the interaction may be a smoking-by-TMB effect relabelled.",
+          "Measurement error: panel-derived TMB is a noisy proxy for neoantigen supply, and error in an effect modifier attenuates interaction estimates non-uniformly across strata with different TMB distributions.",
+          "Ceiling effects: the TMB-benefit relationship flattens at the top of the range in any group, and STK11-mutant tumours sit higher in that range (C-025), so an apparent slope difference may be curvature rather than modification."
+        ],
+        "confounding_risks": [
+          "Panel heterogeneity: TMB is not comparable across assays, panel choice tracks institution and era, and STK11 callability varies with the same panels \u2014 so both the exposure and the modifier are measured differently across the cohort.",
+          "Smoking, as above, with pack-year data poorly captured.",
+          "Prognostic vs predictive: with no non-ICI arm, an attenuated TMB slope in STK11-mutants cannot be shown to be ICI-specific, which is the entire clinical claim (do not use TMB-high to justify monotherapy).",
+          "Correlated exposure and modifier: STK11 mutation itself raises TMB, so the STK11-mutant/TMB-low cell is sparse and the interaction rests on the least populated corner.",
+          "KEAP1 collinearity: KEAP1 also raises TMB and shortens survival, so the interaction may be carried by KEAP1 unless modelled jointly.",
+          "Immortal time via sequencing-conditioned entry; and TMB is only available for patients with adequate tissue, which correlates with disease burden and biopsy site."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-012",
+      "statement": "In a first-line advanced NSCLC population analysed with a time-to-event rather than a binary endpoint, STK11 loss-of-function is associated with a modestly shorter time to progression or death on anti-PD-1/PD-L1 therapy, an association the PIONeeR primary-resistance analysis was structurally unable to detect.",
+      "origin": {
+        "gap_type": "buried_negative_result",
+        "supporting_claims": [
+          "C-046",
+          "C-047",
+          "C-039",
+          "C-040",
+          "C-038"
+        ],
+        "rationale": "PIONeeR is the most rigorous negative in the graph: a prospective multicentre biomarker cohort in which STK11 was neither associated with primary resistance (OR 1.17, 0.634-2.17, p-adj 0.896) nor with PFS (C-046). It deserves to be taken seriously, and it is also the kind of null worth re-testing with a named fix rather than dismissing. Three specific features limit it. First, the primary endpoint is a binary primary-resistance label, and dichotomising a time-to-event outcome discards most of the information \u2014 with 58 STK11-mutant patients, an odds ratio of 1.17 is compatible with a hazard ratio in the 1.2-1.4 range that the pooled literature reports (C-039, HR 1.45). Second, the population is second-line-plus, where survivorship has already selected against the aggressive phenotype (this is the same effect H-006 tests directly). Third, p-values are adjusted across a large multimodal biomarker panel, which is correct for discovery but heavily penalises a prespecified single hypothesis. The fix is therefore explicit: a first-line population, a time-to-event endpoint, no multiplicity penalty from unrelated biomarkers, and adjustment for PD-L1 and smoking. I expect a small, real, and prognostic-looking effect rather than the large predictive one the early literature claims.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "medRxiv 10.64898/2026.01.09.26343779 (PIONeeR, Barlesi)",
+            "summary": "The null being re-tested. 439 patients enrolled, 305 sequenced, 58 STK11-mutant; STK11 OR 1.17 (0.634-2.17), AUC 0.54, p-adjusted 0.896, and no PFS association. Preprint, not peer reviewed. If a larger first-line time-to-event analysis also returns null, the STK11 resistance claim is in serious trouble and this hypothesis should die loudly rather than quietly.",
+            "n": 305
+          },
+          {
+            "identifier": "DOI 10.1371/journal.pone.0238358 (Shire, PLOS ONE 2020)",
+            "summary": "In first-line immunotherapy, STK11 gave OS HR 1.4 (0.9-2.3, p=0.1) \u2014 nonsignificant, and identical in point estimate to the HR 1.4 (1.2-1.6) seen in the first-line chemotherapy arm of the same cohort. A second, larger, first-line null on the ICI side that also points to prognosis rather than prediction.",
+            "n": 2407
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function in first-line ICI-treated patients",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "treatment_criteria": "first-line anti-PD-1/PD-L1 monotherapy or chemo-immunotherapy, with no prior systemic therapy for advanced disease"
+      },
+      "comparator": {
+        "description": "STK11 wild-type patients receiving the same first-line ICI-containing regimen class, matched or adjusted on PD-L1 band and smoking burden."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC receiving first-line ICI-containing therapy with panel sequencing covering STK11",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "no prior systemic therapy for advanced disease",
+          "PD-L1 TPS recorded"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion"
+        ]
+      },
+      "proposed_endpoint_concept": "time from start of first-line ICI-containing therapy to progression or death, analysed as a time-to-event outcome rather than dichotomised into a resistance label",
+      "proposed_covariates": [
+        "PD-L1 TPS band",
+        "regimen class (monotherapy versus chemo-immunotherapy)",
+        "smoking status and pack-years",
+        "age",
+        "sex",
+        "ECOG performance status",
+        "KRAS and KEAP1 co-mutation status",
+        "assessment interval for progression, since real-world progression dates are irregularly ascertained and interval censoring biases short-horizon effects",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "None is offered. The stated chain runs: PIONeeR dichotomised its endpoint and adjusted p-values across many biomarkers, therefore it had low sensitivity; therefore a time-to-event first-line analysis will detect a modest effect. Those are claims about estimator behaviour, not about biology. The implied biological content \u2014 LKB1 loss shortens time to progression \u2014 is the association itself, and the mechanisms that would explain it (C-029, C-031) are neither invoked nor used to generate any prediction that separates this hypothesis from the prognostic account or from H-001.",
+        "mechanism_steps": [
+          "Dichotomising a time-to-event outcome into a binary resistance label discards information and lowers power. (Statistical, not biological.)",
+          "Second-line populations are survivorship-selected, attenuating prognostic effects. (Selection, not mechanism \u2014 and the content of H-006.)",
+          "Multiplicity adjustment across an unrelated biomarker panel penalises a prespecified single hypothesis. (Analytic choice.)",
+          "Therefore a first-line time-to-event analysis will show a modest STK11 association. (Restatement of the correlation; no biological step is required for this to be true or false.)"
+        ],
+        "alternative_explanations": [
+          "The association is entirely prognostic \u2014 the same point estimate appears on first-line chemotherapy with no ICI present (C-037, HR 1.4) \u2014 so a positive result here would be uninformative about checkpoint blockade.",
+          "Residual confounding by PD-L1, smoking and performance status produces a modest hazard ratio of the size predicted without any LKB1-specific effect.",
+          "Selection into sequencing: patients sequenced before or early in first-line therapy differ systematically from those sequenced later, and STK11 prevalence tracks tissue adequacy and panel breadth."
+        ],
+        "confounding_risks": [
+          "Prognostic vs predictive is unresolvable by construction: no non-ICI arm, so a within-ICI hazard ratio is exactly the estimand the field already has and cannot interpret.",
+          "Surveillance bias on a progression endpoint: real-world imaging intervals are irregular and clinicians who know a patient carries a resistance-associated genotype scan sooner, which inflates measured progression rates in the exposed group independently of biology.",
+          "Interval censoring: progression dates are ascertained at scan dates, so short-horizon differences are quantised by scheduling patterns that differ across sites and eras.",
+          "Immortal time via sequencing-conditioned entry, which is acute for a first-line PFS endpoint because sequencing frequently reports after treatment start.",
+          "Smoking and PD-L1 as the leading measured confounders, both incompletely captured.",
+          "Panel ascertainment: STK11 callability varies by assay, so the comparator group is contaminated with untested patients."
+        ],
+        "verdict": "reject",
+        "reject_reason": "There is no causal story here, only a measurement argument. Every reason given for expecting the association \u2014 dichotomisation of a time-to-event outcome, a second-line population, multiplicity adjustment across an unrelated biomarker panel \u2014 concerns how PIONeeR was analysed, not what LKB1 does. The statement itself, 'STK11 loss-of-function is associated with a modestly shorter time to progression or death on anti-PD-1/PD-L1 therapy', restates the correlation the field has already pooled across 14 studies and 4,317 patients (C-039, PFS HR 1.45). No step is proposed that could be false about biology, and no differential prediction is made: the candidate's own expectation is 'a small, real, and prognostic-looking effect', which by construction cannot distinguish prediction from prognosis in a design with no non-ICI comparator. H-001 asks the same underlying question with the comparator arm that makes it answerable; H-012 is that design with the discriminating contrast deleted, so it tests nothing H-001 does not test better. A methodological improvement on a prior null is a good reason to re-analyse someone else's data; it is not a hypothesis."
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "H-013",
+      "statement": "In resectable NSCLC treated with neoadjuvant chemo-immunotherapy, KRAS/STK11 co-mutation is associated with shorter recurrence-free survival after resection without a correspondingly lower major pathologic response rate, i.e. pathologic response and durable disease control dissociate in this genotype.",
+      "origin": {
+        "gap_type": "buried_negative_result",
+        "supporting_claims": [
+          "C-044",
+          "C-045",
+          "C-031",
+          "C-036",
+          "C-007"
+        ],
+        "rationale": "The graph contains a within-study dissociation nobody has the power to interpret: in the same tiny neoadjuvant cohort, KRAS/STK11 co-mutants had an RFS hazard ratio of 7.09 (p=0.027, n=52) while major pathologic response was 17% versus 25% (p=1.0, n=21, seven co-mutants). The MPR null is the buried negative \u2014 a nonsignificant result in a 21-patient comparison that would be read as reassurance. The reason to believe the dissociation is real rather than noise is mechanistic and testable: major pathologic response after neoadjuvant chemo-immunotherapy is driven substantially by the cytotoxic component, which LKB1 loss does not impair, whereas durable freedom from recurrence depends on immune control of residual microscopic disease, which requires the antigen presentation (C-031) and functional CD8 response (C-036 reports CD8 dysfunction rather than absence in STK11-deficient tumours) that LKB1 loss degrades. If that is right, MPR is a poor surrogate endpoint specifically in this genotype \u2014 which matters because MPR is increasingly used as the trial-level surrogate in the perioperative setting. Only a cohort linking genomics to surgical pathology and long-term recurrence at scale can test it.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 39545922 (Rosner et al., Clin Cancer Res 2025;31:339-51)",
+            "summary": "The primary report behind C-044/C-045 already describes significantly shorter RFS in KRAS-mutant/STK11-mutant tumours despite comparable pathologic response rates, with supporting bulk RNA sequencing on the tumour immune microenvironment. The dissociation is therefore published, not undiscovered, and novelty here is limited to replication with adequate power \u2014 the primary cohort had roughly seven co-mutant patients. Recorded because it substantially discounts this candidate.",
+            "n": 52
+          },
+          {
+            "identifier": "PMC12432620",
+            "summary": "Reports that KRAS and STK11 mutations shape the CD8+ T-cell response in resectable NSCLC after neoadjuvant therapy, supplying the immunologic correlate but again in a small surgical series with no independent RFS validation.",
+            "n": null
+          }
+        ]
+      },
+      "exposure": {
+        "description": "KRAS-mutant, STK11-loss-of-function genotype in resected NSCLC treated with neoadjuvant chemo-immunotherapy",
+        "genomic_criteria": "oncogenic KRAS missense variant together with STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense, called on the pre-treatment diagnostic specimen",
+        "treatment_criteria": "neoadjuvant platinum-doublet plus anti-PD-1/PD-L1 followed by attempted curative resection"
+      },
+      "comparator": {
+        "description": "KRAS-mutant, STK11-wildtype patients receiving the same neoadjuvant chemo-immunotherapy and undergoing resection; KRAS-wildtype/STK11-wildtype resected patients form a third reference arm."
+      },
+      "population": {
+        "description": "Adults with resectable stage II-IIIA NSCLC who received neoadjuvant chemo-immunotherapy and underwent resection, with pre-treatment tumour sequencing",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "sequencing performed on the pre-treatment specimen",
+          "resection attempted after neoadjuvant therapy",
+          "pathologic response assessed on the resection specimen"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "sequencing performed only on the post-treatment resection specimen, where treatment has already reshaped the clonal population"
+        ]
+      },
+      "proposed_endpoint_concept": "recurrence-free survival from date of resection, examined jointly with pathologic response on the resection specimen so that the dissociation between the two is the estimand",
+      "proposed_covariates": [
+        "clinical stage before neoadjuvant therapy and pathologic stage at resection",
+        "number of neoadjuvant cycles completed",
+        "extent of resection and margin status",
+        "receipt of adjuvant therapy after resection",
+        "PD-L1 TPS band",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "TP53 and KEAP1 co-mutation status",
+        "surveillance imaging frequency, since recurrence detection depends on how often patients are scanned"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "As proposed: platinum drives bulk tumour regression and hence major pathologic response, a process LKB1 loss does not impair, while freedom from recurrence depends on immune control of residual microscopic disease requiring antigen presentation (C-031) and functional CD8 responses (C-036) that LKB1 loss degrades; hence a dissociation, and hence MPR is a poor surrogate in this genotype. The first step fails: in neoadjuvant chemo-immunotherapy the pathologic response is largely the immunotherapy's contribution, so the same defect that impairs durable control should also impair pathologic response. With that step removed the mechanism predicts concordance, and the observed 'dissociation' reduces to a nonsignificant comparison in 21 patients read as evidence.",
+        "mechanism_steps": [
+          "Neoadjuvant platinum doublet causes bulk cytoreduction independent of LKB1 status. (True in isolation.)",
+          "Major pathologic response therefore mainly measures the cytotoxic effect. (FALSE for chemo-immunotherapy: the pathologic response gain over chemotherapy alone is attributable to the checkpoint inhibitor.)",
+          "Durable freedom from recurrence requires immune surveillance of residual microscopic disease via MHC-I presentation and functional CD8 memory (C-031, C-036).",
+          "LKB1 loss degrades that surveillance, shortening recurrence-free survival.",
+          "Therefore recurrence-free survival is reduced while pathologic response is preserved. (Does not follow once step 2 is corrected; the corrected chain predicts both are reduced.)"
+        ],
+        "alternative_explanations": [
+          "The MPR null is sampling noise: 17% vs 25% with p=1.0 in 21 patients has an interval spanning almost the entire plausible range, so 'no difference' is uninformative rather than a buried negative.",
+          "The RFS signal is small-cell instability: HR 7.09 from roughly seven co-mutant patients is the kind of estimate that regresses hard toward the null on replication.",
+          "Stage and adjuvant-therapy imbalance: co-mutant patients may present with higher pathologic stage and receive different adjuvant treatment, which drives recurrence-free survival without any surrogate-endpoint dissociation."
+        ],
+        "confounding_risks": [
+          "Surveillance intensity determines recurrence detection, and imaging frequency after resection varies by site, stage and clinician concern \u2014 a direct route to differential ascertainment of the RFS endpoint.",
+          "Selection into resection: patients who progress during neoadjuvant therapy never reach surgery, which removes the worst-outcome exposed patients and distorts both endpoints in opposite directions.",
+          "Pathologic response assessment is not standardised across institutions, and residual-viable-tumour scoring is observer-dependent.",
+          "Adjuvant therapy receipt after resection is a post-baseline variable on the causal path to recurrence.",
+          "Immortal time between diagnosis, sequencing and resection.",
+          "Prognostic vs predictive: no non-immunotherapy neoadjuvant comparator exists in current practice, so the surrogate-failure claim cannot be attributed to the ICI component even if the dissociation were observed."
+        ],
+        "verdict": "reject",
+        "reject_reason": "The dissociation requires that major pathologic response after neoadjuvant chemo-immunotherapy is driven by the cytotoxic component and is therefore LKB1-independent. That premise is false: pathologic response in this setting is overwhelmingly attributable to the checkpoint inhibitor added to chemotherapy \u2014 pathologic complete response rises roughly tenfold when anti-PD-1 is added to neoadjuvant platinum doublet, against a low single-digit rate for chemotherapy alone. So the very antigen-presentation and priming defects the hypothesis invokes to explain the recurrence-free survival deficit (C-031, C-029, C-036) predict a LOWER major pathologic response rate as well. Followed honestly, the mechanism predicts concordance between the two endpoints, not the claimed dissociation. The other limb is worse: 'no correspondingly lower MPR' rests on 17% versus 25% with p=1.0 in 21 patients, of whom 7 were co-mutant (C-045). Sampling noise is a complete explanation for that null and no biology is needed. The RFS limb (C-044, HR 7.09) comes from a review restating a primary report the mapper never opened, in a cohort of the same 7 co-mutants. Building a surrogate-endpoint claim on a seven-patient cell whose non-significant arm is treated as a finding inverts the evidence."
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "H-014",
+      "statement": "Biallelic STK11 inactivation is associated with shorter overall survival on ICI-containing therapy than monoallelic or missense-only STK11 alteration, and monoallelic missense STK11 alteration behaves like STK11 wild-type.",
+      "origin": {
+        "gap_type": "untested_extension",
+        "supporting_claims": [
+          "C-034",
+          "C-035",
+          "C-029",
+          "C-031",
+          "C-023",
+          "C-046",
+          "C-048"
+        ],
+        "rationale": "This is the established-mechanism-whose-clinical-implication-was-never-tested case, and it may be the single best explanation for why the graph disagrees with itself. LKB1 is a classic two-hit tumour suppressor, and every mechanism in the graph \u2014 STING silencing via SAM/DNMT1/EZH2 (C-029, C-030) and loss of immunoproteasome-dependent presentation (C-031) \u2014 requires the kinase activity to be gone, not merely reduced. Li et al. make the same argument from the other direction, showing the transcriptomic STK11-deficient phenotype rather than mutation status identifies ICB-refractory tumours (C-034), with the companion claim that tissue mutation alone does not (C-035, unverified and so discounted here). Every clinical cohort in the graph defines exposure as 'STK11 mutated', pooling true biallelic loss with heterozygous missense variants of uncertain effect. That non-differential-looking but actually directional misclassification would attenuate estimates toward the null and would do so by different amounts in cohorts with different panel content and different variant-calling thresholds \u2014 which is exactly the pattern of disagreement seen between Skoulidis, Papillon-Cavanagh, the Japanese C-CAT cohort and PIONeeR, and it also fits the unexplained prevalence spread from 8.6% to 25% (C-048). A cohort with copy-number and zygosity calls alongside mutation calls can separate the strata; no published cohort in this graph has.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "J Thorac Oncol S1556-0864(24)00081-9, 'Precision Immunotherapy for STK11/KEAP1-Mutant NSCLC'",
+            "summary": "Review that already argues clonality, allelic status and variant class should stratify treatment: it states that clonal mutations with LOH in KEAP1, unlike subclonal ones, associate with resistance and a T-cell-excluded microenvironment, and recommends that subclonal or benign-predicted missense variants with high PD-L1 should not be steered away from PD-(L)1 monotherapy. The idea is therefore in print for KEAP1; the STK11-specific effect estimate is what is missing, which is what the mapper independently found in coverage note 6.",
+            "n": null
+          },
+          {
+            "identifier": "J Thorac Oncol S1556-0864(25)00049-8, 'Gene Copy Deletion of STK11, KEAP1, and SMARCA4: Clinicopathologic Features and Association With the Outcomes of Immunotherapy With or Without Chemotherapy in Nonsquamous NSCLC'",
+            "summary": "A 2025 study that specifically addresses copy deletion of STK11 and immunotherapy outcomes \u2014 the closest existing work to this hypothesis. The full text returned HTTP 403 to automated retrieval so its effect estimates and whether it separated biallelic from monoallelic events could not be confirmed; it must be read before this candidate is pre-registered, and it may substantially reduce or eliminate the gap.",
+            "n": null
+          },
+          {
+            "identifier": "PMID 37495171 (Li, JTO 2023)",
+            "summary": "Argues from transcriptomic phenotype that mutation status is a poor proxy for functional STK11 loss, and reports the phenotype rather than the mutation identifies ICB-refractory tumours. Supports the premise but also means the 'mutation is a poor proxy' claim is established; the novelty is in using zygosity as a genomic proxy for the functional state, which a clinicogenomic dataset can compute and a transcriptomic signature cannot.",
+            "n": null
+          }
+        ]
+      },
+      "exposure": {
+        "description": "Biallelic STK11 inactivation",
+        "genomic_criteria": "STK11 homozygous deletion, or a truncating variant (nonsense, frameshift, splice-site) together with loss of heterozygosity or a second qualifying variant at the STK11 locus; where available, high variant allele fraction adjusted for tumour purity is used as the supporting zygosity signal",
+        "treatment_criteria": "first-line ICI-containing therapy, regimen class entered as a covariate"
+      },
+      "comparator": {
+        "description": "Two explicit comparator strata rather than one: (a) monoallelic STK11 alteration, defined as a single truncating or oncogenic missense variant with retained heterozygosity, and (b) STK11 wild-type. The hypothesis predicts stratum (a) resembles stratum (b) and both differ from the exposed group."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC on first-line ICI-containing therapy sequenced on a panel that reports both variant calls and copy-number or allelic-imbalance information at the STK11 locus",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "copy-number or LOH information available at STK11",
+          "tumour purity estimate available or variant allele fraction reported"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "samples with tumour purity too low for reliable zygosity inference",
+          "panels that do not report copy number"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy",
+      "proposed_covariates": [
+        "tumour purity and sequencing panel identity, since zygosity inference degrades with low purity and differs across assays",
+        "specimen type (primary versus metastatic, archival versus fresh)",
+        "PD-L1 TPS band",
+        "KRAS and KEAP1 status, with KEAP1 zygosity handled the same way",
+        "tumour mutational burden",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "ECOG performance status",
+        "left truncation at sequencing report date"
+      ],
+      "plausibility": {
+        "score": "strong",
+        "causal_story": "LKB1 is a classical two-hit tumour suppressor, and every downstream mechanism in the graph requires kinase activity to be abolished rather than halved: AMPK signalling is dose-sensitive, and the SAM/DNMT1/EZH2 route to STING silencing (C-029/C-030) and the immunoproteasome/autophagy route to defective presentation (C-031) are both consequences of losing the kinase, not of losing one allele. A tumour with a single heterozygous missense variant retains substantial LKB1 activity and should behave like wild-type; a tumour with homozygous deletion, or a truncating variant plus LOH, has none and should carry the full phenotype. Because published cohorts all define exposure as 'STK11 mutated' and therefore pool the two, their estimates are attenuated by an amount that depends on panel content, variant-calling thresholds and purity \u2014 which predicts both the direction of the zygosity gradient and the pattern of cross-cohort disagreement, including the unexplained prevalence spread from 8.6% to 25% (C-048). The falsifiable step is dose-sensitivity: if haploinsufficiency is enough to silence STING, monoallelic cases will not resemble wild-type. C-035 is unverified and is not used as support here.",
+        "mechanism_steps": [
+          "LKB1 acts as a two-hit tumour suppressor; complete loss requires inactivation of both alleles, commonly truncating variant plus LOH or homozygous deletion.",
+          "AMPK activation, and hence restraint on mTORC1 and one-carbon flux, is dose-dependent on residual LKB1 kinase activity.",
+          "The SAM surplus needed to hyperactivate DNMT1/EZH2 and silence STING (C-029/C-030) arises only when that restraint is effectively absent.",
+          "The immunoproteasome and autophagy phenotype (C-031) likewise reflects loss of kinase function rather than allelic dosage alone.",
+          "Therefore biallelic cases carry the full immune-evasion phenotype while monoallelic missense cases substantially retain it, behaving like wild-type.",
+          "Pooling the two attenuates published estimates by an assay-dependent amount, which predicts the observed heterogeneity between cohorts as well as the gradient itself."
+        ],
+        "alternative_explanations": [
+          "Zygosity is a proxy for tumour purity and specimen quality: high-purity, high-tumour-content samples are more often called biallelic, and purity correlates with disease burden and biopsy site, which independently predict survival.",
+          "Clonality rather than zygosity is the operative variable \u2014 a clonal heterozygous truncating event may matter more than a subclonal biallelic one \u2014 so a positive gradient does not establish that allelic dose is the mechanism.",
+          "Selection effects: panels reporting copy number are newer and concentrated at particular institutions and eras, so the biallelic-callable subcohort differs systematically from the rest."
+        ],
+        "confounding_risks": [
+          "Measurement is the central threat: LOH and copy-number inference from targeted panels degrades with low tumour purity, and misclassification is directional \u2014 low-purity samples are called monoallelic \u2014 so the exposure contrast is partly a purity contrast that also predicts outcome.",
+          "Panel ascertainment: only some assays report copy number at STK11, so the analysable population is non-random with respect to institution, era and disease burden.",
+          "Specimen type: metastatic and archival specimens differ in purity and in the reliability of allelic-imbalance calls compared with primary resections.",
+          "Prognostic vs predictive: no non-ICI arm, so a real zygosity gradient could be entirely prognostic \u2014 biallelic loss marking more aggressive disease \u2014 which is the more parsimonious reading given C-037.",
+          "KEAP1 zygosity is correlated and, per the cited review, is the version of this idea already in print; without joint modelling the STK11 gradient may be a KEAP1 gradient.",
+          "Immortal time via sequencing-conditioned entry, aggravated because zygosity-callable sequencing is often later-generation and therefore later in the disease course."
+        ],
+        "verdict": "pass"
+      },
+      "status": "active"
+    },
+    {
+      "id": "H-015",
+      "statement": "In advanced NSCLC treated with anti-PD-1/PD-L1 therapy, the excess hazard associated with STK11 loss-of-function is concentrated in the early months after treatment start and diminishes thereafter, i.e. the STK11 effect is front-loaded and the proportional-hazards assumption fails for it.",
+      "origin": {
+        "gap_type": "untested_extension",
+        "supporting_claims": [
+          "C-039",
+          "C-040",
+          "C-046",
+          "C-018",
+          "C-042",
+          "C-029",
+          "C-031",
+          "C-027"
+        ],
+        "rationale": "Every claim in the graph reports a single hazard ratio or a single response proportion, and no claim examines the shape of the effect over time. Yet the shape is what would reconcile the literature. Response-based and short-horizon metrics show large STK11 effects (pooled ORR 10.1% versus 25.8%, C-040; pooled PFS HR 1.45, C-039), while randomized long-horizon survival comparisons show little or none (KEYNOTE-042 C-018, POSEIDON C-042) and a second-line prospective cohort finds no primary-resistance signal (C-046). A front-loaded hazard produces exactly that pattern: it inflates response and early-progression metrics, is partially averaged away in an overall survival hazard ratio, and is attenuated in populations already filtered by survivorship. The mechanism predicts the shape rather than merely accommodating it. Silenced STING (C-029), a compromised immunoproteasome (C-031) and a myeloid-suppressed microenvironment (C-027) are all failures of the initial priming step; a tumour whose priming fails does so within the first cycles, whereas patients whose tumours do prime are not disadvantaged thereafter. The clinical implication has never been stated or tested: STK11 should identify patients who need an early response assessment, not patients who should be denied checkpoint blockade.",
+        "prior_negative_evidence": [
+          {
+            "identifier": "PMID 38632512 (Xu, BMC Cancer 2024 meta-analysis)",
+            "summary": "Pooled 14 retrospective studies (4317 patients) into single PFS and OS hazard ratios with no assessment of time-varying effects or non-proportional hazards. Because the pooled estimates assume proportionality, they cannot detect the pattern this hypothesis proposes, and their existence is not evidence against it \u2014 but it does mean a great deal of data has been analysed without anyone asking the question.",
+            "n": 4317
+          },
+          {
+            "identifier": "medRxiv 10.64898/2026.01.09.26343779 (PIONeeR)",
+            "summary": "Used a binary primary-resistance label, which is the crudest possible summary of an early-hazard phenomenon, and found nothing. If the effect were strongly front-loaded, a primary-resistance endpoint should have been the most sensitive design available and it was null \u2014 this is the strongest evidence against the hypothesis and is recorded as such.",
+            "n": 305
+          },
+          {
+            "identifier": "NCT06008093 (TRITON, AstraZeneca)",
+            "summary": "Randomized phase IIb of durvalumab plus tremelimumab plus chemotherapy versus pembrolizumab plus chemotherapy restricted to STK11/KEAP1/KRAS-mutated non-squamous NSCLC, 103 patients, active and not recruiting, no results posted. Its primary endpoint is PFS with 6- and 12-month PFS rates, so it will eventually speak to early-versus-late separation in this genotype; the hypothesis should be tested before that reads out or reframed once it does.",
+            "n": 103
+          }
+        ]
+      },
+      "exposure": {
+        "description": "STK11 loss-of-function, with the effect estimated as a function of time since treatment start rather than as a single constant hazard ratio",
+        "genomic_criteria": "STK11 nonsense, frameshift, splice-site, homozygous deletion, or oncogenic/likely-oncogenic missense",
+        "treatment_criteria": "first-line anti-PD-1/PD-L1 therapy, monotherapy or chemo-immunotherapy, regimen class entered as a covariate"
+      },
+      "comparator": {
+        "description": "STK11 wild-type patients on the same first-line ICI-containing regimen class; the estimand is the contrast between the STK11 hazard ratio in an early prespecified interval after treatment start and the hazard ratio in the subsequent interval, among patients still at risk at the interval boundary."
+      },
+      "population": {
+        "description": "Adults with advanced NSCLC on first-line ICI-containing therapy with panel sequencing covering STK11 and sufficient follow-up to observe both intervals",
+        "oncotree_codes": [
+          "NSCLC",
+          "LUAD",
+          "LUSC"
+        ],
+        "inclusion": [
+          "first-line ICI-containing therapy",
+          "follow-up extending past the prespecified interval boundary for patients not experiencing an event"
+        ],
+        "exclusion": [
+          "EGFR-activating mutation or ALK/ROS1 fusion",
+          "patients whose only follow-up is the sequencing encounter"
+        ]
+      },
+      "proposed_endpoint_concept": "overall survival from start of first-line ICI-containing therapy, with the hazard contrast estimated separately in an early and a later prespecified interval",
+      "proposed_covariates": [
+        "PD-L1 TPS band",
+        "regimen class",
+        "ECOG performance status, which itself drives early events and must not be allowed to masquerade as a front-loaded genomic effect",
+        "disease burden and presence of liver or brain metastases at baseline where recorded",
+        "age",
+        "sex",
+        "smoking status and pack-years",
+        "KRAS and KEAP1 co-mutation status",
+        "left truncation at sequencing report date, which is critical here because early deaths are systematically missing from cohorts that require a sequencing result to enter"
+      ],
+      "plausibility": {
+        "score": "weak",
+        "causal_story": "As proposed: STING silencing (C-029), immunoproteasome failure (C-031) and myeloid suppression (C-027) are all failures of initial priming, so tumours that will not respond declare themselves within the first cycles while tumours that do prime carry no later disadvantage; hence a front-loaded excess hazard and non-proportional hazards. The biology is not implausible, but the predicted observable \u2014 a declining hazard ratio \u2014 is produced just as readily by frailty selection in a heterogeneous population with a constant individual-level effect, and by the differential left truncation this cohort design imposes. Because the hypothesis offers no observable that separates the mechanistic account from those two, a positive result would not be evidence for the mechanism.",
+        "mechanism_steps": [
+          "LKB1 loss disables innate licensing (STING, C-029), MHC-I peptide supply (C-031) and adds myeloid suppression (C-027, mouse, contested by C-009).",
+          "Those are all failures of the initial priming step rather than of response maintenance.",
+          "Tumours that cannot prime progress within the first treatment cycles.",
+          "Patients whose tumours do prime are not disadvantaged thereafter, so the excess hazard decays.",
+          "Therefore the STK11 hazard ratio is larger in an early interval than in a later one. (True also under frailty selection with a constant effect, so the observation does not identify the mechanism.)"
+        ],
+        "alternative_explanations": [
+          "Frailty/depletion of susceptibles: a constant individual-level hazard ratio in a heterogeneous population yields a declining marginal hazard ratio automatically, which fully reproduces the predicted pattern with no LKB1-specific biology.",
+          "Baseline severity: STK11-mutant patients have higher disease burden and worse performance status at treatment start, so early deaths cluster in the exposed group for reasons that are prognostic and not immune-mechanistic.",
+          "Left truncation: requiring a sequencing result to enter removes early deaths differentially, which distorts the early-interval hazard ratio in a direction that depends on turnaround time rather than biology."
+        ],
+        "confounding_risks": [
+          "Immortal time and left truncation dominate: the early window is precisely the window that sequencing-conditioned entry under-samples, and truncation intervals differ by institution, panel and disease burden.",
+          "ECOG and baseline tumour burden (liver and brain metastases) drive early events and are recorded coarsely; they can masquerade as a front-loaded genomic effect.",
+          "Treatment discontinuation and hospice transition patterns in the first months differ by genotype-associated disease severity and are rarely captured.",
+          "Prognostic vs predictive: no non-ICI comparator, so a front-loaded hazard cannot be attributed to failed priming under checkpoint blockade rather than to aggressive disease.",
+          "Interval boundary selection is a researcher degree of freedom; the estimate depends on where the boundary is placed and must be prespecified, but even prespecified it is not identifying.",
+          "Panel ascertainment and era, as elsewhere, both of which correlate with sequencing turnaround and hence with the truncation problem above."
+        ],
+        "verdict": "reject",
+        "reject_reason": "A hazard ratio that declines with time is the generic signature of unmeasured heterogeneity, not evidence of a priming-failure mechanism. In any population with a frailty distribution, the frail exposed patients leave the risk set first and the marginal hazard ratio drifts toward one even when the individual-level ratio is exactly constant. The proposed mechanism therefore predicts a pattern that its leading alternative predicts equally well, and no discriminator is offered: the design cannot distinguish 'LKB1-deficient tumours fail priming within the first cycles' from 'STK11 marks aggressive disease and the most aggressive die first'. The hypothesis is also the one most damaged by its own acknowledged design flaw \u2014 the early interval carries the entire signal, and the early interval is exactly what a sequencing-conditioned cohort under-observes, because patients must survive to be sequenced. Left truncation removes the very events the hypothesis is about, and no amount of adjustment recovers them. Finally, nothing in the chain is ICI-specific: early excess death in an aggressive genotype is expected on chemotherapy too, and with no non-ICI arm the 'needs early response assessment, not denial of checkpoint blockade' implication does not follow from a positive result. The strongest on-point evidence, PIONeeR's binary primary-resistance endpoint, is the design most sensitive to a front-loaded effect and it was null (C-046)."
+      },
+      "status": "rejected"
+    }
+  ],
+  "stage_notes": "Stage 3 outcome: 9 pass, 6 reject, of 15 carried forward. Every id from candidate_hypotheses.json is present; rejected hypotheses carry verdict 'reject', a populated reject_reason and status 'rejected'. Passes scored strong: H-001, H-008, H-009, H-014. Passes scored moderate: H-002, H-004, H-007, H-010, H-011. Rejects: H-003 (exposure is a proxy for smoking and co-mutation background already in the model; no ancestry-to-LKB1 step), H-005 (mechanism rests on a mouse claim C-027 that failed replication in C-009, and the compounding step does not fix a direction), H-006 (platinum-compensation limb is self-defeating because STING silencing removes the sensor for the ligand platinum supplies; the remaining limb is survivorship selection, and first- vs second-line monotherapy strata differ structurally on PD-L1), H-012 (no causal story, only an endpoint and multiplicity argument; restates the pooled correlation and deletes the comparator contrast that makes H-001 answerable), H-013 (pathologic response after neoadjuvant chemo-immunotherapy is largely ICI-driven, so the mechanism predicts concordance rather than the claimed dissociation; the MPR null is noise from 21 patients), H-015 (a declining hazard ratio is the generic signature of frailty selection and of left truncation, so the prediction does not discriminate the proposed mechanism from its alternatives).\n\nCROSS-CUTTING NOTE ON PROGNOSTIC VS PREDICTIVE. This is the dominant confounding axis across the whole set and it is recorded in confounding_risks for every hypothesis. Only H-001 and H-010 carry a treatment contrast capable of addressing it, and H-010's contrast is between two ICI-containing regimens rather than against a non-ICI arm. The published designs with non-ICI comparators point toward prognosis (Papillon-Cavanagh interaction HR 1.05 for PFS and 1.13 for OS, C-012/C-013; Shire HR 1.4 on first-line chemotherapy with no ICI, C-037, against HR 1.4 nonsignificant on first-line ICI, C-038; KEYNOTE-042 OS HR 0.37 in STK11-mutants versus 0.83 in wild-type, C-018). The pooled PFS HR of 1.45 (C-039) is a within-ICI-arm estimate from single-arm retrospective cohorts and is not an interaction test; it should not be read as evidence of prediction anywhere downstream. Any hypothesis in this file that returns a positive within-ICI-arm result should be interpreted as prognostic until a non-ICI comparator says otherwise.\n\nC-035 is unverified (no supporting quote, publisher 403) and was discounted. It appears only in H-014's supporting claims, where stage 2 already used it as corroboration rather than support; the plausibility assessment for H-014 rests on C-034, C-029/C-030, C-031 and established two-hit tumour-suppressor biology, and states the discounting explicitly.\n\nTHREE PASSES CARRY MEDIATOR-CONDITIONING HAZARDS that stage 4 should note in the analysis plan rather than treat as ordinary covariates: H-007 and H-008 stratify on PD-L1, which is downstream of the exposure via the interferon axis, so both estimate controlled direct effects and are open to collider bias; H-004 lists TMB as a covariate while C-032 places TMB on the causal path. These are stated in each hypothesis's confounding_risks and are not grounds for rejection, but the estimand must be labelled.\n\nH-007 and H-008 make partially opposing predictions in the overlapping PD-L1-high stratum (H-007 predicts the KL-vs-KP ordering survives PD-L1 stratification; H-008 predicts the STK11 penalty vanishes at TPS >= 50%). They differ in genotype contrast, endpoint and line, so both survive stage 3, but they should be pre-registered as a pair and interpreted jointly rather than separately.\n\nNo feasibility or novelty assessment is present in this file by design; those are stages 4 and 5. No stage-2 field was altered. Next: run 'python3 pipeline/validate.py filtered_hypotheses'."
+}
