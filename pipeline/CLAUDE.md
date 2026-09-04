@@ -38,6 +38,11 @@ novelty-scorer      -> ranked_*.json      |        |
   `supersedes:` field. Never edit or delete a committed prereg. Superseding a prereg *after*
   outcomes were unlocked invalidates the hypothesis — mark it `INVALIDATED` and move it to the
   graveyard.
+- **R5b.** A hypothesis about whether a marker is **predictive rather than prognostic** is an
+  *interaction*, and must be pre-registered as one (`--estimand interaction --interaction-with
+  <column>`). A within-arm hazard ratio is not an interaction test; reporting one as the other is
+  how a prognostic marker gets published as predictive, and it is the specific error the STK11
+  literature in `claim_graph.json` demonstrates at scale.
 - **R5a.** **Freeze `confirmatory.py` before the first pre-registration is committed.** Each
   prereg records the script's sha256, and the script refuses to run when its own hash no longer
   matches. That is the intended protection, but it means an innocuous later edit — a formatting

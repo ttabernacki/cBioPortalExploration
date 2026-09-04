@@ -75,6 +75,9 @@ def parse_prereg(path: Path) -> dict:
         die(f"{path.name} is marked INVALIDATED — its result would be exploratory, not confirmatory")
 
     covariates = re.findall(r"^  \d+\. (.+)$", text, re.M)
+    estimand = meta.get("estimand", "main_effect")
+    if estimand not in ("main_effect", "interaction"):
+        die(f"{path.name} declares unknown estimand '{estimand}'")
     alpha = re.search(r"\*\*Alpha:\*\* ([0-9.]+)", text)
     endpoint = re.search(r"\*\*([A-Z_]+) — (.+?)\*\*", text)
     time_field = re.search(r"\*\*Time field:\*\* `(\w+)`", text)
@@ -97,6 +100,8 @@ def parse_prereg(path: Path) -> dict:
         "event_field": event_field.group(1),
         "covariates": covariates,
         "alpha": float(alpha.group(1)),
+        "estimand": estimand,
+        "interaction_with": meta.get("interaction_with") or None,
     }
 
 
@@ -161,8 +166,20 @@ def load_cohort(partition: str, plan: dict):
 
 
 def fit(df, plan: dict) -> dict:
-    """Single Cox proportional hazards fit. One call. No refitting, no selection, no interaction
-    terms beyond those written into the pre-registered covariate list."""
+    """Single Cox proportional hazards fit. One call. No refitting, no selection.
+
+    Two pre-registered estimands, chosen in the prereg and not here:
+
+    - `main_effect`  — the coefficient on `exposure`.
+    - `interaction`  — the coefficient on the product of `exposure` and a named modifier, i.e. the
+      ratio of the exposure hazard ratio across strata of that modifier. Most hypotheses that ask
+      whether a marker is predictive rather than prognostic are of this shape, and a main-effect
+      fit cannot express them: a within-arm hazard ratio is not an interaction test, and treating
+      one as the other is how a prognostic marker gets reported as predictive.
+
+    Both are ONE fit. The interaction term is entered because the pre-registration named it, never
+    because a main effect looked interesting.
+    """
     try:
         from lifelines import CoxPHFitter
         from lifelines.statistics import proportional_hazard_test
@@ -170,23 +187,43 @@ def fit(df, plan: dict) -> dict:
         die("lifelines is required (pip install lifelines)")
 
     t, e = plan["time_field"], plan["event_field"]
+    estimand = plan["estimand"]
+    modifier = plan.get("interaction_with")
+
     cols = [t, e, "exposure"] + plan["covariates"]
+    if estimand == "interaction":
+        if not modifier:
+            die("prereg declares estimand 'interaction' but names no interaction_with term")
+        if modifier not in cols:
+            cols.append(modifier)
     missing = [c for c in cols if c not in df.columns]
     if missing:
         die(f"locked extract is missing pre-registered columns: {', '.join(missing)}")
 
     n_total = len(df)
-    d = df[cols].dropna()
+    d = df[cols].dropna().copy()
     n_analysed = len(d)
+
+    term = "exposure"
+    if estimand == "interaction":
+        term = "exposure_x_modifier"
+        d[term] = d["exposure"] * d[modifier]
 
     cph = CoxPHFitter()
     cph.fit(d, duration_col=t, event_col=e)  # the single fit
 
-    row = cph.summary.loc["exposure"]
+    row = cph.summary.loc[term]
     ph = proportional_hazard_test(cph, d, time_transform="rank")
     ph_p = float(ph.summary["p"].min())
 
     return {
+        "estimand": estimand,
+        "reported_term": term,
+        "interaction_with": modifier if estimand == "interaction" else None,
+        "effect_interpretation": (
+            f"ratio of the exposure hazard ratio across strata of '{modifier}'"
+            if estimand == "interaction" else "hazard ratio for exposure vs comparator"
+        ),
         "n_total_in_partition": int(n_total),
         "n_analysed_complete_case": int(n_analysed),
         "n_dropped_missing": int(n_total - n_analysed),

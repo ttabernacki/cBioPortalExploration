@@ -153,6 +153,8 @@ def render(h: dict, ep: dict, args, script_hash: str, now: str, supersedes: str 
         f"confirmatory_script: pipeline/analysis/confirmatory.py",
         f"confirmatory_script_sha256: {script_hash}",
         f"partition: {args.partition}",
+        f"estimand: {args.estimand}",
+        f"interaction_with: {args.interaction_with or 'null'}",
         "```",
         "",
         "**This document is immutable once committed (rule R4).** To revise it, create a new "
@@ -285,6 +287,12 @@ def main() -> int:
     p.add_argument("--alpha", type=float, default=DEFAULT_ALPHA)
     p.add_argument("--correction", default=DEFAULT_CORRECTION)
     p.add_argument("--model-spec", default="Cox proportional hazards, single fit, no stepwise or automated selection")
+    p.add_argument("--estimand", default="main_effect", choices=["main_effect", "interaction"],
+                   help="main_effect: the coefficient on exposure. interaction: the ratio of the "
+                        "exposure hazard ratio across strata of --interaction-with. A hypothesis "
+                        "about whether a marker is predictive rather than prognostic is an "
+                        "interaction and must be registered as one.")
+    p.add_argument("--interaction-with", help="column name of the pre-registered effect modifier; required for --estimand interaction")
     p.add_argument("--supersede", help="filename of the prereg this one supersedes (rule R4)")
     p.add_argument("--reason", help="why the supersede is necessary")
     p.add_argument("--dry-run", action="store_true", help="render to stdout, commit nothing, unlock nothing")
@@ -295,6 +303,10 @@ def main() -> int:
         die(f"{SCRIPT.relative_to(REPO)} does not exist — nothing to hash-lock the analysis to")
     if args.supersede and not args.reason:
         die("--supersede requires --reason")
+    if args.estimand == "interaction" and not args.interaction_with:
+        die("--estimand interaction requires --interaction-with <column>")
+    if args.estimand == "main_effect" and args.interaction_with:
+        die("--interaction-with is meaningless for --estimand main_effect")
 
     h = load_hypothesis(hid)
     check_gate(h)
