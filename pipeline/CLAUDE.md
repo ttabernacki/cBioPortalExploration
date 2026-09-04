@@ -101,6 +101,12 @@ one, which is an effect modifier), coverage per context dimension, which claims 
 cohorts, and which entities are never studied jointly. `gap-finder` supplies judgement on top of
 it, not recomputation.
 
+To see where everything stands at any point:
+
+```bash
+python3 pipeline/status.py
+```
+
 Stage order and artifacts:
 
 | # | Agent | Reads | Writes |
