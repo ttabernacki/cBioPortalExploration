@@ -79,19 +79,36 @@ Populate `measurement_concerns` from the schema's `provenance` tags:
 - `days_dx_to_sequencing` exists precisely because genomic exposures are ascertained after
   diagnosis. Any hypothesis with a genomic exposure needs left-truncated risk-set entry; note it.
 
-# Output
+# Output — write a PATCH, not the whole file
 
-Write `pipeline/data/feasible_hypotheses.json`, `stage: "feasible"`,
-`source_artifact: "pipeline/data/filtered_hypotheses.json"`.
+**Do not rewrite the fifteen hypotheses.** Write only your own additions to
+`pipeline/data/_feasible_patch.json`:
 
-Carry **every** id forward. Stage-3 rejects keep their existing blocks and `status: "rejected"`.
+```json
+{
+  "stage": "feasible",
+  "stage_notes": "...",
+  "blocks": {
+    "H-001": { "feasibility": { ... }, "status": "active" },
+    "H-002": { "feasibility": { ... }, "status": "rejected" }
+  }
+}
+```
+
+Include a block **only** for hypotheses you assessed — the nine that passed stage 3. Omit the six
+stage-3 rejects entirely; they are carried forward automatically, verbatim.
+
+`python3 pipeline/apply_stage.py feasible` then merges your patch into
+`feasible_hypotheses.json`, carrying every hypothesis forward mechanically. This is why you cannot
+drop or corrupt an earlier stage's work: you never retype it. The merger refuses a patch that
+touches any field other than `feasibility` and `status`, or that names an id not already present.
+
 Your own rejects get `verdict: "reject"` or `"underpowered"`, a `reject_reason`, and
-`status: "rejected"`. Never delete an id — the validator fails the stage.
+`status: "rejected"`. Passes get `status: "active"`.
 
-Do not write `novelty`. Do not alter stage-2 or stage-3 fields.
-
-Then tell the user to run `python3 pipeline/validate.py feasible_hypotheses`, and report
-pass/reject/underpowered counts with reasons.
+Then tell the user to run `python3 pipeline/apply_stage.py feasible` followed by
+`python3 pipeline/validate.py feasible_hypotheses`, and report pass/reject/underpowered counts
+with reasons.
 
 # What you must not do
 

@@ -63,19 +63,31 @@ Compute it, do not eyeball it. State the arithmetic in `scoring_note` for each h
 Assign `rank` 1..N by descending composite, ties broken by feasibility. Ranks must be a
 **contiguous 1..N sequence over the scored (surviving) hypotheses** — the validator checks this.
 
-# Output
+# Output — write a PATCH, not the whole file
 
-Write `pipeline/data/ranked_hypotheses.json`, `stage: "ranked"`,
-`source_artifact: "pipeline/data/feasible_hypotheses.json"`.
+**Do not rewrite the hypotheses.** Write only your additions to
+`pipeline/data/_ranked_patch.json`:
 
-Carry **every** id forward, rejects included, with their existing blocks and `status: "rejected"`.
-Rejected hypotheses get **no** `novelty` block and no rank. Never delete an id.
+```json
+{
+  "stage": "ranked",
+  "stage_notes": "...",
+  "blocks": { "H-001": { "novelty": { ... } } }
+}
+```
+
+Include a block **only** for hypotheses that passed both stage 3 and stage 4. Omit every reject —
+they are carried forward automatically, verbatim, and must receive no `novelty` block and no rank.
+
+`python3 pipeline/apply_stage.py ranked` merges the patch. It refuses a patch touching any field
+other than `novelty` and `status`, or naming an unknown id, so you cannot disturb earlier stages.
 
 In `stage_notes`, say plainly which hypotheses you would actually pre-register and which you
 ranked but would not spend a slot on. Rank order is not a recommendation to test everything.
 
-Then tell the user to run `python3 pipeline/validate.py ranked_hypotheses`, and report the ranking
-with the composite arithmetic.
+Then tell the user to run `python3 pipeline/apply_stage.py ranked` followed by
+`python3 pipeline/validate.py ranked_hypotheses`, and report the ranking with the composite
+arithmetic.
 
 # What you must not do
 

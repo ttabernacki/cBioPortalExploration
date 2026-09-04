@@ -120,6 +120,20 @@ Stage order and artifacts:
 | 6 | `confirmatory-analyst` | prereg + `locked/` | `analysis/results/<id>.json` |
 | 7 | replication | prereg + holdout cohort | `analysis/results/<id>_replication.json` |
 
+**Stages 4 and 5 write a patch, not the whole file.** Requiring an agent to rewrite every
+hypothesis verbatim in order to add one block is expensive, grows with each stage, and invites
+transcription errors — a retyped `reject_reason` can quietly change. Instead each stage writes
+`data/_<stage>_patch.json` keyed by hypothesis id, and a deterministic merger applies it:
+
+```bash
+python3 pipeline/apply_stage.py feasible   # then validate
+python3 pipeline/apply_stage.py ranked
+```
+
+This makes the audit guarantee stronger, not weaker: a stage physically cannot drop a hypothesis
+or alter an earlier stage's field, because it never rewrites them. The merger refuses a patch that
+touches anything but the stage's own block and `status`, or that names an id not already present.
+
 A hypothesis carries the same `id` from candidate through to result. IDs are of the form
 `H-<NNN>` and are never reused, including for rejected hypotheses.
 
