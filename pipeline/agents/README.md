@@ -9,8 +9,8 @@ boundary, not documentation.
 | 1 | `literature-mapper` | `.claude/agents/literature-mapper.md` | `WebSearch, WebFetch, Write` | No read tool at all, so `pipeline/locked/` is unreachable. |
 | 2 | `gap-finder` | `.claude/agents/gap-finder.md` | `Read, Write, WebSearch, WebFetch` | No `Bash`, so it cannot shell past the deny rule; gap report is precomputed for it. |
 | 3 | `plausibility-filter` | `.claude/agents/plausibility-filter.md` | `Read, Write` | `pipeline/data/` only; no web, no `Bash`. |
-| 4 | `feasibility-checker` | _not yet built_ | planned: `Read, Write` | `pipeline/data/` incl. `dataset_schema.json` (non-outcome fields only). |
-| 5 | `novelty-scorer` | _not yet built_ | planned: `Read, Write` | `pipeline/data/` only. |
+| 4 | `feasibility-checker` | `.claude/agents/feasibility-checker.md` | `Read, Write` | `pipeline/data/` incl. `dataset_schema.json` (non-outcome fields + aggregate counts). |
+| 5 | `novelty-scorer` | `.claude/agents/novelty-scorer.md` | `Read, Write` | `pipeline/data/` only. Last outcome-blind stage. |
 | 6 | `confirmatory-analyst` | _not yet built_ | planned: `Bash, Read` | Test zone. Runs the fixed script only; no free-form analysis. |
 
 Per the build plan, agents are added one at a time with manual inspection of each stage's output
