@@ -23,7 +23,13 @@
       "Pancreatic Cancer": 3109
     },
     "by_treatment_exposure": {
-      "STATUS": "UNAVAILABLE \u2014 the clinical export carries no drug, regimen or line-of-therapy columns. Every treatment-conditioned hypothesis is unassessable until the MSK-CHORD treatment table is loaded."
+      "note": "From data_timeline_treatment.txt, NSCLC patients only. A patient may appear in both an IO row-set and a platinum row-set if treated with both at different times; 'platinum_no_io_ever' is the exclusive complement.",
+      "nsclc_any_anti_pd1_pdl1_agent": 2665,
+      "nsclc_platinum_no_io_ever": 2007,
+      "nsclc_io_and_stk11lof": 336,
+      "nsclc_io_and_stk11_wildtype": 2329,
+      "nsclc_platinum_no_io_and_stk11lof": 163,
+      "nsclc_platinum_no_io_and_stk11_wildtype": 1844
     },
     "total_samples": 25040,
     "nsclc_detail": {
@@ -78,10 +84,20 @@
         "Yes": 2988,
         "NA": 1580
       },
-      "tmb_nonnull": 7809
+      "tmb_nonnull": 7809,
+      "genomic_callable": 7476,
+      "stk11_any_alteration": 1013,
+      "stk11_loss_of_function": 716,
+      "keap1_any_alteration": 1034,
+      "kras_any_alteration": 2195,
+      "kras_and_stk11_comutant": 531,
+      "kras_and_stk11lof_comutant": 385,
+      "stk11_mutant_kras_wildtype": 482,
+      "stk11_and_keap1_comutant": 512,
+      "never_smoker_egfr_alk_wt_stk11lof": 34
     },
     "genomic_subgroups": {
-      "STATUS": "UNAVAILABLE \u2014 the clinical export carries no per-gene mutation calls. STK11, KEAP1 and KRAS status require the mutation table. Gene Panel is present, so panel-based callability restriction is computable once mutations are loaded."
+      "STATUS": "See nsclc_detail and by_treatment_exposure above \u2014 now real, computed from data_mutations.txt."
     }
   },
   "tables": [
@@ -597,5 +613,5 @@
     ],
     "prohibition": "Reconstructing any of the above from fields in this file (e.g. deriving survival from last-contact timing, or progression from treatment-switch timing) is a violation of outcome-blinding. Flag and stop."
   },
-  "provenance": "Counts computed from the real msk_chord_2024 clinical export on 2026-09-04. Aggregate and outcome-free: derived from the covariate table only, after the two overall survival columns were split out to pipeline/locked/data/. No patient-level value appears here."
+  "provenance": "Aggregate counts computed 2026-09-04 from three real MSK-CHORD tables: the clinical sample export, the treatment timeline (data_timeline_treatment.txt), and the mutation MAF (data_mutations.txt). All three are stored outcome-free at pipeline/locked/data/ (gitignored, never committed). No patient-level value or outcome appears here \u2014 every number below is a count."
 }
