@@ -11,7 +11,7 @@ boundary, not documentation.
 | 3 | `plausibility-filter` | `.claude/agents/plausibility-filter.md` | `Read, Write` | `pipeline/data/` only; no web, no `Bash`. |
 | 4 | `feasibility-checker` | `.claude/agents/feasibility-checker.md` | `Read, Write` | `pipeline/data/` incl. `dataset_schema.json` (non-outcome fields + aggregate counts). |
 | 5 | `novelty-scorer` | `.claude/agents/novelty-scorer.md` | `Read, Write` | `pipeline/data/` only. Last outcome-blind stage. |
-| 6 | `confirmatory-analyst` | _not yet built_ | planned: `Bash, Read` | Test zone. Runs the fixed script only; no free-form analysis. |
+| 6 | `confirmatory-analyst` | `.claude/agents/confirmatory-analyst.md` | `Bash, Read` | Test zone. Invokes the fixed script only; explicitly forbidden from computing a statistic by any other route. |
 
 Per the build plan, agents are added one at a time with manual inspection of each stage's output
 before the next is built. See `pipeline/CLAUDE.md` for the rules each agent operates under.
