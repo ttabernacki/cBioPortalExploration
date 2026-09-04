@@ -111,6 +111,26 @@ that has been p-hacked.
 
 ## Worked example
 
-The repository carries a full run on one narrow topic: **STK11 (LKB1) co-mutation and
-immunotherapy response in NSCLC** — a 50-claim graph, a computed gap report, and the candidate
-hypotheses derived from it. See `pipeline/data/`.
+The repository carries a complete generation-zone run on one narrow topic: **STK11 (LKB1)
+co-mutation and immunotherapy response in NSCLC**.
+
+| stage | in | out | died |
+|---|---|---|---|
+| 1 literature-mapper | — | 50 claims (49 verified) | — |
+| 2 gap-finder | 50 claims | 15 candidates, all six gap types | — |
+| 3 plausibility-filter | 15 | 9 | 6 (no causal story, or a mechanism predicting the wrong sign) |
+| 4 feasibility-checker | 9 | 4 | 5 (3 need a PD-L1 field the cohort lacks; 1 zygosity not identifiable; 1 underpowered) |
+| 5 novelty-scorer | 4 | ranked 1–4 | — |
+
+Ranked: **H-011** (TMB×STK11, 3.53) · **H-001** (treatment×STK11, 2.91) · **H-009**
+(KRAS×STK11, 2.70) · **H-002** (KEAP1 vs STK11, 2.65). The scorer recommends spending two slots,
+not four, because BH runs across the whole pre-registered batch.
+
+Nothing is pre-registered: `pipeline/preregistration/` is empty and every partition is still
+locked. **No confirmatory analysis has been run, and none should be run here** — this repository
+carries no patient data, and a result file built from invented numbers would corrupt the audit
+trail the whole design exists to protect. The analysis chain is exercised against clearly-labelled
+synthetic data outside the repository instead.
+
+The eleven dead hypotheses are in `pipeline/graveyard/graveyard.json` with the stage and reason
+for each. Four survivors out of fifteen only means something because the eleven are still there.
