@@ -235,7 +235,9 @@ def apply_fdr() -> int:
         "method": "Benjamini-Hochberg",
         "n_hypotheses_in_family": m,
         "computed_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "q_values": {hid: round(q[hid], 6) for hid, _ in ordered},
+        # Significant figures, not fixed decimals: round(1.4e-19, 6) is 0.0, and a q-value is
+        # never exactly zero. Reporting one as 0 overstates the result.
+        "q_values": {hid: float(f"{q[hid]:.4g}") for hid, _ in ordered},
         "significant_at_q05": [hid for hid, _ in ordered if q[hid] < 0.05],
     }
     (RESULTS / "fdr_correction.json").write_text(json.dumps(out, indent=2) + "\n")

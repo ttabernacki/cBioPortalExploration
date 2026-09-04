@@ -38,6 +38,12 @@ novelty-scorer      -> ranked_*.json      |        |
   `supersedes:` field. Never edit or delete a committed prereg. Superseding a prereg *after*
   outcomes were unlocked invalidates the hypothesis — mark it `INVALIDATED` and move it to the
   graveyard.
+- **R5a.** **Freeze `confirmatory.py` before the first pre-registration is committed.** Each
+  prereg records the script's sha256, and the script refuses to run when its own hash no longer
+  matches. That is the intended protection, but it means an innocuous later edit — a formatting
+  fix, a clearer message — invalidates every outstanding pre-registration and forces a supersede,
+  which after unlock marks the hypothesis exploratory. Make script changes while
+  `pipeline/preregistration/` is empty; after that, treat the file as frozen.
 - **R5.** Confirmatory analysis runs **once**, via the fixed deterministic script
   `pipeline/analysis/confirmatory.py`. No free-form LLM statistical reasoning. No manual reruns
   with adjusted covariates, added interaction terms, alternate outcome definitions, or altered
