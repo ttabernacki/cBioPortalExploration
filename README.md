@@ -54,8 +54,13 @@ pip install -r pipeline/requirements.txt
 python3 pipeline/validate.py claim_graph
 python3 pipeline/analyze_claim_graph.py            # review the computed gaps yourself
 python3 pipeline/analyze_claim_graph.py --out      # gap_report.json for gap-finder
-# (invoke gap-finder, then plausibility-filter, feasibility-checker, novelty-scorer)
+# (invoke gap-finder, then plausibility-filter)
+# Stages 4-5 emit a patch; a deterministic merger applies it, so a stage can
+# never drop a hypothesis or alter an earlier stage's field.
+python3 pipeline/apply_stage.py feasible
+python3 pipeline/apply_stage.py ranked
 python3 pipeline/validate.py                       # after every stage
+python3 pipeline/status.py                         # where everything stands
 
 # The gate
 python3 pipeline/preregister.py H-001 --endpoint OS --dry-run   # read it before committing
