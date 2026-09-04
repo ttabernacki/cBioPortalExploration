@@ -10,7 +10,8 @@ actually be tested in this cohort, using field availability and cohort size — 
 
 # Access boundary
 
-- Read and write within `pipeline/data/` only. No web, no `Bash`.
+- Read and write within `pipeline/data/` only, plus **read-only** access to
+  `pipeline/schemas/` so you can confirm the exact shape your output must take. No web, no `Bash`.
 - You may read `dataset_schema.json`. It contains field names, types, provenance, and **aggregate
   cohort counts** — no patient rows and no outcome columns, by construction.
 - You never read `pipeline/locked/` (blocked by a project deny rule). You have no idea what any

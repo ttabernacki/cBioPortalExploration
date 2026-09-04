@@ -257,7 +257,6 @@
           "type": "object",
           "description": "Written by feasibility-checker (agent 4). Uses non-outcome schema fields and cohort counts only.",
           "required": [
-            "fields_available",
             "verdict"
           ],
           "additionalProperties": false,
@@ -295,6 +294,7 @@
             "minimum_detectable_effect": {
               "type": [
                 "number",
+                "string",
                 "null"
               ],
               "description": "Smallest HR detectable at 80% power, alpha per prereg."
@@ -315,6 +315,48 @@
             },
             "reject_reason": {
               "type": "string"
+            },
+            "cohort_derivation": {
+              "type": "string",
+              "description": "How each group size was derived from the aggregate counts, with every assumption named. Required whenever a subgroup size is not directly given by cohort_counts \u2014 an invented denominator presented as a count is worse than no number."
+            },
+            "power": {
+              "type": "object",
+              "description": "Power expressed as a function of a STATED assumed event fraction. A time-to-event analysis is powered by events, which are unobservable at this stage, so a single scalar minimum detectable effect is false precision.",
+              "additionalProperties": false,
+              "properties": {
+                "estimand": {
+                  "type": "string"
+                },
+                "assumed_event_fraction": {
+                  "type": "string"
+                },
+                "minimum_detectable_effect": {
+                  "type": "string"
+                },
+                "sensitivity": {
+                  "type": "object",
+                  "description": "Minimum detectable effect keyed by assumed event fraction, e.g. {\"0.4\": 1.47, \"0.6\": 1.37}.",
+                  "additionalProperties": {
+                    "type": [
+                      "number",
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Constraints the pre-registration must carry, e.g. a prespecified equivalence margin, or a declaration that a null below a stated bound is inconclusive rather than negative."
+                },
+                "adequacy": {
+                  "type": "string",
+                  "description": "Whether the detectable effect is adequate FOR THE EFFECT SIZE THE LITERATURE SUGGESTS \u2014 the judgement the numbers alone do not make. A cohort that can only detect an implausibly large effect is inadequate however large it is."
+                }
+              }
             }
           }
         },

@@ -1,0 +1,411 @@
+{
+  "stage": "feasible",
+  "source_artifact": "pipeline/data/filtered_hypotheses.json",
+  "generated_utc": "2026-09-04T00:00:00Z",
+  "stage_notes": "Stage 4 outcome over the 9 stage-3 passes: 4 feasible (H-001, H-002, H-009, H-011), 4 rejected for a missing required field (H-007, H-008, H-010 on PD-L1 TPS; H-014 on allelic status), 1 rejected as underpowered (H-004). The six stage-3 rejects are untouched and carried forward by the merger.\n\nTHE DOMINANT FINDING IS THAT PD-L1 TPS DOES NOT EXIST IN THIS SCHEMA. There is no immunohistochemistry or biomarker table; `lab.lab_name` is a closed 15-value enum containing no PD-L1 entry; `clinical_annotation_nlp` extracts only ECOG, metastatic site and extraction confidence. PD-L1 is not an outcome and is not deliberately absent — it is simply not collected. Three hypotheses (H-007, H-008, H-010) place PD-L1 in the population definition or as the stratifying variable that carries the estimand, and all three fail on that basis. Four others (H-001, H-002, H-009, H-011) list 'PD-L1 TPS band' only as a covariate; they survive, and each must drop the term and declare the resulting residual confounding in the prereg. There is one tempting workaround and it is refused explicitly in the blocks below: first-line ICI monotherapy is in practice restricted to TPS >= 50%, so regimen could be used as a PD-L1 proxy. For H-008 that makes the stratum definition a function of prescribing rather than of measured expression; for H-010 it is circular, because regimen is the exposure. Neither is sound and neither is used.\n\nCOHORT DERIVATION, STATED ONCE. `cohort_counts.by_treatment_exposure` is reported across all five diseases and is NOT cross-tabulated with `by_disease`, so no NSCLC treatment count exists in the schema. Every N below is derived, not counted, under: (A1) NSCLC accounts for ~75% of first-line ICI recipients and ~45% of platinum-doublet-no-ICI recipients, since among the five diseases present ICI use outside NSCLC is confined to TNBC and MSI-high CRC; (A2) EGFR exclusion removes 1583/7809 = 20.3% of NSCLC and ALK/ROS1 a further ~3% with no schema count, giving a x0.77 multiplier; (A3) STK11 loss-of-function prevalence is taken as STK11_mutant_any 1102/7809 = 14.1%, which overstates the oncogenic/truncating definition and is therefore optimistic; (A4) STK11-KEAP1 co-occurrence is not in the schema and is assumed at ~30% of STK11-mutants; (A5) histology split is not in the schema. If A1 is wrong by a factor the power statements move with it. These are assumptions presented as assumptions, not denominators.\n\nEVENT FRACTION IS UNKNOWN AND UNKNOWABLE HERE. Every endpoint in this set is time-to-event and power is driven by events, not patients. No block states a single minimum detectable effect; each states it as a function of an assumed event fraction f (deaths / patients analysed) at f = 0.4, 0.6 and 0.8, with f = 0.6 used as the reference. Interaction and difference-of-coefficient contrasts are computed from the sum of inverse event counts across the identifying cells, which reproduces the roughly-four-times-a-main-effect rule and additionally penalises the cell imbalance that the rule of thumb hides.\n\nH-007 AND H-008 WERE TO BE PRE-REGISTERED AS A PAIR. Both die on the same missing field, so the pair fails symmetrically and no orphaned half needs reinterpretation. Had only one fallen the other would have needed its stage-3 joint-interpretation note rewritten; that does not arise.\n\nMEDIATOR CONDITIONING, per stage 3's referral. For H-007, H-008 and H-010 the question is moot because the conditioning variable does not exist. For H-011 and H-009 the absence of PD-L1 removes an adjustment that would have been mediator adjustment, so the estimand is cleaner than proposed rather than worse. H-004's TMB-as-covariate issue is recorded in its block but is not the reason it dies. Where a surviving hypothesis adjusts for a downstream variable (H-011 adjusts for TMB-correlated co-mutations; H-002 adjusts jointly for two co-selected genes) the block says the estimand is a controlled direct effect, not ordinary confounder adjustment.\n\nCROSS-CUTTING MEASUREMENT NOTES applying to every surviving hypothesis: ECOG (`clinical_annotation_nlp.ecog_ps`), smoking (`patient.smoking_status`, `pack_years`), stage (`diagnosis.stage_at_dx`) and metastatic site are all `nlp_extracted` with unknown misclassification rates; all four survivors use them as covariates or cohort filters only, never as the primary exposure, which is a variant call in every case. `genomic_sample_level.panel_version` makes co-mutation status missing-not-at-random for genes added in later panels, and the schema publishes no panel_version distribution, so no survivor's analysable denominator after panel restriction can be computed at this stage — each prereg must report it. `genomic_variant.days_dx_to_sequencing` exists because genomic exposures are ascertained after diagnosis: every survivor requires left-truncated risk-set entry at the sequencing report, and each prereg must first verify that `days_dx_to_sequencing` (anchored at diagnosis) and `treatment.start_day_offset` share a common patient origin, since the schema states only that offsets are relative. `treatment.stop_day_offset` is a locked-outcome derivative and is used by no surviving analysis.\n\nNext: run 'python3 pipeline/apply_stage.py feasible' then 'python3 pipeline/validate.py feasible_hypotheses'.",
+  "blocks": {
+    "H-001": {
+      "feasibility": {
+        "verdict": "pass",
+        "required_fields": [
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.protein_change",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.sample_id",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "treatment.start_day_offset",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "diagnosis.stage_at_dx",
+          "diagnosis.is_de_novo_metastatic",
+          "diagnosis.days_dx_to_index",
+          "patient.age_at_dx_years",
+          "patient.sex",
+          "patient.smoking_status",
+          "patient.pack_years",
+          "patient.first_contact_year",
+          "clinical_annotation_nlp.ecog_ps",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "partition.partition"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — absent from the schema entirely. Listed as a covariate only, not as the exposure, comparator or stratifier, so the hypothesis survives; the term must be dropped and the prereg must state that PD-L1 is an uncontrolled confounder of first-line regimen choice, which is exactly the axis this interaction is estimated on. This is the single largest residual-confounding cost of running H-001 in this cohort.",
+          "Comorbidity, autoimmune disease, transplant and chronic steroid status — the schema has `medication_non_oncologic.med_class` including corticosteroid, which is a partial proxy for steroid use but not for the contraindications themselves. Stage 3 named indication bias as the dominant threat to precisely this interaction term, and the schema cannot fully address it."
+        ],
+        "cohort_derivation": "First-line ICI-containing, cohort-wide: 1497 (ICI mono) + 2085 (chemo-ICI) = 3582; x0.75 NSCLC share (A1) = ~2690; x0.77 EGFR/ALK exclusion (A2) = ~2070. Platinum-doublet-no-ICI: 6733 x 0.45 (A1) x 0.77 = ~2330. Total analysable ~4400, of which STK11 loss-of-function at 14.1% (A3) is ~290 in the ICI arm and ~330 in the chemotherapy arm. Further loss to the stage IIIB-IV/recurrent restriction and to STK11 panel callability is not quantifiable from the schema.",
+        "power": {
+          "estimand": "ratio of the STK11 hazard ratio in the ICI arm to the STK11 hazard ratio in the platinum-doublet arm (treatment-by-STK11 interaction, scale fixed in advance as multiplicative on the hazard)",
+          "assumed_event_fraction": "f = deaths / analysed patients, unknown at this stage. Reported at f = 0.4, 0.6, 0.8; f = 0.6 is the reference and is plausible but not observed.",
+          "minimum_detectable_effect": "Interaction variance = sum of inverse event counts over the four cells (ICI/mutant, ICI/wildtype, chemo/mutant, chemo/wildtype). At f = 0.6 (2640 events; cell events 174, 1068, 198, 1200) SE(log interaction) = 0.112, so the smallest detectable ratio-of-hazard-ratios at alpha 0.05 / 80% power is ~1.37. At f = 0.8, ~1.31. At f = 0.4, ~1.47.",
+          "adequacy": "Adequate for the hypothesis as stated, but only because the hypothesis predicts a NULL interaction and so is an equivalence claim. The prereg must prespecify the equivalence margin at a ratio of 1.4 (achievable) and must not claim 1.25 (not achievable at any plausible f). Bounding the interaction inside roughly 0.72-1.40 would be a real narrowing of Papillon-Cavanagh's 0.76-1.67 on OS; claiming more than that would be false precision."
+        },
+        "measurement_concerns": [
+          "Primary exposure is a variant call (`genomic_variant`), not NLP — the strongest exposure ascertainment in this set.",
+          "The population filter `diagnosis.stage_at_dx` is `nlp_extracted`, so the 'advanced/recurrent' inclusion criterion carries unknown misclassification; `is_de_novo_metastatic` (derived) and `clinical_annotation_nlp.site_present` can corroborate but are themselves NLP-derived at the site level.",
+          "`clinical_annotation_nlp.ecog_ps` is nlp_extracted and nullable, and is the covariate that most directly proxies the indication bias driving arm assignment. Missingness is likely differential by arm.",
+          "`panel_version` determines STK11 callability, so the wild-type comparator mixes true wild-type with never-tested. Restriction to panels covering STK11, KRAS, KEAP1, TP53 and SMARCA4 is required and its cost to N is not computable from the schema.",
+          "Left truncation at `days_dx_to_sequencing` is mandatory; the truncation interval plausibly differs between the ICI and chemotherapy arms, which biases the interaction term specifically, so the truncation-interval distribution must be reported by arm.",
+          "`treatment.stop_day_offset` must not be touched: time-to-discontinuation is a locked outcome derivative and is not needed to define first-line regimen class, which follows from `drug_class` + `line_of_therapy` + `regimen_id` + `start_day_offset` alone."
+        ]
+      },
+      "status": "active"
+    },
+    "H-002": {
+      "feasibility": {
+        "verdict": "pass",
+        "required_fields": [
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.protein_change",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "treatment.start_day_offset",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "diagnosis.stage_at_dx",
+          "patient.age_at_dx_years",
+          "patient.sex",
+          "patient.smoking_status",
+          "patient.pack_years",
+          "clinical_annotation_nlp.ecog_ps",
+          "partition.partition"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — absent. Covariate only; drop the term and declare residual confounding.",
+          "Per-panel gene coverage counts — `panel_version` exists as a field but the schema publishes no distribution of patients across panel versions and no gene-by-panel coverage map. Since KEAP1 entered panels later than STK11, the analysable N after restricting to assays covering BOTH genes is unknown at this stage and could be materially smaller than the derivation below. This is a prerequisite, not a rejection: the prereg must report the restricted denominator before the analysis is locked."
+        ],
+        "cohort_derivation": "First-line ICI-containing NSCLC ~2690 (A1); x0.70 non-squamous (A5) = ~1880; x0.77 EGFR/ALK exclusion (A2) = ~1450. Applying STK11 14.1% and KEAP1 12.3% with assumed 30% co-occurrence (A4): STK11-only ~143, KEAP1-only ~117, double-mutant ~61, double-wildtype ~1129. The two identifying cells are the two smallest, which is the structural problem stage 3 flagged as collinearity.",
+        "power": {
+          "estimand": "difference between the KEAP1-only and STK11-only log hazard ratios against a common double-wildtype reference. Note that the hypothesis as literally worded — 'the STK11 term attenuates relative to its unadjusted estimate' — is not a testable contrast, because non-collapsibility of the Cox hazard ratio guarantees some attenuation with zero causal contribution from KEAP1. The prereg must adopt the single-mutant contrast as the primary estimand.",
+          "assumed_event_fraction": "f unknown; reported at f = 0.4 and 0.6. f = 0.6 is the reference.",
+          "minimum_detectable_effect": "At f = 0.6 (events: STK11-only 86, KEAP1-only 70, reference 677), SE of the difference of the two coefficients = 0.161, giving a smallest detectable ratio between the two genes' hazard ratios of ~1.57. At f = 0.4, ~1.73. Separately, the KEAP1-only main effect against double-wildtype has SE 0.126 at f = 0.6, giving a minimum detectable HR of ~1.42. Any panel-coverage restriction inflates all three numbers.",
+          "adequacy": "Marginal but defensible. The published contrast the hypothesis is scored against is large (C-CAT KEAP1 HR 1.89 with STK11 near null, a ~1.9-fold gene-versus-gene ratio; De Giglio's opposing STK11 HR 1.97), so the target sits above the ~1.6 detection threshold. A gene-versus-gene difference smaller than ~1.6-fold will not be resolvable and the prereg must say in advance that a null is inconclusive below that, not evidence of equivalence between the two genes."
+        },
+        "measurement_concerns": [
+          "Primary exposures are variant calls, not NLP.",
+          "MISSING-NOT-AT-RANDOM CO-MUTATION IS ACUTE HERE, more than for any other survivor: the hypothesis is a comparison BETWEEN two genes whose panel coverage histories differ, so differential callability maps directly onto the estimand. If KEAP1 is callable on fewer assays than STK11, the KEAP1-wildtype cell is contaminated with untested patients and the comparison is biased toward STK11. Restriction to panels covering both, not imputation, is the only acceptable handling.",
+          "The joint model conditions on a co-selected gene, so each coefficient is a controlled direct effect with the other gene held fixed, not an ordinary confounder-adjusted total effect. Label it as such.",
+          "`patient.smoking_status` and `pack_years` are nlp_extracted and are a common cause of both mutations and of survival; they are covariates here, not the exposure, but the residual confounding is shared between the two coefficients being compared.",
+          "Left truncation at `days_dx_to_sequencing` required; ICI-only design so the winner is prognostic unless a non-ICI arm is added, which this hypothesis does not propose."
+        ]
+      },
+      "status": "active"
+    },
+    "H-004": {
+      "feasibility": {
+        "verdict": "underpowered",
+        "required_fields": [
+          "patient.smoking_status",
+          "patient.pack_years",
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "genomic_sample_level.panel_version",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "clinical_annotation_nlp.ecog_ps",
+          "patient.age_at_dx_years",
+          "patient.sex"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — absent; covariate only.",
+          "Smoking-status distribution in the cohort — `smoking_status` exists as a field but `cohort_counts` publishes no never/former/current breakdown, so the size of the never-smoker stratum must be assumed from external prevalence rather than counted. The `unknown` level in the enum means an unquantifiable share of patients are unclassifiable and are excluded by the hypothesis's own criteria.",
+          "STK11 prevalence within never-smokers — not in the schema. STK11 mutation is tobacco-associated, so applying the cohort-wide 14.1% to never-smokers overstates the key cell."
+        ],
+        "cohort_derivation": "First-line ICI-containing NSCLC ~2690 (A1). Never-smoker share assumed at 12% (not in schema) = ~323. The hypothesis excludes EGFR/ALK, which is concentrated in never-smokers: assuming 55-65% of never-smokers carry EGFR or ALK/ROS1 leaves ~120. STK11 prevalence in never-smokers assumed at 6-8% (below the cohort-wide 14.1% because STK11 is smoking-associated) gives 8-10 patients in the never-smoker/STK11-mutant cell. Under deliberately generous alternatives — never-smoker share 15%, no differential EGFR loss, STK11 at 12% — the cell reaches only ~48 patients.",
+        "power": {
+          "estimand": "smoking-by-STK11 interaction on overall survival (ratio of the STK11 hazard ratio in never-smokers to that in ever-smokers)",
+          "assumed_event_fraction": "f unknown; f = 0.6 used throughout below.",
+          "minimum_detectable_effect": "Under the generous scenario (never/mutant 48, never/wildtype 355, ever/mutant 320, ever/wildtype 1970; f = 0.6) SE(log interaction) = 0.213 and the smallest detectable ratio-of-hazard-ratios is ~1.82. Under the realistic scenario (never/mutant 8-10 patients, ~6 events) SE exceeds 0.42 and the minimum detectable ratio is above 3.2. The interaction rests entirely on the ~6-29 events in one cell; no assumption about f rescues it, because f multiplies every cell equally and the binding constraint is the cell itself.",
+          "adequacy": "Inadequate. Nothing in the literature predicts a smoking-by-STK11 interaction of 1.8-fold, let alone 3-fold; Ricciuti's ever-smoker null implies a modest contrast at most. The cohort is large, the cell is not."
+        },
+        "measurement_concerns": [
+          "THE EFFECT MODIFIER THAT DEFINES THE STRATA IS NLP-EXTRACTED. `smoking_status` and `pack_years` carry unknown misclassification, and stage 3 already noted that capture is worst at exactly the never/light boundary that separates the two strata. A modifier measured with error attenuates an interaction estimate that is already the weakest quantity in the model.",
+          "The exclusion of EGFR/ALK removes most of the never-smoker stratum, which is what collapses the cell; it cannot be relaxed without reintroducing the driver biology the hypothesis was designed to exclude.",
+          "`tmb_mut_per_mb` is listed as a covariate while stage 3 placed TMB on the causal path (C-032), so adjusted and unadjusted fits estimate different things; this is a controlled-direct-effect issue, recorded for completeness but not the reason for rejection."
+        ],
+        "reject_reason": "Underpowered, and by an order of magnitude rather than a margin. This is the interaction-in-a-subgroup-of-a-subgroup case: NSCLC on first-line ICI, then never-smokers, then EGFR/ALK-wildtype (which removes most never-smokers), then STK11-mutant. The derivation gives 8-10 patients in the identifying cell, ~48 under assumptions chosen to flatter the hypothesis, against a minimum detectable ratio-of-hazard-ratios of 1.82 in the generous case and above 3.2 in the realistic one. No published or mechanistic expectation approaches an interaction of that size. The cohort's 7,809 NSCLC patients do not help: power here is set by one cell, not by the total. Compounding this, the effect modifier defining the strata is `nlp_extracted` smoking status with misclassification concentrated at the never/ever boundary itself, so even the nominal power above is optimistic. Rejected at stage 4 rather than carried to pre-registration, where a null would be uninterpretable and a positive result would be noise from single-digit event counts."
+      },
+      "status": "rejected"
+    },
+    "H-007": {
+      "feasibility": {
+        "verdict": "reject",
+        "required_fields": [
+          "PD-L1 tumour proportion score (as the stratifying variable, and as an inclusion criterion)",
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.protein_change",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "diagnosis.oncotree_code",
+          "clinical_annotation_nlp.ecog_ps",
+          "patient.smoking_status"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — ABSENT FROM THE SCHEMA ENTIRELY, and it is the stratifier the hypothesis is built on. There is no immunohistochemistry, pathology or biomarker table; `lab.lab_name` is a closed enum of 15 chemistry and haematology analytes with no PD-L1 entry; `clinical_annotation_nlp` extracts ECOG, metastatic site and confidence only. The hypothesis's inclusion criterion 'PD-L1 TPS recorded' cannot be evaluated for a single patient.",
+          "PD-L1 assay type and antibody clone — likewise absent, and named in the hypothesis's own confounding_risks.",
+          "Any sound derivation of PD-L1 — none exists. CD274 amplification is in principle callable from `genomic_variant` but is a different construct at ~1% prevalence and is not a TPS surrogate. Inferring TPS >= 50% from receipt of ICI monotherapy would substitute a prescribing decision for a measurement and is refused."
+        ],
+        "cohort_derivation": "Not carried past the field check. For the record, the genotype cells would be thin even if PD-L1 existed: KRAS-mutant/STK11-mutant is 611 across all 7,809 NSCLC patients (7.8%), and restricting to ICI monotherapy and then splitting across three PD-L1 bands would leave roughly 30-45 KL patients per band before EGFR/ALK exclusion.",
+        "power": {
+          "estimand": "not assessable — the stratification variable does not exist",
+          "assumed_event_fraction": "not applicable",
+          "minimum_detectable_effect": "not computable. Indicatively, a within-band KL-versus-KP contrast built on ~40 patients per genotype per band would not detect a hazard ratio below roughly 2 at any plausible event fraction, so power would be a second, independent grounds for rejection.",
+          "adequacy": "not assessable"
+        },
+        "measurement_concerns": [
+          "The endpoint concept (durable clinical benefit / freedom from progression beyond a landmark) maps onto 'radiology-assessed progression' and 'best overall response' in `deliberately_absent.endpoint_concepts`. Naming a locked endpoint concept in a prereg is legitimate and is not the problem here; the problem is the exposure-side stratifier.",
+          "Had PD-L1 existed, the within-band estimate would be a controlled direct effect and not ordinary adjustment, because STK11 loss lowers PD-L1 through the interferon axis — stage 3's referral is noted and would have been carried into the analysis plan."
+        ],
+        "reject_reason": "The load-bearing clause of the statement — 'and this ordering persists within each PD-L1 expression band' — requires a field the dataset does not contain. PD-L1 TPS appears in no table: there is no IHC or biomarker table at all, `lab.lab_name` is a closed enum without it, and `clinical_annotation_nlp` extracts only ECOG, metastatic site and extraction confidence. Without PD-L1 the hypothesis degenerates into an unstratified KL-versus-KP comparison, which is the 2018 Skoulidis analysis the hypothesis exists to supersede and which stage 2 correctly judged confounded by the PD-L1 distribution. The two available workarounds are both unsound and are declined rather than engineered around: CD274 amplification is a ~1%-prevalence copy-number event and not a proxy for protein expression, and inferring TPS >= 50% from receipt of ICI monotherapy replaces a measurement with a prescribing decision. Power is a second and independent objection — 611 KRAS/STK11 co-mutants across the whole NSCLC cohort, restricted to monotherapy and then split three ways, leaves cells of roughly 40 patients — but the missing field alone is dispositive. Note for the paired prereg: H-008 fails on the same field, so the pair fails together and neither half is orphaned."
+      },
+      "status": "rejected"
+    },
+    "H-008": {
+      "feasibility": {
+        "verdict": "reject",
+        "required_fields": [
+          "PD-L1 tumour proportion score (as the population-defining criterion: TPS >= 50%)",
+          "PD-L1 assay identity, antibody clone, and specimen-to-treatment interval",
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "clinical_annotation_nlp.ecog_ps",
+          "patient.smoking_status",
+          "patient.pack_years"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — ABSENT. It is not a covariate here, it is the population definition: the hypothesis is a statement about patients with TPS >= 50% and about the gradient across the <1%, 1-49% and >=50% bands. None of the three bands can be constructed.",
+          "PD-L1 assay and antibody clone, and the interval between the PD-L1 specimen and treatment start — three fields the hypothesis lists as covariates and the schema does not have."
+        ],
+        "cohort_derivation": "Recorded only to show that power is NOT the binding constraint. First-line ICI monotherapy cohort-wide 1497; x0.75 NSCLC (A1) = ~1120; x0.77 EGFR/ALK (A2) = ~860; STK11 loss-of-function at 14.1% (A3) = ~121 mutant against ~739 wildtype.",
+        "power": {
+          "estimand": "STK11 hazard ratio within the PD-L1 TPS >= 50% first-line monotherapy stratum, framed as an equivalence claim",
+          "assumed_event_fraction": "f unknown; f = 0.6 used for the illustrative calculation.",
+          "minimum_detectable_effect": "At f = 0.6 (73 exposed and 443 unexposed events) SE(log HR) = 0.126, giving a 95% interval half-width of ~0.25 — an equivalence bound of roughly 0.78-1.28 around a null point estimate, which would genuinely improve on KEYNOTE-042's 33 STK11-mutant patients. So the cohort is large enough for the claim; it simply cannot identify the population the claim is about.",
+          "adequacy": "Power adequate, population unconstructible. The hypothesis dies on measurement, not on size."
+        },
+        "measurement_concerns": [
+          "The tempting workaround is explicitly refused: in practice first-line ICI monotherapy is given almost exclusively at TPS >= 50%, so 'received first-line monotherapy' could stand in for the PD-L1 restriction. That substitutes a prescribing decision for a measurement, imports every determinant of regimen choice (age, frailty, disease burden, institution, era) into the stratum definition, and makes an unverifiable assumption about a threshold that the hypothesis's entire content concerns. It also destroys the band gradient the hypothesis needs, since the 1-49% and <1% strata have no monotherapy analogue.",
+          "Conditioning on PD-L1 would have been conditioning on a downstream consequence of the exposure — a controlled direct effect open to collider bias — which stage 3 referred to this stage and which is recorded here for the file even though the analysis cannot run.",
+          "The hypothesis predicts a null, so exposure misclassification from `panel_version`-dependent STK11 callability would manufacture the predicted result. An equivalence claim needs its exposure measured better than a difference claim does, not worse."
+        ],
+        "reject_reason": "The population is defined by a field that does not exist. H-008 is not a hypothesis about NSCLC patients with a PD-L1 covariate — it is a hypothesis about the PD-L1 TPS >= 50% stratum specifically, and about the gradient across the <1%, 1-49% and >=50% bands. The schema has no PD-L1 field, no IHC or biomarker table, no PD-L1 entry in the `lab.lab_name` enum, and no assay or clone metadata; three of the hypothesis's own covariates (assay, clone, specimen-to-treatment interval) are equally absent. Power is not the obstacle: the derived stratum of ~860 first-line monotherapy NSCLC patients would support an equivalence bound of roughly 0.78-1.28 at an assumed 60% event fraction, which would be a real advance on KEYNOTE-042's 33 STK11-mutant patients. That makes the rejection cleaner, not softer — the cohort could answer this question if it recorded PD-L1, and it does not. Using receipt of first-line monotherapy as a proxy for TPS >= 50% is declined: it replaces a measurement with a prescribing decision, imports the determinants of regimen choice into the stratum definition, and cannot produce the low and intermediate bands the gradient prediction requires. Paired-prereg consequence: H-007 fails on the same field, so the pair fails symmetrically and stage 3's joint-interpretation instruction lapses rather than leaving a surviving half to reinterpret. If PD-L1 is ever added to this schema, H-008 should be reconsidered first of the three, since it is the only one of them whose power is already sufficient."
+      },
+      "status": "rejected"
+    },
+    "H-009": {
+      "feasibility": {
+        "verdict": "pass",
+        "required_fields": [
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.protein_change",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "treatment.start_day_offset",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "diagnosis.stage_at_dx",
+          "patient.age_at_dx_years",
+          "patient.sex",
+          "patient.smoking_status",
+          "patient.pack_years",
+          "clinical_annotation_nlp.ecog_ps",
+          "partition.partition"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — absent. Listed as a covariate; its absence is arguably a benefit here, since stage 3 noted PD-L1 sits downstream of the same interferon axis as the exposure and adjusting for it would have been mediator adjustment. Drop the term and say so.",
+          "Per-panel gene coverage counts — `panel_version` exists but no distribution is published, so the analysable N after restricting to panels calling both KRAS and STK11 is not computable here. KRAS hotspot coverage is near-universal and STK11 coverage is not, so the four genotype cells are not equally well ascertained; the prereg must report the restricted denominator."
+        ],
+        "cohort_derivation": "First-line ICI-containing NSCLC ~2690 (A1); x0.77 EGFR/ALK exclusion (A2) = ~2070; x0.75 adenocarcinoma restriction on the EGFR-wildtype remainder (A5) = ~1550. Genotype cells from schema prevalences: KRAS-mutant among EGFR-wildtype NSCLC = 2418/(7809-1583) = 38.8%, giving ~600 KRAS-mutant and ~950 KRAS-wildtype. STK11 within KRAS-mutant = 611/2418 = 25.3% (~152); STK11 within KRAS-wildtype = (1102-611)/(7809-2418) = 9.1% (~86). Cells: 152 / 448 / 86 / 864. The KRAS-wildtype/STK11-mutant cell at ~86 patients is the constraint, and it is the cell the published literature calls 'null' without being able to distinguish null from underpowered — which is the hypothesis's own motivation.",
+        "power": {
+          "estimand": "KRAS-by-STK11 product term on overall survival: ratio of the STK11 hazard ratio inside the KRAS-mutant stratum to that outside it",
+          "assumed_event_fraction": "f unknown; reported at f = 0.4, 0.6, 0.8, reference f = 0.6.",
+          "minimum_detectable_effect": "Interaction variance = sum of inverse events across the four genotype cells. At f = 0.6 (cell events 91, 269, 52, 518) SE(log interaction) = 0.189 and the smallest detectable ratio-of-hazard-ratios is ~1.70. At f = 0.8, ~1.58. At f = 0.4, ~1.92. This is the roughly-four-times-the-events rule made concrete, with the additional penalty from the 86-patient KRAS-wildtype/STK11-mutant cell, which alone contributes over half the interaction variance.",
+          "adequacy": "Adequate only for a large interaction. The published stratified pattern (STK11 HR around 1.6-2.0 in KRAS-mutant against ~1.0 in KRAS-wildtype) implies a ratio of roughly 1.6-2.0, which straddles the 1.70 threshold at the reference event fraction. The prereg must state in advance that a null interaction below a ratio of 1.7 is inconclusive and must NOT be reported as evidence that the STK11 effect is unconditional — that would repeat, at larger scale, precisely the null-versus-underpowered confusion the hypothesis was written to resolve."
+        },
+        "measurement_concerns": [
+          "Both exposure and modifier are variant calls, the strongest ascertainment available in this schema.",
+          "Missing-not-at-random co-mutation: KRAS hotspot coverage is near-universal across panel versions while STK11 coverage is not, so the KRAS-wildtype/STK11-mutant cell — already the smallest — is also the most likely to be depleted by callability. Restrict to panels calling both.",
+          "`smoking_status` is nlp_extracted and KRAS-mutant LUAD is heavily smoking-enriched, so stratifying on KRAS is partly stratifying on a variable measured with unknown error.",
+          "Other drivers occupying the KRAS-wildtype cell (MET, BRAF, RET, ERBB2) are callable from `genomic_variant.hugo_symbol` subject to panel coverage, so the hypothesis's plan to record and exclude or adjust for them is executable — but their coverage varies by `panel_version` more than KRAS's does.",
+          "Left truncation at `days_dx_to_sequencing` required; ICI-only design, so a positive interaction is prognostic until a non-ICI arm says otherwise. The schema does support such an arm (platinum_doublet_no_ICI, 6733 cohort-wide) if a future version of this hypothesis wants it."
+        ]
+      },
+      "status": "active"
+    },
+    "H-010": {
+      "feasibility": {
+        "verdict": "reject",
+        "required_fields": [
+          "PD-L1 tumour proportion score (as the restriction that makes the regimen contrast estimable: TPS >= 50%, then as a continuous term within the band)",
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.tmb_mut_per_mb",
+          "treatment.drug_class",
+          "treatment.regimen_id",
+          "treatment.line_of_therapy",
+          "treatment.start_day_offset",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "clinical_annotation_nlp.ecog_ps",
+          "patient.smoking_status",
+          "patient.first_contact_year"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — ABSENT, and here it is not a covariate but the design element that makes the comparison interpretable at all. The hypothesis excludes TPS <50% explicitly, 'where monotherapy is rarely used and the comparison would be confounded by indication'. Without the field the exclusion cannot be applied and the design's own stated defence against its own central threat is unavailable.",
+          "Treating site / institution — listed as a covariate ('treating site and calendar year'); `first_contact_year` supplies the year, but no site or institution identifier exists in any table. Site is a determinant of regimen preference and of genotype-aware prescribing.",
+          "Comorbidity and frailty measures beyond nlp-extracted ECOG — the dominant determinants of monotherapy-versus-chemo-immunotherapy choice."
+        ],
+        "cohort_derivation": "Carried far enough to show power fails too. First-line ICI monotherapy cohort-wide 1497 x 0.75 NSCLC (A1) x ~0.70 non-squamous (A5) x 0.77 EGFR/ALK (A2) = ~605. First-line chemo-ICI 2085 x 0.75 x 0.70 x 0.77 = ~840, of which only a minority would fall in the TPS >= 50% band the design requires (assume 30%) = ~250. STK11-mutant at 14.1%: ~85 in the monotherapy arm and ~35 in the restricted chemo-ICI arm.",
+        "power": {
+          "estimand": "regimen-by-STK11 interaction on overall survival within a restricted PD-L1 band",
+          "assumed_event_fraction": "f unknown; f = 0.6 used illustratively.",
+          "minimum_detectable_effect": "At f = 0.6 the four cells carry roughly 51, 312, 21 and 129 events. SE(log interaction) = 0.263, giving a smallest detectable ratio-of-hazard-ratios of ~2.1 — and that assumes the PD-L1 restriction could be applied, which it cannot. Dropping the restriction enlarges the cells but replaces the estimand with an unrestricted comparison of two regimens chosen non-randomly, which is not the same hypothesis.",
+          "adequacy": "Inadequate on both counts. No mechanism in the graph predicts a regimen-by-STK11 interaction of 2.1-fold; Skoulidis 2024 argues the opposite direction, that chemo-immunotherapy is itself compromised in these tumours."
+        },
+        "measurement_concerns": [
+          "The workaround here is worse than for H-007 and H-008 and is refused on stronger grounds: using receipt of monotherapy as a proxy for TPS >= 50% is circular, because regimen IS the exposure. The restriction variable and the exposure variable would be the same variable.",
+          "Exposure-dependent treatment assignment: if STK11 status is known before regimen choice, selection is a function of the exposure itself. `days_dx_to_sequencing` and `treatment.start_day_offset` do permit modelling sequencing turnaround relative to treatment start, which is the right handling — but it cannot repair the missing PD-L1 restriction.",
+          "`ecog_ps` is nlp_extracted, nullable, and is the dominant determinant of regimen intensity; it is the only frailty measure the schema offers.",
+          "`treatment.stop_day_offset` must not be used to define regimen exposure duration; regimen class is fully determined by `drug_class` + `regimen_id` + `start_day_offset` within 28 days, as the hypothesis specifies."
+        ],
+        "reject_reason": "Rejected on a missing required field, with underpowering as an independent second reason. PD-L1 TPS is absent from the schema, and in H-010 it is not a covariate to be dropped — it is the restriction that the hypothesis itself introduces to keep confounding by indication from consuming the estimate. The design says so in its own words: exclude TPS <50% because there 'monotherapy is rarely used and the comparison would be confounded by indication'. Remove that restriction and what remains is an unadjusted comparison between two regimens selected on disease burden, performance status and frailty, which is a different and much weaker question. The obvious substitute — treat receipt of monotherapy as evidence of TPS >= 50% — is circular, because regimen is the exposure being contrasted; it is refused rather than engineered around. Power fails independently: the derived cells are roughly 85 STK11-mutant monotherapy and 35 STK11-mutant chemo-immunotherapy patients within the required band, giving a minimum detectable ratio-of-hazard-ratios near 2.1 at an assumed 60% event fraction, far above anything the mechanism predicts and pointing the opposite way to Skoulidis 2024. Two further listed covariates, treating site and any comorbidity measure beyond nlp-extracted ECOG, are also absent."
+      },
+      "status": "rejected"
+    },
+    "H-011": {
+      "feasibility": {
+        "verdict": "pass",
+        "required_fields": [
+          "genomic_sample_level.tmb_mut_per_mb",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.sample_id",
+          "genomic_variant.hugo_symbol",
+          "genomic_variant.alteration_type",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.protein_change",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_variant.sample_id",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "treatment.regimen_id",
+          "treatment.start_day_offset",
+          "diagnosis.oncotree_code",
+          "diagnosis.histology",
+          "diagnosis.stage_at_dx",
+          "patient.age_at_dx_years",
+          "patient.sex",
+          "patient.smoking_status",
+          "patient.pack_years",
+          "clinical_annotation_nlp.ecog_ps",
+          "partition.partition"
+        ],
+        "missing_fields": [
+          "PD-L1 tumour proportion score — absent. Covariate only, and one that sits downstream of the same interferon axis as the exposure, so dropping it removes a mediator adjustment rather than a confounder adjustment. State the change of estimand.",
+          "Panel size in megabases and the TMB calculation method — `panel_version` is a categorical label and `tmb_mut_per_mb` is already normalised per megabase, but the schema exposes neither the panel footprint nor whether TMB was harmonised across versions. The hypothesis's own inclusion criterion, 'TMB reported from a panel with a documented harmonised calculation', therefore cannot be verified from the schema. This is a prerequisite for the prereg, not a rejection: restriction to the dominant `panel_version` is executable, and its cost to N is quantified below."
+        ],
+        "cohort_derivation": "Any-line anti-PD-1/PD-L1: cohort-wide 5680; x0.70 NSCLC share (A1, lower than the first-line share because later-line ICI use is broader across diseases) = ~3980; x0.77 EGFR/ALK exclusion (A2) = ~3060. STK11 loss-of-function at 14.1% (A3) gives ~430 mutant against ~2630 wildtype. Restricting to a single dominant panel version for TMB comparability — assumed to retain 70%, since the schema publishes no panel distribution — gives ~2140 (~300 mutant, ~1840 wildtype). Both figures are carried through the power calculation.",
+        "power": {
+          "estimand": "TMB-by-STK11 product term on overall survival: the difference between the TMB slope inside and outside the STK11-mutant stratum. TMB modelled continuously (per SD of log TMB) as the primary specification; the dichotomised TMB-high specification is secondary because it discards information the interaction cannot spare.",
+          "assumed_event_fraction": "f unknown; reported at f = 0.4 and 0.6, reference f = 0.6.",
+          "minimum_detectable_effect": "Continuous specification, panel-restricted N = 2140, f = 0.6 (300 mutant / 1840 wildtype patients; 181 / 1103 events): SE of the interaction = 0.080, smallest detectable ratio of per-SD hazard ratios = ~1.25. At f = 0.4, ~1.32. Without panel restriction (N = 3060, f = 0.6) it improves to ~1.21. Dichotomised at a TMB-high threshold the same design gives only ~1.47-1.55, because the STK11-mutant/TMB-low corner is sparse — STK11 mutation itself raises TMB, so the least populated cell is the one the interaction rests on. This is the best-powered hypothesis in the surviving set, because a continuous modifier over ~2,000 patients buys far more than a dichotomised one over the same patients.",
+          "adequacy": "Adequate. A flattening of the TMB slope in STK11-mutant tumours of the magnitude the mechanism implies (a substantially attenuated or abolished slope, well beyond a 1.25-fold difference) is detectable at plausible event fractions. The prereg must fix the continuous specification as primary in advance, since the dichotomised version is roughly a third weaker and choosing between them after the fact is a researcher degree of freedom."
+        },
+        "measurement_concerns": [
+          "Primary exposure and modifier are both genomic, not NLP. The modifier `tmb_mut_per_mb` is nonetheless a derived quantity whose comparability across `panel_version` is the central measurement threat: panel choice tracks institution and era, and STK11 callability varies with the same panels, so exposure and modifier are measured differently across the cohort unless a single panel version is enforced.",
+          "Measurement error in an effect modifier attenuates an interaction non-uniformly across strata with different TMB distributions, and STK11-mutant tumours sit higher in the TMB range — so any observed flattening is partly a ceiling/curvature artefact. The prereg should prespecify a flexible functional form (spline or log transform) rather than assuming linearity, and must fix it in advance.",
+          "`smoking_status` and `pack_years` are nlp_extracted and are the dominant common cause of both high TMB and STK11 mutation; they are covariates, not the exposure, but they cannot be measured better here.",
+          "KEAP1 collinearity: KEAP1 also raises TMB and shortens survival, so joint modelling is required and inherits the same panel-coverage MNAR problem described for H-002.",
+          "TMB requires adequate tissue, so `tmb_mut_per_mb` is missing non-randomly with respect to disease burden and biopsy site; the schema does not mark it nullable but `tumor_purity` is, which is a hint that specimen quality varies.",
+          "Left truncation at `days_dx_to_sequencing` required. The 'any line' population makes this worse than for the first-line hypotheses, because time origin and sequencing date can fall in either order; risk-set entry must be at the later of the two.",
+          "ICI-only design, so the claimed ICI-specificity of the interaction is not established by this analysis. The schema does contain a non-ICI comparator arm (platinum_doublet_no_ICI, 6733 cohort-wide) if a negative-control version is ever wanted."
+        ]
+      },
+      "status": "active"
+    },
+    "H-014": {
+      "feasibility": {
+        "verdict": "reject",
+        "required_fields": [
+          "Allele-specific or total copy number at the STK11 locus (to distinguish homozygous deletion from shallow/heterozygous loss, and to convert VAF into a zygosity call)",
+          "An explicit loss-of-heterozygosity call at the STK11 locus",
+          "Cancer cell fraction or clonality estimate per variant",
+          "genomic_variant.variant_allele_frequency",
+          "genomic_sample_level.tumor_purity",
+          "genomic_variant.alteration_type",
+          "genomic_variant.protein_change",
+          "genomic_variant.oncogenic_annotation",
+          "genomic_variant.sample_type",
+          "genomic_variant.days_dx_to_sequencing",
+          "genomic_sample_level.panel_version",
+          "genomic_sample_level.fraction_genome_altered",
+          "treatment.drug_class",
+          "treatment.line_of_therapy",
+          "diagnosis.oncotree_code"
+        ],
+        "missing_fields": [
+          "Zygosity / allelic status at STK11 — MISSING, and not soundly derivable from what is present. This was examined carefully rather than waved through; the arithmetic is in measurement_concerns.",
+          "Locus-level copy number — `genomic_variant.alteration_type` offers only the categorical values 'amplification' and 'deletion', with no copy-number value, no log2 ratio, no allele-specific or minor-allele copy number and no B-allele frequency. The enum gives amplification and deletion as symmetric CNV categories with no depth qualifier, so a 'deletion' call cannot be assumed to be homozygous — which is exactly what the exposure definition requires.",
+          "LOH call — absent. `fraction_genome_altered` is a genome-wide summary, not a locus-level statement, and cannot license a claim about the STK11 locus in an individual tumour.",
+          "Clonality / cancer cell fraction — absent. The hypothesis's own alternative_explanations name clonality as a competing operative variable, and it cannot be separated from zygosity without it.",
+          "PD-L1 TPS — absent (covariate only, and not the reason for rejection).",
+          "Missingness rate of `tumor_purity` — the field is nullable and the schema publishes no completeness figure, so the size of the zygosity-callable subcohort is unknown even under a generous derivation."
+        ],
+        "cohort_derivation": "Not the binding constraint, but recorded. First-line ICI-containing NSCLC ~2690 (A1) x 0.77 EGFR/ALK (A2) = ~2070; STK11-altered at 14.1% = ~290, which the hypothesis would split three ways (biallelic, monoallelic truncating, monoallelic missense) into cells of roughly 90-120, further reduced by the exclusions for low purity and for panels not reporting copy number. At f = 0.6 that gives 55-75 events per stratum and a minimum detectable hazard ratio between adjacent strata of roughly 1.6-1.8 — marginal even if the exposure could be measured.",
+        "power": {
+          "estimand": "hazard ratio for biallelic versus monoallelic STK11 inactivation, plus an equivalence-style claim that monoallelic missense resembles wild-type",
+          "assumed_event_fraction": "f unknown; f = 0.6 used for the illustrative figures above.",
+          "minimum_detectable_effect": "~1.6-1.8 between adjacent zygosity strata at f = 0.6, before any loss to the purity and copy-number-reporting exclusions. Not computed further, because the exposure classification is not identifiable and a power figure for an unmeasurable exposure would be theatre.",
+          "adequacy": "not assessable — exposure not identifiable"
+        },
+        "measurement_concerns": [
+          "WHY VAF + PURITY + ALTERATION_TYPE DOES NOT YIELD ZYGOSITY. The standard inference requires expected VAF = p*m / (p*CN_t + 2(1-p)), where p is purity, CN_t the tumour total copy number at the locus and m the mutant multiplicity. The schema supplies p (nullable) and the observed VAF but neither CN_t nor m, so the equation has two unknowns and one observation and is not identified. Concretely, at p = 0.6 a heterozygous variant in a copy-neutral region gives VAF 0.30, the same variant with LOH (CN 1) gives 0.43, and copy-neutral LOH (CN 2, m 2) gives 0.60 — but a subclonal variant in a gained region reproduces any of those values, and clonality is also absent. The mapping from the available fields to the exposure strata is many-to-one.",
+          "THE MONOALLELIC STRATUM IS WORSE THAN THE BIALLELIC ONE. The comparator is defined as 'a single truncating or oncogenic missense variant with RETAINED heterozygosity'. Retained heterozygosity is a positive assertion; the schema supports only the absence of a deletion call, and absence of a call is not evidence of retention when the panel may not interrogate copy number at that locus at all. So the comparator stratum would be constructed from a null result of unknown sensitivity.",
+          "MISCLASSIFICATION WOULD BE DIRECTIONAL AND CONFOUNDED WITH THE OUTCOME. Purity-dependent zygosity inference calls low-purity samples monoallelic; purity correlates with tumour content, biopsy site and disease burden, all of which predict survival. The derived exposure contrast would therefore be partly a purity contrast, which is precisely the artefact the hypothesis's own confounding_risks anticipated. Adjusting for `tumor_purity` does not fix this, because purity is then simultaneously the source of the misclassification and an adjustment covariate.",
+          "`panel_version`-dependent copy-number reporting makes the analysable subcohort non-random with respect to institution and era, and the schema publishes no panel distribution to size it.",
+          "`sample_type` (primary vs metastasis) is available and would have been the right covariate for specimen-driven purity differences, had the exposure been derivable."
+        ],
+        "reject_reason": "The exposure cannot be measured. Zygosity is genuinely missing rather than nearly present: `genomic_variant.alteration_type` supplies only a categorical 'deletion' with no copy-number value, log2 ratio, allele-specific copy number or B-allele frequency, so a deletion call cannot be assumed homozygous; there is no LOH call anywhere; and `fraction_genome_altered` is genome-wide, not locus-level. The proposed derivation from VAF and purity is not sound, and the reason is structural rather than a matter of precision: expected VAF = p*m/(p*CN_t + 2(1-p)) contains two unknowns, tumour copy number at the locus and mutant multiplicity, and the schema supplies neither. At 60% purity a heterozygous variant, a variant with LOH and a copy-neutral-LOH variant give VAFs of 0.30, 0.43 and 0.60, and a subclonal variant in a gained region can reproduce any of them — with no clonality field to break the tie. The comparator stratum is in worse shape than the exposed one: 'monoallelic with retained heterozygosity' is a positive assertion the data can only approximate by the absence of a deletion call, which on a panel that may not interrogate copy number at STK11 is a null result of unknown sensitivity. And the misclassification that would result is directional and outcome-correlated — low-purity samples are called monoallelic, and purity tracks tumour content, biopsy site and disease burden, all prognostic — so the derived contrast would be partly a purity contrast, exactly the artefact the hypothesis itself listed first among its confounding risks. Adjusting for `tumor_purity` cannot repair this, since purity would be both the cause of the misclassification and the adjustment. This is flagged rather than worked around, per the stage rule. Power is a secondary concern (~90-120 patients per zygosity stratum, minimum detectable HR ~1.6-1.8 between adjacent strata at an assumed 60% event fraction) and does not need to be resolved. If this dataset ever carries allele-specific copy number and cancer cell fraction, H-014 becomes the most mechanistically motivated hypothesis in the set and should be revisited first."
+      },
+      "status": "rejected"
+    }
+  }
+}

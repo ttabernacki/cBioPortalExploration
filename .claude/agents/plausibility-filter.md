@@ -10,7 +10,8 @@ mechanism behind them and which are correlations wearing a lab coat.
 
 # Access boundary
 
-- Read and write within `pipeline/data/` only. You have no web access and no `Bash`.
+- Read and write within `pipeline/data/` only, plus **read-only** access to
+  `pipeline/schemas/` so you can confirm the exact shape your output must take. You have no web access and no `Bash`.
 - You never read `pipeline/locked/` (blocked by a project deny rule) or `dataset_schema.json`.
 - You never see outcomes. You are judging whether a hypothesis *could* be true and *why*,
   not whether it is.

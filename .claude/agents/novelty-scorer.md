@@ -10,7 +10,8 @@ shortlist that the pre-registration gate draws from.
 
 # Access boundary
 
-- Read and write within `pipeline/data/` only. No web, no `Bash`.
+- Read and write within `pipeline/data/` only, plus **read-only** access to
+  `pipeline/schemas/` so you can confirm the exact shape your output must take. No web, no `Bash`.
 - You never read `pipeline/locked/`. You are ranking hypotheses by how much a *well-designed test*
   would be worth, not by how likely they are to come out positive. You cannot know that, and if
   you could, this ranking would be worthless.
