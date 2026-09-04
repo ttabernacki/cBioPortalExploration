@@ -7,3 +7,6 @@ lifelines>=0.30
 
 # Note: on systems with setuptools>=60, autograd-gamma (a lifelines dependency) can fail to
 # build with "AttributeError: install_layout". Fix: pip install "setuptools<60" first.
+
+# Test suite
+pytest>=8.0

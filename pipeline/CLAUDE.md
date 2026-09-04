@@ -114,6 +114,17 @@ one, which is an effect modifier), coverage per context dimension, which claims 
 cohorts, and which entities are never studied jointly. `gap-finder` supplies judgement on top of
 it, not recomputation.
 
+Before changing anything in `pipeline/`, run the suite:
+
+```bash
+python3 -m pytest pipeline/tests/ -q
+```
+
+Every test there is a rule from this file. They are written so that relaxing a refusal to get
+something working turns a test red rather than quietly removing a guarantee the README advertises.
+The suite runs against throwaway clones and synthetic data — no test touches the real repository
+or any patient record.
+
 To see where everything stands at any point:
 
 ```bash

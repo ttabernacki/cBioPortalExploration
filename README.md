@@ -48,6 +48,7 @@ through Python. That is precisely why no generation-zone agent may hold `Bash`.
 
 ```bash
 pip install -r pipeline/requirements.txt
+python3 -m pytest pipeline/tests/ -q          # 38 tests; run before changing anything
 
 # Stage 1-2
 # (invoke the literature-mapper subagent on a narrow topic)
@@ -62,12 +63,15 @@ python3 pipeline/apply_stage.py ranked
 python3 pipeline/validate.py                       # after every stage
 python3 pipeline/status.py                         # where everything stands
 
-# The gate
+# The gate — write the machine-executable cohort spec FIRST, and check its
+# attrition table while the population is still changeable.
+python3 pipeline/analysis/build_extract.py H-001 --raw /path/to/tables --dry-run
 python3 pipeline/preregister.py H-001 --endpoint OS --dry-run   # read it before committing
 python3 pipeline/preregister.py H-001 --endpoint OS
 
 # Test zone
-export PIPELINE_LOCKED_DATA_PATH=/path/to/test_partition.parquet
+python3 pipeline/analysis/build_extract.py H-001 --raw /path/to/tables --out extract.csv
+export PIPELINE_LOCKED_DATA_PATH=extract.csv
 python3 pipeline/analysis/confirmatory.py H-001
 python3 pipeline/analysis/confirmatory.py --fdr                 # once ALL are analysed
 export PIPELINE_HOLDOUT_DATA_PATH=/path/to/holdout.parquet
@@ -94,6 +98,8 @@ them should be worked around:
 | a result already exists for this hypothesis | R5 (runs once) |
 | replication attempted before a test-partition result | R7 |
 | FDR requested while a pre-registered hypothesis is unanalysed | R6 |
+| the cohort spec's hash ≠ the hash the prereg recorded | R5c |
+| the spec's covariates or modifier differ from the prereg's | R5c |
 | a generation-zone artifact references a locked path or outcome field | R1/R2 |
 | a hypothesis id present at one stage is missing at the next | audit |
 
