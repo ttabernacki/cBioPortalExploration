@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "description": "Endpoint definitions: names, time origins, censoring rules and known biases. Design information, not data. PUBLIC by construction \u2014 every value lives in the locked partitions and none appears here. Split out of test_partition_manifest.json so that the pre-registration gate needs no exception to the locked-path rule.",
+  "readable_by": "pipeline/preregister.py (to copy a definition into a prereg) and pipeline/analysis/confirmatory.py. Generation-zone agents have no reason to read it and gain nothing from it \u2014 it contains no outcome values.",
+  "endpoint_registry": [
+    {
+      "endpoint_id": "OS",
+      "label": "Overall survival",
+      "definition": "Days from index date to death from any cause; censored at last known contact.",
+      "time_origin": "index treatment start (regimen-level)",
+      "event_field": "death_event",
+      "time_field": "os_days",
+      "censoring": "administrative at data cutoff; last contact otherwise",
+      "known_biases": [
+        "Left truncation at sequencing date \u2014 risk set must be entered at days_dx_to_sequencing, not at diagnosis."
+      ]
+    },
+    {
+      "endpoint_id": "TTD",
+      "label": "Time to treatment discontinuation",
+      "definition": "Days from index treatment start to permanent discontinuation of the index regimen or death.",
+      "time_origin": "index treatment start",
+      "event_field": "ttd_event",
+      "time_field": "ttd_days",
+      "censoring": "ongoing treatment at cutoff",
+      "known_biases": [
+        "Discontinuation for toxicity is conflated with discontinuation for progression."
+      ]
+    },
+    {
+      "endpoint_id": "TTNT",
+      "label": "Time to next treatment",
+      "definition": "Days from index treatment start to start of the subsequent line or death.",
+      "time_origin": "index treatment start",
+      "event_field": "ttnt_event",
+      "time_field": "ttnt_days",
+      "censoring": "administrative at cutoff",
+      "known_biases": [
+        "Patients who leave the health system are censored informatively."
+      ]
+    },
+    {
+      "endpoint_id": "PFS_RAD",
+      "label": "Radiology-assessed progression-free survival",
+      "definition": "Days from index treatment start to NLP-extracted radiology progression or death.",
+      "time_origin": "index treatment start",
+      "event_field": "prog_event",
+      "time_field": "pfs_days",
+      "censoring": "last imaging assessment",
+      "known_biases": [
+        "NLP progression extraction is imperfect; assessment intervals are non-uniform (informative censoring)."
+      ]
+    }
+  ]
+}

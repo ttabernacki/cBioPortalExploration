@@ -102,9 +102,9 @@ def check_dataset_schema() -> None:
         return
     if doc.get("outcome_columns_present") is not False:
         err("dataset_schema.json: outcome_columns_present must be false")
-    locked = json.loads((ROOT / "locked" / "test_partition_manifest.json").read_text())
+    registry = json.loads((DATA / "endpoint_definitions.json").read_text())
     outcome_fields = set()
-    for ep in locked.get("endpoint_registry", []):
+    for ep in registry.get("endpoint_registry", []):
         outcome_fields.update({ep.get("event_field"), ep.get("time_field")})
     outcome_fields.discard(None)
     for table in doc.get("tables", []):

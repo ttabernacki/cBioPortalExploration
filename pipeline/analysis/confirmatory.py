@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REPO = ROOT.parent
 PREREG_DIR = ROOT / "preregistration"
 MANIFEST = ROOT / "locked" / "test_partition_manifest.json"
+ENDPOINTS = ROOT / "data" / "endpoint_definitions.json"
 RESULTS = ROOT / "analysis" / "results"
 SELF = Path(__file__).resolve()
 
@@ -102,6 +103,7 @@ def parse_prereg(path: Path) -> dict:
         "alpha": float(alpha.group(1)),
         "estimand": estimand,
         "interaction_with": meta.get("interaction_with") or None,
+        "left_truncated": meta.get("left_truncate_at_sequencing", "true").lower() == "true",
     }
 
 
@@ -201,7 +203,9 @@ def fit(df, plan: dict) -> dict:
         die(f"locked extract is missing pre-registered columns: {', '.join(missing)}")
 
     n_total = len(df)
-    d = df[cols].dropna().copy()
+    entry_col = "entry_day" if ("entry_day" in df.columns and plan.get("left_truncated")) else None
+    keep = cols + ([entry_col] if entry_col else [])
+    d = df[keep].dropna().copy()
     n_analysed = len(d)
 
     term = "exposure"
@@ -209,12 +213,48 @@ def fit(df, plan: dict) -> dict:
         term = "exposure_x_modifier"
         d[term] = d["exposure"] * d[modifier]
 
+    # Categorical covariates are one-hot encoded against a DETERMINISTIC reference level: the
+    # alphabetically first category. The choice is arbitrary but fixed, which is the point — a
+    # reference level picked after seeing which contrast looks better is a researcher degree of
+    # freedom, and dummy coding is exactly where one hides unnoticed.
+    encoding = {}
+    for c in list(d.columns):
+        if c in (t, e, entry_col) or d[c].dtype.kind not in "OSU":
+            continue
+        levels = sorted(d[c].astype(str).unique())
+        if len(levels) < 2:
+            die(f"covariate '{c}' has a single level in this partition and cannot be fitted")
+        ref = levels[0]
+        for lv in levels[1:]:
+            d[f"{c}={lv}"] = (d[c].astype(str) == lv).astype(int)
+        encoding[c] = {"reference_level": ref, "indicator_levels": levels[1:]}
+        d = d.drop(columns=[c])
+
+    n_late_entry = 0
+    if entry_col:
+        late = d[entry_col] >= d[t]
+        n_late_entry = int(late.sum())
+        # A patient sequenced after their event contributes no time at risk under left truncation.
+        # Dropping them is what truncation MEANS, not a data defect — but the count is reported,
+        # because it is exactly the immortal time that would otherwise inflate the estimate.
+        d = d[~late]
+        if d.empty:
+            die("every row has entry time at or after its event time — check that the cohort spec's "
+                "time origin matches the endpoint's time_origin.")
+
     cph = CoxPHFitter()
-    cph.fit(d, duration_col=t, event_col=e)  # the single fit
+    cph.fit(d, duration_col=t, event_col=e, entry_col=entry_col)  # the single fit
 
     row = cph.summary.loc[term]
-    ph = proportional_hazard_test(cph, d, time_transform="rank")
-    ph_p = float(ph.summary["p"].min())
+
+    # Scaled Schoenfeld residuals are not defined for a left-truncated fit in lifelines. Report the
+    # diagnostic as unavailable and say why — do NOT refit without truncation to obtain one. That
+    # would be a second fit of a different model, and immortal-time bias is a worse problem than an
+    # unchecked proportional-hazards assumption.
+    try:
+        ph_p = float(proportional_hazard_test(cph, d, time_transform="rank").summary["p"].min())
+    except NotImplementedError:
+        ph_p = None
 
     return {
         "estimand": estimand,
@@ -224,8 +264,18 @@ def fit(df, plan: dict) -> dict:
             f"ratio of the exposure hazard ratio across strata of '{modifier}'"
             if estimand == "interaction" else "hazard ratio for exposure vs comparator"
         ),
+        "left_truncated": bool(entry_col),
+        "left_truncation_note": (
+            "Risk set entered at sequencing date — patients must survive to be sequenced, and "
+            "ignoring that manufactures a survival advantage out of ascertainment."
+            if entry_col else
+            "NOT left-truncated. If the exposure is genomic, this result carries immortal-time bias."
+        ),
+        "categorical_encoding": encoding,
+        "n_dropped_late_entry": n_late_entry,
         "n_total_in_partition": int(n_total),
-        "n_analysed_complete_case": int(n_analysed),
+        "n_analysed_complete_case": int(len(d)),
+        "n_complete_case_before_truncation": int(n_analysed),
         "n_dropped_missing": int(n_total - n_analysed),
         "n_events": int(d[e].sum()),
         "hazard_ratio": float(row["exp(coef)"]),
@@ -235,6 +285,10 @@ def fit(df, plan: dict) -> dict:
         "p_value": float(row["p"]),
         "proportional_hazards_test_p": ph_p,
         "proportional_hazards_note": (
+            "Not computed: scaled Schoenfeld residuals are undefined for a left-truncated fit. The "
+            "PH assumption is therefore UNCHECKED for this result. It was not obtained by refitting "
+            "without truncation, which would be a different model."
+            if ph_p is None else
             "PH assumption violated (p<0.05) — reported as a diagnostic, NOT corrected by "
             "switching models post hoc." if ph_p < 0.05 else "No PH violation detected."
         ),

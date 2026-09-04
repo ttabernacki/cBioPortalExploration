@@ -38,6 +38,14 @@ novelty-scorer      -> ranked_*.json      |        |
   `supersedes:` field. Never edit or delete a committed prereg. Superseding a prereg *after*
   outcomes were unlocked invalidates the hypothesis — mark it `INVALIDATED` and move it to the
   graveyard.
+- **R5c.** **The analysis extract is built from a pre-registered cohort spec, not by hand.**
+  Between the outcome-blind stages and the single-shot analysis, someone must turn a prose
+  population into a dataframe. Doing that after unlock means choosing inclusion criteria with
+  outcomes in view — the last unguarded p-hacking surface. So the criteria live in
+  `data/cohort_specs/<H-id>.json`, its sha256 is recorded in the prereg, and
+  `analysis/build_extract.py` executes it. Run `build_extract.py --dry-run` BEFORE
+  pre-registering: it prints the attrition table without touching an outcome column, which is
+  when you can still change your mind.
 - **R5b.** A hypothesis about whether a marker is **predictive rather than prognostic** is an
   *interaction*, and must be pre-registered as one (`--estimand interaction --interaction-with
   <column>`). A within-arm hazard ratio is not an interaction test; reporting one as the other is
@@ -121,7 +129,8 @@ Stage order and artifacts:
 | 3 | `plausibility-filter` | `candidate_hypotheses.json` | `data/filtered_hypotheses.json` |
 | 4 | `feasibility-checker` | `filtered_hypotheses.json`, `dataset_schema.json` | `data/feasible_hypotheses.json` |
 | 5 | `novelty-scorer` | `feasible_hypotheses.json` | `data/ranked_hypotheses.json` |
-| — | `/preregister <id>` | `ranked_hypotheses.json` | `preregistration/prereg_<id>.md` |
+| — | `/preregister <id>` | `ranked_hypotheses.json`, `cohort_specs/<id>.json` | `preregistration/prereg_<id>.md` |
+| — | `build_extract.py` | prereg + cohort spec + raw tables | the analysis extract |
 | 6 | `confirmatory-analyst` | prereg + `locked/` | `analysis/results/<id>.json` |
 | 7 | replication | prereg + holdout cohort | `analysis/results/<id>_replication.json` |
 

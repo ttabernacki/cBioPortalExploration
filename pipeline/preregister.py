@@ -28,7 +28,9 @@ REPO = ROOT.parent
 RANKED = ROOT / "data" / "ranked_hypotheses.json"
 PREREG_DIR = ROOT / "preregistration"
 MANIFEST = ROOT / "locked" / "test_partition_manifest.json"
+ENDPOINTS = ROOT / "data" / "endpoint_definitions.json"
 SCRIPT = ROOT / "analysis" / "confirmatory.py"
+SPECS = ROOT / "data" / "cohort_specs"
 
 DEFAULT_ALPHA = 0.05
 DEFAULT_CORRECTION = "Benjamini-Hochberg FDR at q<0.05 across the full pre-registered hypothesis set"
@@ -110,16 +112,17 @@ def check_immutability(hid: str, supersede: str | None) -> Path:
 
 
 def endpoint_def(endpoint_id: str) -> dict:
-    """Reads the endpoint REGISTRY (definitions only) from the locked manifest.
+    """Read an endpoint definition.
 
-    This is the one sanctioned read of pipeline/locked/ outside the confirmatory script, and it
-    touches definitions only — never partition data, never patient values.
+    These live in pipeline/data/, not pipeline/locked/. They are design information — a name, a
+    time origin, a censoring rule — and contain no patient values, so the gate needs no exception
+    to the locked-path rule in order to name an endpoint before unlocking anything.
     """
-    manifest = json.loads(MANIFEST.read_text())
-    for ep in manifest["endpoint_registry"]:
+    registry = json.loads(ENDPOINTS.read_text())
+    for ep in registry["endpoint_registry"]:
         if ep["endpoint_id"] == endpoint_id:
             return ep
-    ids = ", ".join(e["endpoint_id"] for e in manifest["endpoint_registry"])
+    ids = ", ".join(e["endpoint_id"] for e in registry["endpoint_registry"])
     die(f"unknown endpoint '{endpoint_id}' (registry has: {ids})")
 
 
@@ -154,6 +157,9 @@ def render(h: dict, ep: dict, args, script_hash: str, now: str, supersedes: str 
         f"confirmatory_script_sha256: {script_hash}",
         f"partition: {args.partition}",
         f"estimand: {args.estimand}",
+        f"left_truncate_at_sequencing: {str(args._left_trunc).lower()}",
+        f"cohort_spec: {args._spec_file or 'null'}",
+        f"cohort_spec_sha256: {args._spec_hash or 'null'}",
         f"interaction_with: {args.interaction_with or 'null'}",
         "```",
         "",
@@ -233,7 +239,12 @@ def render(h: dict, ep: dict, args, script_hash: str, now: str, supersedes: str 
         "- the model is refit with an added or removed term;",
         "- the endpoint definition or follow-up window is changed;",
         "- the population filter is changed after any effect estimate is seen;",
-        f"- `confirmatory.py` no longer hashes to `{script_hash}`.",
+        f"- `confirmatory.py` no longer hashes to `{script_hash}`;",
+        (f"- the cohort spec no longer hashes to `{args._spec_hash}` — redefining the population "
+         f"after this commit is choosing inclusion criteria with outcomes in view."
+         if args._spec_hash else
+         "- **No cohort spec was registered.** The analysis extract will be built by hand, and "
+         "nothing pins its inclusion criteria. Treat the result accordingly."),
         "",
         "## 5. Feasibility (assessed blind to outcomes)",
         "",
@@ -295,6 +306,13 @@ def main() -> int:
     p.add_argument("--interaction-with", help="column name of the pre-registered effect modifier; required for --estimand interaction")
     p.add_argument("--supersede", help="filename of the prereg this one supersedes (rule R4)")
     p.add_argument("--reason", help="why the supersede is necessary")
+    p.add_argument("--cohort-spec", help="path to the machine-executable cohort spec "
+                   "(default: data/cohort_specs/<H-id>.json). Its hash is recorded in the prereg so "
+                   "the population cannot be redefined after unlock.")
+    p.add_argument("--allow-missing-spec", action="store_true",
+                   help="pre-register without a cohort spec. The extract must then be built by hand, "
+                        "with nothing pinning its inclusion criteria — use only when the analysis "
+                        "will not go through build_extract.py.")
     p.add_argument("--dry-run", action="store_true", help="render to stdout, commit nothing, unlock nothing")
     args = p.parse_args()
 
@@ -307,6 +325,27 @@ def main() -> int:
         die("--estimand interaction requires --interaction-with <column>")
     if args.estimand == "main_effect" and args.interaction_with:
         die("--interaction-with is meaningless for --estimand main_effect")
+
+    spec_path = Path(args.cohort_spec) if args.cohort_spec else SPECS / f"{hid}.json"
+    if spec_path.exists():
+        args._spec_hash = sha256(spec_path)
+        args._spec_file = str(spec_path.relative_to(REPO))
+        spec = json.loads(spec_path.read_text())
+        if spec.get("hypothesis_id") != hid:
+            die(f"{spec_path.name} declares hypothesis_id '{spec.get('hypothesis_id')}', expected '{hid}'")
+        if args.estimand == "interaction":
+            got = (spec.get("modifier") or {}).get("name")
+            if got != args.interaction_with:
+                die(f"--interaction-with is '{args.interaction_with}' but the cohort spec's modifier "
+                    f"is '{got}'. The prereg and the spec must register the same modifier.")
+        args._left_trunc = spec.get("time", {}).get("left_truncate_at_sequencing", True)
+    elif args.allow_missing_spec:
+        args._spec_hash, args._spec_file, args._left_trunc = None, None, True
+    else:
+        die(f"no cohort spec at {spec_path.relative_to(REPO)}. The spec is what makes the population "
+            f"reproducible: without it the extract is built by hand after unlock, which is choosing "
+            f"inclusion criteria with outcomes in view. Write one, or pass --allow-missing-spec if "
+            f"this analysis genuinely will not use build_extract.py.")
 
     h = load_hypothesis(hid)
     check_gate(h)
@@ -347,6 +386,7 @@ def main() -> int:
     # Unlock happens ONLY after the commit exists.
     manifest["unlock_log"].append({
         "hypothesis_id": hid,
+        "cohort_spec_sha256": args._spec_hash,
         "prereg_file": out_path.name,
         "prereg_commit_sha": commit_sha,
         "partition": args.partition,

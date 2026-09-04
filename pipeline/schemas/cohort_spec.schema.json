@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cohort_spec.schema.json",
+  "title": "Cohort Spec",
+  "description": "The MACHINE-EXECUTABLE half of a pre-registration. The prereg's prose says what the population and exposure are for a human reader; this says it in a form pipeline/analysis/build_extract.py can execute without judgement. Both are hash-locked into the prereg, because the person who builds the analysis extract is choosing inclusion criteria — and if they do it after unlock, they are choosing them with outcomes in view. That is a p-hacking surface the gate would otherwise leave wide open.",
+  "type": "object",
+  "required": ["schema_version", "hypothesis_id", "population", "exposure", "covariates", "time"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "hypothesis_id": { "type": "string", "pattern": "^H-[0-9]{3,}$" },
+    "notes": { "type": "string" },
+    "population": {
+      "type": "object",
+      "description": "Inclusion filters, applied in order. Every patient not matching ALL of them is excluded before any outcome is attached.",
+      "required": ["filters"],
+      "additionalProperties": false,
+      "properties": {
+        "filters": { "type": "array", "items": { "$ref": "#/definitions/filter" } },
+        "require_sequencing": { "type": "boolean", "default": true }
+      }
+    },
+    "exposure": {
+      "type": "object",
+      "description": "Definition of the binary `exposure` column.",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["genomic_alteration", "treatment_class", "field_threshold", "field_value"] },
+        "gene": { "type": "string", "description": "For genomic_alteration: HUGO symbol." },
+        "alteration_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Which alteration_type values count as exposed. Listing them explicitly is the point: 'STK11 mutant' is not a definition."
+        },
+        "oncogenic_annotation_in": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Restrict to these oncogenic_annotation values, e.g. ['oncogenic','likely_oncogenic'] to exclude VUS."
+        },
+        "drug_classes": { "type": "array", "items": { "type": "string" } },
+        "table": { "type": "string" },
+        "field": { "type": "string" },
+        "op": { "enum": ["eq", "ne", "lt", "lte", "gt", "gte", "in", "not_in"] },
+        "value": {},
+        "comparator_is_complement": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true the comparator is everyone in the population who is not exposed. If false, `comparator` must define it explicitly — 'everyone else' is a confounder generator when the complement is heterogeneous."
+        },
+        "comparator": { "$ref": "#/definitions/filter" }
+      }
+    },
+    "modifier": {
+      "type": "object",
+      "description": "The pre-registered effect modifier, for an interaction estimand. Its column name must match the prereg's interaction_with.",
+      "required": ["name", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "kind": { "enum": ["genomic_alteration", "treatment_class", "field_value", "field_threshold"] },
+        "gene": { "type": "string" },
+        "alteration_types": { "type": "array", "items": { "type": "string" } },
+        "oncogenic_annotation_in": { "type": "array", "items": { "type": "string" } },
+        "drug_classes": { "type": "array", "items": { "type": "string" } },
+        "table": { "type": "string" },
+        "field": { "type": "string" },
+        "op": { "enum": ["eq", "ne", "lt", "lte", "gt", "gte", "in", "not_in"] },
+        "value": {},
+        "continuous": {
+          "type": "boolean",
+          "description": "Keep the raw value rather than dichotomising. Where a continuous specification is better powered, dichotomising after the fact is a researcher degree of freedom — fix it here."
+        }
+      }
+    },
+    "covariates": {
+      "type": "array",
+      "description": "The fixed, complete covariate list. Must match the prereg's numbered list exactly; build_extract.py refuses if it does not.",
+      "items": {
+        "type": "object",
+        "required": ["name", "table", "field"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "description": "Column name in the extract, matching the prereg's covariate wording." },
+          "table": { "type": "string" },
+          "field": { "type": "string" },
+          "aggregate": {
+            "enum": ["first", "last", "max", "min", "mean", "baseline"],
+            "description": "How to collapse a repeated-measures table to one row per patient. 'baseline' uses the is_baseline flag."
+          }
+        }
+      }
+    },
+    "time": {
+      "type": "object",
+      "required": ["origin"],
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": ["index_treatment_start", "diagnosis"],
+          "description": "Where follow-up starts. Must match the endpoint's time_origin."
+        },
+        "left_truncate_at_sequencing": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enter the risk set at days_dx_to_sequencing rather than at the time origin. Required for a genomic exposure: patients must survive to be sequenced, and ignoring it manufactures a survival advantage out of ascertainment."
+        }
+      }
+    }
+  },
+  "definitions": {
+    "filter": {
+      "type": "object",
+      "required": ["table", "field", "op", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "table": { "type": "string" },
+        "field": { "type": "string" },
+        "op": { "enum": ["eq", "ne", "lt", "lte", "gt", "gte", "in", "not_in"] },
+        "value": {},
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
