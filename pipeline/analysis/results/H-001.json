@@ -1,0 +1,79 @@
+{
+  "hypothesis_id": "H-001",
+  "prereg_file": "prereg_H-001_v1.md",
+  "prereg_version": "1",
+  "confirmatory_script_sha256": "2ea7481c8b00768ff9de51b35b3ff76815a278a81a5113e38721c89e3e49bbf4",
+  "partition": "test",
+  "run_type": "confirmatory",
+  "run_utc": "2026-09-05T01:05:18+00:00",
+  "endpoint": {
+    "id": "OS",
+    "label": "Overall survival"
+  },
+  "covariates": [
+    "age at index",
+    "sex",
+    "smoking status",
+    "histology",
+    "tmb",
+    "kras_mut",
+    "keap1_mut",
+    "tp53_mut"
+  ],
+  "alpha": 0.05,
+  "result": {
+    "estimand": "interaction",
+    "reported_term": "exposure_x_modifier",
+    "interaction_with": "treatment_is_ici",
+    "effect_interpretation": "ratio of the exposure hazard ratio across strata of 'treatment_is_ici'",
+    "left_truncated": true,
+    "left_truncation_note": "Risk set entered at sequencing date \u2014 patients must survive to be sequenced, and ignoring that manufactures a survival advantage out of ascertainment.",
+    "categorical_encoding": {
+      "sex": {
+        "reference_level": "Female",
+        "indicator_levels": [
+          "Male"
+        ]
+      },
+      "smoking status": {
+        "reference_level": "Former/Current Smoker",
+        "indicator_levels": [
+          "Never",
+          "Unknown"
+        ]
+      },
+      "histology": {
+        "reference_level": "Atypical Lung Carcinoid",
+        "indicator_levels": [
+          "Large Cell Lung Carcinoma",
+          "Large Cell Neuroendocrine Carcinoma",
+          "Lung Adenocarcinoma",
+          "Lung Adenosquamous Carcinoma",
+          "Lung Carcinoid",
+          "Lung Neuroendocrine Tumor",
+          "Lung Squamous Cell Carcinoma",
+          "Lymphoepithelioma-like Carcinoma of the Lung",
+          "Non-Small Cell Lung Cancer",
+          "Pleomorphic Carcinoma of the Lung",
+          "Poorly Differentiated Non-Small Cell Lung Cancer",
+          "Sarcomatoid Carcinoma of the Lung",
+          "Spindle Cell Carcinoma of the Lung"
+        ]
+      }
+    },
+    "n_dropped_late_entry": 0,
+    "n_total_in_partition": 1139,
+    "n_analysed_complete_case": 1139,
+    "n_complete_case_before_truncation": 1139,
+    "n_dropped_missing": 0,
+    "n_events": 832,
+    "hazard_ratio": 1.664511354852214,
+    "ci_low": 1.1499441914175261,
+    "ci_high": 2.4093326190175026,
+    "se_log_hr": 0.1886862160279307,
+    "p_value": 0.0069252466128953034,
+    "proportional_hazards_test_p": null,
+    "proportional_hazards_note": "Not computed: scaled Schoenfeld residuals are undefined for a left-truncated fit. The PH assumption is therefore UNCHECKED for this result. It was not obtained by refitting without truncation, which would be a different model."
+  },
+  "interpretation_note": "Reported as-is. The p-value here is uncorrected; the family-wise decision is made by --fdr across the full pre-registered set (rule R6). A hypothesis is validated only after replication on an independent or temporal-holdout cohort (rule R7)."
+}

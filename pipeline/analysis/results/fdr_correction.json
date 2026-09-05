@@ -1,0 +1,11 @@
+{
+  "method": "Benjamini-Hochberg",
+  "n_hypotheses_in_family": 1,
+  "computed_utc": "2026-09-05T01:05:34+00:00",
+  "q_values": {
+    "H-001": 0.006925
+  },
+  "significant_at_q05": [
+    "H-001"
+  ]
+}
