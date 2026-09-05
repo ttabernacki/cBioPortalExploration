@@ -12,7 +12,7 @@
     "test": {
       "purpose": "Primary confirmatory partition. Unlocked slice-by-slice by committed pre-registrations.",
       "n_patients": 8737,
-      "unlocked": false,
+      "unlocked": true,
       "data_pointer": "EXTERNAL \u2014 configure via PIPELINE_LOCKED_DATA_PATH; no patient data is committed to this repository."
     },
     "temporal_holdout": {
@@ -23,7 +23,19 @@
       "data_pointer": "EXTERNAL \u2014 configure via PIPELINE_HOLDOUT_DATA_PATH"
     }
   },
-  "unlock_log": [],
+  "unlock_log": [
+    {
+      "hypothesis_id": "H-001",
+      "cohort_spec_sha256": "12c9b51d1f923a685e2bd8613fe47087bfac220980684d7f86905d05578e4e2e",
+      "prereg_file": "prereg_H-001_v1.md",
+      "prereg_commit_sha": "e4cac1b32dbb3b124badb81ef29b347119290995",
+      "partition": "test",
+      "endpoint_id": "OS",
+      "confirmatory_script_sha256": "2ea7481c8b00768ff9de51b35b3ff76815a278a81a5113e38721c89e3e49bbf4",
+      "unlocked_utc": "2026-09-05T01:04:45+00:00",
+      "unlocked_by": "noreply@anthropic.com"
+    }
+  ],
   "unlock_log_note": "Append-only. Each entry: {hypothesis_id, prereg_file, prereg_commit_sha, partition, endpoint_id, unlocked_utc, unlocked_by}. Written by /preregister after the prereg commit succeeds, never before.",
   "endpoint_registry_moved_to": "pipeline/data/endpoint_definitions.json"
 }
