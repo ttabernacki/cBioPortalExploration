@@ -214,6 +214,13 @@
                 "not_applicable"
               ],
               "description": "The molecular/clinical state of the subject that the claim is about."
+            },
+            "state_detail": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "The source's own wording for the subject state, preserved verbatim when the controlled `state` enum cannot carry it. The enum exists for machine comparison; this exists so that mapping to it is never lossy."
             }
           }
         },
@@ -390,6 +397,23 @@
                 "in_silico",
                 "mixed"
               ]
+            },
+            "specimen": {
+              "enum": [
+                "tumor_tissue",
+                "ctDNA",
+                "both_paired",
+                "preclinical_model",
+                "not_specified"
+              ],
+              "description": "Specimen the molecular call was made from. Added because for some topics this is not a detail but the crux: ESR1 mutations are subclonal and acquired under aromatase-inhibitor pressure, so tissue-only ascertainment reports ~0.2% prevalence against 25-40% in post-AI plasma. Collapsing tissue and ctDNA claims together would erase exactly the distinction that determines whether a tissue-sequenced cohort can test the hypothesis at all."
+            },
+            "assay_note": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "Assay detail where the source specifies it (ddPCR, targeted NGS panel, ultra-sensitive multiplex). Free text; sensitivity differs by orders of magnitude between platforms and that difference is often the whole finding."
             }
           }
         },

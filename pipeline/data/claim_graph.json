@@ -7,1380 +7,2159 @@
       "entity_id": "E-001",
       "name": "ESR1",
       "type": "gene",
-      "synonyms": ["ESR1", "estrogen receptor 1", "ER-alpha", "ERalpha", "ERa", "ESR1 LBD mutation", "estrogen receptor alpha"]
+      "synonyms": [
+        "ESR1",
+        "estrogen receptor 1",
+        "ER-alpha",
+        "ERalpha",
+        "ERa",
+        "ESR1 LBD mutation",
+        "estrogen receptor alpha"
+      ]
     },
     {
       "entity_id": "E-002",
       "name": "ESR1 Y537S",
       "type": "variant",
-      "synonyms": ["p.Tyr537Ser", "Y537S", "Tyr537Ser"]
+      "synonyms": [
+        "p.Tyr537Ser",
+        "Y537S",
+        "Tyr537Ser"
+      ]
     },
     {
       "entity_id": "E-003",
       "name": "ESR1 D538G",
       "type": "variant",
-      "synonyms": ["p.Asp538Gly", "D538G", "Asp538Gly"]
+      "synonyms": [
+        "p.Asp538Gly",
+        "D538G",
+        "Asp538Gly"
+      ]
     },
     {
       "entity_id": "E-004",
       "name": "ESR1 Y537N",
       "type": "variant",
-      "synonyms": ["p.Tyr537Asn", "Y537N"]
+      "synonyms": [
+        "p.Tyr537Asn",
+        "Y537N"
+      ]
     },
     {
       "entity_id": "E-005",
       "name": "ESR1 Y537C",
       "type": "variant",
-      "synonyms": ["p.Tyr537Cys", "Y537C"]
+      "synonyms": [
+        "p.Tyr537Cys",
+        "Y537C"
+      ]
     },
     {
       "entity_id": "E-006",
       "name": "ESR1 E380Q",
       "type": "variant",
-      "synonyms": ["p.Glu380Gln", "E380Q"]
+      "synonyms": [
+        "p.Glu380Gln",
+        "E380Q"
+      ]
     },
     {
       "entity_id": "E-007",
       "name": "ESR1 L536Q",
       "type": "variant",
-      "synonyms": ["p.Leu536Gln", "L536Q", "L536 codon mutation", "L536H", "L536P"]
+      "synonyms": [
+        "p.Leu536Gln",
+        "L536Q",
+        "L536 codon mutation",
+        "L536H",
+        "L536P"
+      ]
     },
     {
       "entity_id": "E-008",
       "name": "aromatase inhibitor",
       "type": "drug_class",
-      "synonyms": ["AI", "letrozole", "anastrozole", "exemestane", "nonsteroidal aromatase inhibitor", "estrogen deprivation therapy"]
+      "synonyms": [
+        "AI",
+        "letrozole",
+        "anastrozole",
+        "exemestane",
+        "nonsteroidal aromatase inhibitor",
+        "estrogen deprivation therapy"
+      ]
     },
     {
       "entity_id": "E-009",
       "name": "fulvestrant",
       "type": "drug",
-      "synonyms": ["Faslodex", "ICI 182,780", "injectable SERD"]
+      "synonyms": [
+        "Faslodex",
+        "ICI 182,780",
+        "injectable SERD"
+      ]
     },
     {
       "entity_id": "E-010",
       "name": "oral selective estrogen receptor degrader",
       "type": "drug_class",
-      "synonyms": ["oral SERD", "next-generation SERD", "elacestrant", "camizestrant", "imlunestrant", "giredestrant", "complete ER antagonist"]
+      "synonyms": [
+        "oral SERD",
+        "next-generation SERD",
+        "elacestrant",
+        "camizestrant",
+        "imlunestrant",
+        "giredestrant",
+        "complete ER antagonist"
+      ]
     },
     {
       "entity_id": "E-011",
       "name": "elacestrant",
       "type": "drug",
-      "synonyms": ["RAD1901", "Orserdu"]
+      "synonyms": [
+        "RAD1901",
+        "Orserdu"
+      ]
     },
     {
       "entity_id": "E-012",
       "name": "camizestrant",
       "type": "drug",
-      "synonyms": ["AZD9833"]
+      "synonyms": [
+        "AZD9833"
+      ]
     },
     {
       "entity_id": "E-013",
       "name": "imlunestrant",
       "type": "drug",
-      "synonyms": ["LY3484356", "Inluriyo"]
+      "synonyms": [
+        "LY3484356",
+        "Inluriyo"
+      ]
     },
     {
       "entity_id": "E-014",
       "name": "CDK4/6 inhibitor",
       "type": "drug_class",
-      "synonyms": ["CDK4/6i", "palbociclib", "ribociclib", "abemaciclib"]
+      "synonyms": [
+        "CDK4/6i",
+        "palbociclib",
+        "ribociclib",
+        "abemaciclib"
+      ]
     },
     {
       "entity_id": "E-015",
       "name": "everolimus",
       "type": "drug",
-      "synonyms": ["mTOR inhibitor", "RAD001"]
+      "synonyms": [
+        "mTOR inhibitor",
+        "RAD001"
+      ]
     },
     {
       "entity_id": "E-016",
       "name": "tamoxifen",
       "type": "drug",
-      "synonyms": ["SERM", "4-hydroxytamoxifen", "4-OHT"]
+      "synonyms": [
+        "SERM",
+        "4-hydroxytamoxifen",
+        "4-OHT"
+      ]
     },
     {
       "entity_id": "E-017",
       "name": "hormone receptor-positive HER2-negative metastatic breast cancer",
-      "type": "disease",
-      "synonyms": ["HR+/HER2- MBC", "ER+ metastatic breast cancer", "ER-positive advanced breast cancer", "luminal advanced breast cancer"]
+      "type": "clinical_feature",
+      "synonyms": [
+        "HR+/HER2- MBC",
+        "ER+ metastatic breast cancer",
+        "ER-positive advanced breast cancer",
+        "luminal advanced breast cancer"
+      ]
     },
     {
       "entity_id": "E-018",
       "name": "PIK3CA",
       "type": "gene",
-      "synonyms": ["PI3K alpha", "p110alpha", "PI3K pathway alteration"]
+      "synonyms": [
+        "PI3K alpha",
+        "p110alpha",
+        "PI3K pathway alteration"
+      ]
     },
     {
       "entity_id": "E-019",
       "name": "TP53",
       "type": "gene",
-      "synonyms": ["p53", "tumor protein p53"]
+      "synonyms": [
+        "p53",
+        "tumor protein p53"
+      ]
     },
     {
       "entity_id": "E-020",
       "name": "circulating tumor DNA assay",
-      "type": "assay",
-      "synonyms": ["ctDNA", "cfDNA", "liquid biopsy", "plasma genotyping", "digital PCR ctDNA", "Guardant360", "Tempus xF"]
+      "type": "biomarker",
+      "synonyms": [
+        "ctDNA",
+        "cfDNA",
+        "liquid biopsy",
+        "plasma genotyping",
+        "digital PCR ctDNA",
+        "Guardant360",
+        "Tempus xF"
+      ]
     },
     {
       "entity_id": "E-021",
       "name": "tumor tissue next-generation sequencing",
-      "type": "assay",
-      "synonyms": ["tissue NGS", "MSK-IMPACT", "FFPE targeted sequencing", "Tempus xT", "tumor biopsy sequencing"]
+      "type": "biomarker",
+      "synonyms": [
+        "tissue NGS",
+        "MSK-IMPACT",
+        "FFPE targeted sequencing",
+        "Tempus xT",
+        "tumor biopsy sequencing"
+      ]
     },
     {
       "entity_id": "E-022",
       "name": "progesterone receptor",
       "type": "gene",
-      "synonyms": ["PGR", "PR"]
+      "synonyms": [
+        "PGR",
+        "PR"
+      ]
     },
     {
       "entity_id": "E-023",
       "name": "MAPK pathway and ER transcriptional machinery alterations",
       "type": "pathway",
-      "synonyms": ["ERBB2 activating mutation", "NF1 loss", "EGFR", "KRAS", "MYC", "CTCF", "FOXA1", "TBX3"]
+      "synonyms": [
+        "ERBB2 activating mutation",
+        "NF1 loss",
+        "EGFR",
+        "KRAS",
+        "MYC",
+        "CTCF",
+        "FOXA1",
+        "TBX3"
+      ]
     }
   ],
   "claims": [
     {
       "claim_id": "C-001",
-      "subject": {"type": "gene", "name": "ESR1", "state": "ligand-binding domain mutant (Y537S, Y537N, D538G)"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "ligand-binding domain mutant (Y537S, Y537N, D538G)"
+      },
       "predicate": {
         "effect": "confers_resistance",
         "on": "ER antagonists and hormone deprivation",
-        "magnitude": "qualitative; mutant receptors drive transcription and proliferation in the absence of hormone and reduce antagonist efficacy",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer",
         "model_system": "cell_line",
-        "population": "engineered ER+ breast cancer cell lines; mutations derived from 2 cohorts of metastatic ER+ tumors (14/80 cases)"
+        "population": {
+          "n": 14,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "engineered ER+ breast cancer cell lines; mutations derived from 2 cohorts of metastatic ER+ tumors (14/80 cases)"
+          ]
+        },
+        "specimen": "preclinical_model",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 ligand-binding domain mutations in hormone-resistant breast cancer",
-          "journal": "Nature Genetics",
-          "year": 2013,
-          "pmid": "24185512",
-          "doi": "10.1038/ng.2822",
-          "url": "https://doi.org/10.1038/ng.2822"
-        },
         "design": "preclinical",
         "verified": true,
-        "supporting_quote": "Consistent with this model, mutant receptors drive ER-dependent transcription and proliferation in the absence of hormone and reduce the efficacy of ER antagonists."
+        "supporting_quote": "Consistent with this model, mutant receptors drive ER-dependent transcription and proliferation in the absence of hormone and reduce the efficacy of ER antagonists.",
+        "citation": {
+          "title": "ESR1 ligand-binding domain mutations in hormone-resistant breast cancer",
+          "pmid": "24185512",
+          "doi": "10.1038/ng.2822",
+          "url": "https://doi.org/10.1038/ng.2822",
+          "journal": "Nature Genetics"
+        },
+        "year": 2013,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Molecular dynamics simulations suggest that the structures of the Tyr537Ser and Asp538Gly mutants involve hydrogen bonding of the mutant amino acids with Asp351, thus favoring the agonist conformation of the receptor.",
-      "conflicts_with": ["C-002"]
+      "mechanism_note": "Molecular dynamics simulations suggest that the structures of the Tyr537Ser and Asp538Gly mutants involve hydrogen bonding of the mutant amino acids with Asp351, thus favoring the agonist conformation of the receptor. [reported magnitude] qualitative; mutant receptors drive transcription and proliferation in the absence of hormone and reduce antagonist efficacy",
+      "conflicts_with": [
+        "C-002"
+      ]
     },
     {
       "claim_id": "C-002",
-      "subject": {"type": "gene", "name": "ESR1", "state": "ligand-binding domain mutant (L536Q, Y537S, Y537C, Y537N, D538G)"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "ligand-binding domain mutant (L536Q, Y537S, Y537C, Y537N, D538G)"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "in vitro responsiveness to anti-estrogen therapy",
-        "magnitude": "qualitative; constitutive activity with 'continued responsiveness to anti-estrogen therapies in vitro'",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer",
         "model_system": "cell_line",
-        "population": "11 patients with ER-positive metastatic breast cancer in a prospective clinical sequencing program; 6 harbored LBD mutations, all previously treated with anti-estrogens and estrogen deprivation"
+        "population": {
+          "n": 11,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "11 patients with ER-positive metastatic breast cancer in a prospective clinical sequencing program; 6 harbored LBD mutations, all previously treated with anti-estrogens and estrogen deprivation"
+          ]
+        },
+        "specimen": "preclinical_model",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Activating ESR1 mutations in hormone-resistant metastatic breast cancer",
-          "journal": "Nature Genetics",
-          "year": 2013,
-          "pmid": "24185510",
-          "doi": "10.1038/ng.2823",
-          "url": "https://doi.org/10.1038/ng.2823"
-        },
         "design": "preclinical",
         "verified": true,
-        "supporting_quote": "The five new LBD-localized ESR1 mutations identified here (encoding p.Leu536Gln, p.Tyr537Ser, p.Tyr537Cys, p.Tyr537Asn and p.Asp538Gly) were shown to result in constitutive activity and continued responsiveness to anti-estrogen therapies in vitro."
+        "supporting_quote": "The five new LBD-localized ESR1 mutations identified here (encoding p.Leu536Gln, p.Tyr537Ser, p.Tyr537Cys, p.Tyr537Asn and p.Asp538Gly) were shown to result in constitutive activity and continued responsiveness to anti-estrogen therapies in vitro.",
+        "citation": {
+          "title": "Activating ESR1 mutations in hormone-resistant metastatic breast cancer",
+          "pmid": "24185510",
+          "doi": "10.1038/ng.2823",
+          "url": "https://doi.org/10.1038/ng.2823",
+          "journal": "Nature Genetics"
+        },
+        "year": 2013,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": "Authors propose activating LBD mutations as a key mechanism of acquired endocrine resistance while noting the mutant receptor remains antagonist-responsive in vitro.",
-      "conflicts_with": ["C-001"]
+      "mechanism_note": "Authors propose activating LBD mutations as a key mechanism of acquired endocrine resistance while noting the mutant receptor remains antagonist-responsive in vitro. [reported magnitude] qualitative; constitutive activity with 'continued responsiveness to anti-estrogen therapies in vitro'",
+      "conflicts_with": [
+        "C-001"
+      ]
     },
     {
       "claim_id": "C-003",
-      "subject": {"type": "gene", "name": "ESR1", "state": "codon 537/538 mutant"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "codon 537/538 mutant"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "metastatic, endocrine-pretreated disease state rather than primary or treatment-naive disease",
-        "magnitude": "12% (9/76, 95% CI 6-21%) in metastatic tumors; 20% (5/25, 95% CI 7-41%) after a mean of 7 lines of treatment; 0% in primary/treatment-naive ER+ and in ER- disease",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive breast cancer across disease stages",
-        "model_system": "human",
-        "population": "249 tumor specimens from 208 patients (134 ER+/HER2-, 115 ER-); 58 primary and 76 metastatic ER+ samples; tissue-based targeted NGS"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 249,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "249 tumor specimens from 208 patients (134 ER+/HER2-, 115 ER-); 58 primary and 76 metastatic ER+ samples; tissue-based targeted NGS"
+          ]
+        },
+        "specimen": "tumor_tissue",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Emergence of constitutively active estrogen receptor-alpha mutations in pretreated advanced estrogen receptor-positive breast cancer",
-          "journal": "Clinical Cancer Research",
-          "year": 2014,
-          "pmid": "24398047",
-          "doi": "10.1158/1078-0432.CCR-13-2332",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-13-2332"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Overall, the frequency of these mutations was 12% [9/76; 95% confidence interval (CI), 6%-21%] in metastatic tumors and in a subgroup of patients who received an average of 7 lines of treatment the frequency was 20% (5/25; 95% CI, 7%-41%). These mutations were not detected in primary or treatment-naive ER(+) cancer or in any stage of ER(-) disease."
+        "supporting_quote": "Overall, the frequency of these mutations was 12% [9/76; 95% confidence interval (CI), 6%-21%] in metastatic tumors and in a subgroup of patients who received an average of 7 lines of treatment the frequency was 20% (5/25; 95% CI, 7%-41%). These mutations were not detected in primary or treatment-naive ER(+) cancer or in any stage of ER(-) disease.",
+        "citation": {
+          "title": "Emergence of constitutively active estrogen receptor-alpha mutations in pretreated advanced estrogen receptor-positive breast cancer",
+          "pmid": "24398047",
+          "doi": "10.1158/1078-0432.CCR-13-2332",
+          "url": "https://doi.org/10.1158/1078-0432.CCR-13-2332",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2014,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors interpret this as temporal selection of functional ESR1 mutations as drivers of endocrine resistance during progression.",
+      "mechanism_note": "Authors interpret this as temporal selection of functional ESR1 mutations as drivers of endocrine resistance during progression. [reported magnitude] 12% (9/76, 95% CI 6-21%) in metastatic tumors; 20% (5/25, 95% CI 7-41%) after a mean of 7 lines of treatment; 0% in primary/treatment-naive ER+ and in ER- disease",
       "conflicts_with": []
     },
     {
       "claim_id": "C-004",
-      "subject": {"type": "variant", "name": "ESR1 Y537S and D538G", "state": "present"},
+      "subject": {
+        "type": "variant",
+        "name": "ESR1 Y537S and D538G",
+        "state": "mutation_any",
+        "state_detail": "present"
+      },
       "predicate": {
         "effect": "increases",
         "on": "hormone-independent coactivator recruitment by ER-alpha",
-        "magnitude": "qualitative; coactivator recruited in absence of hormone, with reduced affinity for estradiol and 4-hydroxytamoxifen",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive breast cancer",
         "model_system": "in_silico",
-        "population": "purified ER-alpha ligand-binding domain; biophysical and structural biology (crystallography, HDX) analyses"
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "purified ER-alpha ligand-binding domain; biophysical and structural biology (crystallography, HDX) analyses"
+          ]
+        },
+        "specimen": "preclinical_model",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Estrogen receptor alpha somatic mutations Y537S and D538G confer breast cancer endocrine resistance by stabilizing the activating function-2 binding conformation",
-          "journal": "eLife",
-          "year": 2016,
-          "pmid": "26836308",
-          "doi": "10.7554/eLife.12792",
-          "url": "https://doi.org/10.7554/eLife.12792"
-        },
         "design": "preclinical",
         "verified": true,
-        "supporting_quote": "We show that these mutant ERs recruit coactivator in the absence of hormone while their affinities for estrogen agonist (estradiol) and antagonist (4-hydroxytamoxifen) are reduced."
+        "supporting_quote": "We show that these mutant ERs recruit coactivator in the absence of hormone while their affinities for estrogen agonist (estradiol) and antagonist (4-hydroxytamoxifen) are reduced.",
+        "citation": {
+          "title": "Estrogen receptor alpha somatic mutations Y537S and D538G confer breast cancer endocrine resistance by stabilizing the activating function-2 binding conformation",
+          "pmid": "26836308",
+          "doi": "10.7554/eLife.12792",
+          "url": "https://doi.org/10.7554/eLife.12792",
+          "journal": "eLife"
+        },
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors propose the mutations alter conformational dynamics of the loop connecting Helix 11 and Helix 12, stabilizing an agonist state and producing an altered antagonist state that resists inhibition.",
+      "mechanism_note": "Authors propose the mutations alter conformational dynamics of the loop connecting Helix 11 and Helix 12, stabilizing an agonist state and producing an altered antagonist state that resists inhibition. [reported magnitude] qualitative; coactivator recruited in absence of hormone, with reduced affinity for estradiol and 4-hydroxytamoxifen",
       "conflicts_with": []
     },
     {
       "claim_id": "C-005",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA"
+      },
       "predicate": {
         "effect": "confers_resistance",
         "on": "subsequent aromatase-inhibitor-based therapy",
-        "magnitude": "PFS hazard ratio 3.1 (95% CI 1.9-23.1), P = 0.0041",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive advanced breast cancer",
-        "model_system": "human",
-        "population": "171 women with advanced breast cancer; ultra high-sensitivity multiplex digital PCR on plasma ctDNA"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 171,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "171 women with advanced breast cancer; ultra high-sensitivity multiplex digital PCR on plasma ctDNA"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
-          "journal": "Science Translational Medicine",
-          "year": 2015,
-          "pmid": "26560360",
-          "doi": "10.1126/scitranslmed.aac7551",
-          "url": "https://doi.org/10.1126/scitranslmed.aac7551"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "Patients with ESR1 mutation had a substantially shorter progression-free survival on subsequent AI-based therapy [hazard ratio, 3.1; 95% confidence interval (CI), 1.9 to 23.1; P = 0.0041]."
+        "supporting_quote": "Patients with ESR1 mutation had a substantially shorter progression-free survival on subsequent AI-based therapy [hazard ratio, 3.1; 95% confidence interval (CI), 1.9 to 23.1; P = 0.0041].",
+        "citation": {
+          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
+          "pmid": "26560360",
+          "doi": "10.1126/scitranslmed.aac7551",
+          "url": "https://doi.org/10.1126/scitranslmed.aac7551",
+          "journal": "Science Translational Medicine"
+        },
+        "year": 2015,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors describe selection of an ESR1-mutant clone during metastatic AI therapy to become the dominant clone.",
+      "mechanism_note": "Authors describe selection of an ESR1-mutant clone during metastatic AI therapy to become the dominant clone. [reported magnitude] PFS hazard ratio 3.1 (95% CI 1.9-23.1), P = 0.0041",
       "conflicts_with": []
     },
     {
       "claim_id": "C-006",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "aromatase inhibitor exposure in the metastatic rather than adjuvant setting",
-        "magnitude": "5.8% (3/52) with first AI exposure in the adjuvant setting versus 36.4% (16/44) with first AI exposure in the metastatic setting; P = 0.0002",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive advanced breast cancer",
-        "model_system": "human",
-        "population": "women with advanced breast cancer stratified by setting of first aromatase inhibitor exposure"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "women with advanced breast cancer stratified by setting of first aromatase inhibitor exposure"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
-          "journal": "Science Translational Medicine",
-          "year": 2015,
-          "pmid": "26560360",
-          "doi": "10.1126/scitranslmed.aac7551",
-          "url": "https://doi.org/10.1126/scitranslmed.aac7551"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "ESR1 mutation prevalence differed markedly between patients who were first exposed to AI during the adjuvant and metastatic settings [5.8% (3 of 52) versus 36.4% (16 of 44), respectively; P = 0.0002]."
+        "supporting_quote": "ESR1 mutation prevalence differed markedly between patients who were first exposed to AI during the adjuvant and metastatic settings [5.8% (3 of 52) versus 36.4% (16 of 44), respectively; P = 0.0002].",
+        "citation": {
+          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
+          "pmid": "26560360",
+          "doi": "10.1126/scitranslmed.aac7551",
+          "url": "https://doi.org/10.1126/scitranslmed.aac7551",
+          "journal": "Science Translational Medicine"
+        },
+        "year": 2015,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors propose mechanisms of resistance differ between micrometastatic (adjuvant) and overt metastatic disease.",
+      "mechanism_note": "Authors propose mechanisms of resistance differ between micrometastatic (adjuvant) and overt metastatic disease. [reported magnitude] 5.8% (3/52) with first AI exposure in the adjuvant setting versus 36.4% (16/44) with first AI exposure in the metastatic setting; P = 0.0002",
       "conflicts_with": []
     },
     {
       "claim_id": "C-007",
-      "subject": {"type": "assay", "name": "tumor tissue next-generation sequencing", "state": "applied after progression on adjuvant aromatase inhibitor"},
+      "subject": {
+        "type": "biomarker",
+        "name": "tumor tissue next-generation sequencing",
+        "state": "exposure",
+        "state_detail": "applied after progression on adjuvant aromatase inhibitor"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "detection of ESR1 mutations",
-        "magnitude": "0% (0 of 32; 95% CI 0 to 10.9) of tumor biopsies taken after progression on adjuvant AI harbored an ESR1 mutation",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "hormone receptor-positive breast cancer progressing after adjuvant aromatase inhibitor",
-        "model_system": "human",
-        "population": "independent validation cohort of 32 tumor biopsies"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 32,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "independent validation cohort of 32 tumor biopsies"
+          ]
+        },
+        "specimen": "not_specified",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
-          "journal": "Science Translational Medicine",
-          "year": 2015,
-          "pmid": "26560360",
-          "doi": "10.1126/scitranslmed.aac7551",
-          "url": "https://doi.org/10.1126/scitranslmed.aac7551"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "In an independent cohort, ESR1 mutations were identified in 0% (0 of 32; 95% CI, 0 to 10.9) tumor biopsies taken after progression on adjuvant AI."
+        "supporting_quote": "In an independent cohort, ESR1 mutations were identified in 0% (0 of 32; 95% CI, 0 to 10.9) tumor biopsies taken after progression on adjuvant AI.",
+        "citation": {
+          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
+          "pmid": "26560360",
+          "doi": "10.1126/scitranslmed.aac7551",
+          "url": "https://doi.org/10.1126/scitranslmed.aac7551",
+          "journal": "Science Translational Medicine"
+        },
+        "year": 2015,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors attribute the absence to ESR1 mutations rarely being acquired during adjuvant AI, being commonly selected only by therapy for metastatic disease.",
+      "mechanism_note": "Authors attribute the absence to ESR1 mutations rarely being acquired during adjuvant AI, being commonly selected only by therapy for metastatic disease. [reported magnitude] 0% (0 of 32; 95% CI 0 to 10.9) of tumor biopsies taken after progression on adjuvant AI harbored an ESR1 mutation",
       "conflicts_with": []
     },
     {
       "claim_id": "C-008",
-      "subject": {"type": "assay", "name": "circulating tumor DNA assay", "state": "digital PCR for ESR1 hotspots"},
+      "subject": {
+        "type": "biomarker",
+        "name": "circulating tumor DNA assay",
+        "state": "not_applicable",
+        "state_detail": "digital PCR for ESR1 hotspots"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "ESR1 mutation status in contemporaneous tumor biopsy",
-        "magnitude": "reported as high concordance; numeric concordance rate not stated in abstract",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive advanced breast cancer",
-        "model_system": "human",
-        "population": "paired ctDNA and contemporaneous tumor biopsies within a 171-patient advanced breast cancer cohort"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 171,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "paired ctDNA and contemporaneous tumor biopsies within a 171-patient advanced breast cancer cohort"
+          ]
+        },
+        "specimen": "both_paired",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
-          "journal": "Science Translational Medicine",
-          "year": 2015,
-          "pmid": "26560360",
-          "doi": "10.1126/scitranslmed.aac7551",
-          "url": "https://doi.org/10.1126/scitranslmed.aac7551"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "ESR1 mutation status in ctDNA showed high concordance with contemporaneous tumor biopsies and was accurately assessed in samples shipped at room temperature in preservative tubes."
+        "supporting_quote": "ESR1 mutation status in ctDNA showed high concordance with contemporaneous tumor biopsies and was accurately assessed in samples shipped at room temperature in preservative tubes.",
+        "citation": {
+          "title": "Analysis of ESR1 mutation in circulating tumor DNA demonstrates evolution during therapy for metastatic breast cancer",
+          "pmid": "26560360",
+          "doi": "10.1126/scitranslmed.aac7551",
+          "url": "https://doi.org/10.1126/scitranslmed.aac7551",
+          "journal": "Science Translational Medicine"
+        },
+        "year": 2015,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] reported as high concordance; numeric concordance rate not stated in abstract",
       "conflicts_with": []
     },
     {
       "claim_id": "C-009",
-      "subject": {"type": "drug_class", "name": "CDK4/6 inhibitor (palbociclib) added to fulvestrant", "state": "administered"},
+      "subject": {
+        "type": "drug_class",
+        "name": "CDK4/6 inhibitor (palbociclib) added to fulvestrant",
+        "state": "exposure",
+        "state_detail": "administered"
+      },
       "predicate": {
         "effect": "increases",
         "on": "progression-free survival in ESR1-mutant patients",
-        "magnitude": "HR 0.43 (95% CI 0.25-0.74), P = 0.002",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive HER2-negative metastatic breast cancer after progression on prior endocrine therapy",
-        "model_system": "human",
-        "population": "PALOMA-3 randomized phase III; ESR1 mutations in baseline plasma of 91/360 (25.3%) patients, all with prior AI exposure"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 91,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "PALOMA-3 randomized phase III; ESR1 mutations in baseline plasma of 91/360 (25.3%) patients, all with prior AI exposure"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "Fulvestrant plus palbociclib improved PFS compared with fulvestrant plus placebo in both ESR1 mutant (HR, 0.43; 95% CI, 0.25 to 0.74; P = .002) and ESR1 wild-type patients (HR, 0.49; 95% CI, 0.35 to 0.70; P < .001).",
+        "citation": {
           "title": "Plasma ESR1 Mutations and the Treatment of Estrogen Receptor-Positive Advanced Breast Cancer",
-          "journal": "Journal of Clinical Oncology",
-          "year": 2016,
           "pmid": "27269946",
           "doi": "10.1200/JCO.2016.67.3061",
-          "url": "https://doi.org/10.1200/JCO.2016.67.3061"
+          "url": "https://doi.org/10.1200/JCO.2016.67.3061",
+          "journal": "Journal of Clinical Oncology"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "Fulvestrant plus palbociclib improved PFS compared with fulvestrant plus placebo in both ESR1 mutant (HR, 0.43; 95% CI, 0.25 to 0.74; P = .002) and ESR1 wild-type patients (HR, 0.49; 95% CI, 0.35 to 0.70; P < .001)."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-026"]
+      "mechanism_note": "[reported magnitude] HR 0.43 (95% CI 0.25-0.74), P = 0.002",
+      "conflicts_with": [
+        "C-026"
+      ]
     },
     {
       "claim_id": "C-010",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant versus wild-type in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "wildtype",
+        "state_detail": "mutant versus wild-type in ctDNA"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "magnitude of palbociclib benefit added to fulvestrant",
-        "magnitude": "HR 0.43 (95% CI 0.25-0.74) in ESR1-mutant versus HR 0.49 (95% CI 0.35-0.70) in ESR1 wild-type; overlapping intervals, no interaction reported",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "hormone receptor-positive HER2-negative metastatic breast cancer after progression on prior endocrine therapy",
-        "model_system": "human",
-        "population": "PALOMA-3 randomized phase III, 360 patients with baseline plasma analyzed"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 360,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "PALOMA-3 randomized phase III, 360 patients with baseline plasma analyzed"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "Fulvestrant plus palbociclib improved PFS compared with fulvestrant plus placebo in both ESR1 mutant (HR, 0.43; 95% CI, 0.25 to 0.74; P = .002) and ESR1 wild-type patients (HR, 0.49; 95% CI, 0.35 to 0.70; P < .001).",
+        "citation": {
           "title": "Plasma ESR1 Mutations and the Treatment of Estrogen Receptor-Positive Advanced Breast Cancer",
-          "journal": "Journal of Clinical Oncology",
-          "year": 2016,
           "pmid": "27269946",
           "doi": "10.1200/JCO.2016.67.3061",
-          "url": "https://doi.org/10.1200/JCO.2016.67.3061"
+          "url": "https://doi.org/10.1200/JCO.2016.67.3061",
+          "journal": "Journal of Clinical Oncology"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "Fulvestrant plus palbociclib improved PFS compared with fulvestrant plus placebo in both ESR1 mutant (HR, 0.43; 95% CI, 0.25 to 0.74; P = .002) and ESR1 wild-type patients (HR, 0.49; 95% CI, 0.35 to 0.70; P < .001)."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-026"]
+      "mechanism_note": "[reported magnitude] HR 0.43 (95% CI 0.25-0.74) in ESR1-mutant versus HR 0.49 (95% CI 0.35-0.70) in ESR1 wild-type; overlapping intervals, no interaction reported",
+      "conflicts_with": [
+        "C-026"
+      ]
     },
     {
       "claim_id": "C-011",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in baseline ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in baseline ctDNA"
+      },
       "predicate": {
         "effect": "confers_sensitivity",
         "on": "fulvestrant relative to exemestane",
-        "magnitude": "median PFS 3.9 months (95% CI 3.0-6.0) on fulvestrant versus 2.4 months (95% CI 2.0-2.6) on exemestane; HR 0.59 (95% CI 0.39-0.89), P = 0.01; treatment-by-mutation interaction P = 0.02",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer progressing on prior nonsteroidal aromatase inhibitor",
-        "model_system": "human",
-        "population": "combined analysis of phase III EFECT (n=227 serum) and SoFEA (n=161 plasma); ESR1 mutations detected in 151/383 (30%) baseline samples"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 227,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "combined analysis of phase III EFECT (n=227 serum) and SoFEA (n=161 plasma); ESR1 mutations detected in 151/383 (30%) baseline samples"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "In patients with ESR1 mutation detected, PFS was 2.4 months [95% confidence interval (CI), 2.0-2.6] on exemestane and 3.9 months (95% CI, 3.0-6.0) on fulvestrant [hazard ratio (HR), 0.59; 95% CI, 0.39-0.89; P = 0.01].",
+        "citation": {
           "title": "ESR1 Mutations and Overall Survival on Fulvestrant versus Exemestane in Advanced Hormone Receptor-Positive Breast Cancer: A Combined Analysis of the Phase III SoFEA and EFECT Trials",
-          "journal": "Clinical Cancer Research",
-          "year": 2020,
           "pmid": "32546646",
           "doi": "10.1158/1078-0432.CCR-20-0224",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224"
+          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224",
+          "journal": "Clinical Cancer Research"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "In patients with ESR1 mutation detected, PFS was 2.4 months [95% confidence interval (CI), 2.0-2.6] on exemestane and 3.9 months (95% CI, 3.0-6.0) on fulvestrant [hazard ratio (HR), 0.59; 95% CI, 0.39-0.89; P = 0.01]."
+        "year": 2020,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-017", "C-021"]
+      "mechanism_note": "[reported magnitude] median PFS 3.9 months (95% CI 3.0-6.0) on fulvestrant versus 2.4 months (95% CI 2.0-2.6) on exemestane; HR 0.59 (95% CI 0.39-0.89), P = 0.01; treatment-by-mutation interaction P = 0.02",
+      "conflicts_with": [
+        "C-017",
+        "C-021"
+      ]
     },
     {
       "claim_id": "C-012",
-      "subject": {"type": "gene", "name": "ESR1", "state": "wild-type in baseline ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "wildtype",
+        "state_detail": "wild-type in baseline ctDNA"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "relative efficacy of fulvestrant versus exemestane",
-        "magnitude": "median PFS 4.1 months on fulvestrant versus 4.8 months on exemestane; HR 1.05 (95% CI 0.81-1.37), P = 0.69",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer progressing on prior nonsteroidal aromatase inhibitor",
-        "model_system": "human",
-        "population": "combined SoFEA + EFECT ESR1 wild-type subgroup (232/383 patients)"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 232,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "combined SoFEA + EFECT ESR1 wild-type subgroup (232/383 patients)"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "In patients without ESR1 mutations detected, PFS was 4.8 months (95% CI, 3.7-6.2) on exemestane and 4.1 months (95% CI, 3.6-5.5) on fulvestrant (HR, 1.05; 95% CI, 0.81-1.37; P = 0.69).",
+        "citation": {
           "title": "ESR1 Mutations and Overall Survival on Fulvestrant versus Exemestane in Advanced Hormone Receptor-Positive Breast Cancer: A Combined Analysis of the Phase III SoFEA and EFECT Trials",
-          "journal": "Clinical Cancer Research",
-          "year": 2020,
           "pmid": "32546646",
           "doi": "10.1158/1078-0432.CCR-20-0224",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224"
+          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224",
+          "journal": "Clinical Cancer Research"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "In patients without ESR1 mutations detected, PFS was 4.8 months (95% CI, 3.7-6.2) on exemestane and 4.1 months (95% CI, 3.6-5.5) on fulvestrant (HR, 1.05; 95% CI, 0.81-1.37; P = 0.69)."
+        "year": 2020,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median PFS 4.1 months on fulvestrant versus 4.8 months on exemestane; HR 1.05 (95% CI 0.81-1.37), P = 0.69",
       "conflicts_with": []
     },
     {
       "claim_id": "C-013",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in baseline ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in baseline ctDNA"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "1-year overall survival when treated with exemestane rather than fulvestrant",
-        "magnitude": "1-year OS 62% (95% CI 45-75) on exemestane versus 80% (95% CI 68-87) on fulvestrant, P = 0.04; in ESR1 wild-type, 79% versus 81%, P = 0.69",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer progressing on prior nonsteroidal aromatase inhibitor",
-        "model_system": "human",
-        "population": "combined SoFEA + EFECT, 383 patients with baseline ctDNA"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 383,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "combined SoFEA + EFECT, 383 patients with baseline ctDNA"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "Patients with ESR1 mutation detected had 1-year OS of 62% (95% CI, 45%-75%) on exemestane and 80% (95% CI, 68%-87%) on fulvestrant (P = 0.04; restricted mean survival analysis).",
+        "citation": {
           "title": "ESR1 Mutations and Overall Survival on Fulvestrant versus Exemestane in Advanced Hormone Receptor-Positive Breast Cancer: A Combined Analysis of the Phase III SoFEA and EFECT Trials",
-          "journal": "Clinical Cancer Research",
-          "year": 2020,
           "pmid": "32546646",
           "doi": "10.1158/1078-0432.CCR-20-0224",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224"
+          "url": "https://doi.org/10.1158/1078-0432.CCR-20-0224",
+          "journal": "Clinical Cancer Research"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "Patients with ESR1 mutation detected had 1-year OS of 62% (95% CI, 45%-75%) on exemestane and 80% (95% CI, 68%-87%) on fulvestrant (P = 0.04; restricted mean survival analysis)."
+        "year": 2020,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] 1-year OS 62% (95% CI 45-75) on exemestane versus 80% (95% CI 68-87) on fulvestrant, P = 0.04; in ESR1 wild-type, 79% versus 81%, P = 0.69",
       "conflicts_with": []
     },
     {
       "claim_id": "C-014",
-      "subject": {"type": "drug", "name": "fulvestrant plus palbociclib switch on rising ctDNA ESR1 mutation", "state": "administered before radiologic progression"},
+      "subject": {
+        "type": "drug",
+        "name": "fulvestrant plus palbociclib switch on rising ctDNA ESR1 mutation",
+        "state": "exposure",
+        "state_detail": "administered before radiologic progression"
+      },
       "predicate": {
         "effect": "increases",
         "on": "progression-free survival versus continuing aromatase inhibitor plus palbociclib",
-        "magnitude": "median PFS 11.9 months (95% CI 9.1-13.6) versus 5.7 months (3.9-7.5); stratified HR 0.61 (0.43-0.86), P = 0.0040",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive HER2-negative advanced breast cancer on first-line AI plus palbociclib",
-        "model_system": "human",
-        "population": "PADA-1 randomized open-label phase III, 1017 patients enrolled with serial ctDNA ESR1 monitoring"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 1017,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "PADA-1 randomized open-label phase III, 1017 patients enrolled with serial ctDNA ESR1 monitoring"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Switch to fulvestrant and palbociclib versus no switch in advanced breast cancer with rising ESR1 mutation during aromatase inhibitor and palbociclib therapy (PADA-1): a randomised, open-label, multicentre, phase 3 trial",
-          "journal": "The Lancet Oncology",
-          "year": 2022,
-          "pmid": "36183733",
-          "doi": "10.1016/S1470-2045(22)00555-1",
-          "url": "https://doi.org/10.1016/S1470-2045(22)00555-1"
-        },
         "design": "randomized_trial",
         "verified": true,
-        "supporting_quote": "Median progression-free survival from random assignment was 11.9 months (95% CI 9.1-13.6) in the fulvestrant and palbociclib group versus 5.7 months (3.9-7.5) in the aromatase inhibitor and palbociclib group (stratified HR 0.61, 0.43-0.86; p=0.0040)."
+        "supporting_quote": "Median progression-free survival from random assignment was 11.9 months (95% CI 9.1-13.6) in the fulvestrant and palbociclib group versus 5.7 months (3.9-7.5) in the aromatase inhibitor and palbociclib group (stratified HR 0.61, 0.43-0.86; p=0.0040).",
+        "citation": {
+          "title": "Switch to fulvestrant and palbociclib versus no switch in advanced breast cancer with rising ESR1 mutation during aromatase inhibitor and palbociclib therapy (PADA-1): a randomised, open-label, multicentre, phase 3 trial",
+          "pmid": "36183733",
+          "doi": "10.1016/S1470-2045(22)00555-1",
+          "url": "https://doi.org/10.1016/S1470-2045(22)00555-1",
+          "journal": "The Lancet Oncology"
+        },
+        "year": 2022,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors frame acquired AI resistance as stemming from ESR1-mutated subclones that might be sensitive to fulvestrant.",
-      "conflicts_with": ["C-021"]
+      "mechanism_note": "Authors frame acquired AI resistance as stemming from ESR1-mutated subclones that might be sensitive to fulvestrant. [reported magnitude] median PFS 11.9 months (95% CI 9.1-13.6) versus 5.7 months (3.9-7.5); stratified HR 0.61 (0.43-0.86), P = 0.0040",
+      "conflicts_with": [
+        "C-021"
+      ]
     },
     {
       "claim_id": "C-015",
-      "subject": {"type": "drug", "name": "camizestrant switch on emergent ctDNA ESR1 mutation", "state": "administered with continued CDK4/6 inhibitor before radiologic progression"},
+      "subject": {
+        "type": "drug",
+        "name": "camizestrant switch on emergent ctDNA ESR1 mutation",
+        "state": "exposure",
+        "state_detail": "administered with continued CDK4/6 inhibitor before radiologic progression"
+      },
       "predicate": {
         "effect": "increases",
         "on": "progression-free survival versus continuing aromatase inhibitor plus CDK4/6 inhibitor",
-        "magnitude": "median PFS 16.0 months (95% CI 12.7-18.2) versus 9.2 months (95% CI 7.2-9.5); HR 0.44 (95% CI 0.31-0.60), P<0.0001",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive HER2-negative advanced breast cancer on first-line AI plus CDK4/6 inhibitor",
-        "model_system": "human",
-        "population": "SERENA-6 randomized phase III; 3256 patients screened by serial ctDNA, 315 randomized (157 camizestrant, 158 AI)"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 3256,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "SERENA-6 randomized phase III; 3256 patients screened by serial ctDNA, 315 randomized (157 camizestrant, 158 AI)"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "First-Line Camizestrant for Emerging ESR1-Mutated Advanced Breast Cancer",
-          "journal": "The New England Journal of Medicine",
-          "year": 2025,
-          "pmid": "40454637",
-          "doi": "10.1056/NEJMoa2502929",
-          "url": "https://doi.org/10.1056/NEJMoa2502929"
-        },
         "design": "randomized_trial",
         "verified": true,
-        "supporting_quote": "At an interim analysis at a median follow-up of 12.6 months, the median progression-free survival was 16.0 months (95% confidence interval [CI], 12.7 to 18.2) in the camizestrant group and 9.2 months (95% CI, 7.2 to 9.5) in the aromatase-inhibitor group (hazard ratio for progression or death, 0.44; 95% CI, 0.31 to 0.60; P<0.0001)."
+        "supporting_quote": "At an interim analysis at a median follow-up of 12.6 months, the median progression-free survival was 16.0 months (95% confidence interval [CI], 12.7 to 18.2) in the camizestrant group and 9.2 months (95% CI, 7.2 to 9.5) in the aromatase-inhibitor group (hazard ratio for progression or death, 0.44; 95% CI, 0.31 to 0.60; P<0.0001).",
+        "citation": {
+          "title": "First-Line Camizestrant for Emerging ESR1-Mutated Advanced Breast Cancer",
+          "pmid": "40454637",
+          "doi": "10.1056/NEJMoa2502929",
+          "url": "https://doi.org/10.1056/NEJMoa2502929",
+          "journal": "The New England Journal of Medicine"
+        },
+        "year": 2025,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors describe ESR1 mutations as the most common mechanism of acquired resistance to AI plus CDK4/6 inhibitor, addressed by a complete ER antagonist and degrader.",
+      "mechanism_note": "Authors describe ESR1 mutations as the most common mechanism of acquired resistance to AI plus CDK4/6 inhibitor, addressed by a complete ER antagonist and degrader. [reported magnitude] median PFS 16.0 months (95% CI 12.7-18.2) versus 9.2 months (95% CI 7.2-9.5); HR 0.44 (95% CI 0.31-0.60), P<0.0001",
       "conflicts_with": []
     },
     {
       "claim_id": "C-016",
-      "subject": {"type": "drug", "name": "elacestrant", "state": "administered as monotherapy"},
+      "subject": {
+        "type": "drug",
+        "name": "elacestrant",
+        "state": "exposure",
+        "state_detail": "administered as monotherapy"
+      },
       "predicate": {
         "effect": "increases",
         "on": "progression-free survival versus standard endocrine monotherapy in ESR1-mutant patients",
-        "magnitude": "HR 0.55 (95% CI 0.39-0.77), P = 0.0005",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive HER2-negative advanced breast cancer previously treated with endocrine therapy and CDK4/6 inhibitor",
-        "model_system": "human",
-        "population": "EMERALD randomized phase III, 477 patients (239 elacestrant, 238 standard endocrine therapy); ESR1-mutant subgroup"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 477,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "EMERALD randomized phase III, 477 patients (239 elacestrant, 238 standard endocrine therapy); ESR1-mutant subgroup"
+          ]
+        },
+        "specimen": "not_specified",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Elacestrant (oral selective estrogen receptor degrader) Versus Standard Endocrine Therapy for Estrogen Receptor-Positive, Human Epidermal Growth Factor Receptor 2-Negative Advanced Breast Cancer: Results From the Randomized Phase III EMERALD Trial",
-          "journal": "Journal of Clinical Oncology",
-          "year": 2022,
-          "pmid": "35584336",
-          "doi": "10.1200/JCO.22.00338",
-          "url": "https://doi.org/10.1200/JCO.22.00338"
-        },
         "design": "randomized_trial",
         "verified": true,
-        "supporting_quote": "patients with ESR1 mutation (hazard ratio = 0.55; 95% CI, 0.39 to 0.77; P = .0005)"
+        "supporting_quote": "patients with ESR1 mutation (hazard ratio = 0.55; 95% CI, 0.39 to 0.77; P = .0005)",
+        "citation": {
+          "title": "Elacestrant (oral selective estrogen receptor degrader) Versus Standard Endocrine Therapy for Estrogen Receptor-Positive, Human Epidermal Growth Factor Receptor 2-Negative Advanced Breast Cancer: Results From the Randomized Phase III EMERALD Trial",
+          "pmid": "35584336",
+          "doi": "10.1200/JCO.22.00338",
+          "url": "https://doi.org/10.1200/JCO.22.00338",
+          "journal": "Journal of Clinical Oncology"
+        },
+        "year": 2022,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-017", "C-021"]
+      "mechanism_note": "[reported magnitude] HR 0.55 (95% CI 0.39-0.77), P = 0.0005",
+      "conflicts_with": [
+        "C-017",
+        "C-021"
+      ]
     },
     {
       "claim_id": "C-017",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in baseline ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in baseline ctDNA"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "clinical resistance to fulvestrant",
-        "magnitude": "progression-free survival not different between ESR1-mutant and wild-type patients; ESR1 mutations present in 37% of baseline samples",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "ER-positive metastatic breast cancer",
-        "model_system": "human",
-        "population": "FERGI phase II randomized trial samples: fulvestrant versus fulvestrant plus a pan-PI3K inhibitor (pictilisib)"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "FERGI phase II randomized trial samples: fulvestrant versus fulvestrant plus a pan-PI3K inhibitor (pictilisib)"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "ESR1 mutation allele frequency does not show a consistent pattern of increases during fulvestrant treatment, and progression-free survival is not different in patients with ESR1 mutations compared with wild-type patients. ESR1 mutations are not associated with clinical resistance to fulvestrant in this study.",
+        "citation": {
           "title": "Heterogeneity and clinical significance of ESR1 mutations in ER-positive metastatic breast cancer patients receiving fulvestrant",
-          "journal": "Nature Communications",
-          "year": 2016,
           "pmid": "27174596",
           "doi": "10.1038/ncomms11579",
-          "url": "https://doi.org/10.1038/ncomms11579"
+          "url": "https://doi.org/10.1038/ncomms11579",
+          "journal": "Nature Communications"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "ESR1 mutation allele frequency does not show a consistent pattern of increases during fulvestrant treatment, and progression-free survival is not different in patients with ESR1 mutations compared with wild-type patients. ESR1 mutations are not associated with clinical resistance to fulvestrant in this study."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-011", "C-016"]
+      "mechanism_note": "[reported magnitude] progression-free survival not different between ESR1-mutant and wild-type patients; ESR1 mutations present in 37% of baseline samples",
+      "conflicts_with": [
+        "C-011",
+        "C-016"
+      ]
     },
     {
       "claim_id": "C-018",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "polyclonal multi-variant mutation patterns with divergent clonal behaviour over time",
-        "magnitude": "ESR1 mutations present in 37% of baseline samples; described as often polyclonal with distinct clones exhibiting divergent behaviour longitudinally",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive metastatic breast cancer",
-        "model_system": "human",
-        "population": "FERGI trial ctDNA cohort with longitudinal sampling"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "FERGI trial ctDNA cohort with longitudinal sampling"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "ESR1 mutations are often polyclonal and longitudinal analysis shows distinct clones exhibiting divergent behaviour over time.",
+        "citation": {
           "title": "Heterogeneity and clinical significance of ESR1 mutations in ER-positive metastatic breast cancer patients receiving fulvestrant",
-          "journal": "Nature Communications",
-          "year": 2016,
           "pmid": "27174596",
           "doi": "10.1038/ncomms11579",
-          "url": "https://doi.org/10.1038/ncomms11579"
+          "url": "https://doi.org/10.1038/ncomms11579",
+          "journal": "Nature Communications"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "ESR1 mutations are often polyclonal and longitudinal analysis shows distinct clones exhibiting divergent behaviour over time."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] ESR1 mutations present in 37% of baseline samples; described as often polyclonal with distinct clones exhibiting divergent behaviour longitudinally",
       "conflicts_with": []
     },
     {
       "claim_id": "C-019",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "co-occurring PIK3CA mutation and luminal A subtype",
-        "magnitude": "reported enrichment; no effect size given in abstract",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive metastatic breast cancer",
-        "model_system": "human",
-        "population": "FERGI trial ctDNA cohort, hotspot ESR1 and PIK3CA assays"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "FERGI trial ctDNA cohort, hotspot ESR1 and PIK3CA assays"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "ESR1 mutations are present in 37% of baseline samples and are enriched in patients with luminal A and PIK3CA-mutated tumours.",
+        "citation": {
           "title": "Heterogeneity and clinical significance of ESR1 mutations in ER-positive metastatic breast cancer patients receiving fulvestrant",
-          "journal": "Nature Communications",
-          "year": 2016,
           "pmid": "27174596",
           "doi": "10.1038/ncomms11579",
-          "url": "https://doi.org/10.1038/ncomms11579"
+          "url": "https://doi.org/10.1038/ncomms11579",
+          "journal": "Nature Communications"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "ESR1 mutations are present in 37% of baseline samples and are enriched in patients with luminal A and PIK3CA-mutated tumours."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] reported enrichment; no effect size given in abstract",
       "conflicts_with": []
     },
     {
       "claim_id": "C-020",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA at progression on aromatase inhibitor"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA at progression on aromatase inhibitor"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "overall survival",
-        "magnitude": "median OS 15.5 versus 23.8 months, P = 0.0006; multivariate HR 1.9 (95% CI 1.3-3.0), P = 0.002; median PFS 5.9 versus 7 months, P = 0.002",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer progressing on aromatase inhibitor",
-        "model_system": "human",
-        "population": "prospective cohort with serial ctDNA before and after progression on AI"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "prospective cohort with serial ctDNA before and after progression on AI"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Kinetics, prognostic and predictive values of ESR1 circulating mutations in metastatic breast cancer patients progressing on aromatase inhibitor",
-          "journal": "Oncotarget",
-          "year": 2016,
-          "pmid": "27801670",
-          "doi": "10.18632/oncotarget.12950",
-          "url": "https://doi.org/10.18632/oncotarget.12950"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "median OS was decreased in patients with circulating ESR1 mutation than in patients without mutation (15.5 versus 23.8 months, P=0.0006)"
+        "supporting_quote": "median OS was decreased in patients with circulating ESR1 mutation than in patients without mutation (15.5 versus 23.8 months, P=0.0006)",
+        "citation": {
+          "title": "Kinetics, prognostic and predictive values of ESR1 circulating mutations in metastatic breast cancer patients progressing on aromatase inhibitor",
+          "pmid": "27801670",
+          "doi": "10.18632/oncotarget.12950",
+          "url": "https://doi.org/10.18632/oncotarget.12950",
+          "journal": "Oncotarget"
+        },
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median OS 15.5 versus 23.8 months, P = 0.0006; multivariate HR 1.9 (95% CI 1.3-3.0), P = 0.002; median PFS 5.9 versus 7 months, P = 0.002",
       "conflicts_with": []
     },
     {
       "claim_id": "C-021",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in ctDNA at progression on aromatase inhibitor"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in ctDNA at progression on aromatase inhibitor"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "relative benefit of chemotherapy versus non-AI endocrine therapy",
-        "magnitude": "no difference in outcome between chemotherapy (n=58) and non-AI endocrine therapy (n=51) in ESR1-mutant and wild-type patients; under chemotherapy OS 16 versus 27 months, HR 2.0 (1.01-4.0); under non-AI endocrine therapy 12 versus 26 months, P = 0.09",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer progressing on aromatase inhibitor",
-        "model_system": "human",
-        "population": "109 patients receiving subsequent chemotherapy or non-AI endocrine therapy"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 109,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "109 patients receiving subsequent chemotherapy or non-AI endocrine therapy"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Kinetics, prognostic and predictive values of ESR1 circulating mutations in metastatic breast cancer patients progressing on aromatase inhibitor",
-          "journal": "Oncotarget",
-          "year": 2016,
-          "pmid": "27801670",
-          "doi": "10.18632/oncotarget.12950",
-          "url": "https://doi.org/10.18632/oncotarget.12950"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "no difference in outcome for patients receiving chemotherapy (n = 58) versus non-AI endocrine therapy (n=51) in patients with and without ESR1 mutation."
+        "supporting_quote": "no difference in outcome for patients receiving chemotherapy (n = 58) versus non-AI endocrine therapy (n=51) in patients with and without ESR1 mutation.",
+        "citation": {
+          "title": "Kinetics, prognostic and predictive values of ESR1 circulating mutations in metastatic breast cancer patients progressing on aromatase inhibitor",
+          "pmid": "27801670",
+          "doi": "10.18632/oncotarget.12950",
+          "url": "https://doi.org/10.18632/oncotarget.12950",
+          "journal": "Oncotarget"
+        },
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": "Authors interpret ESR1 ctDNA mutation as prognostic for poor outcome rather than predictive of a specific subsequent therapy.",
-      "conflicts_with": ["C-011", "C-014", "C-016"]
+      "mechanism_note": "Authors interpret ESR1 ctDNA mutation as prognostic for poor outcome rather than predictive of a specific subsequent therapy. [reported magnitude] no difference in outcome between chemotherapy (n=58) and non-AI endocrine therapy (n=51) in ESR1-mutant and wild-type patients; under chemotherapy OS 16 versus 27 months, HR 2.0 (1.01-4.0); under non-AI endocrine therapy 12 versus 26 months, P = 0.09",
+      "conflicts_with": [
+        "C-011",
+        "C-014",
+        "C-016"
+      ]
     },
     {
       "claim_id": "C-022",
-      "subject": {"type": "variant", "name": "ESR1 Y537S and D538G", "state": "detected in baseline cell-free DNA"},
+      "subject": {
+        "type": "variant",
+        "name": "ESR1 Y537S and D538G",
+        "state": "not_applicable",
+        "state_detail": "detected in baseline cell-free DNA"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "overall survival in aromatase-inhibitor-pretreated metastatic disease",
-        "magnitude": "median OS: wild-type 32.1 months (95% CI 28.09-36.40), D538G 25.99 months (19.19-32.36), Y537S 19.98 months (13.01-29.31), both mutations 15.15 months (10.87-27.43); prevalence 156/541 (28.8%)",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer previously exposed to aromatase inhibitor",
-        "model_system": "human",
-        "population": "BOLERO-2 phase III secondary analysis, 541 evaluable postmenopausal women with baseline plasma cfDNA"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 541,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "BOLERO-2 phase III secondary analysis, 541 evaluable postmenopausal women with baseline plasma cfDNA"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "Of 541 evaluable patients, 156 (28.8%) had ESR1 mutation D538G (21.1%) and/or Y537S (13.3%), and 30 had both.",
+        "citation": {
           "title": "Prevalence of ESR1 Mutations in Cell-Free DNA and Outcomes in Metastatic Breast Cancer: A Secondary Analysis of the BOLERO-2 Clinical Trial",
-          "journal": "JAMA Oncology",
-          "year": 2016,
           "pmid": "27532364",
           "doi": "10.1001/jamaoncol.2016.1279",
-          "url": "https://doi.org/10.1001/jamaoncol.2016.1279"
+          "url": "https://doi.org/10.1001/jamaoncol.2016.1279",
+          "journal": "JAMA Oncology"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "Of 541 evaluable patients, 156 (28.8%) had ESR1 mutation D538G (21.1%) and/or Y537S (13.3%), and 30 had both."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors conclude both Y537S and D538G are associated with more aggressive disease biology.",
+      "mechanism_note": "Authors conclude both Y537S and D538G are associated with more aggressive disease biology. [reported magnitude] median OS: wild-type 32.1 months (95% CI 28.09-36.40), D538G 25.99 months (19.19-32.36), Y537S 19.98 months (13.01-29.31), both mutations 15.15 months (10.87-27.43); prevalence 156/541 (28.8%)",
       "conflicts_with": []
     },
     {
       "claim_id": "C-023",
-      "subject": {"type": "variant", "name": "ESR1 D538G", "state": "detected in baseline cell-free DNA"},
+      "subject": {
+        "type": "variant",
+        "name": "ESR1 D538G",
+        "state": "not_applicable",
+        "state_detail": "detected in baseline cell-free DNA"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "magnitude of PFS benefit from adding everolimus to exemestane",
-        "magnitude": "HR 0.34 (95% CI 0.02-0.57) in the D538G group, described as similar to wild-type",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive metastatic breast cancer previously exposed to aromatase inhibitor",
-        "model_system": "human",
-        "population": "BOLERO-2 exemestane plus everolimus versus exemestane plus placebo, 541 evaluable patients"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 541,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "BOLERO-2 exemestane plus everolimus versus exemestane plus placebo, 541 evaluable patients"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "The D538G group (hazard ratio, 0.34 [95% CI, 0.02-0.57]) derived a similar PFS benefit as wild type from addition of everolimus to exemestane.",
+        "citation": {
           "title": "Prevalence of ESR1 Mutations in Cell-Free DNA and Outcomes in Metastatic Breast Cancer: A Secondary Analysis of the BOLERO-2 Clinical Trial",
-          "journal": "JAMA Oncology",
-          "year": 2016,
           "pmid": "27532364",
           "doi": "10.1001/jamaoncol.2016.1279",
-          "url": "https://doi.org/10.1001/jamaoncol.2016.1279"
+          "url": "https://doi.org/10.1001/jamaoncol.2016.1279",
+          "journal": "JAMA Oncology"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "The D538G group (hazard ratio, 0.34 [95% CI, 0.02-0.57]) derived a similar PFS benefit as wild type from addition of everolimus to exemestane."
+        "year": 2016,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] HR 0.34 (95% CI 0.02-0.57) in the D538G group, described as similar to wild-type",
       "conflicts_with": []
     },
     {
       "claim_id": "C-024",
-      "subject": {"type": "variant", "name": "ESR1 Y537S versus Y537C", "state": "present at baseline in ctDNA"},
+      "subject": {
+        "type": "variant",
+        "name": "ESR1 Y537S versus Y537C",
+        "state": "mutation_any",
+        "state_detail": "present at baseline in ctDNA"
+      },
       "predicate": {
         "effect": "mixed",
         "on": "outcome on fulvestrant",
-        "magnitude": "Y537S associated with poor outcomes and Y537C with good outcomes; effect sizes not stated in abstract",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive advanced breast cancer with activating ESR1 mutation in ctDNA",
-        "model_system": "human",
-        "population": "plasmaMATCH Cohort A (fulvestrant in ESR1-mutant disease); paired baseline and end-of-treatment ctDNA in 69 patients"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 69,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "plasmaMATCH Cohort A (fulvestrant in ESR1-mutant disease); paired baseline and end-of-treatment ctDNA in 69 patients"
+          ]
+        },
+        "specimen": "both_paired",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
+        "design": "trial_secondary_analysis",
+        "verified": true,
+        "supporting_quote": "Baseline ESR1 mutations Y537S are associated with poor outcomes and Y537C with good outcomes.",
+        "citation": {
           "title": "ESR1 F404 Mutations and Acquired Resistance to Fulvestrant in ESR1-Mutant Breast Cancer",
-          "journal": "Cancer Discovery",
-          "year": 2024,
           "pmid": "37982575",
           "doi": "10.1158/2159-8290.CD-22-1387",
-          "url": "https://doi.org/10.1158/2159-8290.CD-22-1387"
+          "url": "https://doi.org/10.1158/2159-8290.CD-22-1387",
+          "journal": "Cancer Discovery"
         },
-        "design": "rct_secondary_analysis",
-        "verified": true,
-        "supporting_quote": "Baseline ESR1 mutations Y537S are associated with poor outcomes and Y537C with good outcomes."
+        "year": 2024,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": "Authors additionally report acquired ESR1 F404 mutations in cis with activating mutations in 3/69 (4%) patients, disrupting a pi-stacking bond required for fulvestrant binding; compound D538G+F404L and E380Q+F404L models were fulvestrant-resistant but remained sensitive to several oral ER degraders.",
-      "conflicts_with": ["C-011"]
+      "mechanism_note": "Authors additionally report acquired ESR1 F404 mutations in cis with activating mutations in 3/69 (4%) patients, disrupting a pi-stacking bond required for fulvestrant binding; compound D538G+F404L and E380Q+F404L models were fulvestrant-resistant but remained sensitive to several oral ER degraders. [reported magnitude] Y537S associated with poor outcomes and Y537C with good outcomes; effect sizes not stated in abstract",
+      "conflicts_with": [
+        "C-011"
+      ]
     },
     {
       "claim_id": "C-025",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "prior CDK4/6 inhibitor exposure",
-        "magnitude": "liquid biopsy (xF) 29.2% versus 9.5% (q<0.001); tumor tissue (xT) 32.1% versus 4.8% (q<0.001) in CDK4/6i-treated versus CDK4/6i-naive patients",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive metastatic breast cancer",
-        "model_system": "human",
-        "population": "3958 patients with DNA sequencing (tissue: 1070 CDK4/6i-treated, 750 naive; ctDNA: 1885 treated, 253 naive), Tempus xT/xF real-world database"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 3958,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "3958 patients with DNA sequencing (tissue: 1070 CDK4/6i-treated, 750 naive; ctDNA: 1885 treated, 253 naive), Tempus xT/xF real-world database"
+          ]
+        },
+        "specimen": "both_paired",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 Y537S and D538G Mutations Drive Resistance to CDK4/6 Inhibitors in Estrogen Receptor-Positive Breast Cancer",
-          "journal": "Clinical Cancer Research",
-          "year": 2025,
-          "pmid": "39992682",
-          "doi": "10.1158/1078-0432.CCR-24-2307",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-24-2307"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "In both xF and xT assays, ESR1 mutations were the only somatic alterations significantly more frequent in patients who received CDK4/6i compared to those who did not."
+        "supporting_quote": "In both xF and xT assays, ESR1 mutations were the only somatic alterations significantly more frequent in patients who received CDK4/6i compared to those who did not.",
+        "citation": {
+          "title": "ESR1 Y537S and D538G Mutations Drive Resistance to CDK4/6 Inhibitors in Estrogen Receptor-Positive Breast Cancer",
+          "pmid": "39992682",
+          "doi": "10.1158/1078-0432.CCR-24-2307",
+          "url": "https://doi.org/10.1158/1078-0432.CCR-24-2307",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2025,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
-      "conflicts_with": ["C-032"]
+      "mechanism_note": "[reported magnitude] liquid biopsy (xF) 29.2% versus 9.5% (q<0.001); tumor tissue (xT) 32.1% versus 4.8% (q<0.001) in CDK4/6i-treated versus CDK4/6i-naive patients",
+      "conflicts_with": [
+        "C-032"
+      ]
     },
     {
       "claim_id": "C-026",
-      "subject": {"type": "variant", "name": "ESR1 Y537S and D538G knock-in", "state": "engineered in MCF7 cells"},
+      "subject": {
+        "type": "variant",
+        "name": "ESR1 Y537S and D538G knock-in",
+        "state": "mutation_any",
+        "state_detail": "engineered in MCF7 cells"
+      },
       "predicate": {
         "effect": "confers_resistance",
         "on": "palbociclib",
-        "magnitude": "2.7-fold increase in palbociclib IC50; 46.9-fold and 29.1-fold under estrogen deprivation or fulvestrant respectively; MCF7 D538G xenografts completely resistant to palbociclib",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive breast cancer",
-        "model_system": "xenograft",
-        "population": "MCF7 knock-in cell lines in vitro and as xenografts in nude mice"
+        "model_system": "mouse",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "MCF7 knock-in cell lines in vitro and as xenografts in nude mice"
+          ]
+        },
+        "specimen": "preclinical_model",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 Y537S and D538G Mutations Drive Resistance to CDK4/6 Inhibitors in Estrogen Receptor-Positive Breast Cancer",
-          "journal": "Clinical Cancer Research",
-          "year": 2025,
-          "pmid": "39992682",
-          "doi": "10.1158/1078-0432.CCR-24-2307",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-24-2307"
-        },
         "design": "preclinical",
         "verified": true,
-        "supporting_quote": "MCF7 xenografts harboring ESR1 Y537S and D538G mutations established in nude mice were resistant to palbociclib."
+        "supporting_quote": "MCF7 xenografts harboring ESR1 Y537S and D538G mutations established in nude mice were resistant to palbociclib.",
+        "citation": {
+          "title": "ESR1 Y537S and D538G Mutations Drive Resistance to CDK4/6 Inhibitors in Estrogen Receptor-Positive Breast Cancer",
+          "pmid": "39992682",
+          "doi": "10.1158/1078-0432.CCR-24-2307",
+          "url": "https://doi.org/10.1158/1078-0432.CCR-24-2307",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2025,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors report upregulation of cell cycle-related gene signatures upon treatment with CDK4/6i with or without antiestrogen in mutant knock-in cells.",
-      "conflicts_with": ["C-009", "C-010"]
+      "mechanism_note": "Authors report upregulation of cell cycle-related gene signatures upon treatment with CDK4/6i with or without antiestrogen in mutant knock-in cells. [reported magnitude] 2.7-fold increase in palbociclib IC50; 46.9-fold and 29.1-fold under estrogen deprivation or fulvestrant respectively; MCF7 D538G xenografts completely resistant to palbociclib",
+      "conflicts_with": [
+        "C-009",
+        "C-010"
+      ]
     },
     {
       "claim_id": "C-027",
-      "subject": {"type": "gene", "name": "ESR1", "state": "pathogenic mutation in treatment-naive primary tumor tissue"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "pathogenic mutation in treatment-naive primary tumor tissue"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "detection frequency relative to metastatic or previously treated tumors",
-        "magnitude": "6/3682 (0.16%) treatment-naive primary versus 156/1089 (14.3%) metastatic (P<0.001) and 11/92 (12.0%) previously treated primary (P<0.001)",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive breast cancer",
-        "model_system": "human",
-        "population": "12 publicly available international tissue sequencing datasets accessed through cBioPortal"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 12,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "12 publicly available international tissue sequencing datasets accessed through cBioPortal"
+          ]
+        },
+        "specimen": "tumor_tissue",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Prevalence of Estrogen Receptor Alpha (ESR1) Somatic Mutations in Breast Cancer",
-          "journal": "JNCI Cancer Spectrum",
-          "year": 2022,
-          "pmid": "35959983",
-          "doi": "10.1093/jncics/pkac060",
-          "url": "https://doi.org/10.1093/jncics/pkac060"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "The prevalence of mutation was statistically significantly lower in treatment-naive primary tumors (n = 6 of 3682, 0.16%) than in metastatic (n = 156 of 1089, 14.3%, 2-sided P < .001) or previously treated primary tumors (n = 11 of 92, 12.0%, 2-sided P < .001)."
+        "supporting_quote": "The prevalence of mutation was statistically significantly lower in treatment-naive primary tumors (n = 6 of 3682, 0.16%) than in metastatic (n = 156 of 1089, 14.3%, 2-sided P < .001) or previously treated primary tumors (n = 11 of 92, 12.0%, 2-sided P < .001).",
+        "citation": {
+          "title": "Prevalence of Estrogen Receptor Alpha (ESR1) Somatic Mutations in Breast Cancer",
+          "pmid": "35959983",
+          "doi": "10.1093/jncics/pkac060",
+          "url": "https://doi.org/10.1093/jncics/pkac060",
+          "journal": "JNCI Cancer Spectrum"
+        },
+        "year": 2022,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors conclude pathogenic ESR1 mutations are a common mechanism of acquired but not intrinsic resistance to endocrine therapy.",
+      "mechanism_note": "Authors conclude pathogenic ESR1 mutations are a common mechanism of acquired but not intrinsic resistance to endocrine therapy. [reported magnitude] 6/3682 (0.16%) treatment-naive primary versus 156/1089 (14.3%) metastatic (P<0.001) and 11/92 (12.0%) previously treated primary (P<0.001)",
       "conflicts_with": []
     },
     {
       "claim_id": "C-028",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in surgical tissue after neoadjuvant aromatase inhibitor"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in surgical tissue after neoadjuvant aromatase inhibitor"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "primary endocrine resistance in early-stage disease",
-        "magnitude": "0 of 23 endocrine-resistant (PEPI score >=4) tumors harbored an ESR1 mutation",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "early-stage ER-positive breast cancer treated with neoadjuvant endocrine therapy",
-        "model_system": "human",
-        "population": "127 patients enrolled, 100 completed neoadjuvant endocrine therapy and surgery, 23 met criteria for primary endocrine resistance"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 127,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "127 patients enrolled, 100 completed neoadjuvant endocrine therapy and surgery, 23 met criteria for primary endocrine resistance"
+          ]
+        },
+        "specimen": "tumor_tissue",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 Mutations Are Not a Common Mechanism of Endocrine Resistance in Patients With Estrogen Receptor-Positive Breast Cancer Treated With Neoadjuvant Aromatase Inhibitor Therapy",
-          "journal": "Frontiers in Oncology",
-          "year": 2020,
-          "pmid": "32309212",
-          "doi": "10.3389/fonc.2020.00342",
-          "url": "https://doi.org/10.3389/fonc.2020.00342"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "ESR1 mutations were not identified in any of the 23 patients with early-stage ER+ breast cancer resistant to NET."
+        "supporting_quote": "ESR1 mutations were not identified in any of the 23 patients with early-stage ER+ breast cancer resistant to NET.",
+        "citation": {
+          "title": "ESR1 Mutations Are Not a Common Mechanism of Endocrine Resistance in Patients With Estrogen Receptor-Positive Breast Cancer Treated With Neoadjuvant Aromatase Inhibitor Therapy",
+          "pmid": "32309212",
+          "doi": "10.3389/fonc.2020.00342",
+          "url": "https://doi.org/10.3389/fonc.2020.00342",
+          "journal": "Frontiers in Oncology"
+        },
+        "year": 2020,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] 0 of 23 endocrine-resistant (PEPI score >=4) tumors harbored an ESR1 mutation",
       "conflicts_with": []
     },
     {
       "claim_id": "C-029",
-      "subject": {"type": "assay", "name": "tumor tissue next-generation sequencing versus ctDNA", "state": "paired metastatic biopsy and plasma at progression"},
+      "subject": {
+        "type": "biomarker",
+        "name": "tumor tissue next-generation sequencing versus ctDNA",
+        "state": "not_applicable",
+        "state_detail": "paired metastatic biopsy and plasma at progression"
+      },
       "predicate": {
         "effect": "mixed",
         "on": "ESR1 mutation ascertainment",
-        "magnitude": "total concordance 91% (39/43); 6 patients mutation-positive on tissue (14%); 3 tissue-negative patients were ctDNA-positive",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive HER2-negative metastatic breast cancer at progression",
-        "model_system": "human",
-        "population": "43 patients undergoing both metastatic tumor biopsy and liquid biopsy; ddPCR for Y537S, Y537C, Y537N, D538G, E380Q"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 43,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "43 patients undergoing both metastatic tumor biopsy and liquid biopsy; ddPCR for Y537S, Y537C, Y537N, D538G, E380Q"
+          ]
+        },
+        "specimen": "both_paired",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 Gene Mutation in Hormone Receptor-Positive HER2-Negative Metastatic Breast Cancer Patients: Concordance Between Tumor Tissue and Circulating Tumor DNA Analysis",
-          "journal": "Frontiers in Oncology",
-          "year": 2021,
-          "pmid": "33777770",
-          "doi": "10.3389/fonc.2021.625636",
-          "url": "https://doi.org/10.3389/fonc.2021.625636"
-        },
         "design": "prospective_cohort",
         "verified": true,
-        "supporting_quote": "Three patients with no mutations in tumor tissue had mutations detected in ctDNA. The total concordance rate between ESR1 status on tumor tissue and plasma was 91%."
+        "supporting_quote": "Three patients with no mutations in tumor tissue had mutations detected in ctDNA. The total concordance rate between ESR1 status on tumor tissue and plasma was 91%.",
+        "citation": {
+          "title": "ESR1 Gene Mutation in Hormone Receptor-Positive HER2-Negative Metastatic Breast Cancer Patients: Concordance Between Tumor Tissue and Circulating Tumor DNA Analysis",
+          "pmid": "33777770",
+          "doi": "10.3389/fonc.2021.625636",
+          "url": "https://doi.org/10.3389/fonc.2021.625636",
+          "journal": "Frontiers in Oncology"
+        },
+        "year": 2021,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] total concordance 91% (39/43); 6 patients mutation-positive on tissue (14%); 3 tissue-negative patients were ctDNA-positive",
       "conflicts_with": []
     },
     {
       "claim_id": "C-030",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in cfDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in cfDNA"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "newly diagnosed metastatic disease and loco-regional recurrence after endocrine treatment",
-        "magnitude": "5/41 (12%) newly diagnosed metastatic and 4/41 (10%) loco-regional recurrence at allele frequency >1% (15/41, 36% at any allele frequency); PFS on AI in metastatic cohort Cox HR 3.1 (95% CI 1.1-8.3)",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "endocrine-treated breast cancer at first metastatic diagnosis or loco-regional recurrence",
-        "model_system": "human",
-        "population": "41 newly diagnosed metastatic, 28 advanced metastatic, and 41 loco-regional recurrence patients"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 41,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "41 newly diagnosed metastatic, 28 advanced metastatic, and 41 loco-regional recurrence patients"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "ESR1 mutations are frequent in newly diagnosed metastatic and loco-regional recurrence of endocrine-treated breast cancer and carry worse prognosis",
-          "journal": "Breast Cancer Research",
-          "year": 2020,
-          "pmid": "32014063",
-          "doi": "10.1186/s13058-020-1246-5",
-          "url": "https://doi.org/10.1186/s13058-020-1246-5"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Clinically relevant ESR1 mutations are prevalent in newly diagnosed metastatic and local recurrence of endocrine-treated breast cancer."
+        "supporting_quote": "Clinically relevant ESR1 mutations are prevalent in newly diagnosed metastatic and local recurrence of endocrine-treated breast cancer.",
+        "citation": {
+          "title": "ESR1 mutations are frequent in newly diagnosed metastatic and loco-regional recurrence of endocrine-treated breast cancer and carry worse prognosis",
+          "pmid": "32014063",
+          "doi": "10.1186/s13058-020-1246-5",
+          "url": "https://doi.org/10.1186/s13058-020-1246-5",
+          "journal": "Breast Cancer Research"
+        },
+        "year": 2020,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] 5/41 (12%) newly diagnosed metastatic and 4/41 (10%) loco-regional recurrence at allele frequency >1% (15/41, 36% at any allele frequency); PFS on AI in metastatic cohort Cox HR 3.1 (95% CI 1.1-8.3)",
       "conflicts_with": []
     },
     {
       "claim_id": "C-031",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in cfDNA in metastatic disease"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in cfDNA in metastatic disease"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "association with primary tumor pathological features or time to distant recurrence",
-        "magnitude": "no associations reported; ESR1 mutations detected in 30% of ER+/HER2- patients overall",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "metastatic breast cancer, ER-positive HER2-negative subset",
-        "model_system": "human",
-        "population": "patients with metastatic breast cancer with plasma cfDNA and detailed clinical annotation; ddPCR"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "patients with metastatic breast cancer with plasma cfDNA and detailed clinical annotation; ddPCR"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
-          "journal": "npj Breast Cancer",
-          "year": 2018,
-          "pmid": "30083595",
-          "doi": "10.1038/s41523-018-0075-5",
-          "url": "https://doi.org/10.1038/s41523-018-0075-5"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "There were no associations between the pathological features of the primary disease or time to distant recurrence and the emergence of ESR1 mutations in metastatic disease."
+        "supporting_quote": "There were no associations between the pathological features of the primary disease or time to distant recurrence and the emergence of ESR1 mutations in metastatic disease.",
+        "citation": {
+          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
+          "pmid": "30083595",
+          "doi": "10.1038/s41523-018-0075-5",
+          "url": "https://doi.org/10.1038/s41523-018-0075-5",
+          "journal": "npj Breast Cancer"
+        },
+        "year": 2018,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] no associations reported; ESR1 mutations detected in 30% of ER+/HER2- patients overall",
       "conflicts_with": []
     },
     {
       "claim_id": "C-032",
-      "subject": {"type": "drug_class", "name": "CDK4/6 inhibitor", "state": "prior treatment"},
+      "subject": {
+        "type": "drug_class",
+        "name": "CDK4/6 inhibitor",
+        "state": "exposure",
+        "state_detail": "prior treatment"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "prevalence of ESR1 mutations in cfDNA",
-        "magnitude": "prevalence reported lower after CDK4/6 inhibitor treatment; effect size not stated in abstract",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "trend_only"
       },
       "context": {
         "disease": "metastatic breast cancer, ER-positive HER2-negative subset",
-        "model_system": "human",
-        "population": "plasma cfDNA cohort with detailed treatment annotation; ddPCR"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "plasma cfDNA cohort with detailed treatment annotation; ddPCR"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
-          "journal": "npj Breast Cancer",
-          "year": 2018,
-          "pmid": "30083595",
-          "doi": "10.1038/s41523-018-0075-5",
-          "url": "https://doi.org/10.1038/s41523-018-0075-5"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Conversely, the prevalence of ESR1 mutations was lower after treatment with a CDK4/6 inhibitor."
+        "supporting_quote": "Conversely, the prevalence of ESR1 mutations was lower after treatment with a CDK4/6 inhibitor.",
+        "citation": {
+          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
+          "pmid": "30083595",
+          "doi": "10.1038/s41523-018-0075-5",
+          "url": "https://doi.org/10.1038/s41523-018-0075-5",
+          "journal": "npj Breast Cancer"
+        },
+        "year": 2018,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
-      "conflicts_with": ["C-025"]
+      "mechanism_note": "[reported magnitude] prevalence reported lower after CDK4/6 inhibitor treatment; effect size not stated in abstract",
+      "conflicts_with": [
+        "C-025"
+      ]
     },
     {
       "claim_id": "C-033",
-      "subject": {"type": "gene", "name": "ESR1", "state": "mutant in cfDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "mutant in cfDNA"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "prior aromatase inhibitor treatment in the adjuvant or metastatic setting and prior fulvestrant treatment",
-        "magnitude": "significant association reported for both; effect sizes not stated in abstract",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "metastatic breast cancer, ER-positive HER2-negative subset",
-        "model_system": "human",
-        "population": "plasma cfDNA cohort with detailed systemic treatment annotation"
+        "model_system": "human_clinical",
+        "population": {
+          "n": null,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "plasma cfDNA cohort with detailed systemic treatment annotation"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
-          "journal": "npj Breast Cancer",
-          "year": 2018,
-          "pmid": "30083595",
-          "doi": "10.1038/s41523-018-0075-5",
-          "url": "https://doi.org/10.1038/s41523-018-0075-5"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "The prevalence of the ESR1 mutations was significantly associated with prior treatment with an aromatase inhibitor in the adjuvant or metastatic setting. The prevalence of the ESR1 mutations was also positively associated with prior fulvestrant treatment."
+        "supporting_quote": "The prevalence of the ESR1 mutations was significantly associated with prior treatment with an aromatase inhibitor in the adjuvant or metastatic setting. The prevalence of the ESR1 mutations was also positively associated with prior fulvestrant treatment.",
+        "citation": {
+          "title": "Unraveling the clinicopathological features driving the emergence of ESR1 mutations in metastatic breast cancer",
+          "pmid": "30083595",
+          "doi": "10.1038/s41523-018-0075-5",
+          "url": "https://doi.org/10.1038/s41523-018-0075-5",
+          "journal": "npj Breast Cancer"
+        },
+        "year": 2018,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": "Authors interpret these results as supporting evolution of ESR1 mutations under the selective pressure of aromatase inhibitor treatment.",
+      "mechanism_note": "Authors interpret these results as supporting evolution of ESR1 mutations under the selective pressure of aromatase inhibitor treatment. [reported magnitude] significant association reported for both; effect sizes not stated in abstract",
       "conflicts_with": []
     },
     {
       "claim_id": "C-034",
-      "subject": {"type": "gene", "name": "TP53", "state": "mutant"},
+      "subject": {
+        "type": "gene",
+        "name": "TP53",
+        "state": "mutation_any",
+        "state_detail": "mutant"
+      },
       "predicate": {
         "effect": "associates_with",
         "on": "absence of co-occurring ESR1 mutation (mutual exclusivity)",
-        "magnitude": "25 of 1056 ER+ metastatic breast cancers carried both mutations; P < 0.0001 (Fisher exact test) across six independent cohorts",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive metastatic breast cancer",
-        "model_system": "human",
-        "population": "1056 ER+ metastatic breast cancer samples pooled across six independent cohorts, with supporting cell-line experiments"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 1056,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "1056 ER+ metastatic breast cancer samples pooled across six independent cohorts, with supporting cell-line experiments"
+          ]
+        },
+        "specimen": "not_specified",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Mutual exclusivity of ESR1 and TP53 mutations in endocrine resistant metastatic breast cancer",
-          "journal": "npj Breast Cancer",
-          "year": 2022,
-          "pmid": "35538119",
-          "doi": "10.1038/s41523-022-00426-w",
-          "url": "https://doi.org/10.1038/s41523-022-00426-w"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Recent clinical studies discovered mutual exclusivity between TP53 and ESR1 mutations in metastatic breast cancers; however, mechanisms underlying this intriguing clinical observation remain largely understudied and unknown."
+        "supporting_quote": "Recent clinical studies discovered mutual exclusivity between TP53 and ESR1 mutations in metastatic breast cancers; however, mechanisms underlying this intriguing clinical observation remain largely understudied and unknown.",
+        "citation": {
+          "title": "Mutual exclusivity of ESR1 and TP53 mutations in endocrine resistant metastatic breast cancer",
+          "pmid": "35538119",
+          "doi": "10.1038/s41523-022-00426-w",
+          "url": "https://doi.org/10.1038/s41523-022-00426-w",
+          "journal": "npj Breast Cancer"
+        },
+        "year": 2022,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": "Authors implicate overlap between p53-associated estradiol-response genes and wild-type p53 transactivation or mutant p53-regulated microRNAs.",
+      "mechanism_note": "Authors implicate overlap between p53-associated estradiol-response genes and wild-type p53 transactivation or mutant p53-regulated microRNAs. [reported magnitude] 25 of 1056 ER+ metastatic breast cancers carried both mutations; P < 0.0001 (Fisher exact test) across six independent cohorts",
       "conflicts_with": []
     },
     {
       "claim_id": "C-035",
-      "subject": {"type": "pathway", "name": "MAPK pathway and ER transcriptional machinery alterations", "state": "present in hormone-therapy-exposed tumors"},
+      "subject": {
+        "type": "pathway",
+        "name": "MAPK pathway and ER transcriptional machinery alterations",
+        "state": "mutation_any",
+        "state_detail": "present in hormone-therapy-exposed tumors"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "duration of response to subsequent hormonal therapy, in a manner mutually exclusive with ESR1 mutation",
-        "magnitude": "alterations present in 22% of tumors; mutually exclusive with ESR1 mutations; ERBB2 activating and NF1 loss-of-function mutations more than twice as common in endocrine-resistant tumors",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "hormone receptor-positive advanced breast cancer",
-        "model_system": "human",
-        "population": "1918 breast cancers sequenced (1501 hormone receptor-positive), 692 previously exposed to hormonal therapy; tumor tissue targeted sequencing (MSK-IMPACT)"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 1918,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "1918 breast cancers sequenced (1501 hormone receptor-positive), 692 previously exposed to hormonal therapy; tumor tissue targeted sequencing (MSK-IMPACT)"
+          ]
+        },
+        "specimen": "tumor_tissue",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "The Genomic Landscape of Endocrine-Resistant Advanced Breast Cancers",
-          "journal": "Cancer Cell",
-          "year": 2018,
-          "pmid": "30205045",
-          "doi": "10.1016/j.ccell.2018.08.008",
-          "url": "https://doi.org/10.1016/j.ccell.2018.08.008"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Altogether, these alterations were present in 22% of tumors, mutually exclusive with ESR1 mutations, and associated with a shorter duration of response to subsequent hormonal therapies."
+        "supporting_quote": "Altogether, these alterations were present in 22% of tumors, mutually exclusive with ESR1 mutations, and associated with a shorter duration of response to subsequent hormonal therapies.",
+        "citation": {
+          "title": "The Genomic Landscape of Endocrine-Resistant Advanced Breast Cancers",
+          "pmid": "30205045",
+          "doi": "10.1016/j.ccell.2018.08.008",
+          "url": "https://doi.org/10.1016/j.ccell.2018.08.008",
+          "journal": "Cancer Cell"
+        },
+        "year": 2018,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] alterations present in 22% of tumors; mutually exclusive with ESR1 mutations; ERBB2 activating and NF1 loss-of-function mutations more than twice as common in endocrine-resistant tumors",
       "conflicts_with": []
     },
     {
       "claim_id": "C-036",
-      "subject": {"type": "gene", "name": "ESR1", "state": "four or more concurrent mutations (high polyclonality) in ctDNA"},
+      "subject": {
+        "type": "gene",
+        "name": "ESR1",
+        "state": "mutation_any",
+        "state_detail": "four or more concurrent mutations (high polyclonality) in ctDNA"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "time to next treatment on elacestrant",
-        "magnitude": "median TTNT 5.2 months versus 7.1 months for single-mutation disease; HR 1.44 (95% CI 1.01-2.06); 11% of cohort",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ESR1-mutant hormone receptor-positive metastatic breast cancer treated with elacestrant",
-        "model_system": "human",
-        "population": "756 real-world patients with ESR1 mutations from the GuardantINFORM ctDNA database"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 756,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "756 real-world patients with ESR1 mutations from the GuardantINFORM ctDNA database"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Clinical and Genomic Factors Associated with Elacestrant Outcomes in ESR1-Mutant Metastatic Breast Cancer",
-          "journal": "Clinical Cancer Research",
-          "year": 2026,
-          "pmid": "41201834",
-          "doi": "10.1158/1078-0432.CCR-25-3033",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-25-3033"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "median TTNT of 5.2 months (hazard ratio, 1.44; 95% CI, 1.01-2.06)"
+        "supporting_quote": "median TTNT of 5.2 months (hazard ratio, 1.44; 95% CI, 1.01-2.06)",
+        "citation": {
+          "title": "Clinical and Genomic Factors Associated with Elacestrant Outcomes in ESR1-Mutant Metastatic Breast Cancer",
+          "pmid": "41201834",
+          "doi": "10.1158/1078-0432.CCR-25-3033",
+          "url": "https://doi.org/10.1158/1078-0432.CCR-25-3033",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2026,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median TTNT 5.2 months versus 7.1 months for single-mutation disease; HR 1.44 (95% CI 1.01-2.06); 11% of cohort",
       "conflicts_with": []
     },
     {
       "claim_id": "C-037",
-      "subject": {"type": "gene", "name": "PIK3CA", "state": "PI3K pathway mutation (PIK3CA, AKT1 or PTEN) co-occurring with ESR1 mutation"},
+      "subject": {
+        "type": "gene",
+        "name": "PIK3CA",
+        "state": "mutation_any",
+        "state_detail": "PI3K pathway mutation (PIK3CA, AKT1 or PTEN) co-occurring with ESR1 mutation"
+      },
       "predicate": {
         "effect": "decreases",
         "on": "time to next treatment on elacestrant",
-        "magnitude": "median TTNT 5.2 months with dual ESR1 and PI3K pathway mutations versus 8.0 months without PI3K pathway alterations",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ESR1-mutant hormone receptor-positive metastatic breast cancer treated with elacestrant",
-        "model_system": "human",
-        "population": "756 real-world patients from the GuardantINFORM ctDNA database"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 756,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "756 real-world patients from the GuardantINFORM ctDNA database"
+          ]
+        },
+        "specimen": "ctDNA",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Clinical and Genomic Factors Associated with Elacestrant Outcomes in ESR1-Mutant Metastatic Breast Cancer",
-          "journal": "Clinical Cancer Research",
-          "year": 2026,
-          "pmid": "41201834",
-          "doi": "10.1158/1078-0432.CCR-25-3033",
-          "url": "https://doi.org/10.1158/1078-0432.CCR-25-3033"
-        },
         "design": "retrospective_cohort",
         "verified": true,
-        "supporting_quote": "Disease with dual ESR1 and PI3K pathway mutations (PIK3CA, AKT1, and PTEN) had a median TTNT of 5.2 months."
+        "supporting_quote": "Disease with dual ESR1 and PI3K pathway mutations (PIK3CA, AKT1, and PTEN) had a median TTNT of 5.2 months.",
+        "citation": {
+          "title": "Clinical and Genomic Factors Associated with Elacestrant Outcomes in ESR1-Mutant Metastatic Breast Cancer",
+          "pmid": "41201834",
+          "doi": "10.1158/1078-0432.CCR-25-3033",
+          "url": "https://doi.org/10.1158/1078-0432.CCR-25-3033",
+          "journal": "Clinical Cancer Research"
+        },
+        "year": 2026,
+        "source_type": "pubmed"
       },
       "confidence": "moderate",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median TTNT 5.2 months with dual ESR1 and PI3K pathway mutations versus 8.0 months without PI3K pathway alterations",
       "conflicts_with": []
     },
     {
       "claim_id": "C-038",
-      "subject": {"type": "drug", "name": "imlunestrant", "state": "administered as monotherapy"},
+      "subject": {
+        "type": "drug",
+        "name": "imlunestrant",
+        "state": "exposure",
+        "state_detail": "administered as monotherapy"
+      },
       "predicate": {
         "effect": "increases",
         "on": "progression-free survival versus standard endocrine monotherapy in ESR1-mutant patients",
-        "magnitude": "median PFS 5.5 versus 3.8 months; restricted mean survival time at 19.4 months 7.9 versus 5.4 months (difference 2.6 months, 95% CI 1.2-3.9), P<0.001; n = 256",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "reported_significant"
       },
       "context": {
         "disease": "ER-positive HER2-negative advanced breast cancer recurring or progressing during or after aromatase inhibitor therapy",
-        "model_system": "human",
-        "population": "EMBER-3 phase III open-label trial, 874 patients randomized 1:1:1"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 874,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "EMBER-3 phase III open-label trial, 874 patients randomized 1:1:1"
+          ]
+        },
+        "specimen": "not_specified",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Imlunestrant with or without Abemaciclib in Advanced Breast Cancer",
-          "journal": "The New England Journal of Medicine",
-          "year": 2025,
-          "pmid": "39660834",
-          "doi": "10.1056/NEJMoa2410858",
-          "url": "https://doi.org/10.1056/NEJMoa2410858"
-        },
         "design": "randomized_trial",
         "verified": true,
-        "supporting_quote": "Among 256 patients with ESR1 mutations, the median progression-free survival was 5.5 months with imlunestrant and 3.8 months with standard therapy."
+        "supporting_quote": "Among 256 patients with ESR1 mutations, the median progression-free survival was 5.5 months with imlunestrant and 3.8 months with standard therapy.",
+        "citation": {
+          "title": "Imlunestrant with or without Abemaciclib in Advanced Breast Cancer",
+          "pmid": "39660834",
+          "doi": "10.1056/NEJMoa2410858",
+          "url": "https://doi.org/10.1056/NEJMoa2410858",
+          "journal": "The New England Journal of Medicine"
+        },
+        "year": 2025,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median PFS 5.5 versus 3.8 months; restricted mean survival time at 19.4 months 7.9 versus 5.4 months (difference 2.6 months, 95% CI 1.2-3.9), P<0.001; n = 256",
       "conflicts_with": []
     },
     {
       "claim_id": "C-039",
-      "subject": {"type": "drug", "name": "imlunestrant", "state": "administered as monotherapy in the overall (unselected) population"},
+      "subject": {
+        "type": "drug",
+        "name": "imlunestrant",
+        "state": "exposure",
+        "state_detail": "administered as monotherapy in the overall (unselected) population"
+      },
       "predicate": {
         "effect": "no_effect",
         "on": "progression-free survival versus standard endocrine monotherapy",
-        "magnitude": "median PFS 5.6 versus 5.5 months; HR 0.87 (95% CI 0.72-1.04), P = 0.12",
-        "direction_certainty": "trend_only"
+        "magnitude": {
+          "metric": "not_reported"
+        },
+        "direction_certainty": "reported_nonsignificant"
       },
       "context": {
         "disease": "ER-positive HER2-negative advanced breast cancer recurring or progressing during or after aromatase inhibitor therapy",
-        "model_system": "human",
-        "population": "EMBER-3 overall population, 874 patients randomized"
+        "model_system": "human_clinical",
+        "population": {
+          "n": 874,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "EMBER-3 overall population, 874 patients randomized"
+          ]
+        },
+        "specimen": "not_specified",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Imlunestrant with or without Abemaciclib in Advanced Breast Cancer",
-          "journal": "The New England Journal of Medicine",
-          "year": 2025,
-          "pmid": "39660834",
-          "doi": "10.1056/NEJMoa2410858",
-          "url": "https://doi.org/10.1056/NEJMoa2410858"
-        },
         "design": "randomized_trial",
         "verified": true,
-        "supporting_quote": "In the overall population, the median progression-free survival was 5.6 months with imlunestrant and 5.5 months with standard therapy (hazard ratio for progression or death, 0.87; 95% CI, 0.72 to 1.04; P = 0.12)."
+        "supporting_quote": "In the overall population, the median progression-free survival was 5.6 months with imlunestrant and 5.5 months with standard therapy (hazard ratio for progression or death, 0.87; 95% CI, 0.72 to 1.04; P = 0.12).",
+        "citation": {
+          "title": "Imlunestrant with or without Abemaciclib in Advanced Breast Cancer",
+          "pmid": "39660834",
+          "doi": "10.1056/NEJMoa2410858",
+          "url": "https://doi.org/10.1056/NEJMoa2410858",
+          "journal": "The New England Journal of Medicine"
+        },
+        "year": 2025,
+        "source_type": "pubmed"
       },
       "confidence": "high",
-      "mechanism_note": null,
+      "mechanism_note": "[reported magnitude] median PFS 5.6 versus 5.5 months; HR 0.87 (95% CI 0.72-1.04), P = 0.12",
       "conflicts_with": []
     },
     {
       "claim_id": "C-040",
-      "subject": {"type": "gene", "name": "progesterone receptor", "state": "expressed in ESR1 Y537S-mutant models"},
+      "subject": {
+        "type": "gene",
+        "name": "progesterone receptor",
+        "state": "exposure",
+        "state_detail": "expressed in ESR1 Y537S-mutant models"
+      },
       "predicate": {
         "effect": "increases",
         "on": "cancer stem-like cell expansion in ESR1-mutant breast cancer",
-        "magnitude": "not extractable verbatim from the retrieved record; preprint reports PR does not bind Y537S or D538G ER and that Y537S cells show a distinct progesterone response",
+        "magnitude": {
+          "metric": "not_reported"
+        },
         "direction_certainty": "trend_only"
       },
       "context": {
         "disease": "ER-positive advanced breast cancer",
         "model_system": "cell_line",
-        "population": "ER+ breast cancer cell line models expressing Y537S or D538G ER; RNA-seq and ChIP-seq"
+        "population": {
+          "n": 537,
+          "ancestry_reported": false,
+          "notable_exclusions": [
+            "ER+ breast cancer cell line models expressing Y537S or D538G ER; RNA-seq and ChIP-seq"
+          ]
+        },
+        "specimen": "preclinical_model",
+        "assay_note": null
       },
       "evidence": {
-        "source": {
-          "title": "Progesterone receptors drive advanced breast cancer phenotypes including circulating tumor- and stem-like cell expansion in the context of ESR1 mutation",
-          "journal": "bioRxiv (preprint)",
-          "year": 2025,
-          "pmid": null,
-          "doi": "10.1101/2025.11.20.689560",
-          "url": "https://www.biorxiv.org/content/10.1101/2025.11.20.689560v1"
-        },
-        "design": "preprint",
+        "design": "unclear",
         "verified": false,
-        "supporting_quote": ""
+        "supporting_quote": null,
+        "citation": {
+          "title": "Progesterone receptors drive advanced breast cancer phenotypes including circulating tumor- and stem-like cell expansion in the context of ESR1 mutation",
+          "doi": "10.1101/2025.11.20.689560",
+          "url": "https://www.biorxiv.org/content/10.1101/2025.11.20.689560v1",
+          "journal": "bioRxiv (preprint)"
+        },
+        "year": 2025,
+        "source_type": "biorxiv"
       },
       "confidence": "low",
-      "mechanism_note": "Preprint proposes PR-dependent transcriptional programs including the unfolded protein response as targetable in Y537S ESR1-mutant disease.",
+      "mechanism_note": "Preprint proposes PR-dependent transcriptional programs including the unfolded protein response as targetable in Y537S ESR1-mutant disease. [reported magnitude] not extractable verbatim from the retrieved record; preprint reports PR does not bind Y537S or D538G ER and that Y537S cells show a distinct progesterone response",
       "conflicts_with": []
     }
   ],
@@ -1407,50 +2186,38 @@
       "ESR1 mutation AND BOLERO-2 AND Chandarlapaty (Europe PMC)"
     ],
     "sources": [
-      "https://doi.org/10.1038/ng.2822",
-      "https://doi.org/10.1038/ng.2823",
-      "https://doi.org/10.1158/1078-0432.CCR-13-2332",
-      "https://doi.org/10.7554/eLife.12792",
-      "https://doi.org/10.1126/scitranslmed.aac7551",
-      "https://doi.org/10.1200/JCO.2016.67.3061",
-      "https://doi.org/10.1158/1078-0432.CCR-20-0224",
-      "https://doi.org/10.1016/S1470-2045(22)00555-1",
-      "https://doi.org/10.1056/NEJMoa2502929",
-      "https://doi.org/10.1200/JCO.22.00338",
-      "https://doi.org/10.1056/NEJMoa2410858",
-      "https://doi.org/10.1038/ncomms11579",
-      "https://doi.org/10.18632/oncotarget.12950",
-      "https://doi.org/10.1001/jamaoncol.2016.1279",
-      "https://doi.org/10.1158/2159-8290.CD-22-1387",
-      "https://doi.org/10.1158/1078-0432.CCR-24-2307",
-      "https://doi.org/10.1093/jncics/pkac060",
-      "https://doi.org/10.3389/fonc.2020.00342",
-      "https://doi.org/10.3389/fonc.2021.625636",
-      "https://doi.org/10.1186/s13058-020-1246-5",
-      "https://doi.org/10.1038/s41523-018-0075-5",
-      "https://doi.org/10.1038/s41523-022-00426-w",
-      "https://doi.org/10.1016/j.ccell.2018.08.008",
-      "https://doi.org/10.1158/1078-0432.CCR-25-3033",
-      "https://doi.org/10.1172/jci.insight.151851",
-      "https://doi.org/10.1016/j.annonc.2023.08.011",
-      "https://www.biorxiv.org/content/10.1101/2025.11.20.689560v1"
-    ]
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other",
+      "other"
+    ],
+    "date_range": {
+      "from_year": 2013,
+      "to_year": 2026
+    }
   },
-  "coverage_notes": [
-    "DETECTION / ASCERTAINMENT (dominant limitation for any tissue-sequenced cohort). Every claim of a large ESR1-mutant effect size in this graph derives from ctDNA-genotyped populations (SoFEA, EFECT, PALOMA-3, BOLERO-2, PADA-1, EMERALD, SERENA-6, EMBER-3, GuardantINFORM). Tissue-only ascertainment gives systematically lower prevalence: 0.16% in treatment-naive primary tumors (C-027), 0% in 32 biopsies after adjuvant-AI progression (C-007), 0/23 in neoadjuvant-AI-resistant primaries (C-028), versus 25-40% in post-AI metastatic plasma. Any tissue-based ESR1-mutant group is therefore expected to be a small, biased subset enriched for late metastatic re-biopsy.",
-    "No study found that quantifies ESR1 mutation sensitivity of MSK-IMPACT specifically, or reports MSK-IMPACT ESR1 call rates stratified by specimen type (primary versus metastatic biopsy) and by timing relative to aromatase inhibitor exposure. The nearest available evidence is a 43-patient ddPCR tissue-versus-plasma concordance study (C-029) and a Tempus xT/xF real-world comparison (C-025).",
-    "No study found reporting the fraction of ESR1 mutations that fall below the limit of detection of standard FFPE bulk tumor sequencing because of subclonality. Spoerke 2016 reports low ESR1 allele fractions relative to PIK3CA in ctDNA, but the numeric variant-allele-frequency comparison could not be verified verbatim from the retrieved abstract and is therefore not asserted as a claim.",
-    "POPULATION GAPS. No claim found linking somatic ESR1 mutation frequency or effect size to genetic ancestry. Searches for ancestry-stratified somatic ESR1 data returned only germline ESR1 polymorphism/pharmacogenetics work and general ancestry-related differences in TP53/PIK3CA. No cohort with reported non-European ancestry breakdown for ESR1-mutant outcomes was found.",
-    "No claim found stratified by menopausal status. All major ctDNA trial analyses retrieved (BOLERO-2, SoFEA, EFECT) are postmenopausal by design; premenopausal patients on ovarian suppression plus AI are effectively unstudied for ESR1 emergence.",
-    "De novo versus recurrent metastatic disease: only indirect evidence found. Web summaries assert lower ESR1 prevalence in de novo metastatic presentation, but the primary npj Breast Cancer 2018 abstract states no association with primary-tumor pathology or time to distant recurrence (C-031), and I could not verify a de-novo-versus-recurrent effect size verbatim in any primary record. This is a genuine open gap.",
-    "No claim found on ESR1 mutation frequency or effect modification by histology (invasive lobular versus ductal). Targeted Europe PMC searching for ESR1 and lobular returned no primary quantitative report.",
-    "No claim found on ESR1 mutation and outcome stratified by age at metastatic diagnosis, race/ethnicity as recorded in health records, or geography outside North America and Western Europe.",
-    "TEMPORAL STALENESS. The foundational discovery cohorts are small and old: Toy 2013 (14/80 tumors), Robinson 2013 (11 patients), Jeselsohn 2014 (76 metastatic ER+ samples). The largest tissue-based prevalence estimate found remains a pooled cBioPortal reanalysis from 2022 (C-027). No tissue-sequenced cohort with n > 1000 published after 2022 reporting ESR1-mutant clinical outcomes was found.",
-    "CONTRADICTIONS LEFT UNRESOLVED (deliberately not reconciled). (1) Toy 2013 reports mutants reduce antagonist efficacy, Robinson 2013 reports continued anti-estrogen responsiveness in vitro (C-001 vs C-002). (2) Fulvestrant differential benefit in ESR1-mutant disease (C-011, C-016) versus Spoerke 2016 finding no association with fulvestrant resistance and no PFS difference (C-017), and Clatot 2016 finding ESR1 prognostic but not predictive of subsequent therapy choice (C-021). (3) PALOMA-3 shows undiminished palbociclib benefit in ESR1-mutant patients (C-009, C-010) while MCF7 knock-in and xenograft models show frank palbociclib resistance (C-026). (4) ESR1 mutations enriched after CDK4/6 inhibitor exposure in a 3958-patient real-world dataset (C-025) versus lower prevalence after CDK4/6 inhibitor in the 2018 cfDNA cohort (C-032). (5) Uniform 'fulvestrant retains activity' framing versus variant-specific plasmaMATCH data where Y537S does poorly and Y537C does well (C-024).",
-    "INTERPRETATION HAZARD for downstream stages: ESR1 mutation is tightly confounded with duration and setting of prior aromatase inhibitor exposure (C-003, C-006, C-033) and with metastatic disease burden/aggressiveness (C-020, C-022). Several sources argue the mutation may mark prior endocrine exposure and worse disease rather than acting as a specific AI-resistance switch; this alternative remains live and is not adjudicated here.",
-    "NOT FOUND: any randomized comparison of aromatase inhibitor versus fulvestrant restricted to tissue-detected (rather than plasma-detected) ESR1 mutations. The INTERACT study protocol (NCT number visible only in a ClinicalTrials.gov PDF, not independently verified here) appeared in search results but no results publication was retrieved.",
-    "NOT FOUND: verbatim-verifiable ESR1-specific subgroup results from MONALEESA-2/-3/-7 or MONARCH-2/-3 ctDNA analyses. The pooled MONALEESA ctDNA paper (Ann Oncol 2023, PMID 37673211) abstract lists ERBB2, FAT3, FRS2, MDM2, SFRP1, ZNF217 as benefit-associated and ANO1, CDKN2A/2B/2C, RB1 as resistance-associated but does not state an ESR1 result in the retrieved abstract, so no MONALEESA ESR1 claim is asserted.",
-    "PREPRINT COVERAGE is thin: one relevant 2025 bioRxiv preprint was located (C-040) and could not be quoted verbatim from the retrieved rendering, so it is recorded unverified at low confidence. No medRxiv clinical preprint specific to ESR1-mutant outcomes was located.",
-    "SCHEMA CAVEAT: this file was authored without read access to pipeline/schemas/claim_graph.schema.json (the literature-mapper toolset has no read tool and file:// fetches are rejected). Field names and nesting follow the specification given in the task brief. Values chosen for enum-typed fields are: predicate.effect from the stated enum; direction_certainty restricted to reported_significant and trend_only; confidence in high/moderate/low; context.model_system in human/cell_line/xenograft/in_silico; evidence.design in randomized_trial/rct_secondary_analysis/prospective_cohort/retrospective_cohort/preclinical/preprint/review. If validate.py rejects any of these, the fix is a value or key rename, not a content change."
-  ]
+  "coverage_notes": "DETECTION / ASCERTAINMENT (dominant limitation for any tissue-sequenced cohort). Every claim of a large ESR1-mutant effect size in this graph derives from ctDNA-genotyped populations (SoFEA, EFECT, PALOMA-3, BOLERO-2, PADA-1, EMERALD, SERENA-6, EMBER-3, GuardantINFORM). Tissue-only ascertainment gives systematically lower prevalence: 0.16% in treatment-naive primary tumors (C-027), 0% in 32 biopsies after adjuvant-AI progression (C-007), 0/23 in neoadjuvant-AI-resistant primaries (C-028), versus 25-40% in post-AI metastatic plasma. Any tissue-based ESR1-mutant group is therefore expected to be a small, biased subset enriched for late metastatic re-biopsy.\n\nNo study found that quantifies ESR1 mutation sensitivity of MSK-IMPACT specifically, or reports MSK-IMPACT ESR1 call rates stratified by specimen type (primary versus metastatic biopsy) and by timing relative to aromatase inhibitor exposure. The nearest available evidence is a 43-patient ddPCR tissue-versus-plasma concordance study (C-029) and a Tempus xT/xF real-world comparison (C-025).\n\nNo study found reporting the fraction of ESR1 mutations that fall below the limit of detection of standard FFPE bulk tumor sequencing because of subclonality. Spoerke 2016 reports low ESR1 allele fractions relative to PIK3CA in ctDNA, but the numeric variant-allele-frequency comparison could not be verified verbatim from the retrieved abstract and is therefore not asserted as a claim.\n\nPOPULATION GAPS. No claim found linking somatic ESR1 mutation frequency or effect size to genetic ancestry. Searches for ancestry-stratified somatic ESR1 data returned only germline ESR1 polymorphism/pharmacogenetics work and general ancestry-related differences in TP53/PIK3CA. No cohort with reported non-European ancestry breakdown for ESR1-mutant outcomes was found.\n\nNo claim found stratified by menopausal status. All major ctDNA trial analyses retrieved (BOLERO-2, SoFEA, EFECT) are postmenopausal by design; premenopausal patients on ovarian suppression plus AI are effectively unstudied for ESR1 emergence.\n\nDe novo versus recurrent metastatic disease: only indirect evidence found. Web summaries assert lower ESR1 prevalence in de novo metastatic presentation, but the primary npj Breast Cancer 2018 abstract states no association with primary-tumor pathology or time to distant recurrence (C-031), and I could not verify a de-novo-versus-recurrent effect size verbatim in any primary record. This is a genuine open gap.\n\nNo claim found on ESR1 mutation frequency or effect modification by histology (invasive lobular versus ductal). Targeted Europe PMC searching for ESR1 and lobular returned no primary quantitative report.\n\nNo claim found on ESR1 mutation and outcome stratified by age at metastatic diagnosis, race/ethnicity as recorded in health records, or geography outside North America and Western Europe.\n\nTEMPORAL STALENESS. The foundational discovery cohorts are small and old: Toy 2013 (14/80 tumors), Robinson 2013 (11 patients), Jeselsohn 2014 (76 metastatic ER+ samples). The largest tissue-based prevalence estimate found remains a pooled cBioPortal reanalysis from 2022 (C-027). No tissue-sequenced cohort with n > 1000 published after 2022 reporting ESR1-mutant clinical outcomes was found.\n\nCONTRADICTIONS LEFT UNRESOLVED (deliberately not reconciled). (1) Toy 2013 reports mutants reduce antagonist efficacy, Robinson 2013 reports continued anti-estrogen responsiveness in vitro (C-001 vs C-002). (2) Fulvestrant differential benefit in ESR1-mutant disease (C-011, C-016) versus Spoerke 2016 finding no association with fulvestrant resistance and no PFS difference (C-017), and Clatot 2016 finding ESR1 prognostic but not predictive of subsequent therapy choice (C-021). (3) PALOMA-3 shows undiminished palbociclib benefit in ESR1-mutant patients (C-009, C-010) while MCF7 knock-in and xenograft models show frank palbociclib resistance (C-026). (4) ESR1 mutations enriched after CDK4/6 inhibitor exposure in a 3958-patient real-world dataset (C-025) versus lower prevalence after CDK4/6 inhibitor in the 2018 cfDNA cohort (C-032). (5) Uniform 'fulvestrant retains activity' framing versus variant-specific plasmaMATCH data where Y537S does poorly and Y537C does well (C-024).\n\nINTERPRETATION HAZARD for downstream stages: ESR1 mutation is tightly confounded with duration and setting of prior aromatase inhibitor exposure (C-003, C-006, C-033) and with metastatic disease burden/aggressiveness (C-020, C-022). Several sources argue the mutation may mark prior endocrine exposure and worse disease rather than acting as a specific AI-resistance switch; this alternative remains live and is not adjudicated here.\n\nNOT FOUND: any randomized comparison of aromatase inhibitor versus fulvestrant restricted to tissue-detected (rather than plasma-detected) ESR1 mutations. The INTERACT study protocol (NCT number visible only in a ClinicalTrials.gov PDF, not independently verified here) appeared in search results but no results publication was retrieved.\n\nNOT FOUND: verbatim-verifiable ESR1-specific subgroup results from MONALEESA-2/-3/-7 or MONARCH-2/-3 ctDNA analyses. The pooled MONALEESA ctDNA paper (Ann Oncol 2023, PMID 37673211) abstract lists ERBB2, FAT3, FRS2, MDM2, SFRP1, ZNF217 as benefit-associated and ANO1, CDKN2A/2B/2C, RB1 as resistance-associated but does not state an ESR1 result in the retrieved abstract, so no MONALEESA ESR1 claim is asserted.\n\nPREPRINT COVERAGE is thin: one relevant 2025 bioRxiv preprint was located (C-040) and could not be quoted verbatim from the retrieved rendering, so it is recorded unverified at low confidence. No medRxiv clinical preprint specific to ESR1-mutant outcomes was located.\n\nSCHEMA CAVEAT: this file was authored without read access to pipeline/schemas/claim_graph.schema.json (the literature-mapper toolset has no read tool and file:// fetches are rejected). Field names and nesting follow the specification given in the task brief. Values chosen for enum-typed fields are: predicate.effect from the stated enum; direction_certainty restricted to reported_significant and trend_only; confidence in high/moderate/low; context.model_system in human/cell_line/xenograft/in_silico; evidence.design in randomized_trial/rct_secondary_analysis/prospective_cohort/retrospective_cohort/preclinical/preprint/review. If validate.py rejects any of these, the fix is a value or key rename, not a content change."
 }

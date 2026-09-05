@@ -1,0 +1,841 @@
+{
+  "generated_utc": "2026-09-05T19:10:10+00:00",
+  "topic": "ESR1 mutation and endocrine therapy resistance in hormone receptor-positive metastatic breast cancer",
+  "evidence_quality": {
+    "n_claims": 40,
+    "verified": 39,
+    "unverified": [
+      "C-040"
+    ],
+    "by_design": {
+      "retrospective_cohort": 12,
+      "trial_secondary_analysis": 11,
+      "prospective_cohort": 7,
+      "randomized_trial": 5,
+      "preclinical": 4,
+      "unclear": 1
+    },
+    "by_confidence": {
+      "high": 27,
+      "moderate": 12,
+      "low": 1
+    },
+    "by_model_system": {
+      "human_clinical": 35,
+      "cell_line": 3,
+      "in_silico": 1,
+      "mouse": 1
+    },
+    "year_range": [
+      2013,
+      2026
+    ]
+  },
+  "contradictions": [
+    {
+      "claims": [
+        "C-001",
+        "C-002"
+      ],
+      "classification": "direct_contradiction",
+      "subjects": [
+        "ESR1",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "other"
+      ],
+      "measured_on": [
+        "ER antagonists and hormone deprivation",
+        "in vitro responsiveness to anti-estrogen therapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "confers_resistance",
+        "no_effect"
+      ],
+      "designs": [
+        "preclinical",
+        "preclinical"
+      ],
+      "n": [
+        14,
+        11
+      ],
+      "years": [
+        2013,
+        2013
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, endpoint and context, opposing directions \u2014 a genuine contradiction worth re-testing at scale.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-011",
+        "C-021"
+      ],
+      "classification": "direct_contradiction",
+      "subjects": [
+        "ESR1",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "other"
+      ],
+      "measured_on": [
+        "fulvestrant relative to exemestane",
+        "relative benefit of chemotherapy versus non-AI endocrine therapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "confers_sensitivity",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "prospective_cohort"
+      ],
+      "n": [
+        227,
+        109
+      ],
+      "years": [
+        2020,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, endpoint and context, opposing directions \u2014 a genuine contradiction worth re-testing at scale.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-009",
+        "C-026"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "CDK4/6 inhibitor (palbociclib) added to fulvestrant",
+        "ESR1 Y537S and D538G knock-in"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "other"
+      ],
+      "measured_on": [
+        "progression-free survival in ESR1-mutant patients",
+        "palbociclib"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "confers_resistance"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "preclinical"
+      ],
+      "n": [
+        91,
+        null
+      ],
+      "years": [
+        2016,
+        2025
+      ],
+      "context_differs_on": [
+        "model_system"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-010",
+        "C-026"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "ESR1",
+        "ESR1 Y537S and D538G knock-in"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "other"
+      ],
+      "measured_on": [
+        "magnitude of palbociclib benefit added to fulvestrant",
+        "palbociclib"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "no_effect",
+        "confers_resistance"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "preclinical"
+      ],
+      "n": [
+        360,
+        null
+      ],
+      "years": [
+        2016,
+        2025
+      ],
+      "context_differs_on": [
+        "model_system"
+      ],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-014",
+        "C-021"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "fulvestrant plus palbociclib switch on rising ctDNA ESR1 mutation",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "other"
+      ],
+      "measured_on": [
+        "progression-free survival versus continuing aromatase inhibitor plus palbociclib",
+        "relative benefit of chemotherapy versus non-AI endocrine therapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "no_effect"
+      ],
+      "designs": [
+        "randomized_trial",
+        "prospective_cohort"
+      ],
+      "n": [
+        1017,
+        109
+      ],
+      "years": [
+        2022,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-016",
+        "C-017"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "elacestrant",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "resistance"
+      ],
+      "measured_on": [
+        "progression-free survival versus standard endocrine monotherapy in ESR1-mutant patients",
+        "clinical resistance to fulvestrant"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "no_effect"
+      ],
+      "designs": [
+        "randomized_trial",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        477,
+        null
+      ],
+      "years": [
+        2022,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-016",
+        "C-021"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "elacestrant",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "PFS",
+        "other"
+      ],
+      "measured_on": [
+        "progression-free survival versus standard endocrine monotherapy in ESR1-mutant patients",
+        "relative benefit of chemotherapy versus non-AI endocrine therapy"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "increases",
+        "no_effect"
+      ],
+      "designs": [
+        "randomized_trial",
+        "prospective_cohort"
+      ],
+      "n": [
+        477,
+        109
+      ],
+      "years": [
+        2022,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-011",
+        "C-024"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "ESR1",
+        "ESR1 Y537S versus Y537C"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "other"
+      ],
+      "measured_on": [
+        "fulvestrant relative to exemestane",
+        "outcome on fulvestrant"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "confers_sensitivity",
+        "mixed"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        227,
+        69
+      ],
+      "years": [
+        2020,
+        2024
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-025",
+        "C-032"
+      ],
+      "classification": "cross_subject",
+      "subjects": [
+        "ESR1",
+        "CDK4/6 inhibitor"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "prevalence"
+      ],
+      "measured_on": [
+        "prior CDK4/6 inhibitor exposure",
+        "prevalence of ESR1 mutations in cfDNA"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "associates_with",
+        "decreases"
+      ],
+      "designs": [
+        "retrospective_cohort",
+        "retrospective_cohort"
+      ],
+      "n": [
+        3958,
+        null
+      ],
+      "years": [
+        2025,
+        2018
+      ],
+      "context_differs_on": [],
+      "note": "Different subjects \u2014 a disagreement about which gene carries the signal, not a direct contradiction. Candidate for a head-to-head hypothesis.",
+      "source": "declared"
+    },
+    {
+      "claims": [
+        "C-011",
+        "C-017"
+      ],
+      "classification": "cross_endpoint",
+      "subjects": [
+        "ESR1",
+        "ESR1"
+      ],
+      "endpoint_bucket": [
+        "other",
+        "resistance"
+      ],
+      "measured_on": [
+        "fulvestrant relative to exemestane",
+        "clinical resistance to fulvestrant"
+      ],
+      "qualifiers": [
+        "",
+        ""
+      ],
+      "effects": [
+        "confers_sensitivity",
+        "no_effect"
+      ],
+      "designs": [
+        "trial_secondary_analysis",
+        "trial_secondary_analysis"
+      ],
+      "n": [
+        227,
+        null
+      ],
+      "years": [
+        2020,
+        2016
+      ],
+      "context_differs_on": [],
+      "note": "Same subject, different measured endpoint \u2014 an endpoint-dissociation, not a contradiction. Worth a hypothesis only if the dissociation itself is the point.",
+      "source": "declared"
+    }
+  ],
+  "population_gaps": {
+    "coverage": {
+      "smoking_status": {
+        "<unspecified>": 40
+      },
+      "ancestry_reported": {
+        "False": 40
+      },
+      "line_of_therapy": {
+        "<unspecified>": 40
+      },
+      "treatment_class": {
+        "not_treatment_conditioned": 40
+      },
+      "model_system": {
+        "human_clinical": 35,
+        "cell_line": 3,
+        "in_silico": 1,
+        "mouse": 1
+      },
+      "endpoint_bucket": {
+        "other": 27,
+        "PFS": 7,
+        "OS": 3,
+        "prevalence": 2,
+        "resistance": 1
+      },
+      "subject_qualifier": {
+        "<none>": 40
+      },
+      "stage_class": {
+        "unspecified": 40
+      }
+    },
+    "human_clinical_claims": 35,
+    "human_claims_reporting_ancestry": 0,
+    "ancestry_blind_fraction": 1.0
+  },
+  "temporal_staleness": [
+    {
+      "claim_id": "C-003",
+      "year": 2014,
+      "n": 249,
+      "design": "retrospective_cohort",
+      "subject": "ESR1",
+      "effect": "associates_with",
+      "on": "metastatic, endocrine-pretreated disease state rather than primary or treatment-naive disease",
+      "reason": "2014, n=249 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-005",
+      "year": 2015,
+      "n": 171,
+      "design": "prospective_cohort",
+      "subject": "ESR1",
+      "effect": "confers_resistance",
+      "on": "subsequent aromatase-inhibitor-based therapy",
+      "reason": "2015, n=171 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-006",
+      "year": 2015,
+      "n": null,
+      "design": "prospective_cohort",
+      "subject": "ESR1",
+      "effect": "associates_with",
+      "on": "aromatase inhibitor exposure in the metastatic rather than adjuvant setting",
+      "reason": "2015, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-007",
+      "year": 2015,
+      "n": 32,
+      "design": "retrospective_cohort",
+      "subject": "tumor tissue next-generation sequencing",
+      "effect": "no_effect",
+      "on": "detection of ESR1 mutations",
+      "reason": "2015, n=32 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-008",
+      "year": 2015,
+      "n": 171,
+      "design": "prospective_cohort",
+      "subject": "circulating tumor DNA assay",
+      "effect": "associates_with",
+      "on": "ESR1 mutation status in contemporaneous tumor biopsy",
+      "reason": "2015, n=171 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-009",
+      "year": 2016,
+      "n": 91,
+      "design": "trial_secondary_analysis",
+      "subject": "CDK4/6 inhibitor (palbociclib) added to fulvestrant",
+      "effect": "increases",
+      "on": "progression-free survival in ESR1-mutant patients",
+      "reason": "2016, n=91 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-017",
+      "year": 2016,
+      "n": null,
+      "design": "trial_secondary_analysis",
+      "subject": "ESR1",
+      "effect": "no_effect",
+      "on": "clinical resistance to fulvestrant",
+      "reason": "2016, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-018",
+      "year": 2016,
+      "n": null,
+      "design": "trial_secondary_analysis",
+      "subject": "ESR1",
+      "effect": "associates_with",
+      "on": "polyclonal multi-variant mutation patterns with divergent clonal behaviour over time",
+      "reason": "2016, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-019",
+      "year": 2016,
+      "n": null,
+      "design": "trial_secondary_analysis",
+      "subject": "ESR1",
+      "effect": "associates_with",
+      "on": "co-occurring PIK3CA mutation and luminal A subtype",
+      "reason": "2016, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-020",
+      "year": 2016,
+      "n": null,
+      "design": "prospective_cohort",
+      "subject": "ESR1",
+      "effect": "decreases",
+      "on": "overall survival",
+      "reason": "2016, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-021",
+      "year": 2016,
+      "n": 109,
+      "design": "prospective_cohort",
+      "subject": "ESR1",
+      "effect": "no_effect",
+      "on": "relative benefit of chemotherapy versus non-AI endocrine therapy",
+      "reason": "2016, n=109 \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-031",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "ESR1",
+      "effect": "no_effect",
+      "on": "association with primary tumor pathological features or time to distant recurrence",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-032",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "CDK4/6 inhibitor",
+      "effect": "decreases",
+      "on": "prevalence of ESR1 mutations in cfDNA",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    },
+    {
+      "claim_id": "C-033",
+      "year": 2018,
+      "n": null,
+      "design": "retrospective_cohort",
+      "subject": "ESR1",
+      "effect": "associates_with",
+      "on": "prior aromatase inhibitor treatment in the adjuvant or metastatic setting and prior fulvestrant treatment",
+      "reason": "2018, n=unreported \u2014 underpowered by modern standards"
+    }
+  ],
+  "interaction_gaps": {
+    "entities_studied_alone": [
+      "CDK4/6 inhibitor",
+      "ESR1",
+      "ESR1 D538G",
+      "MAPK pathway and ER transcriptional machinery alterations",
+      "PIK3CA",
+      "TP53",
+      "circulating tumor DNA assay",
+      "oral selective estrogen receptor degrader",
+      "progesterone receptor",
+      "tumor tissue next-generation sequencing"
+    ],
+    "combinations_studied": [
+      [
+        "CDK4/6 inhibitor",
+        "fulvestrant"
+      ],
+      [
+        "ESR1",
+        "circulating tumor DNA assay"
+      ],
+      [
+        "ESR1 D538G",
+        "ESR1 Y537S"
+      ],
+      [
+        "ESR1 Y537C",
+        "ESR1 Y537S"
+      ],
+      [
+        "circulating tumor DNA assay",
+        "tumor tissue next-generation sequencing"
+      ]
+    ],
+    "untested_pairs": [
+      [
+        "CDK4/6 inhibitor",
+        "ESR1"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "ESR1 D538G"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "ESR1 Y537C"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "ESR1 Y537S"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "MAPK pathway and ER transcriptional machinery alterations"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "PIK3CA"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "TP53"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "circulating tumor DNA assay"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "oral selective estrogen receptor degrader"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "progesterone receptor"
+      ],
+      [
+        "CDK4/6 inhibitor",
+        "tumor tissue next-generation sequencing"
+      ],
+      [
+        "ESR1",
+        "ESR1 D538G"
+      ],
+      [
+        "ESR1",
+        "ESR1 Y537C"
+      ],
+      [
+        "ESR1",
+        "ESR1 Y537S"
+      ],
+      [
+        "ESR1",
+        "MAPK pathway and ER transcriptional machinery alterations"
+      ],
+      [
+        "ESR1",
+        "PIK3CA"
+      ],
+      [
+        "ESR1",
+        "TP53"
+      ],
+      [
+        "ESR1",
+        "fulvestrant"
+      ],
+      [
+        "ESR1",
+        "oral selective estrogen receptor degrader"
+      ],
+      [
+        "ESR1",
+        "progesterone receptor"
+      ],
+      [
+        "ESR1",
+        "tumor tissue next-generation sequencing"
+      ],
+      [
+        "ESR1 D538G",
+        "ESR1 Y537C"
+      ],
+      [
+        "ESR1 D538G",
+        "MAPK pathway and ER transcriptional machinery alterations"
+      ],
+      [
+        "ESR1 D538G",
+        "PIK3CA"
+      ],
+      [
+        "ESR1 D538G",
+        "TP53"
+      ],
+      [
+        "ESR1 D538G",
+        "circulating tumor DNA assay"
+      ],
+      [
+        "ESR1 D538G",
+        "fulvestrant"
+      ],
+      [
+        "ESR1 D538G",
+        "oral selective estrogen receptor degrader"
+      ],
+      [
+        "ESR1 D538G",
+        "progesterone receptor"
+      ],
+      [
+        "ESR1 D538G",
+        "tumor tissue next-generation sequencing"
+      ],
+      [
+        "ESR1 Y537C",
+        "MAPK pathway and ER transcriptional machinery alterations"
+      ],
+      [
+        "ESR1 Y537C",
+        "PIK3CA"
+      ],
+      [
+        "ESR1 Y537C",
+        "TP53"
+      ],
+      [
+        "ESR1 Y537C",
+        "circulating tumor DNA assay"
+      ],
+      [
+        "ESR1 Y537C",
+        "fulvestrant"
+      ],
+      [
+        "ESR1 Y537C",
+        "oral selective estrogen receptor degrader"
+      ],
+      [
+        "ESR1 Y537C",
+        "progesterone receptor"
+      ],
+      [
+        "ESR1 Y537C",
+        "tumor tissue next-generation sequencing"
+      ],
+      [
+        "ESR1 Y537S",
+        "MAPK pathway and ER transcriptional machinery alterations"
+      ],
+      [
+        "ESR1 Y537S",
+        "PIK3CA"
+      ]
+    ],
+    "untested_pair_count": 73,
+    "note": "Untested pairs are candidate interaction terms, NOT hypotheses. gap-finder must supply a mechanistic reason why a specific pair would interact before proposing it \u2014 enumerating pairs is exactly the pattern-matching stage 3 exists to reject."
+  },
+  "coverage_notes_from_mapper": "DETECTION / ASCERTAINMENT (dominant limitation for any tissue-sequenced cohort). Every claim of a large ESR1-mutant effect size in this graph derives from ctDNA-genotyped populations (SoFEA, EFECT, PALOMA-3, BOLERO-2, PADA-1, EMERALD, SERENA-6, EMBER-3, GuardantINFORM). Tissue-only ascertainment gives systematically lower prevalence: 0.16% in treatment-naive primary tumors (C-027), 0% in 32 biopsies after adjuvant-AI progression (C-007), 0/23 in neoadjuvant-AI-resistant primaries (C-028), versus 25-40% in post-AI metastatic plasma. Any tissue-based ESR1-mutant group is therefore expected to be a small, biased subset enriched for late metastatic re-biopsy.\n\nNo study found that quantifies ESR1 mutation sensitivity of MSK-IMPACT specifically, or reports MSK-IMPACT ESR1 call rates stratified by specimen type (primary versus metastatic biopsy) and by timing relative to aromatase inhibitor exposure. The nearest available evidence is a 43-patient ddPCR tissue-versus-plasma concordance study (C-029) and a Tempus xT/xF real-world comparison (C-025).\n\nNo study found reporting the fraction of ESR1 mutations that fall below the limit of detection of standard FFPE bulk tumor sequencing because of subclonality. Spoerke 2016 reports low ESR1 allele fractions relative to PIK3CA in ctDNA, but the numeric variant-allele-frequency comparison could not be verified verbatim from the retrieved abstract and is therefore not asserted as a claim.\n\nPOPULATION GAPS. No claim found linking somatic ESR1 mutation frequency or effect size to genetic ancestry. Searches for ancestry-stratified somatic ESR1 data returned only germline ESR1 polymorphism/pharmacogenetics work and general ancestry-related differences in TP53/PIK3CA. No cohort with reported non-European ancestry breakdown for ESR1-mutant outcomes was found.\n\nNo claim found stratified by menopausal status. All major ctDNA trial analyses retrieved (BOLERO-2, SoFEA, EFECT) are postmenopausal by design; premenopausal patients on ovarian suppression plus AI are effectively unstudied for ESR1 emergence.\n\nDe novo versus recurrent metastatic disease: only indirect evidence found. Web summaries assert lower ESR1 prevalence in de novo metastatic presentation, but the primary npj Breast Cancer 2018 abstract states no association with primary-tumor pathology or time to distant recurrence (C-031), and I could not verify a de-novo-versus-recurrent effect size verbatim in any primary record. This is a genuine open gap.\n\nNo claim found on ESR1 mutation frequency or effect modification by histology (invasive lobular versus ductal). Targeted Europe PMC searching for ESR1 and lobular returned no primary quantitative report.\n\nNo claim found on ESR1 mutation and outcome stratified by age at metastatic diagnosis, race/ethnicity as recorded in health records, or geography outside North America and Western Europe.\n\nTEMPORAL STALENESS. The foundational discovery cohorts are small and old: Toy 2013 (14/80 tumors), Robinson 2013 (11 patients), Jeselsohn 2014 (76 metastatic ER+ samples). The largest tissue-based prevalence estimate found remains a pooled cBioPortal reanalysis from 2022 (C-027). No tissue-sequenced cohort with n > 1000 published after 2022 reporting ESR1-mutant clinical outcomes was found.\n\nCONTRADICTIONS LEFT UNRESOLVED (deliberately not reconciled). (1) Toy 2013 reports mutants reduce antagonist efficacy, Robinson 2013 reports continued anti-estrogen responsiveness in vitro (C-001 vs C-002). (2) Fulvestrant differential benefit in ESR1-mutant disease (C-011, C-016) versus Spoerke 2016 finding no association with fulvestrant resistance and no PFS difference (C-017), and Clatot 2016 finding ESR1 prognostic but not predictive of subsequent therapy choice (C-021). (3) PALOMA-3 shows undiminished palbociclib benefit in ESR1-mutant patients (C-009, C-010) while MCF7 knock-in and xenograft models show frank palbociclib resistance (C-026). (4) ESR1 mutations enriched after CDK4/6 inhibitor exposure in a 3958-patient real-world dataset (C-025) versus lower prevalence after CDK4/6 inhibitor in the 2018 cfDNA cohort (C-032). (5) Uniform 'fulvestrant retains activity' framing versus variant-specific plasmaMATCH data where Y537S does poorly and Y537C does well (C-024).\n\nINTERPRETATION HAZARD for downstream stages: ESR1 mutation is tightly confounded with duration and setting of prior aromatase inhibitor exposure (C-003, C-006, C-033) and with metastatic disease burden/aggressiveness (C-020, C-022). Several sources argue the mutation may mark prior endocrine exposure and worse disease rather than acting as a specific AI-resistance switch; this alternative remains live and is not adjudicated here.\n\nNOT FOUND: any randomized comparison of aromatase inhibitor versus fulvestrant restricted to tissue-detected (rather than plasma-detected) ESR1 mutations. The INTERACT study protocol (NCT number visible only in a ClinicalTrials.gov PDF, not independently verified here) appeared in search results but no results publication was retrieved.\n\nNOT FOUND: verbatim-verifiable ESR1-specific subgroup results from MONALEESA-2/-3/-7 or MONARCH-2/-3 ctDNA analyses. The pooled MONALEESA ctDNA paper (Ann Oncol 2023, PMID 37673211) abstract lists ERBB2, FAT3, FRS2, MDM2, SFRP1, ZNF217 as benefit-associated and ANO1, CDKN2A/2B/2C, RB1 as resistance-associated but does not state an ESR1 result in the retrieved abstract, so no MONALEESA ESR1 claim is asserted.\n\nPREPRINT COVERAGE is thin: one relevant 2025 bioRxiv preprint was located (C-040) and could not be quoted verbatim from the retrieved rendering, so it is recorded unverified at low confidence. No medRxiv clinical preprint specific to ESR1-mutant outcomes was located.\n\nSCHEMA CAVEAT: this file was authored without read access to pipeline/schemas/claim_graph.schema.json (the literature-mapper toolset has no read tool and file:// fetches are rejected). Field names and nesting follow the specification given in the task brief. Values chosen for enum-typed fields are: predicate.effect from the stated enum; direction_certainty restricted to reported_significant and trend_only; confidence in high/moderate/low; context.model_system in human/cell_line/xenograft/in_silico; evidence.design in randomized_trial/rct_secondary_analysis/prospective_cohort/retrospective_cohort/preclinical/preprint/review. If validate.py rejects any of these, the fix is a value or key rename, not a content change."
+}
