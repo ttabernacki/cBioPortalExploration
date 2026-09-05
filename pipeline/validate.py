@@ -200,6 +200,26 @@ def check_hypothesis_set(name: str, doc, stage: str) -> None:
 
 
 def check_claim_graph(doc) -> None:
+    # Structural guard first. A claim missing a required block must be REPORTED, not raise —
+    # a validator that crashes tells you nothing about what is wrong, and it crashes exactly when
+    # the input is most broken, which is when you most need it to speak.
+    REQUIRED = ("claim_id", "subject", "predicate", "context", "evidence", "confidence")
+    malformed = []
+    for i, c in enumerate(doc.get("claims", [])):
+        missing = [k for k in REQUIRED if k not in c]
+        if missing:
+            malformed.append((c.get("claim_id", f"<index {i}>"), missing))
+    if malformed:
+        for cid, missing in malformed[:10]:
+            err(f"claim_graph.json: {cid} is missing required field(s): {', '.join(missing)}")
+        if len(malformed) > 10:
+            err(f"claim_graph.json: ...and {len(malformed) - 10} further malformed claims "
+                f"({len(malformed)} of {len(doc.get('claims', []))} total)")
+        err("claim_graph.json: structural check failed — per-claim content checks skipped. "
+            "This usually means the writer used a different schema than "
+            "pipeline/schemas/claim_graph.schema.json, not that the file is truncated.")
+        return
+
     ids = [c["claim_id"] for c in doc.get("claims", [])]
     if len(ids) != len(set(ids)):
         err("claim_graph.json: duplicate claim_id")
