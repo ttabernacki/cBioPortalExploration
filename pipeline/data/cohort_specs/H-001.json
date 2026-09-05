@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "hypothesis_id": "H-001",
+  "notes": "Treatment-by-STK11 interaction on overall survival, MSK-CHORD. TIME ORIGIN NOTE: empirically established that OS in this export is measured from the SEQUENCING date (day 0 of the treatment timeline), not from diagnosis -- 99.7% of patients whose first treatment preceded sequencing by >8.2y have OS shorter than that interval, which is impossible under a diagnosis anchor. This governs the entire design: entry is left-truncated at max(0, treatment_start) so that patients sequenced before starting therapy contribute no immortal time.\n\nPRE-SPECIFIED DECISION RULE (fixed before any outcome was read). Cells are 93/587/74/385 (ICI-mut / ICI-wt / chemo-mut / chemo-wt), confirmed by dry run. Achievable equivalence margins by assumed event fraction: f=0.5: SE(log ROR)=0.239, achievable TOST margin=1.81; f=0.6: SE(log ROR)=0.218, achievable TOST margin=1.72; f=0.7: SE(log ROR)=0.202, achievable TOST margin=1.65; f=0.8: SE(log ROR)=0.189, achievable TOST margin=1.60. THE EQUIVALENCE MARGIN IS PRESPECIFIED AT 1.70 and will not be moved after seeing the estimate. DECISION RULE: (a) if the 95% CI for the ratio-of-hazard-ratios lies entirely within 1/1.70 to 1.70, conclude EQUIVALENCE -- the treatment-by-STK11 interaction is bounded, supporting the prognostic reading; (b) if the CI excludes 1.0, conclude a treatment-by-STK11 INTERACTION EXISTS, supporting the predictive reading; (c) otherwise conclude INCONCLUSIVE and report it as inconclusive, NOT as a null. Outcome (c) is an expected and acceptable result and will be reported as prominently as (a) or (b). The published benchmark this must beat to contribute is Papillon-Cavanagh 2020, OS interaction 95% CI 0.76-1.67; if the resulting interval is wider than that, the honest conclusion is that this cohort adds an independent modern-era estimate but does not narrow the published uncertainty, and that will be stated.",
+  "population": {
+    "require_sequencing": true,
+    "filters": [
+      {
+        "table": "diagnosis",
+        "field": "cancer_type",
+        "op": "eq",
+        "value": "Non-Small Cell Lung Cancer",
+        "note": "NSCLC"
+      },
+      {
+        "table": "diagnosis",
+        "field": "stage_highest",
+        "op": "eq",
+        "value": "Stage 4",
+        "note": "advanced/metastatic at some point; Stage 1-3 excluded because first-line systemic therapy there is frequently adjuvant, a different population with different prognosis, and adjuvant ICI was not standard for most of this era -- including them would load the chemotherapy arm with resected patients"
+      },
+      {
+        "table": "genomic_variant",
+        "field": "egfr_alk_driver",
+        "op": "eq",
+        "value": 0,
+        "note": "EGFR/ALK-altered patients receive targeted therapy and are not part of the ICI-vs-platinum decision"
+      },
+      {
+        "table": "treatment",
+        "field": "first_tx_offset_days",
+        "op": "gte",
+        "value": -90,
+        "note": "incident-user window, lower bound"
+      },
+      {
+        "table": "treatment",
+        "field": "first_tx_offset_days",
+        "op": "lte",
+        "value": 365,
+        "note": "incident-user window, upper bound; avoids prevalent-user selection in which patients treated long before sequencing are conditioned on having survived to be sequenced"
+      }
+    ]
+  },
+  "exposure": {
+    "kind": "genomic_alteration",
+    "gene": "STK11",
+    "alteration_types": [
+      "Nonsense_Mutation",
+      "Frame_Shift_Del",
+      "Frame_Shift_Ins",
+      "Splice_Site",
+      "Nonstop_Mutation"
+    ],
+    "comparator_is_complement": true,
+    "note": "Loss-of-function only. Missense/VUS deliberately excluded: the mechanism requires abolished kinase activity, and diluting the exposure with variants of unknown significance was available as a power gain and refused."
+  },
+  "modifier": {
+    "name": "treatment_is_ici",
+    "kind": "treatment_class",
+    "drug_classes": [
+      "PEMBROLIZUMAB",
+      "NIVOLUMAB",
+      "ATEZOLIZUMAB",
+      "DURVALUMAB",
+      "CEMIPLIMAB",
+      "AVELUMAB"
+    ],
+    "continuous": false,
+    "note": "1 = first-line regimen contains an anti-PD-1/PD-L1 agent; 0 = first-line platinum doublet without one. Later-line ICI is permitted in the comparator (ITT-style): requiring 'never ICI' would exclude precisely those chemotherapy patients who survived long enough to reach second line, selecting the comparator arm toward short survivors."
+  },
+  "covariates": [
+    {
+      "name": "age at index",
+      "table": "patient",
+      "field": "current_age"
+    },
+    {
+      "name": "sex",
+      "table": "patient",
+      "field": "sex"
+    },
+    {
+      "name": "smoking status",
+      "table": "patient",
+      "field": "smoking_nlp"
+    },
+    {
+      "name": "histology",
+      "table": "diagnosis",
+      "field": "cancer_type_detailed"
+    },
+    {
+      "name": "tmb",
+      "table": "genomic_sample_level",
+      "field": "tmb_nonsynonymous"
+    },
+    {
+      "name": "kras_mut",
+      "table": "genomic_variant",
+      "field": "kras_any"
+    },
+    {
+      "name": "keap1_mut",
+      "table": "genomic_variant",
+      "field": "keap1_any"
+    },
+    {
+      "name": "tp53_mut",
+      "table": "genomic_variant",
+      "field": "tp53_any"
+    }
+  ],
+  "time": {
+    "origin": "index_treatment_start",
+    "left_truncate_at_sequencing": true
+  }
+}

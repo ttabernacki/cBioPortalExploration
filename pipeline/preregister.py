@@ -127,7 +127,8 @@ def endpoint_def(endpoint_id: str) -> dict:
 
 
 def render(h: dict, ep: dict, args, script_hash: str, now: str, supersedes: str | None, invalidated: bool) -> str:
-    cov = h.get("proposed_covariates") or [
+    cov = ([c.strip() for c in args.covariates.split(";")] if args.covariates
+           else h.get("proposed_covariates")) or [
         "age at index", "sex", "ECOG performance status", "stage at diagnosis",
         "smoking status", "line of therapy", "TMB", "days from diagnosis to sequencing",
     ]
@@ -306,6 +307,11 @@ def main() -> int:
     p.add_argument("--interaction-with", help="column name of the pre-registered effect modifier; required for --estimand interaction")
     p.add_argument("--supersede", help="filename of the prereg this one supersedes (rule R4)")
     p.add_argument("--reason", help="why the supersede is necessary")
+    p.add_argument("--covariates", help="semicolon-separated final covariate list, when it must "
+                   "differ from the hypothesis's proposed_covariates because the cohort does not "
+                   "carry some of them. REQUIRES --covariates-reason; both are written into the "
+                   "immutable record so the deviation is auditable rather than silent.")
+    p.add_argument("--covariates-reason", help="why the covariate set deviates from the proposal")
     p.add_argument("--cohort-spec", help="path to the machine-executable cohort spec "
                    "(default: data/cohort_specs/<H-id>.json). Its hash is recorded in the prereg so "
                    "the population cannot be redefined after unlock.")
@@ -321,6 +327,9 @@ def main() -> int:
         die(f"{SCRIPT.relative_to(REPO)} does not exist — nothing to hash-lock the analysis to")
     if args.supersede and not args.reason:
         die("--supersede requires --reason")
+    if args.covariates and not args.covariates_reason:
+        die("--covariates requires --covariates-reason; an undocumented covariate change is the "
+            "adjustment-shopping this gate exists to prevent")
     if args.estimand == "interaction" and not args.interaction_with:
         die("--estimand interaction requires --interaction-with <column>")
     if args.estimand == "main_effect" and args.interaction_with:
