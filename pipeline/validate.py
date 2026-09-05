@@ -269,7 +269,15 @@ def main() -> int:
             doc = load(path)
             if doc is None:
                 continue
+            before = len(errors)
             schema_validate(doc, schema_name, name)
+            if len(errors) > before:
+                # The document does not match its schema. Content checks index nested fields and
+                # would raise rather than report -- and a validator that crashes says nothing about
+                # what is wrong. Report the schema failures and stop here.
+                err(f"{name}: does not conform to {schema_name}; content checks skipped. "
+                    f"Fix the structure first.")
+                continue
             if name == "claim_graph":
                 check_claim_graph(doc)
             else:

@@ -14,6 +14,10 @@ You have web search, web fetch, and write. That is deliberate and it is the whol
 
 - You have **no dataset access**. You never read `pipeline/locked/`, `dataset_schema.json`, or any
   patient data. You could not if you wanted to — you have no read tool.
+- You therefore **cannot read the schema file either**. That is deliberate: granting `Read` would
+  also let you open `dataset_schema.json`, and a literature review steered by what the cohort
+  happens to measure is a biased literature review. The required structure is reproduced in full
+  below instead — conform to it exactly.
 - You never see, request, infer, or reason about patient outcomes in this cohort. Your job is to
   describe what the *literature* claims, not what the data shows.
 - Your only write target is `pipeline/data/claim_graph.json`. Write nothing else.
@@ -78,7 +82,94 @@ Fill `magnitude` whenever the source reports one (HR/OR/median/CI/p). Set
 
 ## 5. Write the graph
 
-Write `pipeline/data/claim_graph.json` conforming to `pipeline/schemas/claim_graph.schema.json`:
+Write `pipeline/data/claim_graph.json`. **You cannot read the schema, so the exact required shape
+is reproduced here. Additional properties are rejected everywhere; every field marked required
+must be present.**
+
+```jsonc
+{
+  "schema_version": "1.0",              // required, literally "1.0"
+  "topic": "...",                       // required
+  "generated_utc": "2026-01-01T00:00:00Z",  // required, ISO-8601
+  "search": {                           // required
+    "queries": ["..."],                 // required, >=1
+    "sources": ["pubmed"],              // required; enum: pubmed | biorxiv | medrxiv |
+                                        //   clinicaltrials.gov | conference_abstract |
+                                        //   journal_site | other
+    "date_range": {"from_year": 2013, "to_year": 2026},   // required, both integers
+    "notes": "..."                      // optional
+  },
+  "entities": [                         // optional
+    {"entity_id": "E-001",              // pattern ^E-[0-9]{3,}$
+     "type": "gene",                    // gene|variant|pathway|drug|drug_class|biomarker|
+                                        //   cell_state|clinical_feature
+     "name": "ESR1", "synonyms": ["ER-alpha"]}
+  ],
+  "claims": [{
+    "claim_id": "C-001",                // required, pattern ^C-[0-9]{3,}$
+    "subject": {                        // required — an OBJECT, never a bare "E-001" string
+      "type": "gene",                   // required; gene|variant|pathway|drug|drug_class|
+                                        //   biomarker|cell_state|clinical_feature|gene_combination
+      "name": "ESR1",                   // required
+      "entity_ids": ["E-001"],          // optional
+      "state": "gain_of_function"       // optional but ENUM-ONLY: loss_of_function |
+                                        //   gain_of_function | amplification | deletion |
+                                        //   mutation_any | overexpression | underexpression |
+                                        //   wildtype | exposure | co_mutation | not_applicable.
+                                        //   Put variant detail (Y537S etc.) in subject.name.
+    },
+    "predicate": {                      // required — an OBJECT, never a free-text verb
+      "effect": "confers_resistance",   // required; increases | decreases | no_effect | mixed |
+                                        //   associates_with | confers_resistance |
+                                        //   confers_sensitivity
+      "on": "progression-free survival on aromatase inhibitor",   // required, plain string
+      "magnitude": {                    // optional but must be an OBJECT if present
+        "metric": "HR",                 // HR|OR|RR|median_months|percent|fold_change|
+                                        //   difference_in_means|not_reported
+        "point_estimate": 0.59, "ci_low": 0.35, "ci_high": 0.98, "p_value": 0.02
+      },                                // use metric "not_reported" for qualitative findings;
+                                        //   put prose in mechanism_note, NOT in magnitude
+      "direction_certainty": "reported_significant"   // reported_significant |
+                                        //   reported_nonsignificant | trend_only | qualitative.
+                                        //   A reported null is reported_nonsignificant.
+    },
+    "context": {                        // required
+      "disease": "ER-positive metastatic breast cancer",   // REQUIRED
+      "stage": "metastatic",            // optional string or null
+      "treatment": "fulvestrant",       // optional string or null
+      "line_of_therapy": "second_plus", // first|second_plus|any|adjuvant|neoadjuvant|not_specified
+      "population": {                   // optional but must be an OBJECT, never a prose string
+        "n": 80, "geography": "...", "ancestry_reported": false,
+        "ancestry_detail": null, "age_range": null, "sex_distribution": null,
+        "smoking_status": null, "notable_exclusions": ["..."]
+      },
+      "model_system": "human_clinical"  // human_clinical | human_ex_vivo | mouse | cell_line |
+                                        //   organoid | in_silico | mixed
+    },
+    "evidence": {                       // required
+      "source_type": "pubmed",          // REQUIRED, same enum as search.sources
+      "citation": {                     // REQUIRED — the key is "citation", not "source"
+        "title": "...",                 // required
+        "pmid": "24185512", "doi": null, "nct_id": null, "url": null,
+        "first_author": "Toy", "journal": "Nature Genetics"
+      },
+      "year": 2013,                     // REQUIRED, integer, at evidence level not inside citation
+      "design": "retrospective_cohort", // REQUIRED; randomized_trial|trial_secondary_analysis|
+                                        //   prospective_cohort|retrospective_cohort|case_control|
+                                        //   pooled_analysis|meta_analysis|preclinical|review|
+                                        //   case_series|unclear
+      "supporting_quote": "...",        // verbatim sentence; required when verified
+      "verified": true                  // REQUIRED
+    },
+    "confidence": "high",               // required; high | moderate | low
+    "conflicts_with": ["C-007"],        // optional
+    "mechanism_note": "..."             // optional string or null
+  }],
+  "coverage_notes": "..."               // optional — a STRING, not an array
+}
+```
+
+Nothing outside these keys is permitted at any level.
 
 - `claim_id` as `C-001`, `C-002`, … `entity_id` as `E-001`, …
 - Populate `entities` with canonical names and synonyms so gap-finder can cluster
