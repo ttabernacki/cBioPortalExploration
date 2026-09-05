@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "description": "Highest hypothesis ID issued across ALL runs. IDs are never reused, including for rejected hypotheses -- a reused ID would silently merge two different hypotheses in the graveyard and the git history.",
+  "highest_issued": "H-015",
+  "next_available": "H-016",
+  "runs": [
+    {
+      "run": "2026-09_stk11-nsclc-io",
+      "topic": "STK11 co-mutation and immunotherapy response in NSCLC",
+      "ids": "H-001..H-015",
+      "status": "complete; H-001 pre-registered and tested"
+    }
+  ]
+}
